@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VahanConnect Prototype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="VahanConnect: India's logistics marketplace connecting shippers with verified independent truck owners, with route-based matching to fill empty return trips.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#home" aria-label="VahanConnect home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 7.5A1.5 1.5 0 0 1 3.5 6h9A1.5 1.5 0 0 1 14 7.5V16H2z" fill="currentColor"/><path d="M14 9.5h4.2l3.3 3.6V16H14z" fill="currentColor" opacity=".7"/><circle cx="6" cy="17.5" r="2" fill="currentColor"/><circle cx="17.5" cy="17.5" r="2" fill="currentColor"/></svg></span>
+      <span class="brand-name">VahanConnect</span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <button data-view="home" id="tab-home">Home</button>
+      <button data-view="find" id="tab-find">Find trucks</button>
+      <button data-view="trips" id="tab-trips">My trips <span class="count" id="trip-count" hidden></span></button>
+      <button data-view="owner" id="tab-owner">For owners <span class="count" id="req-count" hidden></span></button>
+      <button data-view="insights" id="tab-insights">Insights</button>
+      <button data-view="dataset" id="tab-dataset">Dataset</button>
+    </nav>
+    <span class="live-pill" title="Simulated live activity"><i></i>Live</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="loading" class="loading">Loading the VahanConnect dataset…</div>
+  <div id="load-error" class="notice error" hidden></div>
+
+  <!-- ================= HOME ================= -->
+  <section id="view-home" class="view" hidden>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">India's logistics marketplace</p>
+        <h1>No truck should drive home empty.</h1>
+        <p class="lede">After an interstate delivery, most trucks find no load back and return empty, losing the owner money on every round trip. VahanConnect matches those trucks with shippers on the same route, with verified owners and prices set by direct negotiation.</p>
+        <div class="cta-row">
+          <button class="btn primary lg" data-go="find" type="button">I need a truck</button>
+          <button class="btn outline lg" data-go="owner" type="button">I own a truck</button>
+        </div>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+      <aside class="panel live-panel" aria-label="Live activity">
+        <div class="panel-head"><h2><span class="dot"></span>Happening now</h2><span class="muted small">Simulated</span></div>
+        <div class="live-counters" id="live-counters"></div>
+        <ul class="feed" id="feed"></ul>
+      </aside>
+    </div>
+
+    <div class="section-head"><p class="eyebrow">Value proposition</p><h2 class="h2">How VahanConnect relieves each pain</h2></div>
+    <div class="vpc" id="vpc"></div>
+
+    <div class="section-head"><p class="eyebrow">User journey</p><h2 class="h2">From search to delivery in six steps</h2></div>
+    <ol class="journey">
+      <li><b>Search</b><span>Enter route, date and weight</span></li>
+      <li><b>Match</b><span>Trucks ranked by route fit, return trips first</span></li>
+      <li><b>Compare</b><span>Price, rating and verification side by side</span></li>
+      <li><b>Negotiate</b><span>Agree the price directly with the owner</span></li>
+      <li><b>Book</b><span>Pay a small advance by UPI</span></li>
+      <li><b>Track</b><span>Follow the truck live until delivery</span></li>
+    </ol>
+  </section>
+
+  <!-- ================= FIND TRUCKS ================= -->
+  <section id="view-find" class="view" hidden>
+    <div class="view-head">
+      <div>
+        <p class="eyebrow">For shippers</p>
+        <h1>Find a verified truck on your route</h1>
+      </div>
+    </div>
+
+    <form id="search-form" class="panel search" autocomplete="off">
+      <div class="search-main">
+        <div class="field"><label for="q-from">From</label><select id="q-from" required></select></div>
+        <button class="swap" id="swap" type="button" aria-label="Swap from and to">⇄</button>
+        <div class="field"><label for="q-to">To</label><select id="q-to" required></select></div>
+        <div class="field"><label for="q-date">Pickup date</label><input type="date" id="q-date" required></div>
+        <div class="field narrow"><label for="q-weight">Weight (t)</label><input type="number" id="q-weight" min="0.5" max="40" step="0.5" required></div>
+        <button class="btn primary" type="submit" id="search-btn">Search</button>
+      </div>
+      <div class="chips" id="chips" aria-label="Example loads"></div>
+      <details class="more" id="more">
+        <summary>More filters</summary>
+        <div class="more-grid">
+          <div class="field"><label for="q-type">Truck type</label><select id="q-type"></select></div>
+          <div class="field"><label for="q-sort">Sort by</label>
+            <select id="q-sort"><option value="score">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="date">Earliest available</option></select></div>
+          <div class="field"><label for="q-shipper">Booking as</label><select id="q-shipper"></select></div>
+          <div class="field"><label for="sample-load">Any open load from the dataset</label><select id="sample-load"></select></div>
+          <label class="check"><input type="checkbox" id="q-verified" checked> Verified owners only</label>
+        </div>
+      </details>
+    </form>
+
+    <div class="route-panel panel" id="route-panel" hidden>
+      <div class="route-map" id="route-map"></div>
+      <div class="route-side" id="route-side"></div>
+    </div>
+    <div id="results" class="results" aria-live="polite"></div>
+
+    <div id="compare-bar" class="compare-bar" hidden>
+      <span id="compare-text"></span>
+      <button class="btn ghost-inv small" id="compare-clear" type="button">Clear</button>
+      <button class="btn primary small" id="compare-open" type="button">Compare</button>
+    </div>
+  </section>
+
+  <!-- ================= MY TRIPS ================= -->
+  <section id="view-trips" class="view" hidden>
+    <div class="view-head">
+      <div><p class="eyebrow">Live tracking</p><h1>My trips</h1></div>
+      <div class="head-tools">
+        <label class="seg" for="speed">Demo speed
+          <select id="speed"><option value="fast">Fast (trip in ~2 min)</option><option value="slow">Slow (trip in ~6 min)</option></select>
+        </label>
+        <button class="btn ghost small" id="reset-demo" type="button">Reset demo</button>
+      </div>
+    </div>
+    <div id="reset-confirm" class="notice" hidden>This clears the trips, requests and trucks you added in this browser. <button class="btn small danger" id="reset-yes" type="button">Clear them</button> <button class="btn small ghost" id="reset-no" type="button">Keep</button></div>
+    <div class="trips-layout">
+      <div class="panel trip-list-panel"><div class="panel-head"><h2>Trips</h2></div><div id="trip-list" class="trip-list"></div></div>
+      <div class="panel trip-detail" id="trip-detail"></div>
+    </div>
+    <div class="panel"><div class="panel-head"><h2>Recent completed bookings in the dataset</h2></div><div class="table-wrap"><table class="data" id="recent-table"></table></div></div>
+  </section>
+
+  <!-- ================= OWNER ================= -->
+  <section id="view-owner" class="view" hidden>
+    <div class="view-head">
+      <div><p class="eyebrow">For truck owners</p><h1>Find a load back home</h1></div>
+    </div>
+    <div class="owner-layout">
+      <div class="panel owner-left">
+        <div class="field"><label for="o-owner">Acting as owner</label><select id="o-owner"></select></div>
+        <div id="owner-card" class="owner-card"></div>
+        <form id="post-form" class="post-form" autocomplete="off">
+          <div class="field full"><label for="o-truck">Truck</label><select id="o-truck" required></select></div>
+          <div class="field"><label for="o-city">Truck is free in</label><select id="o-city" required></select></div>
+          <div class="field"><label for="o-from">Available from</label><input type="date" id="o-from" required></div>
+          <div class="field"><label for="o-days">For (days)</label><input type="number" id="o-days" min="1" max="10" value="3" required></div>
+          <div class="field"><label for="o-rate">Asking rate (₹/km)</label><input type="number" id="o-rate" min="10" max="150" required></div>
+          <div class="field full"><label for="o-pref">Preferred destination</label><select id="o-pref"></select></div>
+          <p class="hint full" id="rate-hint"></p>
+          <button class="btn primary full" type="submit">Post availability</button>
+        </form>
+        <div id="post-msg" class="notice ok" hidden></div>
+      </div>
+      <div class="owner-right">
+        <div class="panel" id="inbox-panel">
+          <div class="panel-head"><h2>Booking requests</h2><span class="muted small" id="inbox-meta"></span></div>
+          <div id="inbox" class="inbox"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Loads that fit this truck</h2><span class="muted small" id="loads-meta"></span></div>
+          <div id="owner-loads" class="load-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INSIGHTS ================= -->
+  <section id="view-insights" class="view" hidden>
+    <div class="view-head"><div><p class="eyebrow">Marketplace health</p><h1>Insights</h1><p class="lede" id="insights-lede"></p></div></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="grid-2">
+      <div class="panel"><div class="panel-head"><h2>Completed bookings per month</h2></div><div id="chart-months" class="chart"></div></div>
+      <div class="panel"><div class="panel-head"><h2>Busiest corridors</h2></div><div id="top-routes"></div></div>
+      <div class="panel"><div class="panel-head"><h2>Route network</h2><span class="muted small">Line weight = bookings</span></div><div id="network" class="network"></div></div>
+      <div class="panel"><div class="panel-head"><h2>Open trucks vs open loads by city</h2></div><div id="supply-demand"></div></div>
+      <div class="panel"><div class="panel-head"><h2>Bookings by truck type</h2></div><div id="type-mix"></div></div>
+      <div class="panel"><div class="panel-head"><h2>Owner verification</h2></div><div id="verification"></div></div>
+    </div>
+    <p class="footnote">Platform revenue assumes a 3% commission on completed bookings. Broker price is the typical rate for the same truck type and distance, estimated from the dataset. All data is synthetic.</p>
+  </section>
+
+  <!-- ================= DATASET ================= -->
+  <section id="view-dataset" class="view" hidden>
+    <div class="view-head"><div><p class="eyebrow">Under the hood</p><h1>Dataset</h1>
+      <p class="lede">The prototype runs entirely on seven CSV files in <code>/data</code>: synthetic, but modelled on Indian interstate trucking with real city distances, RTO-style registration numbers, GSTINs and typical per-km rates.</p></div></div>
+    <div class="ds-tabs" id="ds-tabs" role="tablist" aria-label="Dataset tables"></div>
+    <div class="panel">
+      <div class="panel-head"><h2 id="ds-title"></h2><div class="ds-tools"><input type="search" id="ds-search" placeholder="Filter rows" aria-label="Filter rows"><a id="ds-open" class="btn ghost small" target="_blank" rel="noopener">Open CSV</a></div></div>
+      <p class="muted small" id="ds-desc"></p>
+      <div class="table-wrap"><table class="data" id="ds-table"></table></div>
+      <div class="pager"><button class="btn ghost small" id="ds-prev" type="button">Previous</button><span id="ds-page" class="muted small"></span><button class="btn ghost small" id="ds-next" type="button">Next</button></div>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom-nav" aria-label="Sections">
+  <button data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+  <button data-view="find"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>Find</button>
+  <button data-view="trips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Trips<span class="count" id="trip-count-m" hidden></span></button>
+  <button data-view="owner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>Owners<span class="count" id="req-count-m" hidden></span></button>
+  <button data-view="insights"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Insights</button>
+</nav>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-x" id="modal-x" type="button" aria-label="Close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<footer class="foot">VahanConnect prototype · Group G2 · Synthetic data and simulated live activity, for demonstration</footer>
+<script src="app.js"></script>
+</body>
+</html>

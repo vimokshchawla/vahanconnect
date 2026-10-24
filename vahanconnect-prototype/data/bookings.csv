@@ -1,0 +1,641 @@
+booking_id,booking_date,shipper_id,company,owner_id,truck_id,truck_type,goods,origin,destination,distance_km,weight_tonnes,is_return_trip,quoted_price_rs,agreed_price_rs,typical_broker_price_rs,empty_km_avoided,status,shipper_rating
+BK0001,2026-04-04,SHP012,Kaveri Jadhav Textiles,OWN101,TRK0219,Container,Textiles & garments,Rajkot,Kanpur,1335,14.6,True,47773,44600,68600,1335,Completed,4.6
+BK0002,2026-04-05,SHP010,Lakshmi Ghosh Textiles,OWN044,TRK0095,Container,Textiles & garments,Guwahati,Lucknow,1345,18.6,False,58346,54200,67200,0,Completed,4.7
+BK0003,2026-04-05,SHP064,Sunrise Bhatia Agro Traders,OWN061,TRK0128,Open body,Agri produce (onion/potato),Nagpur,Ahmedabad,880,12.3,True,27276,26700,36600,880,Completed,4.0
+BK0004,2026-04-08,SHP063,Classic Reddy Steel Traders,OWN037,TRK0074,Trailer,Steel coils,Vadodara,Coimbatore,1650,25.3,True,64721,62100,97900,1650,Completed,5.0
+BK0005,2026-04-09,SHP044,Prime Das Auto Components,OWN030,TRK0061,Trailer,Machinery parts,Chandigarh,Ahmedabad,1190,29.2,True,60055,57100,77900,1190,Completed,3.9
+BK0006,2026-04-09,SHP064,Sunrise Bhatia Agro Traders,OWN045,TRK0096,Open body,Agri produce (onion/potato),Chandigarh,Amritsar,260,11.3,False,10829,10300,11200,0,Completed,4.6
+BK0007,2026-04-09,SHP057,Star Malhotra Distributors,OWN141,TRK0300,LCV (Tata 407 class),FMCG cartons,Panipat,Amritsar,400,3.4,True,7390,6700,11500,400,Completed,4.0
+BK0008,2026-04-10,SHP065,Sai Mishra Polymers,OWN145,TRK0309,Open body,Plastic granules,Rajkot,Pune,660,16.5,False,27489,26200,32400,0,Completed,4.2
+BK0009,2026-04-10,SHP015,Jai Chauhan Auto Components,OWN114,TRK0241,Open body,Auto parts,Ahmedabad,Jaipur,675,11.7,True,18150,16800,27000,675,Completed,4.8
+BK0010,2026-04-12,SHP059,Ganpati Verma Steel Traders,OWN066,TRK0138,Trailer,Steel coils,Jaipur,Hyderabad,1370,22.8,True,60079,56900,87000,1370,Completed,4.1
+BK0011,2026-04-13,SHP039,Prime Rathore Furnitures,OWN098,TRK0210,Open body,Furniture,Lucknow,Ahmedabad,1180,11.5,True,32951,31300,49300,1180,Completed,4.4
+BK0012,2026-04-13,SHP054,Jai Sandhu Agro Traders,OWN065,TRK0136,Open body,Agri produce (onion/potato),Panipat,Patna,1135,7.6,True,37478,34800,52200,1135,Completed,4.4
+BK0013,2026-04-14,SHP049,Bharat Kumar Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Ludhiana,Gurugram,365,16.3,True,15931,14800,21200,365,Completed,4.4
+BK0014,2026-04-15,SHP051,Prime Kumar Agro Traders,OWN099,TRK0214,Open body,Agri produce (onion/potato),Nashik,Chennai,1290,8.7,False,47517,43600,56700,0,Completed,4.6
+BK0015,2026-04-16,SHP050,Shree Ghosh Build Supplies,OWN127,TRK0274,Tipper,Cement bags,Guwahati,Patna,830,20.6,True,24631,22600,37100,830,Completed,4.8
+BK0016,2026-04-16,SHP045,Narmada Patel Textiles,OWN052,TRK0112,Container,Textiles & garments,Ahmedabad,Ludhiana,1170,17.3,True,37619,35100,60600,1170,Completed,4.3
+BK0017,2026-04-16,SHP089,Sunrise Patel Foods,OWN116,TRK0246,Refrigerated,Frozen food & dairy,Kolkata,Hyderabad,1475,8.8,True,68528,67100,109200,1475,Cancelled,
+BK0018,2026-04-17,SHP062,Shree Das Electronics,OWN038,TRK0075,Container,Electronics,Bengaluru,Chennai,365,17.6,True,12036,11300,19200,365,Completed,4.5
+BK0019,2026-04-18,SHP011,Classic Rathore Build Supplies,OWN095,TRK0203,Tipper,Sand & aggregates,Lucknow,Gurugram,530,23.2,False,19939,19400,23400,0,Completed,4.7
+BK0020,2026-04-18,SHP085,Om Sharma Auto Components,OWN112,TRK0239,Container,Auto parts,Chennai,Gurugram,2180,17.5,True,69445,64400,101600,2180,Completed,4.6
+BK0021,2026-04-18,SHP024,Lakshmi Rathore Foods,OWN099,TRK0216,Refrigerated,Frozen food & dairy,Panipat,Pune,1560,8.0,True,84606,76900,124300,1560,Completed,4.0
+BK0022,2026-04-20,SHP013,Shakti Choudhary Distributors,OWN145,TRK0309,Open body,FMCG cartons,Bhubaneswar,Delhi,1585,12.3,False,71529,70500,75600,0,Completed,4.2
+BK0023,2026-04-20,SHP021,Lakshmi Pillai Auto Components,OWN053,TRK0114,Open body,Machinery parts,Ludhiana,Kolkata,1935,18.5,True,48440,43900,72000,1935,Completed,4.5
+BK0024,2026-04-21,SHP025,Global Gill Steel Traders,OWN137,TRK0292,Trailer,Steel coils,Hyderabad,Gurugram,1550,28.4,False,82646,77700,96500,0,Completed,4.2
+BK0025,2026-04-22,SHP071,Royal Verma Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Amritsar,Kanpur,980,4.5,False,68573,62200,78000,0,Completed,4.0
+BK0026,2026-04-23,SHP064,Sunrise Bhatia Agro Traders,OWN065,TRK0136,Open body,Agri produce (onion/potato),Chandigarh,Mumbai,1690,18.4,True,52380,50900,80300,1690,Completed,4.8
+BK0027,2026-04-23,SHP011,Classic Rathore Build Supplies,OWN042,TRK0090,Tipper,Sand & aggregates,Lucknow,Chennai,1915,23.6,True,76792,74500,107000,1915,Completed,4.3
+BK0028,2026-04-25,SHP029,Om Yadav Distributors,OWN052,TRK0111,Container,FMCG cartons,Gurugram,Nashik,1245,11.2,True,40035,39300,53900,1245,Completed,4.1
+BK0029,2026-04-27,SHP021,Lakshmi Pillai Auto Components,OWN126,TRK0270,Container,Auto parts,Ludhiana,Mumbai,1685,18.2,True,64001,60800,93300,1685,Completed,4.7
+BK0030,2026-04-27,SHP024,Lakshmi Rathore Foods,OWN126,TRK0271,Refrigerated,Frozen food & dairy,Panipat,Vadodara,1090,5.1,False,63467,60900,72200,0,Completed,4.5
+BK0031,2026-04-27,SHP066,Unity Meena Furnitures,OWN099,TRK0214,Open body,Furniture,Hyderabad,Bengaluru,625,10.7,True,18166,16800,26000,625,Cancelled,
+BK0032,2026-04-28,SHP024,Lakshmi Rathore Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Panipat,Kolkata,1710,5.1,False,108630,99400,128300,0,Completed,4.1
+BK0033,2026-04-28,SHP012,Kaveri Jadhav Textiles,OWN082,TRK0175,Open body,Textiles & garments,Rajkot,Hyderabad,1215,19.7,False,53262,48700,60100,0,Completed,4.0
+BK0034,2026-04-28,SHP073,Om Das Build Supplies,OWN153,TRK0325,Tipper,Cement bags,Vadodara,Hyderabad,975,12.1,False,38692,35200,45100,0,Completed,4.8
+BK0035,2026-04-28,SHP024,Lakshmi Rathore Foods,OWN017,TRK0038,Refrigerated,Frozen food & dairy,Panipat,Jaipur,375,6.1,True,19628,18400,26400,375,Completed,4.4
+BK0036,2026-04-29,SHP013,Shakti Choudhary Distributors,OWN038,TRK0077,Container,FMCG cartons,Visakhapatnam,Patna,1125,10.0,False,52375,50800,58800,0,Completed,4.0
+BK0037,2026-04-29,SHP047,Narmada Sharma Foods,OWN116,TRK0246,Refrigerated,Frozen food & dairy,Delhi,Chennai,2195,9.1,True,112444,104900,158700,2195,Completed,4.2
+BK0038,2026-04-30,SHP059,Ganpati Verma Steel Traders,OWN037,TRK0074,Trailer,Steel coils,Ludhiana,Delhi,360,22.0,True,14212,12800,20700,360,Completed,4.5
+BK0039,2026-05-01,SHP021,Lakshmi Pillai Auto Components,OWN098,TRK0208,Open body,Machinery parts,Ludhiana,Bhubaneswar,1930,8.2,False,66128,61300,74300,0,Completed,4.7
+BK0040,2026-05-02,SHP014,Bharat Kumar Distributors,OWN122,TRK0262,LCV (Tata 407 class),FMCG cartons,Pune,Bengaluru,920,2.6,False,25300,24100,29400,0,Completed,4.4
+BK0041,2026-05-03,SHP021,Lakshmi Pillai Auto Components,OWN048,TRK0101,Open body,Machinery parts,Mumbai,Ahmedabad,550,7.9,False,20052,18500,24100,0,Completed,3.9
+BK0042,2026-05-03,SHP064,Sunrise Bhatia Agro Traders,OWN139,TRK0297,Open body,Agri produce (onion/potato),Chandigarh,Pune,1735,13.3,True,55017,52400,76300,1735,Completed,4.3
+BK0043,2026-05-04,SHP033,Kaveri Das Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Mumbai,Kota,935,25.4,True,46420,43600,62700,935,Cancelled,
+BK0044,2026-05-05,SHP078,Narmada Khan Polymers,OWN065,TRK0135,Open body,Paper rolls,Visakhapatnam,Agra,1480,16.1,True,52036,48400,72300,1480,Completed,4.9
+BK0045,2026-05-05,SHP042,Sai Saini Agro Traders,OWN018,TRK0039,Open body,Agri produce (onion/potato),Ahmedabad,Bengaluru,1545,15.6,True,45828,44800,64300,1545,Completed,4.6
+BK0046,2026-05-06,SHP083,New Patil Build Supplies,OWN155,TRK0331,Tipper,Cement bags,Chennai,Mumbai,1290,12.2,True,44563,40200,62500,1290,Completed,4.5
+BK0047,2026-05-06,SHP049,Bharat Kumar Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Nagpur,Kolkata,1210,29.0,True,55604,52200,86400,1210,Completed,4.2
+BK0048,2026-05-07,SHP002,Ganpati Shinde Auto Components,OWN078,TRK0168,Trailer,Machinery parts,Bengaluru,Delhi,2175,25.6,True,97629,90300,140400,2175,Completed,4.6
+BK0049,2026-05-07,SHP027,Royal Bhatia Agro Traders,OWN136,TRK0290,Open body,Agri produce (onion/potato),Hyderabad,Jaipur,1370,8.5,True,41851,39000,69300,1370,Completed,3.9
+BK0050,2026-05-07,SHP076,Prime Gill Agro Traders,OWN053,TRK0114,Open body,Agri produce (onion/potato),Surat,Lucknow,1300,18.4,True,34665,34200,49900,1300,Completed,4.4
+BK0051,2026-05-07,SHP060,Jai Meena Steel Traders,OWN033,TRK0067,Trailer,Steel coils,Panipat,Bhubaneswar,1685,23.5,False,110760,107400,118500,0,Completed,4.0
+BK0052,2026-05-08,SHP069,Bharat Saini Polymers,OWN150,TRK0321,Open body,Plastic granules,Mumbai,Surat,290,9.5,True,9425,8600,12900,290,Completed,5.0
+BK0053,2026-05-08,SHP067,Jai Pillai Pharma Distributors,OWN084,TRK0183,Refrigerated,Pharmaceuticals,Kanpur,Mumbai,1400,10.1,False,88852,83000,92200,0,Cancelled,
+BK0054,2026-05-09,SHP033,Kaveri Das Steel Traders,OWN150,TRK0316,Trailer,Steel coils,Mumbai,Lucknow,1495,29.1,True,61998,55900,98600,1495,Completed,4.3
+BK0055,2026-05-10,SHP062,Shree Das Electronics,OWN038,TRK0075,Container,Electronics,Bengaluru,Chennai,365,16.6,True,14227,12900,18600,365,Completed,3.8
+BK0056,2026-05-10,SHP083,New Patil Build Supplies,OWN107,TRK0228,Open body,Cement bags,Bengaluru,Nagpur,1155,12.9,True,29537,28600,45800,1155,Cancelled,
+BK0057,2026-05-10,SHP019,Om Kumar Electronics,OWN135,TRK0289,Container,Electronics,Bhopal,Guwahati,1850,17.8,True,74522,72400,110700,1850,Completed,4.8
+BK0058,2026-05-11,SHP043,Om Patel Distributors,OWN011,TRK0025,Open body,FMCG cartons,Ludhiana,Hyderabad,1905,14.3,True,62284,59400,84600,1905,Completed,5.0
+BK0059,2026-05-11,SHP059,Ganpati Verma Steel Traders,OWN118,TRK0250,Trailer,Steel coils,Ludhiana,Gurugram,365,11.8,False,21903,20400,25200,0,Completed,4.9
+BK0060,2026-05-11,SHP025,Global Gill Steel Traders,OWN150,TRK0317,Trailer,Steel coils,Bengaluru,Nagpur,1155,18.6,True,52090,46900,79100,1155,Completed,5.0
+BK0061,2026-05-12,SHP090,Star Singh Agro Traders,OWN114,TRK0241,Open body,Agri produce (onion/potato),Hyderabad,Coimbatore,910,18.6,False,36316,34300,37200,0,Completed,3.9
+BK0062,2026-05-13,SHP028,Bharat Choudhary Steel Traders,OWN037,TRK0074,Trailer,Steel coils,Bhubaneswar,Mumbai,1700,23.5,False,96054,93400,100500,0,Completed,4.9
+BK0063,2026-05-13,SHP009,Bharat Tiwari Distributors,OWN088,TRK0189,Open body,FMCG cartons,Mumbai,Bhubaneswar,1700,16.1,True,45300,43600,69700,1700,Completed,4.2
+BK0064,2026-05-13,SHP005,Om Chauhan Steel Traders,OWN030,TRK0061,Trailer,Steel coils,Mumbai,Delhi,1435,16.4,True,67778,65000,93500,1435,Completed,4.6
+BK0065,2026-05-14,SHP034,Bharat Das Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Pune,Amritsar,1825,6.9,False,120227,109200,143100,0,Completed,5.0
+BK0066,2026-05-15,SHP057,Star Malhotra Distributors,OWN097,TRK0207,Open body,FMCG cartons,Delhi,Pune,1465,9.5,False,59261,53500,64700,0,Completed,4.5
+BK0067,2026-05-15,SHP025,Global Gill Steel Traders,OWN012,TRK0029,Trailer,Steel coils,Bengaluru,Jodhpur,1940,19.9,False,111030,108700,123300,0,Cancelled,
+BK0068,2026-05-15,SHP022,Shakti Pillai Distributors,OWN160,TRK0337,LCV (Tata 407 class),FMCG cartons,Ahmedabad,Pune,650,2.4,True,13869,13600,19700,650,Completed,4.9
+BK0069,2026-05-15,SHP027,Royal Bhatia Agro Traders,OWN080,TRK0171,Open body,Agri produce (onion/potato),Vadodara,Lucknow,1165,14.5,True,39081,35400,53400,1165,Completed,5.0
+BK0070,2026-05-16,SHP085,Om Sharma Auto Components,OWN038,TRK0077,Container,Auto parts,Delhi,Bhopal,745,16.4,False,35608,32500,36400,0,Completed,4.3
+BK0071,2026-05-16,SHP032,Jai Saini Foods,OWN030,TRK0062,Refrigerated,Frozen food & dairy,Ahmedabad,Kolkata,2025,8.6,False,142871,134400,158300,0,Cancelled,
+BK0072,2026-05-16,SHP017,Star Rathore Polymers,OWN014,TRK0032,Open body,Plastic granules,Kolkata,Mumbai,2070,18.1,True,73498,71800,99200,2070,Cancelled,
+BK0073,2026-05-17,SHP066,Unity Meena Furnitures,OWN122,TRK0264,Open body,Furniture,Gurugram,Ahmedabad,940,15.0,True,28808,27400,38900,940,Completed,5.0
+BK0074,2026-05-17,SHP075,Sunrise Meena Steel Traders,OWN083,TRK0177,Trailer,Steel coils,Delhi,Jodhpur,615,26.8,True,26644,24800,40500,615,Cancelled,
+BK0075,2026-05-17,SHP036,Jai Saini Furnitures,OWN002,TRK0007,Container,Furniture,Chandigarh,Indore,1120,9.5,True,34936,31700,51200,1120,Completed,4.5
+BK0076,2026-05-19,SHP047,Narmada Sharma Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Delhi,Bhopal,745,6.0,False,52648,52000,58200,0,Completed,4.5
+BK0077,2026-05-19,SHP004,New Iyer Auto Components,OWN147,TRK0312,Container,Auto parts,Lucknow,Jodhpur,990,10.3,False,48280,43900,54200,0,Completed,3.9
+BK0078,2026-05-19,SHP062,Shree Das Electronics,OWN114,TRK0242,Container,Electronics,Bengaluru,Gurugram,2155,14.9,True,65430,60300,100800,2155,Completed,4.2
+BK0079,2026-05-19,SHP006,Prime Das Furnitures,OWN052,TRK0110,Open body,Furniture,Indore,Ahmedabad,425,18.8,False,15273,14700,17300,0,Completed,4.0
+BK0080,2026-05-19,SHP052,Jai Kumar Pharma Distributors,OWN052,TRK0113,Container,Pharmaceuticals,Chennai,Ahmedabad,1715,17.0,True,64275,58800,92000,1715,Completed,4.5
+BK0081,2026-05-19,SHP072,Lakshmi Choudhary Agro Traders,OWN152,TRK0323,Open body,Agri produce (onion/potato),Lucknow,Bengaluru,1980,7.6,True,63228,58900,87400,1980,Completed,5.0
+BK0082,2026-05-20,SHP009,Bharat Tiwari Distributors,OWN119,TRK0252,Container,FMCG cartons,Nashik,Bhopal,650,10.3,False,29210,28500,34300,0,Completed,5.0
+BK0083,2026-05-20,SHP016,Unity Khan Foods,OWN099,TRK0216,Refrigerated,Frozen food & dairy,Lucknow,Hyderabad,1350,6.2,True,77558,74100,107300,1350,Completed,4.8
+BK0084,2026-05-20,SHP035,Jai Pillai Polymers,OWN078,TRK0167,Container,Paper rolls,Hyderabad,Patna,1425,7.8,False,65883,60500,70300,0,Completed,4.1
+BK0085,2026-05-20,SHP025,Global Gill Steel Traders,OWN012,TRK0029,Trailer,Steel coils,Bengaluru,Delhi,2175,19.3,True,91159,87900,137300,2175,Completed,4.4
+BK0086,2026-05-20,SHP030,Prime Khan Textiles,OWN133,TRK0286,Open body,Textiles & garments,Jaipur,Panipat,375,13.3,True,11231,10100,15000,375,Completed,4.9
+BK0087,2026-05-21,SHP003,Jai Patel Distributors,OWN073,TRK0159,LCV (Tata 407 class),FMCG cartons,Nagpur,Ludhiana,1415,1.6,False,42581,38400,46200,0,Completed,4.7
+BK0088,2026-05-21,SHP089,Sunrise Patel Foods,OWN128,TRK0276,Refrigerated,Frozen food & dairy,Lucknow,Bhopal,670,9.3,True,31245,30600,41000,670,Completed,4.5
+BK0089,2026-05-21,SHP023,Kaveri Nair Steel Traders,OWN053,TRK0116,Trailer,Steel coils,Nagpur,Rajkot,1080,22.2,True,45226,44300,64900,1080,Completed,4.7
+BK0090,2026-05-21,SHP047,Narmada Sharma Foods,OWN116,TRK0246,Refrigerated,Frozen food & dairy,Delhi,Mumbai,1435,7.7,True,79721,72400,102600,1435,Completed,4.4
+BK0091,2026-05-21,SHP002,Ganpati Shinde Auto Components,OWN068,TRK0144,Open body,Machinery parts,Pune,Bengaluru,920,16.8,False,35449,32200,39400,0,Completed,4.5
+BK0092,2026-05-21,SHP078,Narmada Khan Polymers,OWN131,TRK0282,Open body,Paper rolls,Visakhapatnam,Gurugram,1690,11.3,True,48565,47200,75000,1690,Completed,5.0
+BK0093,2026-05-22,SHP067,Jai Pillai Pharma Distributors,OWN084,TRK0183,Refrigerated,Pharmaceuticals,Hyderabad,Raipur,675,10.1,False,42164,38300,45000,0,Completed,4.2
+BK0094,2026-05-22,SHP053,Narmada Iyer Pharma Distributors,OWN039,TRK0078,Refrigerated,Pharmaceuticals,Ludhiana,Pune,1740,8.2,False,120719,111100,132400,0,Completed,4.7
+BK0095,2026-05-23,SHP026,Pioneer Verma Textiles,OWN102,TRK0220,Container,Textiles & garments,Bengaluru,Vadodara,1425,9.4,True,55188,50200,82900,1425,Completed,4.5
+BK0096,2026-05-23,SHP052,Jai Kumar Pharma Distributors,OWN079,TRK0169,Container,Pharmaceuticals,Indore,Jaipur,580,16.4,True,18221,16400,27100,580,Completed,4.8
+BK0097,2026-05-23,SHP082,New Sharma Steel Traders,OWN069,TRK0145,Trailer,Steel coils,Ahmedabad,Hyderabad,1100,18.3,False,66058,59800,69900,0,Completed,4.0
+BK0098,2026-05-23,SHP086,Shree Kumar Auto Components,OWN117,TRK0249,Trailer,Machinery parts,Mumbai,Agra,1300,13.1,True,66257,61100,93300,1300,Completed,4.4
+BK0099,2026-05-23,SHP029,Om Yadav Distributors,OWN021,TRK0045,LCV (Tata 407 class),FMCG cartons,Gurugram,Pune,1440,2.8,True,29043,28300,43200,1440,Completed,3.8
+BK0100,2026-05-24,SHP057,Star Malhotra Distributors,OWN020,TRK0043,Open body,FMCG cartons,Panipat,Ludhiana,250,19.8,False,8711,8500,10500,0,Completed,4.5
+BK0101,2026-05-24,SHP075,Sunrise Meena Steel Traders,OWN074,TRK0161,Trailer,Steel coils,Panipat,Ahmedabad,1040,12.6,True,56569,55300,72700,1040,Completed,4.0
+BK0102,2026-05-24,SHP046,Sunrise Kumar Foods,OWN128,TRK0276,Refrigerated,Frozen food & dairy,Chennai,Agra,1980,8.9,False,109984,104100,126500,0,Completed,4.3
+BK0103,2026-05-24,SHP075,Sunrise Meena Steel Traders,OWN108,TRK0231,Trailer,Steel coils,Bengaluru,Varanasi,1855,17.7,True,88641,86200,120800,1855,Completed,4.9
+BK0104,2026-05-25,SHP029,Om Yadav Distributors,OWN057,TRK0122,LCV (Tata 407 class),FMCG cartons,Gurugram,Kanpur,495,2.4,True,9169,8800,13800,495,Completed,4.0
+BK0105,2026-05-25,SHP021,Lakshmi Pillai Auto Components,OWN091,TRK0196,Open body,Machinery parts,Ludhiana,Pune,1740,19.1,False,58644,53200,66100,0,Completed,4.8
+BK0106,2026-05-25,SHP041,Bharat Gill Build Supplies,OWN061,TRK0127,Tipper,Cement bags,Jaipur,Panipat,375,12.0,True,11380,10900,17000,375,Cancelled,
+BK0107,2026-05-25,SHP061,Sai Choudhary Furnitures,OWN106,TRK0226,Open body,Furniture,Nagpur,Ahmedabad,880,12.9,False,36208,34500,43200,0,Completed,4.2
+BK0108,2026-05-25,SHP004,New Iyer Auto Components,OWN118,TRK0250,Trailer,Machinery parts,Ahmedabad,Visakhapatnam,1570,27.7,True,65725,62500,101700,1570,Completed,4.4
+BK0109,2026-05-26,SHP046,Sunrise Kumar Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Chennai,Kolkata,1700,5.6,False,113762,107400,129700,0,Completed,5.0
+BK0110,2026-05-26,SHP081,Narmada Reddy Textiles,OWN042,TRK0088,Container,Textiles & garments,Nashik,Delhi,1275,9.9,True,44807,40700,71500,1275,Completed,3.9
+BK0111,2026-05-26,SHP030,Prime Khan Textiles,OWN002,TRK0005,Open body,Textiles & garments,Jaipur,Ahmedabad,675,18.0,False,24017,23100,26800,0,Completed,4.8
+BK0112,2026-05-26,SHP011,Classic Rathore Build Supplies,OWN068,TRK0143,Tipper,Sand & aggregates,Lucknow,Indore,860,14.7,False,36648,35700,42400,0,Completed,4.2
+BK0113,2026-05-27,SHP076,Prime Gill Agro Traders,OWN084,TRK0179,Open body,Agri produce (onion/potato),Kochi,Chennai,700,11.4,False,28063,26300,32200,0,Completed,3.9
+BK0114,2026-05-27,SHP086,Shree Kumar Auto Components,OWN033,TRK0067,Trailer,Machinery parts,Mumbai,Indore,635,20.4,True,31793,31000,46200,635,Completed,4.0
+BK0115,2026-05-28,SHP014,Bharat Kumar Distributors,OWN133,TRK0286,Open body,FMCG cartons,Pune,Surat,390,16.2,False,15220,13900,16300,0,Completed,4.8
+BK0116,2026-05-29,SHP036,Jai Saini Furnitures,OWN066,TRK0139,Container,Furniture,Surat,Bengaluru,1305,14.0,False,68376,63600,72000,0,Completed,4.7
+BK0117,2026-05-29,SHP070,Prime Kumar Electronics,OWN101,TRK0219,Container,Electronics,Ahmedabad,Pune,650,8.7,True,24558,23900,35200,650,Completed,4.9
+BK0118,2026-05-29,SHP015,Jai Chauhan Auto Components,OWN136,TRK0290,Open body,Machinery parts,Kota,Panipat,595,15.5,True,20799,18900,28200,595,Completed,4.9
+BK0119,2026-05-30,SHP003,Jai Patel Distributors,OWN147,TRK0312,Container,FMCG cartons,Nagpur,Vadodara,780,15.5,True,29151,28600,40600,780,Completed,4.5
+BK0120,2026-05-31,SHP052,Jai Kumar Pharma Distributors,OWN141,TRK0299,Container,Pharmaceuticals,Indore,Kota,345,7.4,True,12584,11400,18000,345,Completed,4.4
+BK0121,2026-05-31,SHP012,Kaveri Jadhav Textiles,OWN070,TRK0151,Container,Textiles & garments,Raipur,Gurugram,1160,12.9,False,59536,55000,67000,0,Completed,4.9
+BK0122,2026-05-31,SHP052,Jai Kumar Pharma Distributors,OWN080,TRK0170,Container,Pharmaceuticals,Jaipur,Indore,580,17.0,False,28202,26000,31300,0,Completed,4.1
+BK0123,2026-06-01,SHP036,Jai Saini Furnitures,OWN040,TRK0080,Container,Furniture,Surat,Kolkata,2010,10.1,True,71404,67300,97100,2010,Completed,4.5
+BK0124,2026-06-01,SHP024,Lakshmi Rathore Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Panipat,Ludhiana,250,8.7,False,16635,15500,20000,0,Completed,4.5
+BK0125,2026-06-01,SHP004,New Iyer Auto Components,OWN120,TRK0255,Container,Auto parts,Mumbai,Lucknow,1495,15.3,True,52369,48500,77500,1495,Completed,3.9
+BK0126,2026-06-01,SHP025,Global Gill Steel Traders,OWN078,TRK0165,Trailer,Steel coils,Chennai,Pune,1145,16.0,True,49991,49400,71600,1145,Completed,3.9
+BK0127,2026-06-02,SHP047,Narmada Sharma Foods,OWN030,TRK0062,Refrigerated,Frozen food & dairy,Lucknow,Gurugram,530,9.6,True,26067,25200,43100,530,Completed,4.1
+BK0128,2026-06-02,SHP003,Jai Patel Distributors,OWN038,TRK0077,Container,FMCG cartons,Nagpur,Ahmedabad,880,8.7,True,28979,27500,43700,880,Completed,4.4
+BK0129,2026-06-03,SHP060,Jai Meena Steel Traders,OWN074,TRK0161,Trailer,Steel coils,Chennai,Lucknow,1915,12.7,True,102976,95400,138400,1915,Cancelled,
+BK0130,2026-06-03,SHP020,Classic Chauhan Polymers,OWN084,TRK0179,Open body,Plastic granules,Amritsar,Surat,1475,7.5,False,65806,61300,68100,0,Completed,4.1
+BK0131,2026-06-03,SHP008,Prime Reddy Build Supplies,OWN093,TRK0200,Tipper,Cement bags,Delhi,Bengaluru,2175,19.8,True,77804,75100,124300,2175,Completed,5.0
+BK0132,2026-06-05,SHP048,Kaveri Iyer Polymers,OWN040,TRK0081,Container,Plastic granules,Bhopal,Bhubaneswar,1160,12.2,False,55932,53200,62800,0,Completed,3.9
+BK0133,2026-06-05,SHP046,Sunrise Kumar Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Chennai,Lucknow,1915,5.9,True,93376,87800,145000,1915,Completed,4.4
+BK0134,2026-06-05,SHP075,Sunrise Meena Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Delhi,Kanpur,490,17.2,False,26481,25700,29400,0,Completed,3.9
+BK0135,2026-06-05,SHP065,Sai Mishra Polymers,OWN120,TRK0255,Container,Plastic granules,Rajkot,Delhi,1190,8.3,True,44057,41100,60300,1190,Cancelled,
+BK0136,2026-06-05,SHP007,New Mishra Electronics,OWN087,TRK0188,Container,Electronics,Lucknow,Hyderabad,1350,12.7,True,48954,48000,66300,1350,Completed,4.7
+BK0137,2026-06-06,SHP085,Om Sharma Auto Components,OWN041,TRK0084,Open body,Auto parts,Delhi,Varanasi,845,11.5,True,26473,24200,38100,845,Completed,4.1
+BK0138,2026-06-06,SHP071,Royal Verma Foods,OWN145,TRK0310,Refrigerated,Frozen food & dairy,Bhopal,Lucknow,670,11.0,True,32607,30400,49300,670,Completed,4.3
+BK0139,2026-06-06,SHP090,Star Singh Agro Traders,OWN018,TRK0039,Open body,Agri produce (onion/potato),Hyderabad,Amritsar,2030,15.9,True,63005,59300,85100,2030,Completed,4.3
+BK0140,2026-06-06,SHP086,Shree Kumar Auto Components,OWN052,TRK0111,Container,Auto parts,Surat,Bhopal,655,10.9,True,21696,21200,29500,655,Cancelled,
+BK0141,2026-06-06,SHP007,New Mishra Electronics,OWN135,TRK0289,Container,Electronics,Lucknow,Rajkot,1430,7.8,False,74243,69900,85700,0,Completed,3.9
+BK0142,2026-06-06,SHP016,Unity Khan Foods,OWN035,TRK0069,Refrigerated,Frozen food & dairy,Lucknow,Chennai,1915,4.5,True,82870,78600,122200,1915,Completed,3.9
+BK0143,2026-06-07,SHP045,Narmada Patel Textiles,OWN150,TRK0319,Container,Textiles & garments,Bhubaneswar,Pune,1585,8.5,True,49898,47300,70400,1585,Completed,4.5
+BK0144,2026-06-07,SHP029,Om Yadav Distributors,OWN158,TRK0334,LCV (Tata 407 class),FMCG cartons,Gurugram,Lucknow,530,3.1,True,11776,10600,16600,530,Completed,4.4
+BK0145,2026-06-07,SHP036,Jai Saini Furnitures,OWN041,TRK0086,Open body,Furniture,Bhopal,Chennai,1465,14.3,True,40843,38400,57600,1465,Completed,4.3
+BK0146,2026-06-07,SHP035,Jai Pillai Polymers,OWN061,TRK0128,Open body,Paper rolls,Hyderabad,Delhi,1570,13.4,True,42209,39500,64400,1570,Completed,3.9
+BK0147,2026-06-07,SHP068,Star Patel Polymers,OWN150,TRK0321,Open body,Plastic granules,Kanpur,Hyderabad,1280,14.5,True,44024,40300,61200,1280,Completed,4.5
+BK0148,2026-06-08,SHP042,Sai Saini Agro Traders,OWN126,TRK0272,Open body,Agri produce (onion/potato),Varanasi,Panipat,930,16.9,True,23807,21800,37800,930,Completed,4.4
+BK0149,2026-06-09,SHP078,Narmada Khan Polymers,OWN076,TRK0163,Open body,Plastic granules,Visakhapatnam,Bengaluru,1000,9.2,True,32168,29800,44000,1000,Completed,4.3
+BK0150,2026-06-10,SHP041,Bharat Gill Build Supplies,OWN061,TRK0127,Tipper,Sand & aggregates,Guwahati,Varanasi,1105,14.1,True,36501,32800,53600,1105,Completed,4.0
+BK0151,2026-06-10,SHP073,Om Das Build Supplies,OWN047,TRK0098,Tipper,Cement bags,Pune,Lucknow,1470,22.0,False,64317,60200,74800,0,Completed,4.9
+BK0152,2026-06-10,SHP001,Pioneer Patil Agro Traders,OWN137,TRK0291,Open body,Agri produce (onion/potato),Kolkata,Bengaluru,1950,9.1,True,54994,51000,84100,1950,Completed,4.9
+BK0153,2026-06-11,SHP039,Prime Rathore Furnitures,OWN150,TRK0318,Open body,Furniture,Chennai,Agra,1980,9.1,False,85651,77900,92100,0,Completed,4.0
+BK0154,2026-06-12,SHP062,Shree Das Electronics,OWN070,TRK0150,Container,Electronics,Bengaluru,Vadodara,1425,14.2,False,69091,63300,76900,0,Completed,4.9
+BK0155,2026-06-12,SHP039,Prime Rathore Furnitures,OWN053,TRK0115,Container,Furniture,Coimbatore,Bhubaneswar,1750,16.7,False,89445,81600,99500,0,Completed,5.0
+BK0156,2026-06-12,SHP010,Lakshmi Ghosh Textiles,OWN137,TRK0293,Open body,Textiles & garments,Kolkata,Jaipur,1695,14.2,True,54595,53000,82500,1695,Completed,3.8
+BK0157,2026-06-12,SHP003,Jai Patel Distributors,OWN038,TRK0076,LCV (Tata 407 class),FMCG cartons,Nagpur,Ludhiana,1415,1.7,True,31960,29800,44500,1415,Completed,3.9
+BK0158,2026-06-12,SHP050,Shree Ghosh Build Supplies,OWN094,TRK0202,Tipper,Sand & aggregates,Kochi,Kota,2125,15.9,True,77815,73900,106600,2125,Completed,4.8
+BK0159,2026-06-13,SHP085,Om Sharma Auto Components,OWN065,TRK0137,Trailer,Machinery parts,Delhi,Surat,1170,12.6,False,65454,60300,71100,0,Completed,4.8
+BK0160,2026-06-14,SHP082,New Sharma Steel Traders,OWN108,TRK0230,Trailer,Steel coils,Kolkata,Chennai,1700,23.7,True,87802,84800,120400,1700,Cancelled,
+BK0161,2026-06-14,SHP023,Kaveri Nair Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Nagpur,Ahmedabad,880,19.5,True,39399,36800,59300,880,Completed,4.4
+BK0162,2026-06-14,SHP017,Star Rathore Polymers,OWN030,TRK0064,Container,Plastic granules,Raipur,Surat,1140,10.5,True,44760,43100,61200,1140,Completed,5.0
+BK0163,2026-06-14,SHP072,Lakshmi Choudhary Agro Traders,OWN002,TRK0004,Open body,Agri produce (onion/potato),Lucknow,Ludhiana,835,8.8,True,25669,25200,40100,835,Completed,4.4
+BK0164,2026-06-14,SHP045,Narmada Patel Textiles,OWN114,TRK0241,Open body,Textiles & garments,Kota,Gurugram,475,16.9,False,17121,15700,20000,0,Completed,4.6
+BK0165,2026-06-14,SHP001,Pioneer Patil Agro Traders,OWN147,TRK0313,Open body,Agri produce (onion/potato),Kolkata,Bengaluru,1950,15.3,True,60534,59000,95100,1950,Completed,4.8
+BK0166,2026-06-14,SHP022,Shakti Pillai Distributors,OWN080,TRK0170,Container,FMCG cartons,Ahmedabad,Jodhpur,450,10.1,True,18067,16700,23900,450,Completed,4.4
+BK0167,2026-06-14,SHP024,Lakshmi Rathore Foods,OWN093,TRK0201,Refrigerated,Frozen food & dairy,Panipat,Lucknow,600,5.0,True,29553,27400,44900,600,Completed,4.7
+BK0168,2026-06-14,SHP078,Narmada Khan Polymers,OWN150,TRK0319,Container,Plastic granules,Kolkata,Mumbai,2070,9.9,True,69532,62700,93400,2070,Completed,4.9
+BK0169,2026-06-15,SHP041,Bharat Gill Build Supplies,OWN093,TRK0200,Tipper,Cement bags,Mumbai,Hyderabad,775,16.3,False,38013,36300,45200,0,Completed,4.2
+BK0170,2026-06-15,SHP077,Global Malhotra Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Mumbai,Bengaluru,1055,8.8,True,52439,47900,77100,1055,Completed,4.7
+BK0171,2026-06-17,SHP089,Sunrise Patel Foods,OWN020,TRK0044,Refrigerated,Frozen food & dairy,Hyderabad,Jaipur,1370,6.4,True,72498,68000,102800,1370,Completed,4.3
+BK0172,2026-06-17,SHP030,Prime Khan Textiles,OWN047,TRK0099,Container,Textiles & garments,Bengaluru,Delhi,2175,8.7,True,77449,70000,123000,2175,Completed,4.4
+BK0173,2026-06-18,SHP057,Star Malhotra Distributors,OWN143,TRK0305,Container,FMCG cartons,Panipat,Ahmedabad,1040,12.5,False,55843,51700,60300,0,Completed,4.6
+BK0174,2026-06-18,SHP077,Global Malhotra Foods,OWN020,TRK0044,Refrigerated,Frozen food & dairy,Mumbai,Varanasi,1560,5.9,True,84297,76500,123900,1560,Completed,4.2
+BK0175,2026-06-18,SHP076,Prime Gill Agro Traders,OWN006,TRK0018,Open body,Agri produce (onion/potato),Kochi,Mumbai,1350,9.7,True,40869,38200,66900,1350,Completed,4.7
+BK0176,2026-06-18,SHP051,Prime Kumar Agro Traders,OWN112,TRK0238,Open body,Agri produce (onion/potato),Nashik,Delhi,1275,16.7,False,56145,53400,63300,0,Completed,4.4
+BK0177,2026-06-19,SHP048,Kaveri Iyer Polymers,OWN044,TRK0095,Container,Paper rolls,Bhopal,Guwahati,1850,7.8,True,62317,59800,86700,1850,Completed,4.2
+BK0178,2026-06-19,SHP078,Narmada Khan Polymers,OWN120,TRK0255,Container,Paper rolls,Ahmedabad,Panipat,1040,14.5,True,33383,30600,52500,1040,Completed,4.7
+BK0179,2026-06-19,SHP030,Prime Khan Textiles,OWN048,TRK0101,Open body,Textiles & garments,Jaipur,Surat,880,19.1,True,27481,25600,38000,880,Completed,4.1
+BK0180,2026-06-19,SHP089,Sunrise Patel Foods,OWN084,TRK0183,Refrigerated,Frozen food & dairy,Kanpur,Ahmedabad,1090,4.7,True,47243,45600,72800,1090,Completed,4.8
+BK0181,2026-06-20,SHP074,New Jadhav Furnitures,OWN073,TRK0155,Open body,Furniture,Nagpur,Kanpur,755,13.4,True,22763,22000,32100,755,Cancelled,
+BK0182,2026-06-20,SHP080,Unity Reddy Polymers,OWN098,TRK0208,Open body,Paper rolls,Ludhiana,Mumbai,1685,19.5,False,62093,56700,63800,0,Completed,4.5
+BK0183,2026-06-21,SHP001,Pioneer Patil Agro Traders,OWN145,TRK0309,Open body,Agri produce (onion/potato),Lucknow,Gurugram,530,9.6,False,22715,21900,25500,0,Completed,4.6
+BK0184,2026-06-21,SHP048,Kaveri Iyer Polymers,OWN136,TRK0290,Open body,Paper rolls,Hyderabad,Mumbai,775,8.7,True,27195,26700,37800,775,Cancelled,
+BK0185,2026-06-22,SHP002,Ganpati Shinde Auto Components,OWN027,TRK0056,Open body,Auto parts,Pune,Kolkata,1970,14.7,True,51800,51100,79600,1970,Completed,4.3
+BK0186,2026-06-23,SHP046,Sunrise Kumar Foods,OWN017,TRK0038,Refrigerated,Frozen food & dairy,Chennai,Surat,1495,8.8,True,71682,65700,108300,1495,Completed,5.0
+BK0187,2026-06-23,SHP028,Bharat Choudhary Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Bhubaneswar,Kanpur,1105,18.8,True,56565,53100,77200,1105,Completed,4.7
+BK0188,2026-06-23,SHP040,Balaji Das Polymers,OWN044,TRK0093,Container,Paper rolls,Surat,Visakhapatnam,1445,8.4,True,53090,48100,70400,1445,Completed,4.4
+BK0189,2026-06-23,SHP046,Sunrise Kumar Foods,OWN150,TRK0320,Refrigerated,Frozen food & dairy,Hyderabad,Raipur,675,5.1,False,42369,40100,48000,0,Completed,4.7
+BK0190,2026-06-23,SHP077,Global Malhotra Foods,OWN150,TRK0320,Refrigerated,Frozen food & dairy,Mumbai,Kochi,1350,8.8,False,86115,79400,99300,0,Completed,4.0
+BK0191,2026-06-24,SHP019,Om Kumar Electronics,OWN104,TRK0223,Container,Electronics,Kolkata,Vadodara,1950,8.7,False,102970,101400,104300,0,Completed,4.2
+BK0192,2026-06-24,SHP052,Jai Kumar Pharma Distributors,OWN030,TRK0062,Refrigerated,Pharmaceuticals,Indore,Surat,445,4.4,True,23955,21900,36000,445,Completed,4.0
+BK0193,2026-06-24,SHP051,Prime Kumar Agro Traders,OWN092,TRK0197,Open body,Agri produce (onion/potato),Chennai,Jaipur,2010,11.8,False,77329,74500,82700,0,Completed,4.6
+BK0194,2026-06-24,SHP026,Pioneer Verma Textiles,OWN038,TRK0075,Container,Textiles & garments,Panipat,Indore,935,13.4,False,44910,41900,46400,0,Completed,3.9
+BK0195,2026-06-24,SHP049,Bharat Kumar Steel Traders,OWN030,TRK0063,Trailer,Steel coils,Ludhiana,Nashik,1535,15.6,True,64377,63200,93700,1535,Completed,4.0
+BK0196,2026-06-24,SHP087,Sunrise Mishra Auto Components,OWN026,TRK0055,Trailer,Machinery parts,Patna,Vadodara,1585,18.1,True,65617,60500,95200,1585,Completed,3.8
+BK0197,2026-06-25,SHP026,Pioneer Verma Textiles,OWN042,TRK0089,Container,Textiles & garments,Bengaluru,Nashik,1100,9.6,True,37212,34600,58400,1100,Completed,4.1
+BK0198,2026-06-25,SHP046,Sunrise Kumar Foods,OWN078,TRK0166,Refrigerated,Frozen food & dairy,Chennai,Nashik,1290,9.6,True,61746,58400,85800,1290,Completed,4.3
+BK0199,2026-06-26,SHP086,Shree Kumar Auto Components,OWN047,TRK0099,Container,Auto parts,Mumbai,Chennai,1290,8.7,True,46776,43100,69800,1290,Completed,4.5
+BK0200,2026-06-26,SHP036,Jai Saini Furnitures,OWN061,TRK0128,Open body,Furniture,Surat,Mumbai,290,10.2,False,10682,10000,11900,0,Completed,4.3
+BK0201,2026-06-27,SHP033,Kaveri Das Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Mumbai,Agra,1300,16.1,True,48602,46200,80800,1300,Completed,3.8
+BK0202,2026-06-28,SHP046,Sunrise Kumar Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Delhi,Bhubaneswar,1585,10.9,True,81110,77700,126100,1585,Completed,4.4
+BK0203,2026-06-28,SHP020,Classic Chauhan Polymers,OWN098,TRK0213,Container,Plastic granules,Amritsar,Kanpur,980,16.7,True,35753,35000,54300,980,Completed,3.9
+BK0204,2026-06-29,SHP033,Kaveri Das Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Mumbai,Hyderabad,775,21.8,True,29094,27000,46000,775,Cancelled,
+BK0205,2026-06-29,SHP034,Bharat Das Foods,OWN126,TRK0271,Refrigerated,Frozen food & dairy,Coimbatore,Surat,1515,5.4,True,66243,64500,103500,1515,Completed,3.8
+BK0206,2026-06-29,SHP040,Balaji Das Polymers,OWN048,TRK0101,Open body,Plastic granules,Coimbatore,Rajkot,1770,9.5,True,57009,55100,76500,1770,Cancelled,
+BK0207,2026-06-29,SHP022,Shakti Pillai Distributors,OWN084,TRK0180,Container,FMCG cartons,Ahmedabad,Ludhiana,1170,15.2,False,54111,49800,58500,0,Completed,4.0
+BK0208,2026-06-29,SHP075,Sunrise Meena Steel Traders,OWN137,TRK0292,Trailer,Steel coils,Delhi,Pune,1465,20.7,True,58623,54900,87800,1465,Completed,4.6
+BK0209,2026-06-30,SHP074,New Jadhav Furnitures,OWN082,TRK0175,Open body,Furniture,Nagpur,Panipat,1175,13.0,False,51071,47900,53900,0,Completed,3.8
+BK0210,2026-06-30,SHP005,Om Chauhan Steel Traders,OWN026,TRK0055,Trailer,Steel coils,Mumbai,Ludhiana,1685,26.1,True,75111,73300,106600,1685,Completed,5.0
+BK0211,2026-07-01,SHP048,Kaveri Iyer Polymers,OWN076,TRK0163,Open body,Plastic granules,Bhopal,Jodhpur,690,8.2,False,27557,26600,29900,0,Cancelled,
+BK0212,2026-07-01,SHP076,Prime Gill Agro Traders,OWN052,TRK0110,Open body,Agri produce (onion/potato),Kochi,Ahmedabad,1885,19.2,False,72039,66700,80000,0,Completed,4.5
+BK0213,2026-07-01,SHP016,Unity Khan Foods,OWN145,TRK0310,Refrigerated,Frozen food & dairy,Lucknow,Raipur,785,11.3,True,40188,39300,55900,785,Completed,4.5
+BK0214,2026-07-01,SHP065,Sai Mishra Polymers,OWN006,TRK0018,Open body,Plastic granules,Rajkot,Delhi,1190,18.1,True,36524,35700,59100,1190,Completed,4.9
+BK0215,2026-07-02,SHP075,Sunrise Meena Steel Traders,OWN078,TRK0168,Trailer,Steel coils,Delhi,Nashik,1275,13.9,False,67207,62900,77900,0,Completed,5.0
+BK0216,2026-07-03,SHP042,Sai Saini Agro Traders,OWN070,TRK0148,Open body,Agri produce (onion/potato),Ahmedabad,Mumbai,550,11.3,False,25067,22900,27700,0,Cancelled,
+BK0217,2026-07-03,SHP077,Global Malhotra Foods,OWN020,TRK0044,Refrigerated,Frozen food & dairy,Mumbai,Indore,635,9.8,False,44640,41700,49800,0,Completed,4.5
+BK0218,2026-07-03,SHP068,Star Patel Polymers,OWN020,TRK0043,Open body,Plastic granules,Kanpur,Jodhpur,910,11.2,True,27520,26200,37400,910,Completed,4.6
+BK0219,2026-07-03,SHP021,Lakshmi Pillai Auto Components,OWN122,TRK0264,Open body,Auto parts,Ludhiana,Gurugram,365,11.0,False,13346,12300,15500,0,Completed,4.0
+BK0220,2026-07-03,SHP085,Om Sharma Auto Components,OWN143,TRK0305,Container,Auto parts,Delhi,Mumbai,1435,12.4,True,55958,51600,81800,1435,Completed,4.5
+BK0221,2026-07-04,SHP075,Sunrise Meena Steel Traders,OWN033,TRK0067,Trailer,Steel coils,Delhi,Mumbai,1435,24.4,True,72057,69100,101700,1435,Completed,4.4
+BK0222,2026-07-05,SHP034,Bharat Das Foods,OWN093,TRK0201,Refrigerated,Frozen food & dairy,Coimbatore,Kanpur,2190,4.4,False,142564,140500,174400,0,Completed,4.7
+BK0223,2026-07-05,SHP037,Sunrise Nair Furnitures,OWN122,TRK0265,Container,Furniture,Delhi,Mumbai,1435,14.3,True,58439,55300,83800,1435,Completed,4.6
+BK0224,2026-07-05,SHP056,Unity Nair Textiles,OWN107,TRK0228,Open body,Textiles & garments,Pune,Coimbatore,1120,12.8,True,26892,25600,44300,1120,Completed,4.4
+BK0225,2026-07-05,SHP020,Classic Chauhan Polymers,OWN108,TRK0229,Container,Paper rolls,Amritsar,Mumbai,1760,7.1,True,64735,62900,104500,1760,Completed,4.4
+BK0226,2026-07-06,SHP076,Prime Gill Agro Traders,OWN041,TRK0084,Open body,Agri produce (onion/potato),Bengaluru,Gurugram,2155,14.0,True,66951,63900,102900,2155,Completed,4.9
+BK0227,2026-07-06,SHP078,Narmada Khan Polymers,OWN080,TRK0170,Container,Plastic granules,Gurugram,Ludhiana,365,14.6,True,13030,11800,20200,365,Completed,4.8
+BK0228,2026-07-06,SHP086,Shree Kumar Auto Components,OWN108,TRK0230,Trailer,Machinery parts,Bengaluru,Jaipur,1950,15.4,False,121898,110100,132300,0,Completed,4.5
+BK0229,2026-07-07,SHP036,Jai Saini Furnitures,OWN138,TRK0295,Container,Furniture,Surat,Pune,390,12.4,True,15311,14700,20900,390,Completed,4.8
+BK0230,2026-07-08,SHP025,Global Gill Steel Traders,OWN030,TRK0063,Trailer,Steel coils,Nashik,Jaipur,995,22.2,True,38711,37500,56000,995,Completed,3.9
+BK0231,2026-07-09,SHP059,Ganpati Verma Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Ludhiana,Lucknow,835,19.1,True,32481,31700,47800,835,Completed,4.7
+BK0232,2026-07-09,SHP064,Sunrise Bhatia Agro Traders,OWN126,TRK0272,Open body,Agri produce (onion/potato),Chandigarh,Jaipur,545,12.0,False,20362,19400,21500,0,Completed,4.3
+BK0233,2026-07-10,SHP012,Kaveri Jadhav Textiles,OWN040,TRK0081,Container,Textiles & garments,Rajkot,Bengaluru,1575,15.4,True,65610,59200,86800,1575,Completed,4.7
+BK0234,2026-07-10,SHP038,Global Sandhu Distributors,OWN116,TRK0245,Container,FMCG cartons,Jaipur,Bengaluru,1950,14.4,True,73644,68000,106600,1950,Completed,4.2
+BK0235,2026-07-11,SHP020,Classic Chauhan Polymers,OWN031,TRK0065,Container,Paper rolls,Amritsar,Mumbai,1760,14.3,True,73327,69800,103900,1760,Completed,4.9
+BK0236,2026-07-11,SHP025,Global Gill Steel Traders,OWN084,TRK0182,Trailer,Steel coils,Bengaluru,Visakhapatnam,1000,25.6,False,59109,57900,72500,0,Cancelled,
+BK0237,2026-07-11,SHP004,New Iyer Auto Components,OWN052,TRK0110,Open body,Machinery parts,Kolkata,Pune,1970,19.1,True,54290,50600,83100,1970,Cancelled,
+BK0238,2026-07-12,SHP045,Narmada Patel Textiles,OWN084,TRK0180,Container,Textiles & garments,Kota,Ahmedabad,515,10.8,False,23328,21600,26500,0,Completed,4.9
+BK0239,2026-07-12,SHP005,Om Chauhan Steel Traders,OWN130,TRK0280,Trailer,Steel coils,Mumbai,Visakhapatnam,1375,15.4,False,86985,86000,102500,0,Completed,4.0
+BK0240,2026-07-12,SHP019,Om Kumar Electronics,OWN052,TRK0112,Container,Electronics,Bhopal,Jodhpur,690,18.3,True,22031,20100,33700,690,Completed,4.2
+BK0241,2026-07-12,SHP026,Pioneer Verma Textiles,OWN002,TRK0004,Open body,Textiles & garments,Ludhiana,Delhi,360,11.5,False,15562,14300,16900,0,Completed,4.9
+BK0242,2026-07-13,SHP007,New Mishra Electronics,OWN138,TRK0295,Container,Electronics,Lucknow,Bengaluru,1980,11.6,False,93580,92300,114200,0,Completed,4.1
+BK0243,2026-07-13,SHP048,Kaveri Iyer Polymers,OWN052,TRK0113,Container,Plastic granules,Bhopal,Mumbai,825,8.5,True,28832,28300,45500,825,Completed,3.8
+BK0244,2026-07-13,SHP078,Narmada Khan Polymers,OWN002,TRK0004,Open body,Plastic granules,Visakhapatnam,Pune,1240,9.0,False,53580,51200,58600,0,Completed,3.9
+BK0245,2026-07-14,SHP088,Kaveri Tiwari Agro Traders,OWN150,TRK0321,Open body,Agri produce (onion/potato),Ahmedabad,Delhi,970,12.9,False,42067,39100,46300,0,Completed,4.4
+BK0246,2026-07-14,SHP023,Kaveri Nair Steel Traders,OWN078,TRK0168,Trailer,Steel coils,Nagpur,Gurugram,1050,28.9,True,44950,41800,62400,1050,Completed,4.9
+BK0247,2026-07-14,SHP016,Unity Khan Foods,OWN014,TRK0033,Refrigerated,Frozen food & dairy,Lucknow,Vadodara,1165,10.5,True,52346,48000,84300,1165,Cancelled,
+BK0248,2026-07-14,SHP025,Global Gill Steel Traders,OWN130,TRK0280,Trailer,Steel coils,Bengaluru,Delhi,2175,19.3,True,113646,105900,164100,2175,Completed,4.8
+BK0249,2026-07-15,SHP026,Pioneer Verma Textiles,OWN002,TRK0007,Container,Textiles & garments,Bengaluru,Delhi,2175,18.3,True,72274,69900,105900,2175,Completed,4.1
+BK0250,2026-07-15,SHP037,Sunrise Nair Furnitures,OWN053,TRK0115,Container,Furniture,Delhi,Bengaluru,2175,9.3,True,75761,74600,117500,2175,Completed,4.8
+BK0251,2026-07-15,SHP022,Shakti Pillai Distributors,OWN057,TRK0122,LCV (Tata 407 class),FMCG cartons,Ahmedabad,Agra,895,3.5,False,22808,20500,25000,0,Completed,4.2
+BK0252,2026-07-16,SHP033,Kaveri Das Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Mumbai,Kanpur,1400,25.9,False,84451,79500,94200,0,Completed,4.2
+BK0253,2026-07-16,SHP077,Global Malhotra Foods,OWN099,TRK0216,Refrigerated,Frozen food & dairy,Mumbai,Ludhiana,1685,5.3,False,113316,111500,127800,0,Completed,4.0
+BK0254,2026-07-17,SHP067,Jai Pillai Pharma Distributors,OWN098,TRK0209,Container,Pharmaceuticals,Hyderabad,Nagpur,530,17.3,True,19044,18100,27400,530,Completed,4.3
+BK0255,2026-07-17,SHP047,Narmada Sharma Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Bengaluru,Ahmedabad,1545,5.0,True,77390,74800,113000,1545,Completed,4.8
+BK0256,2026-07-17,SHP018,Jai Naidu Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Mumbai,Gurugram,1405,29.5,False,77055,73500,79900,0,Completed,4.3
+BK0257,2026-07-17,SHP089,Sunrise Patel Foods,OWN093,TRK0201,Refrigerated,Frozen food & dairy,Lucknow,Visakhapatnam,1305,5.1,False,84742,83000,97400,0,Completed,4.9
+BK0258,2026-07-18,SHP033,Kaveri Das Steel Traders,OWN065,TRK0137,Trailer,Steel coils,Ahmedabad,Pune,650,27.1,True,27545,25400,38200,650,Completed,4.4
+BK0259,2026-07-18,SHP057,Star Malhotra Distributors,OWN141,TRK0300,LCV (Tata 407 class),FMCG cartons,Panipat,Vadodara,1090,2.6,True,20864,19700,30000,1090,Completed,4.9
+BK0260,2026-07-18,SHP089,Sunrise Patel Foods,OWN083,TRK0176,Refrigerated,Frozen food & dairy,Lucknow,Chennai,1915,8.3,False,125602,123200,143700,0,Completed,3.8
+BK0261,2026-07-19,SHP019,Om Kumar Electronics,OWN135,TRK0289,Container,Electronics,Bhopal,Surat,655,10.5,True,23767,23100,36300,655,Completed,4.1
+BK0262,2026-07-19,SHP042,Sai Saini Agro Traders,OWN002,TRK0005,Open body,Agri produce (onion/potato),Ahmedabad,Kochi,1885,14.5,True,54350,51800,73800,1885,Completed,3.8
+BK0263,2026-07-20,SHP074,New Jadhav Furnitures,OWN070,TRK0149,Container,Furniture,Gurugram,Hyderabad,1550,18.2,False,63802,59400,71300,0,Completed,4.7
+BK0264,2026-07-20,SHP050,Shree Ghosh Build Supplies,OWN070,TRK0147,Tipper,Cement bags,Panipat,Surat,1255,9.7,True,43056,40600,59900,1255,Completed,4.4
+BK0265,2026-07-20,SHP059,Ganpati Verma Steel Traders,OWN137,TRK0292,Trailer,Steel coils,Ludhiana,Mumbai,1685,23.8,False,98056,95400,105400,0,Completed,4.4
+BK0266,2026-07-21,SHP075,Sunrise Meena Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Delhi,Surat,1170,28.5,True,59905,57200,79800,1170,Completed,4.7
+BK0267,2026-07-21,SHP084,Lakshmi Tiwari Agro Traders,OWN114,TRK0241,Open body,Agri produce (onion/potato),Patna,Nashik,1650,8.4,False,61353,55700,71100,0,Completed,4.4
+BK0268,2026-07-22,SHP030,Prime Khan Textiles,OWN088,TRK0189,Open body,Textiles & garments,Jaipur,Chennai,2010,19.1,False,69543,63600,78600,0,Completed,4.4
+BK0269,2026-07-22,SHP016,Unity Khan Foods,OWN084,TRK0183,Refrigerated,Frozen food & dairy,Lucknow,Kolkata,1110,9.3,True,46879,45800,76000,1110,Completed,4.2
+BK0270,2026-07-23,SHP025,Global Gill Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Bengaluru,Vadodara,1425,25.1,False,70564,69700,86200,0,Completed,4.0
+BK0271,2026-07-23,SHP075,Sunrise Meena Steel Traders,OWN078,TRK0165,Trailer,Steel coils,Nagpur,Kochi,1605,15.0,False,88335,82900,104000,0,Completed,4.4
+BK0272,2026-07-23,SHP060,Jai Meena Steel Traders,OWN118,TRK0250,Trailer,Steel coils,Panipat,Lucknow,600,16.7,False,37245,36300,40800,0,Completed,4.7
+BK0273,2026-07-24,SHP059,Ganpati Verma Steel Traders,OWN066,TRK0138,Trailer,Steel coils,Bengaluru,Ahmedabad,1545,27.7,False,90469,85800,99700,0,Completed,4.5
+BK0274,2026-07-24,SHP077,Global Malhotra Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Bengaluru,Kochi,460,5.9,True,22305,21800,33400,460,Completed,3.9
+BK0275,2026-07-25,SHP033,Kaveri Das Steel Traders,OWN078,TRK0168,Trailer,Steel coils,Kolkata,Jaipur,1695,19.4,True,65348,60200,108000,1695,Completed,4.6
+BK0276,2026-07-25,SHP026,Pioneer Verma Textiles,OWN131,TRK0282,Open body,Textiles & garments,Delhi,Amritsar,505,16.5,False,20705,18700,22200,0,Completed,3.9
+BK0277,2026-07-26,SHP027,Royal Bhatia Agro Traders,OWN150,TRK0321,Open body,Agri produce (onion/potato),Hyderabad,Delhi,1570,19.1,False,63685,61700,72000,0,Completed,4.8
+BK0278,2026-07-26,SHP020,Classic Chauhan Polymers,OWN107,TRK0228,Open body,Paper rolls,Nagpur,Delhi,1065,8.4,False,37566,35300,42300,0,Cancelled,
+BK0279,2026-07-26,SHP023,Kaveri Nair Steel Traders,OWN108,TRK0231,Trailer,Steel coils,Nagpur,Delhi,1065,30.2,False,64216,60300,70300,0,Completed,4.0
+BK0280,2026-07-27,SHP060,Jai Meena Steel Traders,OWN073,TRK0160,Trailer,Steel coils,Panipat,Lucknow,600,28.6,True,24305,23300,37200,600,Completed,4.8
+BK0281,2026-07-27,SHP001,Pioneer Patil Agro Traders,OWN093,TRK0199,Open body,Agri produce (onion/potato),Kolkata,Ahmedabad,2025,12.3,False,82138,76200,93800,0,Completed,3.9
+BK0282,2026-07-27,SHP050,Shree Ghosh Build Supplies,OWN047,TRK0098,Tipper,Cement bags,Guwahati,Indore,2065,13.6,True,67747,61500,99100,2065,Completed,4.2
+BK0283,2026-07-27,SHP050,Shree Ghosh Build Supplies,OWN061,TRK0127,Tipper,Sand & aggregates,Mumbai,Jodhpur,995,23.5,True,34833,33600,45300,995,Completed,4.7
+BK0284,2026-07-27,SHP009,Bharat Tiwari Distributors,OWN011,TRK0025,Open body,FMCG cartons,Mumbai,Coimbatore,1245,9.0,True,35943,34800,57100,1245,Completed,4.7
+BK0285,2026-07-27,SHP085,Om Sharma Auto Components,OWN047,TRK0099,Container,Auto parts,Chennai,Kanpur,1860,7.6,False,96990,88700,106200,0,Completed,4.8
+BK0286,2026-07-27,SHP054,Jai Sandhu Agro Traders,OWN055,TRK0119,Open body,Agri produce (onion/potato),Panipat,Amritsar,400,16.5,True,11934,11000,17900,400,Completed,5.0
+BK0287,2026-07-28,SHP046,Sunrise Kumar Foods,OWN126,TRK0271,Refrigerated,Frozen food & dairy,Chennai,Gurugram,2180,6.6,False,131355,124400,153100,0,Completed,4.0
+BK0288,2026-07-28,SHP067,Jai Pillai Pharma Distributors,OWN020,TRK0044,Refrigerated,Pharmaceuticals,Hyderabad,Nashik,715,11.1,True,38914,37700,54600,715,Completed,4.5
+BK0289,2026-07-28,SHP004,New Iyer Auto Components,OWN122,TRK0264,Open body,Machinery parts,Gurugram,Surat,1145,9.3,True,33064,31800,47800,1145,Completed,3.9
+BK0290,2026-07-30,SHP065,Sai Mishra Polymers,OWN155,TRK0329,Open body,Paper rolls,Rajkot,Bengaluru,1575,8.4,True,49984,48900,65000,1575,Completed,4.9
+BK0291,2026-07-30,SHP026,Pioneer Verma Textiles,OWN062,TRK0129,Open body,Textiles & garments,Bengaluru,Mumbai,1055,9.3,False,46265,44100,48000,0,Completed,4.3
+BK0292,2026-07-30,SHP076,Prime Gill Agro Traders,OWN041,TRK0086,Open body,Agri produce (onion/potato),Kochi,Pune,1235,12.0,True,36548,32900,51800,1235,Completed,4.0
+BK0293,2026-07-30,SHP014,Bharat Kumar Distributors,OWN021,TRK0045,LCV (Tata 407 class),FMCG cartons,Pune,Vadodara,535,2.8,True,10960,10600,15600,535,Completed,4.9
+BK0294,2026-07-31,SHP038,Global Sandhu Distributors,OWN154,TRK0326,LCV (Tata 407 class),FMCG cartons,Delhi,Vadodara,1010,2.7,False,28550,27100,31200,0,Completed,4.2
+BK0295,2026-07-31,SHP058,Sai Das Polymers,OWN107,TRK0228,Open body,Paper rolls,Pune,Hyderabad,630,17.8,True,15687,14900,23500,630,Completed,4.4
+BK0296,2026-08-01,SHP020,Classic Chauhan Polymers,OWN043,TRK0091,Open body,Paper rolls,Ludhiana,Vadodara,1240,18.6,False,48984,47900,56700,0,Completed,4.8
+BK0297,2026-08-01,SHP062,Shree Das Electronics,OWN038,TRK0077,Container,Electronics,Bengaluru,Mumbai,1055,10.5,False,49178,46600,54500,0,Completed,4.8
+BK0298,2026-08-01,SHP075,Sunrise Meena Steel Traders,OWN069,TRK0145,Trailer,Steel coils,Bhubaneswar,Pune,1585,23.7,True,72939,67400,104300,1585,Completed,4.1
+BK0299,2026-08-02,SHP004,New Iyer Auto Components,OWN078,TRK0168,Trailer,Machinery parts,Chennai,Kochi,700,12.6,True,32168,31600,41500,700,Completed,4.3
+BK0300,2026-08-02,SHP074,New Jadhav Furnitures,OWN007,TRK0019,Container,Furniture,Chennai,Jaipur,2010,14.0,False,96950,92600,107800,0,Completed,4.1
+BK0301,2026-08-02,SHP024,Lakshmi Rathore Foods,OWN093,TRK0201,Refrigerated,Frozen food & dairy,Panipat,Bhubaneswar,1685,7.1,True,81542,75400,126500,1685,Completed,4.7
+BK0302,2026-08-02,SHP008,Prime Reddy Build Supplies,OWN042,TRK0090,Tipper,Sand & aggregates,Amritsar,Panipat,400,9.0,True,15131,13900,22700,400,Completed,4.8
+BK0303,2026-08-02,SHP012,Kaveri Jadhav Textiles,OWN041,TRK0085,Open body,Textiles & garments,Rajkot,Mumbai,525,18.0,False,18863,17600,21000,0,Completed,4.3
+BK0304,2026-08-02,SHP082,New Sharma Steel Traders,OWN026,TRK0055,Trailer,Steel coils,Ahmedabad,Bengaluru,1545,24.3,False,85682,81700,91300,0,Completed,4.8
+BK0305,2026-08-02,SHP057,Star Malhotra Distributors,OWN101,TRK0219,Container,FMCG cartons,Panipat,Indore,935,16.8,True,34170,32000,49600,935,Completed,4.6
+BK0306,2026-08-03,SHP034,Bharat Das Foods,OWN093,TRK0201,Refrigerated,Frozen food & dairy,Coimbatore,Bengaluru,285,5.3,True,15152,14100,21300,285,Cancelled,
+BK0307,2026-08-03,SHP024,Lakshmi Rathore Foods,OWN014,TRK0033,Refrigerated,Frozen food & dairy,Panipat,Raipur,1275,9.4,False,79335,75900,88400,0,Completed,4.0
+BK0308,2026-08-03,SHP033,Kaveri Das Steel Traders,OWN030,TRK0061,Trailer,Steel coils,Mumbai,Jaipur,1150,12.3,False,65733,62300,74500,0,Completed,3.8
+BK0309,2026-08-03,SHP065,Sai Mishra Polymers,OWN087,TRK0188,Container,Paper rolls,Lucknow,Ahmedabad,1180,8.7,True,38953,38100,57100,1180,Completed,4.9
+BK0310,2026-08-04,SHP028,Bharat Choudhary Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Bhubaneswar,Jodhpur,1830,28.1,True,93074,90600,123700,1830,Completed,4.6
+BK0311,2026-08-04,SHP049,Bharat Kumar Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Hyderabad,Pune,630,14.0,True,27054,25800,44900,630,Completed,4.3
+BK0312,2026-08-04,SHP077,Global Malhotra Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Mumbai,Panipat,1525,7.9,True,76163,71800,105000,1525,Completed,4.6
+BK0313,2026-08-05,SHP035,Jai Pillai Polymers,OWN143,TRK0305,Container,Paper rolls,Hyderabad,Bengaluru,625,14.9,False,31873,30700,35200,0,Completed,4.8
+BK0314,2026-08-06,SHP022,Shakti Pillai Distributors,OWN153,TRK0324,LCV (Tata 407 class),FMCG cartons,Rajkot,Kanpur,1335,2.7,True,27491,26400,39800,1335,Completed,4.9
+BK0315,2026-08-06,SHP071,Royal Verma Foods,OWN020,TRK0044,Refrigerated,Frozen food & dairy,Amritsar,Patna,1505,9.5,True,79900,76400,118100,1505,Completed,4.7
+BK0316,2026-08-08,SHP069,Bharat Saini Polymers,OWN044,TRK0095,Container,Paper rolls,Mumbai,Bengaluru,1055,8.1,False,45364,43800,51900,0,Completed,4.7
+BK0317,2026-08-08,SHP027,Royal Bhatia Agro Traders,OWN130,TRK0281,Open body,Agri produce (onion/potato),Lucknow,Rajkot,1430,17.7,True,45296,41900,63800,1430,Completed,4.5
+BK0318,2026-08-08,SHP020,Classic Chauhan Polymers,OWN126,TRK0270,Container,Paper rolls,Amritsar,Nagpur,1550,14.3,True,62622,56500,81200,1550,Completed,4.6
+BK0319,2026-08-09,SHP003,Jai Patel Distributors,OWN126,TRK0270,Container,FMCG cartons,Nagpur,Coimbatore,1435,16.9,True,52331,48500,76400,1435,Completed,4.5
+BK0320,2026-08-09,SHP064,Sunrise Bhatia Agro Traders,OWN106,TRK0226,Open body,Agri produce (onion/potato),Chandigarh,Kolkata,1830,7.4,True,61584,55900,90300,1830,Completed,5.0
+BK0321,2026-08-09,SHP053,Narmada Iyer Pharma Distributors,OWN093,TRK0201,Refrigerated,Pharmaceuticals,Ludhiana,Indore,1135,7.9,True,58897,57600,86800,1135,Completed,4.5
+BK0322,2026-08-09,SHP023,Kaveri Nair Steel Traders,OWN130,TRK0280,Trailer,Steel coils,Nagpur,Raipur,330,23.6,True,16133,14900,23500,330,Completed,4.2
+BK0323,2026-08-09,SHP055,Global Ansari Distributors,OWN153,TRK0324,LCV (Tata 407 class),FMCG cartons,Hyderabad,Jaipur,1370,1.5,True,28631,28200,42800,1370,Completed,4.7
+BK0324,2026-08-10,SHP084,Lakshmi Tiwari Agro Traders,OWN048,TRK0101,Open body,Agri produce (onion/potato),Nagpur,Panipat,1175,18.0,True,36239,34600,52500,1175,Completed,4.0
+BK0325,2026-08-10,SHP030,Prime Khan Textiles,OWN044,TRK0093,Container,Textiles & garments,Jaipur,Kolkata,1695,10.1,True,61477,56700,87000,1695,Completed,4.8
+BK0326,2026-08-10,SHP058,Sai Das Polymers,OWN052,TRK0112,Container,Plastic granules,Chennai,Kolkata,1700,12.7,True,56969,53100,85000,1700,Completed,4.2
+BK0327,2026-08-10,SHP065,Sai Mishra Polymers,OWN095,TRK0205,Open body,Paper rolls,Rajkot,Gurugram,1160,13.5,True,30649,28700,42900,1160,Completed,4.1
+BK0328,2026-08-11,SHP079,Star Ghosh Polymers,OWN155,TRK0330,Open body,Plastic granules,Nagpur,Jaipur,905,7.5,True,22447,21200,36700,905,Completed,4.7
+BK0329,2026-08-11,SHP030,Prime Khan Textiles,OWN048,TRK0101,Open body,Textiles & garments,Jaipur,Ahmedabad,675,8.3,True,18423,18000,30100,675,Completed,4.9
+BK0330,2026-08-11,SHP068,Star Patel Polymers,OWN067,TRK0142,Container,Plastic granules,Kanpur,Jaipur,565,12.0,False,29273,28800,32900,0,Completed,4.8
+BK0331,2026-08-11,SHP004,New Iyer Auto Components,OWN066,TRK0138,Trailer,Machinery parts,Lucknow,Bhubaneswar,1100,14.9,True,43688,40200,70200,1100,Completed,4.9
+BK0332,2026-08-11,SHP023,Kaveri Nair Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Kanpur,Delhi,490,15.9,True,24718,22900,33500,490,Completed,4.9
+BK0333,2026-08-11,SHP040,Balaji Das Polymers,OWN047,TRK0099,Container,Plastic granules,Coimbatore,Bengaluru,285,14.5,True,10355,9900,16600,285,Completed,4.1
+BK0334,2026-08-11,SHP079,Star Ghosh Polymers,OWN038,TRK0075,Container,Paper rolls,Nagpur,Ludhiana,1415,18.9,False,68757,65200,71600,0,Completed,4.3
+BK0335,2026-08-12,SHP076,Prime Gill Agro Traders,OWN070,TRK0148,Open body,Agri produce (onion/potato),Kochi,Mumbai,1350,18.1,True,45823,42300,68000,1350,Completed,4.9
+BK0336,2026-08-12,SHP024,Lakshmi Rathore Foods,OWN150,TRK0320,Refrigerated,Frozen food & dairy,Panipat,Nagpur,1175,4.2,True,57939,56400,85400,1175,Completed,4.1
+BK0337,2026-08-13,SHP045,Narmada Patel Textiles,OWN040,TRK0081,Container,Textiles & garments,Kota,Gurugram,475,14.3,True,19402,17400,27300,475,Completed,3.9
+BK0338,2026-08-13,SHP017,Star Rathore Polymers,OWN038,TRK0075,Container,Plastic granules,Chennai,Kanpur,1860,12.2,True,60807,58400,94600,1860,Completed,5.0
+BK0339,2026-08-13,SHP086,Shree Kumar Auto Components,OWN061,TRK0128,Open body,Machinery parts,Mumbai,Chandigarh,1690,13.3,True,45393,41200,68900,1690,Completed,4.7
+BK0340,2026-08-13,SHP060,Jai Meena Steel Traders,OWN117,TRK0249,Trailer,Steel coils,Panipat,Rajkot,1250,24.2,False,83188,79400,90100,0,Completed,4.2
+BK0341,2026-08-13,SHP043,Om Patel Distributors,OWN115,TRK0243,Container,FMCG cartons,Gurugram,Jaipur,265,8.6,False,10990,10200,13000,0,Completed,4.4
+BK0342,2026-08-14,SHP035,Jai Pillai Polymers,OWN127,TRK0275,Open body,Paper rolls,Gurugram,Kolkata,1640,12.7,True,50381,46700,66200,1640,Completed,4.5
+BK0343,2026-08-14,SHP049,Bharat Kumar Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Ludhiana,Jaipur,555,22.3,True,27115,24400,39600,555,Completed,4.5
+BK0344,2026-08-14,SHP062,Shree Das Electronics,OWN138,TRK0295,Container,Electronics,Bengaluru,Vadodara,1425,17.6,False,70857,64800,79000,0,Completed,4.6
+BK0345,2026-08-14,SHP008,Prime Reddy Build Supplies,OWN070,TRK0147,Tipper,Cement bags,Amritsar,Indore,1245,12.9,True,41290,40400,62800,1245,Completed,5.0
+BK0346,2026-08-14,SHP058,Sai Das Polymers,OWN099,TRK0214,Open body,Paper rolls,Pune,Indore,640,15.1,False,25030,23600,26400,0,Completed,4.1
+BK0347,2026-08-14,SHP030,Prime Khan Textiles,OWN097,TRK0207,Open body,Textiles & garments,Nagpur,Bengaluru,1155,19.5,False,43082,40100,48700,0,Completed,4.9
+BK0348,2026-08-15,SHP084,Lakshmi Tiwari Agro Traders,OWN088,TRK0189,Open body,Agri produce (onion/potato),Nagpur,Gurugram,1050,16.6,True,28569,27500,44100,1050,Completed,4.9
+BK0349,2026-08-15,SHP061,Sai Choudhary Furnitures,OWN035,TRK0072,Open body,Furniture,Nagpur,Rajkot,1080,9.4,True,26756,25300,42500,1080,Completed,4.4
+BK0350,2026-08-15,SHP052,Jai Kumar Pharma Distributors,OWN084,TRK0183,Refrigerated,Pharmaceuticals,Indore,Ahmedabad,425,7.9,True,20422,18700,29000,425,Completed,3.9
+BK0351,2026-08-15,SHP050,Shree Ghosh Build Supplies,OWN018,TRK0039,Open body,Cement bags,Guwahati,Gurugram,1845,14.0,True,59553,55400,78400,1845,Cancelled,
+BK0352,2026-08-15,SHP055,Global Ansari Distributors,OWN101,TRK0219,Container,FMCG cartons,Hyderabad,Nagpur,530,18.2,True,20152,19700,26600,530,Completed,4.7
+BK0353,2026-08-15,SHP010,Lakshmi Ghosh Textiles,OWN158,TRK0335,Open body,Textiles & garments,Kolkata,Bengaluru,1950,14.8,True,52025,48500,76800,1950,Completed,4.9
+BK0354,2026-08-16,SHP026,Pioneer Verma Textiles,OWN038,TRK0077,Container,Textiles & garments,Bengaluru,Jaipur,1950,18.5,True,71890,68700,97500,1950,Completed,3.8
+BK0355,2026-08-16,SHP029,Om Yadav Distributors,OWN044,TRK0093,Container,FMCG cartons,Jaipur,Chennai,2010,9.0,True,73253,70200,102400,2010,Completed,4.9
+BK0356,2026-08-16,SHP014,Bharat Kumar Distributors,OWN055,TRK0118,LCV (Tata 407 class),FMCG cartons,Pune,Agra,1315,3.7,True,26482,25900,37000,1315,Completed,4.5
+BK0357,2026-08-16,SHP030,Prime Khan Textiles,OWN052,TRK0112,Container,Textiles & garments,Jaipur,Kanpur,565,15.5,True,19899,19100,28700,565,Completed,4.2
+BK0358,2026-08-16,SHP074,New Jadhav Furnitures,OWN050,TRK0108,Open body,Furniture,Nagpur,Kolkata,1210,12.8,False,43712,42500,45700,0,Completed,3.8
+BK0359,2026-08-16,SHP026,Pioneer Verma Textiles,OWN041,TRK0086,Open body,Textiles & garments,Bengaluru,Delhi,2175,17.5,True,56036,51800,89400,2175,Completed,3.9
+BK0360,2026-08-17,SHP066,Unity Meena Furnitures,OWN115,TRK0243,Container,Furniture,Gurugram,Bengaluru,2155,12.8,False,96966,90400,104700,0,Cancelled,
+BK0361,2026-08-17,SHP045,Narmada Patel Textiles,OWN007,TRK0019,Container,Textiles & garments,Kota,Ludhiana,790,18.1,True,29568,27200,44600,790,Completed,4.7
+BK0362,2026-08-17,SHP069,Bharat Saini Polymers,OWN116,TRK0245,Container,Plastic granules,Mumbai,Kochi,1350,15.0,False,66380,64300,75100,0,Completed,4.9
+BK0363,2026-08-18,SHP035,Jai Pillai Polymers,OWN045,TRK0096,Open body,Paper rolls,Hyderabad,Chandigarh,1865,12.2,True,54834,50000,86400,1865,Completed,4.4
+BK0364,2026-08-18,SHP078,Narmada Khan Polymers,OWN098,TRK0208,Open body,Plastic granules,Visakhapatnam,Bhopal,1080,15.4,True,29173,27300,42400,1080,Completed,4.8
+BK0365,2026-08-18,SHP081,Narmada Reddy Textiles,OWN088,TRK0189,Open body,Textiles & garments,Mumbai,Bhopal,825,7.6,True,22073,20800,32400,825,Completed,4.1
+BK0366,2026-08-18,SHP014,Bharat Kumar Distributors,OWN084,TRK0181,Open body,FMCG cartons,Surat,Mumbai,290,17.1,True,8477,7700,11700,290,Completed,4.7
+BK0367,2026-08-19,SHP004,New Iyer Auto Components,OWN011,TRK0026,Open body,Auto parts,Lucknow,Jaipur,640,10.0,True,21216,19700,29300,640,Completed,4.9
+BK0368,2026-08-19,SHP068,Star Patel Polymers,OWN102,TRK0220,Container,Paper rolls,Kanpur,Gurugram,495,18.8,True,19833,19300,27100,495,Cancelled,
+BK0369,2026-08-19,SHP014,Bharat Kumar Distributors,OWN122,TRK0262,LCV (Tata 407 class),FMCG cartons,Pune,Amritsar,1825,2.8,True,40178,36200,59100,1825,Completed,4.4
+BK0370,2026-08-19,SHP004,New Iyer Auto Components,OWN073,TRK0160,Trailer,Machinery parts,Kochi,Nashik,1440,30.1,False,78963,74800,87300,0,Completed,4.6
+BK0371,2026-08-19,SHP089,Sunrise Patel Foods,OWN014,TRK0033,Refrigerated,Frozen food & dairy,Lucknow,Raipur,785,9.6,True,38858,36600,56700,785,Completed,4.6
+BK0372,2026-08-19,SHP036,Jai Saini Furnitures,OWN070,TRK0150,Container,Furniture,Surat,Coimbatore,1515,17.4,True,55030,50500,81200,1515,Completed,4.2
+BK0373,2026-08-19,SHP070,Prime Kumar Electronics,OWN018,TRK0040,Container,Electronics,Ahmedabad,Kota,515,9.3,False,24697,23400,26800,0,Completed,4.7
+BK0374,2026-08-20,SHP018,Jai Naidu Steel Traders,OWN117,TRK0249,Trailer,Steel coils,Agra,Vadodara,910,23.0,False,60873,59000,62300,0,Completed,4.4
+BK0375,2026-08-20,SHP057,Star Malhotra Distributors,OWN154,TRK0327,LCV (Tata 407 class),FMCG cartons,Chandigarh,Ahmedabad,1190,3.0,False,29722,27800,31100,0,Completed,4.1
+BK0376,2026-08-20,SHP022,Shakti Pillai Distributors,OWN120,TRK0255,Container,FMCG cartons,Ahmedabad,Delhi,970,8.9,True,31547,28400,49500,970,Completed,4.0
+BK0377,2026-08-21,SHP015,Jai Chauhan Auto Components,OWN043,TRK0091,Open body,Auto parts,Indore,Visakhapatnam,1185,18.9,False,47928,44100,52900,0,Completed,4.9
+BK0378,2026-08-21,SHP048,Kaveri Iyer Polymers,OWN011,TRK0028,Container,Paper rolls,Bhopal,Bengaluru,1430,16.9,False,59635,54000,67400,0,Completed,4.8
+BK0379,2026-08-21,SHP058,Sai Das Polymers,OWN066,TRK0140,Container,Paper rolls,Gurugram,Surat,1145,10.7,True,38009,34200,56200,1145,Completed,4.2
+BK0380,2026-08-22,SHP024,Lakshmi Rathore Foods,OWN083,TRK0176,Refrigerated,Frozen food & dairy,Panipat,Kanpur,580,10.8,True,29141,26900,45300,580,Completed,4.0
+BK0381,2026-08-22,SHP027,Royal Bhatia Agro Traders,OWN095,TRK0204,Open body,Agri produce (onion/potato),Chennai,Bengaluru,365,14.1,True,10966,10100,16500,365,Completed,4.9
+BK0382,2026-08-22,SHP074,New Jadhav Furnitures,OWN067,TRK0142,Container,Furniture,Nagpur,Kanpur,755,11.9,False,41299,38000,44600,0,Completed,4.9
+BK0383,2026-08-23,SHP039,Prime Rathore Furnitures,OWN155,TRK0329,Open body,Furniture,Coimbatore,Raipur,1550,8.7,True,43667,42200,65600,1550,Completed,4.4
+BK0384,2026-08-23,SHP065,Sai Mishra Polymers,OWN114,TRK0242,Container,Paper rolls,Rajkot,Indore,650,14.5,True,19613,17900,30500,650,Completed,4.9
+BK0385,2026-08-23,SHP061,Sai Choudhary Furnitures,OWN041,TRK0085,Open body,Furniture,Nagpur,Ludhiana,1415,13.1,False,50422,48100,53700,0,Completed,3.8
+BK0386,2026-08-23,SHP067,Jai Pillai Pharma Distributors,OWN098,TRK0209,Container,Pharmaceuticals,Hyderabad,Nashik,715,14.5,True,24029,23400,37900,715,Completed,4.6
+BK0387,2026-08-23,SHP050,Shree Ghosh Build Supplies,OWN094,TRK0202,Tipper,Sand & aggregates,Guwahati,Ludhiana,2045,17.6,True,73582,69500,104600,2045,Completed,4.0
+BK0388,2026-08-23,SHP037,Sunrise Nair Furnitures,OWN093,TRK0199,Open body,Furniture,Delhi,Hyderabad,1570,17.7,True,54392,53300,72800,1570,Completed,4.8
+BK0389,2026-08-23,SHP021,Lakshmi Pillai Auto Components,OWN093,TRK0199,Open body,Machinery parts,Ludhiana,Hyderabad,1905,16.1,True,58798,58000,86600,1905,Completed,4.1
+BK0390,2026-08-23,SHP060,Jai Meena Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Gurugram,Chandigarh,315,20.6,True,13344,12400,18300,315,Completed,4.4
+BK0391,2026-08-24,SHP070,Prime Kumar Electronics,OWN147,TRK0312,Container,Electronics,Nagpur,Kanpur,755,9.1,False,36413,34600,41500,0,Completed,4.7
+BK0392,2026-08-24,SHP061,Sai Choudhary Furnitures,OWN018,TRK0040,Container,Furniture,Vadodara,Coimbatore,1650,14.4,False,77893,72500,83600,0,Completed,4.1
+BK0393,2026-08-24,SHP060,Jai Meena Steel Traders,OWN108,TRK0231,Trailer,Steel coils,Panipat,Rajkot,1250,17.4,True,58463,56900,79700,1250,Completed,3.9
+BK0394,2026-08-24,SHP003,Jai Patel Distributors,OWN048,TRK0101,Open body,FMCG cartons,Nagpur,Panipat,1175,10.8,True,33309,31900,50700,1175,Completed,3.9
+BK0395,2026-08-24,SHP008,Prime Reddy Build Supplies,OWN147,TRK0313,Open body,Cement bags,Coimbatore,Indore,1635,11.1,True,48559,45200,75700,1635,Completed,4.3
+BK0396,2026-08-25,SHP065,Sai Mishra Polymers,OWN130,TRK0281,Open body,Plastic granules,Rajkot,Lucknow,1430,18.1,False,56720,51300,62600,0,Completed,4.7
+BK0397,2026-08-26,SHP026,Pioneer Verma Textiles,OWN073,TRK0158,Open body,Textiles & garments,Bengaluru,Jaipur,1950,9.3,True,54753,52500,73500,1950,Completed,4.2
+BK0398,2026-08-26,SHP008,Prime Reddy Build Supplies,OWN133,TRK0286,Open body,Cement bags,Jodhpur,Chennai,2060,12.4,False,80358,74100,85700,0,Completed,4.9
+BK0399,2026-08-26,SHP051,Prime Kumar Agro Traders,OWN133,TRK0286,Open body,Agri produce (onion/potato),Nashik,Indore,465,19.4,False,18106,17000,19900,0,Completed,5.0
+BK0400,2026-08-26,SHP014,Bharat Kumar Distributors,OWN122,TRK0264,Open body,FMCG cartons,Pune,Chennai,1145,18.1,False,41639,40800,51300,0,Completed,5.0
+BK0401,2026-08-27,SHP045,Narmada Patel Textiles,OWN119,TRK0253,Open body,Textiles & garments,Kota,Delhi,500,19.7,True,14601,14100,22000,500,Completed,4.9
+BK0402,2026-08-27,SHP016,Unity Khan Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Hyderabad,Indore,815,7.2,False,50795,48700,60100,0,Completed,4.2
+BK0403,2026-08-27,SHP036,Jai Saini Furnitures,OWN035,TRK0071,Open body,Furniture,Indore,Panipat,935,13.3,True,27473,26400,36400,935,Completed,4.1
+BK0404,2026-08-27,SHP079,Star Ghosh Polymers,OWN053,TRK0114,Open body,Paper rolls,Bhopal,Ludhiana,1080,14.8,False,34974,32600,40200,0,Completed,4.0
+BK0405,2026-08-27,SHP045,Narmada Patel Textiles,OWN038,TRK0075,Container,Textiles & garments,Kota,Kanpur,585,9.3,True,20129,19800,30500,585,Completed,4.5
+BK0406,2026-08-27,SHP019,Om Kumar Electronics,OWN011,TRK0028,Container,Electronics,Chennai,Indore,1460,16.2,True,48864,47100,65700,1460,Completed,3.9
+BK0407,2026-08-27,SHP064,Sunrise Bhatia Agro Traders,OWN073,TRK0158,Open body,Agri produce (onion/potato),Nashik,Ahmedabad,450,14.0,False,14864,13400,17900,0,Completed,3.8
+BK0408,2026-08-27,SHP063,Classic Reddy Steel Traders,OWN012,TRK0029,Trailer,Steel coils,Jaipur,Bhopal,545,16.2,False,29725,27800,35000,0,Completed,4.3
+BK0409,2026-08-28,SHP090,Star Singh Agro Traders,OWN145,TRK0309,Open body,Agri produce (onion/potato),Hyderabad,Gurugram,1550,15.6,True,53690,48800,73100,1550,Completed,4.1
+BK0410,2026-08-28,SHP071,Royal Verma Foods,OWN030,TRK0062,Refrigerated,Frozen food & dairy,Indore,Nashik,465,7.5,False,32440,30400,38300,0,Completed,4.5
+BK0411,2026-08-28,SHP071,Royal Verma Foods,OWN084,TRK0183,Refrigerated,Frozen food & dairy,Amritsar,Vadodara,1310,6.6,True,55227,54500,91100,1310,Completed,3.9
+BK0412,2026-08-28,SHP082,New Sharma Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Delhi,Bengaluru,2175,15.2,True,99385,94300,153600,2175,Completed,4.1
+BK0413,2026-08-29,SHP068,Star Patel Polymers,OWN066,TRK0140,Container,Paper rolls,Hyderabad,Vadodara,975,7.3,False,43609,40200,47600,0,Completed,4.6
+BK0414,2026-08-29,SHP031,Shree Chauhan Textiles,OWN137,TRK0291,Open body,Textiles & garments,Raipur,Hyderabad,675,16.1,True,21787,21400,28600,675,Cancelled,
+BK0415,2026-08-29,SHP001,Pioneer Patil Agro Traders,OWN055,TRK0119,Open body,Agri produce (onion/potato),Chennai,Delhi,2195,16.2,True,63562,61400,96000,2195,Cancelled,
+BK0416,2026-08-29,SHP046,Sunrise Kumar Foods,OWN014,TRK0033,Refrigerated,Frozen food & dairy,Chennai,Agra,1980,6.7,False,127024,116500,138600,0,Completed,4.7
+BK0417,2026-08-29,SHP040,Balaji Das Polymers,OWN141,TRK0299,Container,Paper rolls,Lucknow,Hyderabad,1350,14.1,False,61539,59700,70800,0,Completed,3.9
+BK0418,2026-08-30,SHP060,Jai Meena Steel Traders,OWN065,TRK0137,Trailer,Steel coils,Rajkot,Jaipur,900,13.5,True,40725,38900,56400,900,Completed,4.3
+BK0419,2026-08-30,SHP085,Om Sharma Auto Components,OWN084,TRK0182,Trailer,Machinery parts,Delhi,Ahmedabad,970,21.4,True,48761,46900,67000,970,Completed,4.2
+BK0420,2026-08-30,SHP026,Pioneer Verma Textiles,OWN027,TRK0056,Open body,Textiles & garments,Bengaluru,Delhi,2175,9.4,True,57165,53300,92800,2175,Completed,4.3
+BK0421,2026-08-30,SHP031,Shree Chauhan Textiles,OWN042,TRK0089,Container,Textiles & garments,Raipur,Delhi,1165,7.6,True,37664,35700,61600,1165,Completed,3.9
+BK0422,2026-08-31,SHP067,Jai Pillai Pharma Distributors,OWN147,TRK0312,Container,Pharmaceuticals,Hyderabad,Bhubaneswar,1045,11.0,True,35581,34900,53900,1045,Completed,4.2
+BK0423,2026-08-31,SHP035,Jai Pillai Polymers,OWN008,TRK0020,Container,Plastic granules,Hyderabad,Ahmedabad,1100,15.9,True,33334,30800,54000,1100,Completed,4.8
+BK0424,2026-09-01,SHP080,Unity Reddy Polymers,OWN112,TRK0239,Container,Paper rolls,Ludhiana,Nagpur,1415,18.5,False,57552,52400,65500,0,Completed,3.8
+BK0425,2026-09-01,SHP069,Bharat Saini Polymers,OWN045,TRK0096,Open body,Paper rolls,Mumbai,Kolkata,2070,10.8,True,62307,58200,96100,2070,Completed,4.3
+BK0426,2026-09-02,SHP089,Sunrise Patel Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Pune,Vadodara,535,9.4,True,28420,27900,37700,535,Completed,4.5
+BK0427,2026-09-02,SHP067,Jai Pillai Pharma Distributors,OWN108,TRK0229,Container,Pharmaceuticals,Hyderabad,Chennai,645,10.0,True,25510,24900,37500,645,Completed,4.1
+BK0428,2026-09-02,SHP024,Lakshmi Rathore Foods,OWN084,TRK0183,Refrigerated,Frozen food & dairy,Bengaluru,Nashik,1100,5.7,True,55580,51400,71600,1100,Completed,4.8
+BK0429,2026-09-02,SHP044,Prime Das Auto Components,OWN139,TRK0297,Open body,Auto parts,Chandigarh,Bhubaneswar,1840,13.4,True,56000,51500,82000,1840,Completed,4.5
+BK0430,2026-09-02,SHP006,Prime Das Furnitures,OWN073,TRK0158,Open body,Furniture,Indore,Delhi,835,14.6,False,29745,28800,32000,0,Completed,4.6
+BK0431,2026-09-04,SHP021,Lakshmi Pillai Auto Components,OWN150,TRK0318,Open body,Auto parts,Nagpur,Coimbatore,1435,9.3,True,49956,47200,68100,1435,Completed,3.8
+BK0432,2026-09-04,SHP025,Global Gill Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Bengaluru,Gurugram,2155,12.9,False,108562,102200,133900,0,Completed,4.5
+BK0433,2026-09-04,SHP041,Bharat Gill Build Supplies,OWN095,TRK0203,Tipper,Sand & aggregates,Mumbai,Agra,1300,20.0,True,38838,36800,56500,1300,Completed,3.9
+BK0434,2026-09-04,SHP016,Unity Khan Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Lucknow,Nashik,1320,9.8,True,66239,61500,89800,1320,Completed,4.0
+BK0435,2026-09-04,SHP020,Classic Chauhan Polymers,OWN127,TRK0275,Open body,Plastic granules,Amritsar,Jodhpur,780,11.3,True,24218,22800,32000,780,Completed,4.1
+BK0436,2026-09-05,SHP026,Pioneer Verma Textiles,OWN127,TRK0275,Open body,Textiles & garments,Bengaluru,Surat,1305,16.1,False,47950,45900,52300,0,Completed,4.2
+BK0437,2026-09-05,SHP090,Star Singh Agro Traders,OWN002,TRK0005,Open body,Agri produce (onion/potato),Hyderabad,Ahmedabad,1100,16.6,True,31503,29700,42700,1100,Completed,4.7
+BK0438,2026-09-05,SHP063,Classic Reddy Steel Traders,OWN030,TRK0061,Trailer,Steel coils,Vadodara,Ludhiana,1240,11.4,True,52951,48200,82900,1240,Completed,4.2
+BK0439,2026-09-05,SHP069,Bharat Saini Polymers,OWN044,TRK0093,Container,Paper rolls,Mumbai,Amritsar,1760,11.3,True,59147,56500,89400,1760,Completed,4.2
+BK0440,2026-09-05,SHP042,Sai Saini Agro Traders,OWN068,TRK0144,Open body,Agri produce (onion/potato),Ahmedabad,Agra,895,10.9,True,26441,25100,36200,895,Completed,5.0
+BK0441,2026-09-05,SHP003,Jai Patel Distributors,OWN135,TRK0289,Container,FMCG cartons,Nagpur,Coimbatore,1435,12.6,True,56737,55700,85000,1435,Cancelled,
+BK0442,2026-09-06,SHP027,Royal Bhatia Agro Traders,OWN106,TRK0226,Open body,Agri produce (onion/potato),Hyderabad,Pune,630,14.8,True,22282,20200,28700,630,Completed,4.5
+BK0443,2026-09-06,SHP073,Om Das Build Supplies,OWN150,TRK0321,Open body,Cement bags,Pune,Bengaluru,920,11.1,True,31628,29500,43600,920,Completed,5.0
+BK0444,2026-09-07,SHP062,Shree Das Electronics,OWN070,TRK0149,Container,Electronics,Bengaluru,Delhi,2175,16.9,True,70552,64000,94000,2175,Completed,4.3
+BK0445,2026-09-07,SHP064,Sunrise Bhatia Agro Traders,OWN065,TRK0135,Open body,Agri produce (onion/potato),Chandigarh,Ahmedabad,1190,8.3,True,41244,37800,54300,1190,Completed,4.5
+BK0446,2026-09-07,SHP085,Om Sharma Auto Components,OWN112,TRK0239,Container,Auto parts,Delhi,Jaipur,295,8.2,False,12841,12000,13500,0,Completed,4.6
+BK0447,2026-09-08,SHP047,Narmada Sharma Foods,OWN035,TRK0069,Refrigerated,Frozen food & dairy,Nashik,Kolkata,1920,7.6,True,83801,80200,118700,1920,Completed,4.7
+BK0448,2026-09-08,SHP068,Star Patel Polymers,OWN104,TRK0223,Container,Paper rolls,Kanpur,Bhubaneswar,1105,13.0,True,44162,42100,60000,1105,Completed,4.3
+BK0449,2026-09-08,SHP039,Prime Rathore Furnitures,OWN078,TRK0167,Container,Furniture,Coimbatore,Indore,1635,15.9,False,67072,61100,78000,0,Completed,4.5
+BK0450,2026-09-08,SHP015,Jai Chauhan Auto Components,OWN050,TRK0108,Open body,Auto parts,Amritsar,Kolkata,2090,12.4,False,75828,68700,83700,0,Completed,4.4
+BK0451,2026-09-08,SHP086,Shree Kumar Auto Components,OWN115,TRK0244,Open body,Auto parts,Mumbai,Patna,1815,8.6,True,61119,56500,88500,1815,Cancelled,
+BK0452,2026-09-09,SHP013,Shakti Choudhary Distributors,OWN055,TRK0120,Container,FMCG cartons,Chandigarh,Jaipur,545,10.6,True,20533,18600,29500,545,Completed,4.1
+BK0453,2026-09-09,SHP016,Unity Khan Foods,OWN014,TRK0033,Refrigerated,Frozen food & dairy,Lucknow,Jaipur,640,11.2,True,34726,32500,45900,640,Completed,4.0
+BK0454,2026-09-09,SHP065,Sai Mishra Polymers,OWN122,TRK0265,Container,Plastic granules,Rajkot,Gurugram,1160,13.0,False,60894,59000,67900,0,Completed,3.9
+BK0455,2026-09-10,SHP043,Om Patel Distributors,OWN122,TRK0262,LCV (Tata 407 class),FMCG cartons,Hyderabad,Pune,630,1.4,True,14745,13400,19800,630,Completed,4.7
+BK0456,2026-09-10,SHP028,Bharat Choudhary Steel Traders,OWN150,TRK0317,Trailer,Steel coils,Coimbatore,Vadodara,1650,16.1,True,73079,67200,114100,1650,Completed,4.5
+BK0457,2026-09-11,SHP014,Bharat Kumar Distributors,OWN130,TRK0279,LCV (Tata 407 class),FMCG cartons,Pune,Kolkata,1970,3.1,True,34208,31400,51700,1970,Completed,4.4
+BK0458,2026-09-11,SHP089,Sunrise Patel Foods,OWN030,TRK0062,Refrigerated,Frozen food & dairy,Lucknow,Rajkot,1430,7.4,True,70458,64900,112600,1430,Completed,4.4
+BK0459,2026-09-11,SHP053,Narmada Iyer Pharma Distributors,OWN030,TRK0062,Refrigerated,Pharmaceuticals,Pune,Hyderabad,630,10.6,True,35665,32900,50600,630,Completed,4.3
+BK0460,2026-09-11,SHP043,Om Patel Distributors,OWN066,TRK0140,Container,FMCG cartons,Gurugram,Bhubaneswar,1590,9.6,True,55047,51400,77700,1590,Completed,4.3
+BK0461,2026-09-12,SHP079,Star Ghosh Polymers,OWN052,TRK0111,Container,Plastic granules,Nagpur,Chennai,1135,13.9,False,46776,43000,53300,0,Completed,4.7
+BK0462,2026-09-12,SHP008,Prime Reddy Build Supplies,OWN153,TRK0325,Tipper,Sand & aggregates,Amritsar,Gurugram,510,10.4,True,15772,15200,23300,510,Completed,4.9
+BK0463,2026-09-13,SHP052,Jai Kumar Pharma Distributors,OWN039,TRK0078,Refrigerated,Pharmaceuticals,Indore,Lucknow,860,8.9,False,58994,54100,66000,0,Completed,4.2
+BK0464,2026-09-13,SHP082,New Sharma Steel Traders,OWN108,TRK0230,Trailer,Steel coils,Ahmedabad,Jaipur,675,18.4,False,39829,36600,48800,0,Completed,4.5
+BK0465,2026-09-13,SHP026,Pioneer Verma Textiles,OWN038,TRK0075,Container,Textiles & garments,Bengaluru,Pune,920,17.1,True,33293,30700,47300,920,Completed,4.9
+BK0466,2026-09-13,SHP076,Prime Gill Agro Traders,OWN152,TRK0323,Open body,Agri produce (onion/potato),Kochi,Vadodara,1770,13.6,True,48614,48000,78300,1770,Completed,4.0
+BK0467,2026-09-13,SHP085,Om Sharma Auto Components,OWN147,TRK0313,Open body,Auto parts,Delhi,Lucknow,520,17.1,True,18202,17100,25100,520,Completed,4.3
+BK0468,2026-09-13,SHP018,Jai Naidu Steel Traders,OWN078,TRK0165,Trailer,Steel coils,Agra,Surat,1060,14.3,True,49344,47800,67500,1060,Completed,4.6
+BK0469,2026-09-13,SHP082,New Sharma Steel Traders,OWN078,TRK0165,Trailer,Steel coils,Jodhpur,Gurugram,585,12.1,True,26290,26000,38200,585,Completed,4.8
+BK0470,2026-09-14,SHP086,Shree Kumar Auto Components,OWN040,TRK0081,Container,Auto parts,Mumbai,Lucknow,1495,14.5,True,54526,50900,83700,1495,Completed,4.8
+BK0471,2026-09-14,SHP069,Bharat Saini Polymers,OWN073,TRK0156,Open body,Plastic granules,Mumbai,Ahmedabad,550,14.4,False,19981,18700,21200,0,Completed,4.7
+BK0472,2026-09-14,SHP009,Bharat Tiwari Distributors,OWN084,TRK0181,Open body,FMCG cartons,Mumbai,Visakhapatnam,1375,16.1,True,35165,33100,57000,1375,Completed,4.9
+BK0473,2026-09-14,SHP007,New Mishra Electronics,OWN064,TRK0133,Container,Electronics,Lucknow,Surat,1300,15.3,True,36884,35600,58600,1300,Completed,4.5
+BK0474,2026-09-15,SHP064,Sunrise Bhatia Agro Traders,OWN041,TRK0084,Open body,Agri produce (onion/potato),Chandigarh,Guwahati,1935,19.7,True,58323,53400,90200,1935,Completed,4.0
+BK0475,2026-09-15,SHP076,Prime Gill Agro Traders,OWN112,TRK0238,Open body,Agri produce (onion/potato),Kochi,Indore,1780,15.7,False,80930,79100,82700,0,Completed,4.8
+BK0476,2026-09-16,SHP045,Narmada Patel Textiles,OWN018,TRK0039,Open body,Textiles & garments,Kota,Visakhapatnam,1415,15.3,True,41027,38500,61300,1415,Completed,4.2
+BK0477,2026-09-17,SHP002,Ganpati Shinde Auto Components,OWN027,TRK0056,Open body,Machinery parts,Pune,Chennai,1145,12.8,True,30306,28600,48000,1145,Completed,4.0
+BK0478,2026-09-17,SHP020,Classic Chauhan Polymers,OWN150,TRK0318,Open body,Plastic granules,Amritsar,Ahmedabad,1230,18.9,True,37476,36700,58400,1230,Completed,4.5
+BK0479,2026-09-17,SHP041,Bharat Gill Build Supplies,OWN077,TRK0164,Tipper,Sand & aggregates,Mumbai,Chennai,1290,11.6,False,64947,61000,73600,0,Completed,4.4
+BK0480,2026-09-17,SHP050,Shree Ghosh Build Supplies,OWN056,TRK0121,Tipper,Sand & aggregates,Guwahati,Raipur,1455,18.5,True,46745,43300,66100,1455,Completed,4.6
+BK0481,2026-09-17,SHP004,New Iyer Auto Components,OWN158,TRK0335,Open body,Machinery parts,Lucknow,Mumbai,1495,16.5,False,54855,49500,56600,0,Completed,4.0
+BK0482,2026-09-18,SHP042,Sai Saini Agro Traders,OWN011,TRK0026,Open body,Agri produce (onion/potato),Ahmedabad,Bengaluru,1545,18.4,True,47888,45200,73800,1545,Completed,3.9
+BK0483,2026-09-18,SHP052,Jai Kumar Pharma Distributors,OWN042,TRK0088,Container,Pharmaceuticals,Ludhiana,Hyderabad,1905,16.6,True,77162,74100,105300,1905,Completed,4.3
+BK0484,2026-09-18,SHP074,New Jadhav Furnitures,OWN141,TRK0299,Container,Furniture,Lucknow,Delhi,520,16.4,False,24195,21900,26900,0,Completed,4.1
+BK0485,2026-09-18,SHP018,Jai Naidu Steel Traders,OWN069,TRK0145,Trailer,Steel coils,Agra,Bhubaneswar,1380,26.2,True,62585,57600,87200,1380,Completed,4.0
+BK0486,2026-09-18,SHP035,Jai Pillai Polymers,OWN102,TRK0220,Container,Plastic granules,Hyderabad,Mumbai,775,15.1,True,29227,28900,45600,775,Completed,4.5
+BK0487,2026-09-18,SHP015,Jai Chauhan Auto Components,OWN150,TRK0316,Trailer,Machinery parts,Lucknow,Panipat,600,17.1,False,32609,30800,39500,0,Completed,4.1
+BK0488,2026-09-19,SHP081,Narmada Reddy Textiles,OWN040,TRK0081,Container,Textiles & garments,Mumbai,Chennai,1290,13.4,False,64594,61600,75200,0,Completed,4.3
+BK0489,2026-09-19,SHP067,Jai Pillai Pharma Distributors,OWN078,TRK0166,Refrigerated,Pharmaceuticals,Hyderabad,Coimbatore,910,7.1,False,53122,51500,56700,0,Completed,4.5
+BK0490,2026-09-19,SHP067,Jai Pillai Pharma Distributors,OWN031,TRK0065,Container,Pharmaceuticals,Hyderabad,Vadodara,975,10.5,True,38219,34400,58200,975,Completed,4.4
+BK0491,2026-09-19,SHP049,Bharat Kumar Steel Traders,OWN150,TRK0317,Trailer,Steel coils,Ludhiana,Pune,1740,12.2,False,99558,96900,115700,0,Completed,4.8
+BK0492,2026-09-19,SHP017,Star Rathore Polymers,OWN055,TRK0120,Container,Plastic granules,Kolkata,Jaipur,1695,16.6,False,80751,76000,91500,0,Completed,4.1
+BK0493,2026-09-20,SHP076,Prime Gill Agro Traders,OWN126,TRK0272,Open body,Agri produce (onion/potato),Kochi,Pune,1235,12.5,True,31100,29800,46900,1235,Completed,4.6
+BK0494,2026-09-21,SHP028,Bharat Choudhary Steel Traders,OWN084,TRK0182,Trailer,Steel coils,Bhubaneswar,Kanpur,1105,12.5,True,57615,51900,76400,1105,Completed,4.7
+BK0495,2026-09-21,SHP049,Bharat Kumar Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Ludhiana,Pune,1740,25.1,True,82404,80500,120400,1740,Completed,4.2
+BK0496,2026-09-21,SHP024,Lakshmi Rathore Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Panipat,Mumbai,1525,4.3,True,80944,74900,119600,1525,Completed,5.0
+BK0497,2026-09-22,SHP038,Global Sandhu Distributors,OWN115,TRK0243,Container,FMCG cartons,Delhi,Hyderabad,1570,7.8,True,51996,49800,73200,1570,Completed,4.1
+BK0498,2026-09-22,SHP051,Prime Kumar Agro Traders,OWN050,TRK0108,Open body,Agri produce (onion/potato),Nashik,Jodhpur,875,13.1,True,23800,21700,34700,875,Completed,4.9
+BK0499,2026-09-22,SHP044,Prime Das Auto Components,OWN065,TRK0135,Open body,Machinery parts,Chandigarh,Jaipur,545,15.8,False,22894,22000,25000,0,Completed,4.6
+BK0500,2026-09-24,SHP050,Shree Ghosh Build Supplies,OWN035,TRK0072,Open body,Cement bags,Guwahati,Patna,830,9.1,False,30319,28700,32100,0,Completed,4.0
+BK0501,2026-09-24,SHP036,Jai Saini Furnitures,OWN038,TRK0075,Container,Furniture,Kochi,Raipur,1730,16.4,True,60417,58700,92500,1730,Completed,3.9
+BK0502,2026-09-24,SHP010,Lakshmi Ghosh Textiles,OWN150,TRK0319,Container,Textiles & garments,Kolkata,Ahmedabad,2025,7.8,False,79958,72100,90200,0,Completed,4.1
+BK0503,2026-09-24,SHP080,Unity Reddy Polymers,OWN106,TRK0226,Open body,Plastic granules,Ludhiana,Delhi,360,15.1,True,12411,11300,16700,360,Completed,5.0
+BK0504,2026-09-24,SHP016,Unity Khan Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Lucknow,Chennai,1915,6.8,True,105646,101600,144900,1915,Completed,4.3
+BK0505,2026-09-24,SHP063,Classic Reddy Steel Traders,OWN118,TRK0250,Trailer,Steel coils,Vadodara,Kanpur,1070,12.1,False,60748,55500,74300,0,Completed,4.2
+BK0506,2026-09-25,SHP038,Global Sandhu Distributors,OWN114,TRK0242,Container,FMCG cartons,Delhi,Kota,500,17.7,False,20596,18600,22200,0,Completed,4.5
+BK0507,2026-09-25,SHP065,Sai Mishra Polymers,OWN098,TRK0213,Container,Paper rolls,Delhi,Rajkot,1190,18.8,False,61676,60100,67300,0,Completed,4.2
+BK0508,2026-09-25,SHP069,Bharat Saini Polymers,OWN106,TRK0225,Container,Plastic granules,Mumbai,Amritsar,1760,17.2,True,67539,61700,91800,1760,Completed,4.3
+BK0509,2026-09-25,SHP054,Jai Sandhu Agro Traders,OWN116,TRK0247,Open body,Agri produce (onion/potato),Panipat,Guwahati,1870,15.0,True,56608,55600,91100,1870,Completed,4.3
+BK0510,2026-09-25,SHP073,Om Das Build Supplies,OWN002,TRK0006,Tipper,Cement bags,Pune,Indore,640,13.5,False,28960,28000,32200,0,Completed,3.9
+BK0511,2026-09-25,SHP002,Ganpati Shinde Auto Components,OWN114,TRK0241,Open body,Auto parts,Pune,Visakhapatnam,1240,15.4,True,38312,36300,51500,1240,Completed,4.4
+BK0512,2026-09-25,SHP017,Star Rathore Polymers,OWN122,TRK0264,Open body,Paper rolls,Kolkata,Hyderabad,1475,15.7,True,42635,40000,64700,1475,Completed,5.0
+BK0513,2026-09-26,SHP065,Sai Mishra Polymers,OWN150,TRK0321,Open body,Plastic granules,Rajkot,Chennai,1790,11.3,True,55724,53600,83600,1790,Completed,4.3
+BK0514,2026-09-26,SHP044,Prime Das Auto Components,OWN062,TRK0129,Open body,Auto parts,Chandigarh,Jodhpur,775,8.8,True,23346,21900,34300,775,Completed,3.9
+BK0515,2026-09-26,SHP043,Om Patel Distributors,OWN147,TRK0312,Container,FMCG cartons,Gurugram,Jaipur,265,18.4,False,12388,11600,14000,0,Completed,3.8
+BK0516,2026-09-27,SHP008,Prime Reddy Build Supplies,OWN084,TRK0181,Open body,Cement bags,Amritsar,Pune,1825,12.2,True,52470,47600,71400,1825,Completed,3.9
+BK0517,2026-09-27,SHP071,Royal Verma Foods,OWN039,TRK0078,Refrigerated,Frozen food & dairy,Amritsar,Indore,1245,6.1,False,86832,81400,97300,0,Completed,4.5
+BK0518,2026-09-28,SHP028,Bharat Choudhary Steel Traders,OWN108,TRK0230,Trailer,Steel coils,Bhubaneswar,Guwahati,1110,16.4,True,51788,50800,77300,1110,Completed,4.0
+BK0519,2026-09-29,SHP013,Shakti Choudhary Distributors,OWN122,TRK0262,LCV (Tata 407 class),FMCG cartons,Kochi,Surat,1630,1.6,True,34125,32300,53300,1630,Completed,3.9
+BK0520,2026-09-29,SHP076,Prime Gill Agro Traders,OWN027,TRK0056,Open body,Agri produce (onion/potato),Kochi,Bengaluru,460,19.5,False,16498,15500,19400,0,Completed,3.9
+BK0521,2026-09-29,SHP043,Om Patel Distributors,OWN047,TRK0100,LCV (Tata 407 class),FMCG cartons,Delhi,Ahmedabad,970,3.1,True,21540,19700,32000,970,Completed,3.9
+BK0522,2026-09-29,SHP003,Jai Patel Distributors,OWN047,TRK0100,LCV (Tata 407 class),FMCG cartons,Nagpur,Surat,810,3.0,False,23931,21800,25300,0,Completed,4.1
+BK0523,2026-09-29,SHP034,Bharat Das Foods,OWN020,TRK0044,Refrigerated,Frozen food & dairy,Gurugram,Vadodara,980,6.7,False,69132,64900,74400,0,Cancelled,
+BK0524,2026-09-30,SHP052,Jai Kumar Pharma Distributors,OWN078,TRK0166,Refrigerated,Pharmaceuticals,Indore,Kanpur,765,11.2,True,36597,33200,49000,765,Cancelled,
+BK0525,2026-09-30,SHP088,Kaveri Tiwari Agro Traders,OWN136,TRK0290,Open body,Agri produce (onion/potato),Ahmedabad,Bengaluru,1545,17.0,True,51241,50200,75900,1545,Completed,3.8
+BK0526,2026-09-30,SHP002,Ganpati Shinde Auto Components,OWN119,TRK0254,Trailer,Machinery parts,Delhi,Hyderabad,1570,13.6,True,77831,75000,113000,1570,Completed,4.0
+BK0527,2026-09-30,SHP088,Kaveri Tiwari Agro Traders,OWN068,TRK0144,Open body,Agri produce (onion/potato),Ahmedabad,Amritsar,1230,12.3,True,36911,35600,51000,1230,Cancelled,
+BK0528,2026-09-30,SHP038,Global Sandhu Distributors,OWN081,TRK0172,Open body,FMCG cartons,Delhi,Lucknow,520,14.9,True,15177,14400,23100,520,Completed,4.0
+BK0529,2026-09-30,SHP051,Prime Kumar Agro Traders,OWN027,TRK0056,Open body,Agri produce (onion/potato),Nashik,Bhopal,650,11.3,True,17655,15900,26800,650,Cancelled,
+BK0530,2026-10-01,SHP006,Prime Das Furnitures,OWN040,TRK0080,Container,Furniture,Indore,Chandigarh,1120,12.5,True,33775,31400,54100,1120,Completed,4.5
+BK0531,2026-10-01,SHP054,Jai Sandhu Agro Traders,OWN035,TRK0072,Open body,Agri produce (onion/potato),Panipat,Lucknow,600,10.6,False,20922,19800,23600,0,Completed,4.8
+BK0532,2026-10-01,SHP061,Sai Choudhary Furnitures,OWN038,TRK0075,Container,Furniture,Nagpur,Gurugram,1050,8.6,True,34393,33000,53800,1050,Completed,4.9
+BK0533,2026-10-01,SHP025,Global Gill Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Bhubaneswar,Ahmedabad,1750,23.7,False,93218,91200,104500,0,Completed,4.3
+BK0534,2026-10-01,SHP030,Prime Khan Textiles,OWN138,TRK0295,Container,Textiles & garments,Jaipur,Surat,880,9.0,False,43559,40100,46900,0,Completed,4.3
+BK0535,2026-10-02,SHP028,Bharat Choudhary Steel Traders,OWN012,TRK0029,Trailer,Steel coils,Bhubaneswar,Kanpur,1105,30.1,True,43772,43200,72100,1105,Completed,4.1
+BK0536,2026-10-02,SHP022,Shakti Pillai Distributors,OWN047,TRK0100,LCV (Tata 407 class),FMCG cartons,Nagpur,Panipat,1175,3.5,True,23309,22100,35500,1175,Cancelled,
+BK0537,2026-10-02,SHP050,Shree Ghosh Build Supplies,OWN070,TRK0147,Tipper,Cement bags,Guwahati,Jaipur,1985,19.8,True,64213,58100,101500,1985,Completed,5.0
+BK0538,2026-10-02,SHP058,Sai Das Polymers,OWN092,TRK0197,Open body,Plastic granules,Pune,Coimbatore,1120,12.9,False,39634,37200,45300,0,Completed,4.9
+BK0539,2026-10-03,SHP085,Om Sharma Auto Components,OWN002,TRK0003,Container,Auto parts,Delhi,Lucknow,520,17.5,True,16163,14800,23700,520,Completed,4.2
+BK0540,2026-10-03,SHP024,Lakshmi Rathore Foods,OWN116,TRK0246,Refrigerated,Frozen food & dairy,Guwahati,Panipat,1870,6.8,False,127367,117700,137200,0,Completed,4.0
+BK0541,2026-10-03,SHP006,Prime Das Furnitures,OWN011,TRK0028,Container,Furniture,Indore,Visakhapatnam,1185,18.5,True,39913,38100,54100,1185,Completed,4.9
+BK0542,2026-10-03,SHP075,Sunrise Meena Steel Traders,OWN108,TRK0230,Trailer,Steel coils,Delhi,Ahmedabad,970,15.1,False,60331,58900,67500,0,Completed,4.8
+BK0543,2026-10-03,SHP058,Sai Das Polymers,OWN150,TRK0319,Container,Paper rolls,Agra,Nashik,1135,15.6,False,48230,45700,53300,0,Completed,4.5
+BK0544,2026-10-03,SHP018,Jai Naidu Steel Traders,OWN108,TRK0231,Trailer,Steel coils,Agra,Jaipur,275,29.6,True,13552,12900,18400,275,Completed,4.3
+BK0545,2026-10-04,SHP069,Bharat Saini Polymers,OWN071,TRK0152,Open body,Paper rolls,Mumbai,Delhi,1435,15.8,False,52981,51200,55900,0,Completed,4.4
+BK0546,2026-10-04,SHP070,Prime Kumar Electronics,OWN143,TRK0305,Container,Electronics,Ahmedabad,Ludhiana,1170,14.5,True,50382,47200,64900,1170,Completed,4.9
+BK0547,2026-10-05,SHP058,Sai Das Polymers,OWN065,TRK0135,Open body,Plastic granules,Pune,Ludhiana,1740,9.7,True,52019,51300,85800,1740,Completed,4.5
+BK0548,2026-10-05,SHP080,Unity Reddy Polymers,OWN099,TRK0214,Open body,Paper rolls,Ludhiana,Mumbai,1685,15.8,True,47704,45200,69500,1685,Completed,4.5
+BK0549,2026-10-05,SHP044,Prime Das Auto Components,OWN021,TRK0046,Trailer,Machinery parts,Chandigarh,Jaipur,545,27.7,False,35672,32100,38600,0,Completed,4.4
+BK0550,2026-10-06,SHP010,Lakshmi Ghosh Textiles,OWN119,TRK0253,Open body,Textiles & garments,Guwahati,Jaipur,1985,16.1,False,75368,70300,88500,0,Completed,4.3
+BK0551,2026-10-06,SHP088,Kaveri Tiwari Agro Traders,OWN048,TRK0101,Open body,Agri produce (onion/potato),Ahmedabad,Bhopal,620,12.1,False,24253,23500,27400,0,Completed,4.9
+BK0552,2026-10-06,SHP017,Star Rathore Polymers,OWN055,TRK0120,Container,Plastic granules,Kolkata,Visakhapatnam,955,7.8,False,46190,44600,47900,0,Completed,4.7
+BK0553,2026-10-07,SHP045,Narmada Patel Textiles,OWN040,TRK0080,Container,Textiles & garments,Kota,Mumbai,935,10.7,True,29767,27000,46200,935,Completed,3.9
+BK0554,2026-10-07,SHP036,Jai Saini Furnitures,OWN011,TRK0027,Open body,Furniture,Surat,Chandigarh,1415,18.8,True,37734,34400,55700,1415,Completed,4.7
+BK0555,2026-10-07,SHP055,Global Ansari Distributors,OWN095,TRK0205,Open body,FMCG cartons,Pune,Surat,390,7.4,False,13155,12700,14400,0,Completed,4.3
+BK0556,2026-10-07,SHP056,Unity Nair Textiles,OWN084,TRK0178,Open body,Textiles & garments,Pune,Ahmedabad,650,8.6,True,18558,17800,27800,650,Completed,4.4
+BK0557,2026-10-08,SHP077,Global Malhotra Foods,OWN017,TRK0038,Refrigerated,Frozen food & dairy,Mumbai,Bhubaneswar,1700,6.9,True,80498,79100,122000,1700,Completed,4.8
+BK0558,2026-10-08,SHP015,Jai Chauhan Auto Components,OWN081,TRK0172,Open body,Machinery parts,Kota,Ludhiana,790,8.8,True,22170,21600,37000,790,Completed,4.9
+BK0559,2026-10-08,SHP054,Jai Sandhu Agro Traders,OWN093,TRK0199,Open body,Agri produce (onion/potato),Panipat,Vadodara,1090,7.6,True,32465,29800,53100,1090,Completed,4.4
+BK0560,2026-10-09,SHP084,Lakshmi Tiwari Agro Traders,OWN045,TRK0096,Open body,Agri produce (onion/potato),Nagpur,Jodhpur,1045,8.1,False,44174,43200,47300,0,Completed,4.3
+BK0561,2026-10-09,SHP047,Narmada Sharma Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Mumbai,Hyderabad,775,7.9,True,37780,37000,57300,775,Completed,4.2
+BK0562,2026-10-09,SHP065,Sai Mishra Polymers,OWN011,TRK0028,Container,Paper rolls,Rajkot,Raipur,1405,14.6,False,57122,55300,61600,0,Completed,4.0
+BK0563,2026-10-10,SHP077,Global Malhotra Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Mumbai,Delhi,1435,5.4,False,89069,84500,106200,0,Completed,4.2
+BK0564,2026-10-10,SHP039,Prime Rathore Furnitures,OWN041,TRK0082,Container,Furniture,Coimbatore,Vadodara,1650,8.7,False,69870,64100,77600,0,Completed,3.9
+BK0565,2026-10-10,SHP083,New Patil Build Supplies,OWN094,TRK0202,Tipper,Sand & aggregates,Chennai,Mumbai,1290,15.2,False,59983,57700,68500,0,Completed,5.0
+BK0566,2026-10-10,SHP049,Bharat Kumar Steel Traders,OWN078,TRK0165,Trailer,Steel coils,Ludhiana,Vadodara,1240,12.5,False,70439,68000,76700,0,Completed,4.4
+BK0567,2026-10-10,SHP066,Unity Meena Furnitures,OWN020,TRK0043,Open body,Furniture,Bengaluru,Kanpur,1905,17.0,True,57293,52800,75800,1905,Completed,4.0
+BK0568,2026-10-10,SHP031,Shree Chauhan Textiles,OWN136,TRK0290,Open body,Textiles & garments,Raipur,Mumbai,1180,11.7,True,37520,34100,55500,1180,Cancelled,
+BK0569,2026-10-10,SHP023,Kaveri Nair Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Nagpur,Kochi,1605,23.8,False,87043,79600,92900,0,Completed,4.5
+BK0570,2026-10-11,SHP071,Royal Verma Foods,OWN035,TRK0070,Refrigerated,Frozen food & dairy,Amritsar,Indore,1245,8.2,True,62589,56500,85200,1245,Completed,4.9
+BK0571,2026-10-11,SHP070,Prime Kumar Electronics,OWN038,TRK0075,Container,Electronics,Ahmedabad,Panipat,1040,10.9,False,49272,46700,52400,0,Completed,3.8
+BK0572,2026-10-11,SHP007,New Mishra Electronics,OWN122,TRK0265,Container,Electronics,Lucknow,Vadodara,1165,12.9,True,48433,44300,66900,1165,Completed,4.2
+BK0573,2026-10-11,SHP057,Star Malhotra Distributors,OWN047,TRK0099,Container,FMCG cartons,Panipat,Pune,1560,13.9,False,80836,76500,90100,0,Completed,4.7
+BK0574,2026-10-12,SHP081,Narmada Reddy Textiles,OWN102,TRK0220,Container,Textiles & garments,Mumbai,Delhi,1435,18.3,False,69075,64000,78200,0,Completed,4.5
+BK0575,2026-10-12,SHP060,Jai Meena Steel Traders,OWN117,TRK0249,Trailer,Steel coils,Panipat,Kanpur,580,18.4,True,27582,25800,41500,580,Completed,5.0
+BK0576,2026-10-12,SHP068,Star Patel Polymers,OWN084,TRK0179,Open body,Plastic granules,Kanpur,Vadodara,1070,9.1,True,38174,37300,51500,1070,Completed,4.7
+BK0577,2026-10-12,SHP006,Prime Das Furnitures,OWN048,TRK0101,Open body,Furniture,Indore,Kanpur,765,9.6,True,21941,20900,32600,765,Completed,4.0
+BK0578,2026-10-12,SHP069,Bharat Saini Polymers,OWN119,TRK0253,Open body,Plastic granules,Mumbai,Bengaluru,1055,7.5,True,34585,32200,45200,1055,Completed,4.8
+BK0579,2026-10-12,SHP036,Jai Saini Furnitures,OWN092,TRK0197,Open body,Furniture,Surat,Patna,1685,16.8,False,59534,57400,66800,0,Completed,4.8
+BK0580,2026-10-13,SHP081,Narmada Reddy Textiles,OWN150,TRK0319,Container,Textiles & garments,Mumbai,Agra,1300,11.1,True,43569,42100,59100,1300,Completed,4.3
+BK0581,2026-10-13,SHP030,Prime Khan Textiles,OWN062,TRK0130,Open body,Textiles & garments,Panipat,Bhubaneswar,1685,9.3,False,63139,59700,71200,0,Completed,4.8
+BK0582,2026-10-13,SHP023,Kaveri Nair Steel Traders,OWN066,TRK0138,Trailer,Steel coils,Varanasi,Hyderabad,1245,21.7,False,74714,67700,77100,0,Completed,4.3
+BK0583,2026-10-13,SHP011,Classic Rathore Build Supplies,OWN127,TRK0274,Tipper,Cement bags,Lucknow,Hyderabad,1350,22.4,False,52019,48400,63300,0,Completed,4.6
+BK0584,2026-10-14,SHP090,Star Singh Agro Traders,OWN027,TRK0056,Open body,Agri produce (onion/potato),Rajkot,Lucknow,1430,15.5,True,42560,38700,61300,1430,Completed,4.1
+BK0585,2026-10-14,SHP027,Royal Bhatia Agro Traders,OWN062,TRK0129,Open body,Agri produce (onion/potato),Hyderabad,Kanpur,1280,14.2,False,50153,47900,58000,0,Completed,4.3
+BK0586,2026-10-14,SHP034,Bharat Das Foods,OWN160,TRK0338,Refrigerated,Frozen food & dairy,Coimbatore,Rajkot,1770,4.6,False,113157,104400,129000,0,Completed,4.7
+BK0587,2026-10-14,SHP075,Sunrise Meena Steel Traders,OWN044,TRK0094,Trailer,Steel coils,Delhi,Surat,1170,18.1,True,45972,43500,68800,1170,Completed,4.0
+BK0588,2026-10-14,SHP005,Om Chauhan Steel Traders,OWN033,TRK0067,Trailer,Steel coils,Mumbai,Bengaluru,1055,23.2,True,55497,53800,74100,1055,Completed,4.2
+BK0589,2026-10-14,SHP033,Kaveri Das Steel Traders,OWN108,TRK0231,Trailer,Steel coils,Delhi,Guwahati,1825,21.2,False,112973,106000,114600,0,Completed,4.6
+BK0590,2026-10-14,SHP010,Lakshmi Ghosh Textiles,OWN030,TRK0064,Container,Textiles & garments,Kolkata,Nagpur,1210,17.9,False,62893,61600,69100,0,Completed,4.9
+BK0591,2026-10-14,SHP028,Bharat Choudhary Steel Traders,OWN021,TRK0046,Trailer,Steel coils,Bhubaneswar,Kochi,1925,29.4,True,92298,84500,133200,1925,Completed,3.8
+BK0592,2026-10-14,SHP050,Shree Ghosh Build Supplies,OWN098,TRK0211,Tipper,Sand & aggregates,Guwahati,Nagpur,1750,15.6,False,82772,80600,89400,0,Completed,4.9
+BK0593,2026-10-15,SHP035,Jai Pillai Polymers,OWN070,TRK0150,Container,Plastic granules,Hyderabad,Agra,1360,11.6,True,52777,51300,75800,1360,Completed,4.1
+BK0594,2026-10-15,SHP082,New Sharma Steel Traders,OWN156,TRK0332,Trailer,Steel coils,Indore,Delhi,835,26.7,True,37753,37300,56900,835,Completed,4.7
+BK0595,2026-10-15,SHP027,Royal Bhatia Agro Traders,OWN035,TRK0072,Open body,Agri produce (onion/potato),Hyderabad,Patna,1425,19.6,False,48239,43700,53700,0,Completed,4.2
+BK0596,2026-10-15,SHP064,Sunrise Bhatia Agro Traders,OWN150,TRK0318,Open body,Agri produce (onion/potato),Chandigarh,Ahmedabad,1190,18.0,True,36623,36200,58400,1190,Completed,4.8
+BK0597,2026-10-15,SHP004,New Iyer Auto Components,OWN102,TRK0220,Container,Auto parts,Lucknow,Indore,860,12.0,False,45749,43400,47200,0,Completed,4.4
+BK0598,2026-10-16,SHP078,Narmada Khan Polymers,OWN120,TRK0255,Container,Paper rolls,Visakhapatnam,Hyderabad,630,15.9,False,29348,28600,31600,0,Completed,4.9
+BK0599,2026-10-16,SHP082,New Sharma Steel Traders,OWN083,TRK0177,Trailer,Steel coils,Ahmedabad,Patna,1630,16.3,True,69095,68000,111000,1630,Completed,4.2
+BK0600,2026-10-16,SHP013,Shakti Choudhary Distributors,OWN066,TRK0139,Container,FMCG cartons,Visakhapatnam,Chennai,755,12.2,False,40588,37400,43600,0,Completed,3.9
+BK0601,2026-10-16,SHP082,New Sharma Steel Traders,OWN130,TRK0280,Trailer,Steel coils,Ahmedabad,Delhi,970,25.8,True,45517,43100,70600,970,Completed,4.3
+BK0602,2026-10-16,SHP027,Royal Bhatia Agro Traders,OWN084,TRK0179,Open body,Agri produce (onion/potato),Hyderabad,Bhubaneswar,1045,15.7,True,36675,34100,48400,1045,Completed,4.2
+BK0603,2026-10-17,SHP063,Classic Reddy Steel Traders,OWN030,TRK0061,Trailer,Steel coils,Mumbai,Bengaluru,1055,24.1,True,47915,45900,71900,1055,Completed,4.3
+BK0604,2026-10-17,SHP059,Ganpati Verma Steel Traders,OWN108,TRK0230,Trailer,Steel coils,Ludhiana,Bhopal,1080,23.5,False,63749,57800,78200,0,Completed,3.9
+BK0605,2026-10-17,SHP025,Global Gill Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Nagpur,Chennai,1135,17.3,True,45615,42400,63900,1135,Completed,4.2
+BK0606,2026-10-17,SHP040,Balaji Das Polymers,OWN041,TRK0082,Container,Plastic granules,Coimbatore,Indore,1635,10.0,True,49267,44500,81300,1635,Completed,4.5
+BK0607,2026-10-17,SHP058,Sai Das Polymers,OWN087,TRK0188,Container,Plastic granules,Bengaluru,Mumbai,1055,12.1,True,36858,36100,51700,1055,Completed,4.1
+BK0608,2026-10-18,SHP019,Om Kumar Electronics,OWN104,TRK0223,Container,Electronics,Bhopal,Lucknow,670,14.5,True,25624,23500,37900,670,Completed,4.5
+BK0609,2026-10-18,SHP031,Shree Chauhan Textiles,OWN150,TRK0318,Open body,Textiles & garments,Raipur,Vadodara,1100,15.0,False,46920,42600,54000,0,Completed,4.0
+BK0610,2026-10-18,SHP031,Shree Chauhan Textiles,OWN130,TRK0281,Open body,Textiles & garments,Raipur,Indore,770,14.2,False,29366,28100,33900,0,Completed,4.8
+BK0611,2026-10-18,SHP008,Prime Reddy Build Supplies,OWN107,TRK0228,Open body,Cement bags,Amritsar,Gurugram,510,11.9,True,14045,13600,18900,510,Completed,4.1
+BK0612,2026-10-19,SHP034,Bharat Das Foods,OWN035,TRK0069,Refrigerated,Frozen food & dairy,Coimbatore,Pune,1120,10.4,True,49730,46500,68400,1120,Completed,3.9
+BK0613,2026-10-19,SHP025,Global Gill Steel Traders,OWN037,TRK0074,Trailer,Steel coils,Bengaluru,Pune,920,29.3,False,51443,50700,55200,0,Completed,3.9
+BK0614,2026-10-19,SHP029,Om Yadav Distributors,OWN038,TRK0075,Container,FMCG cartons,Gurugram,Chennai,2180,16.3,True,71895,70000,111700,2180,Completed,4.2
+BK0615,2026-10-19,SHP043,Om Patel Distributors,OWN154,TRK0326,LCV (Tata 407 class),FMCG cartons,Gurugram,Amritsar,510,2.4,False,15174,14800,16500,0,Completed,3.9
+BK0616,2026-10-19,SHP059,Ganpati Verma Steel Traders,OWN083,TRK0177,Trailer,Steel coils,Ludhiana,Vadodara,1240,17.7,True,59724,54500,83500,1240,Completed,4.0
+BK0617,2026-10-20,SHP084,Lakshmi Tiwari Agro Traders,OWN081,TRK0173,Open body,Agri produce (onion/potato),Patna,Delhi,1065,18.9,False,39395,38900,43300,0,Completed,4.3
+BK0618,2026-10-20,SHP031,Shree Chauhan Textiles,OWN044,TRK0093,Container,Textiles & garments,Raipur,Ludhiana,1520,18.5,False,73240,71400,75700,0,Completed,4.1
+BK0619,2026-10-20,SHP021,Lakshmi Pillai Auto Components,OWN011,TRK0028,Container,Auto parts,Ludhiana,Jaipur,555,16.1,True,18269,16900,25400,555,Completed,4.3
+BK0620,2026-10-21,SHP061,Sai Choudhary Furnitures,OWN145,TRK0309,Open body,Furniture,Nagpur,Bengaluru,1155,15.8,True,34774,32400,56900,1155,Completed,4.7
+BK0621,2026-10-21,SHP009,Bharat Tiwari Distributors,OWN154,TRK0327,LCV (Tata 407 class),FMCG cartons,Mumbai,Raipur,1180,2.6,True,23894,22600,32600,1180,Completed,4.8
+BK0622,2026-10-22,SHP012,Kaveri Jadhav Textiles,OWN042,TRK0089,Container,Textiles & garments,Varanasi,Nashik,1390,15.0,True,51444,49900,74700,1390,Completed,4.1
+BK0623,2026-10-22,SHP064,Sunrise Bhatia Agro Traders,OWN041,TRK0086,Open body,Agri produce (onion/potato),Chandigarh,Kolkata,1830,9.9,True,48616,47600,71900,1830,Completed,4.6
+BK0624,2026-10-22,SHP066,Unity Meena Furnitures,OWN035,TRK0072,Open body,Furniture,Indore,Varanasi,970,13.8,True,23782,21800,38600,970,Completed,4.4
+BK0625,2026-10-22,SHP012,Kaveri Jadhav Textiles,OWN041,TRK0082,Container,Textiles & garments,Rajkot,Patna,1875,8.4,False,78350,73500,89300,0,Completed,4.5
+BK0626,2026-10-22,SHP068,Star Patel Polymers,OWN150,TRK0319,Container,Plastic granules,Vadodara,Mumbai,450,11.4,False,17356,17000,19500,0,Completed,4.8
+BK0627,2026-10-23,SHP067,Jai Pillai Pharma Distributors,OWN099,TRK0216,Refrigerated,Pharmaceuticals,Hyderabad,Delhi,1570,10.2,False,112167,106100,125700,0,Completed,4.5
+BK0628,2026-10-23,SHP090,Star Singh Agro Traders,OWN098,TRK0210,Open body,Agri produce (onion/potato),Delhi,Nashik,1275,14.2,True,39772,36600,53800,1275,Completed,4.0
+BK0629,2026-10-23,SHP059,Ganpati Verma Steel Traders,OWN078,TRK0168,Trailer,Steel coils,Gurugram,Rajkot,1160,22.1,False,62824,57700,74100,0,Completed,4.7
+BK0630,2026-10-23,SHP076,Prime Gill Agro Traders,OWN073,TRK0156,Open body,Agri produce (onion/potato),Kochi,Hyderabad,1080,19.3,False,35915,34400,41200,0,Completed,4.1
+BK0631,2026-10-23,SHP026,Pioneer Verma Textiles,OWN119,TRK0251,Container,Textiles & garments,Bengaluru,Pune,920,14.3,True,32498,31500,42000,920,Completed,4.2
+BK0632,2026-10-23,SHP006,Prime Das Furnitures,OWN092,TRK0198,Container,Furniture,Hyderabad,Surat,910,13.1,True,32737,31800,50000,910,Completed,4.4
+BK0633,2026-10-23,SHP032,Jai Saini Foods,OWN078,TRK0166,Refrigerated,Frozen food & dairy,Nashik,Kolkata,1920,11.1,False,109248,102800,126000,0,Completed,4.8
+BK0634,2026-10-23,SHP085,Om Sharma Auto Components,OWN041,TRK0086,Open body,Auto parts,Delhi,Surat,1170,16.9,True,31940,29300,46500,1170,Completed,3.8
+BK0635,2026-10-24,SHP035,Jai Pillai Polymers,OWN084,TRK0180,Container,Paper rolls,Hyderabad,Kolkata,1475,13.7,False,63334,58500,76100,0,Completed,4.7
+BK0636,2026-10-24,SHP086,Shree Kumar Auto Components,OWN066,TRK0138,Trailer,Machinery parts,Mumbai,Kanpur,1400,26.5,True,64860,60200,88100,1400,Completed,4.5
+BK0637,2026-10-24,SHP044,Prime Das Auto Components,OWN053,TRK0116,Trailer,Machinery parts,Kota,Bhubaneswar,1445,16.1,False,79005,75300,90500,0,Completed,4.4
+BK0638,2026-10-25,SHP082,New Sharma Steel Traders,OWN138,TRK0296,Trailer,Steel coils,Ahmedabad,Kolkata,2025,20.3,False,110374,107500,117600,0,Completed,4.1
+BK0639,2026-10-25,SHP020,Classic Chauhan Polymers,OWN040,TRK0081,Container,Plastic granules,Amritsar,Delhi,505,17.2,True,17715,17000,29400,505,Completed,4.3
+BK0640,2026-10-25,SHP028,Bharat Choudhary Steel Traders,OWN037,TRK0074,Trailer,Steel coils,Bhubaneswar,Mumbai,1700,13.8,False,97307,88900,100300,0,Completed,4.2

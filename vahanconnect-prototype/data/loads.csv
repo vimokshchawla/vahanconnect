@@ -1,0 +1,341 @@
+load_id,shipper_id,company,goods,origin,destination,distance_km,weight_tonnes,truck_type,pickup_date,budget_rs,status
+LD0001,SHP015,Jai Chauhan Auto Components,Auto parts,Kota,Panipat,595,15.1,Container,2026-11-09,23800,Open
+LD0002,SHP077,Global Malhotra Foods,Frozen food & dairy,Mumbai,Chandigarh,1690,10.6,Refrigerated,2026-11-05,85900,Open
+LD0003,SHP002,Ganpati Shinde Auto Components,Machinery parts,Pune,Gurugram,1440,18.3,Open body,2026-10-26,44000,Open
+LD0004,SHP066,Unity Meena Furnitures,Furniture,Gurugram,Lucknow,530,18.3,Open body,2026-11-14,18600,Open
+LD0005,SHP069,Bharat Saini Polymers,Paper rolls,Mumbai,Hyderabad,775,12.9,Container,2026-10-27,29400,Open
+LD0006,SHP087,Sunrise Mishra Auto Components,Machinery parts,Amritsar,Indore,1245,11.3,Open body,2026-10-31,38400,Open
+LD0007,SHP073,Om Das Build Supplies,Sand & aggregates,Pune,Surat,390,20.5,Tipper,2026-11-08,15200,Open
+LD0008,SHP079,Star Ghosh Polymers,Plastic granules,Nagpur,Visakhapatnam,725,13.5,Open body,2026-10-29,26700,Open
+LD0009,SHP085,Om Sharma Auto Components,Auto parts,Delhi,Surat,1170,18.5,Container,2026-11-06,51400,Open
+LD0010,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Surat,Gurugram,1145,10.8,Open body,2026-11-08,35900,Open
+LD0011,SHP001,Pioneer Patil Agro Traders,Agri produce (onion/potato),Kolkata,Pune,1970,17.0,Open body,2026-11-03,60900,Open
+LD0012,SHP043,Om Patel Distributors,FMCG cartons,Gurugram,Mumbai,1405,7.3,Container,2026-11-04,59000,Open
+LD0013,SHP038,Global Sandhu Distributors,FMCG cartons,Delhi,Ahmedabad,970,7.4,Open body,2026-10-27,32100,Open
+LD0014,SHP074,New Jadhav Furnitures,Furniture,Nagpur,Kolkata,1210,15.9,Container,2026-11-09,51300,Open
+LD0015,SHP036,Jai Saini Furnitures,Furniture,Surat,Nagpur,810,14.4,Container,2026-11-11,30500,Open
+LD0016,SHP068,Star Patel Polymers,Plastic granules,Kanpur,Nagpur,755,15.6,Container,2026-11-07,29200,Open
+LD0017,SHP006,Prime Das Furnitures,Furniture,Indore,Pune,640,10.4,Container,2026-11-09,24000,Open
+LD0018,SHP034,Bharat Das Foods,Frozen food & dairy,Kanpur,Ahmedabad,1090,7.8,Refrigerated,2026-11-15,70500,Open
+LD0019,SHP021,Lakshmi Pillai Auto Components,Auto parts,Ludhiana,Mumbai,1685,12.5,Open body,2026-11-06,60900,Open
+LD0020,SHP049,Bharat Kumar Steel Traders,Steel coils,Ludhiana,Gurugram,365,24.0,Trailer,2026-11-11,20800,Open
+LD0021,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Agra,580,25.4,Trailer,2026-10-29,30400,Open
+LD0022,SHP075,Sunrise Meena Steel Traders,Steel coils,Delhi,Hyderabad,1570,14.6,Trailer,2026-11-09,81000,Open
+LD0023,SHP017,Star Rathore Polymers,Paper rolls,Kolkata,Raipur,885,9.1,Container,2026-11-12,33500,Open
+LD0024,SHP055,Global Ansari Distributors,FMCG cartons,Hyderabad,Indore,815,3.8,LCV (Tata 407 class),2026-11-13,18400,Open
+LD0025,SHP008,Prime Reddy Build Supplies,Sand & aggregates,Kolkata,Surat,2010,15.4,Tipper,2026-10-29,75900,Open
+LD0026,SHP045,Narmada Patel Textiles,Textiles & garments,Kota,Coimbatore,1980,9.9,Container,2026-10-29,90000,Open
+LD0027,SHP025,Global Gill Steel Traders,Steel coils,Bengaluru,Jaipur,1950,26.9,Trailer,2026-10-26,113200,Open
+LD0028,SHP012,Kaveri Jadhav Textiles,Textiles & garments,Rajkot,Lucknow,1430,15.8,Open body,2026-11-01,51400,Open
+LD0029,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Chennai,700,12.9,Open body,2026-11-14,21300,Open
+LD0030,SHP019,Om Kumar Electronics,Electronics,Bhopal,Agra,550,18.1,Container,2026-11-03,22500,Open
+LD0031,SHP044,Prime Das Auto Components,Machinery parts,Coimbatore,Vadodara,1650,23.2,Trailer,2026-11-03,83800,Open
+LD0032,SHP013,Shakti Choudhary Distributors,FMCG cartons,Visakhapatnam,Lucknow,1305,3.4,LCV (Tata 407 class),2026-11-04,33200,Open
+LD0033,SHP009,Bharat Tiwari Distributors,FMCG cartons,Mumbai,Ahmedabad,550,11.1,Open body,2026-11-03,21700,Open
+LD0034,SHP031,Shree Chauhan Textiles,Textiles & garments,Raipur,Bengaluru,1270,16.7,Container,2026-11-06,51000,Open
+LD0035,SHP013,Shakti Choudhary Distributors,FMCG cartons,Visakhapatnam,Delhi,1700,17.2,Container,2026-10-26,65600,Open
+LD0036,SHP068,Star Patel Polymers,Paper rolls,Kanpur,Ludhiana,825,7.6,Container,2026-11-12,33000,Open
+LD0037,SHP006,Prime Das Furnitures,Furniture,Indore,Hyderabad,815,9.2,Open body,2026-11-01,25000,Open
+LD0038,SHP025,Global Gill Steel Traders,Steel coils,Bengaluru,Hyderabad,625,12.5,Trailer,2026-11-13,31900,Open
+LD0039,SHP063,Classic Reddy Steel Traders,Steel coils,Chennai,Ahmedabad,1715,14.3,Trailer,2026-11-03,94000,Open
+LD0040,SHP081,Narmada Reddy Textiles,Textiles & garments,Bengaluru,Nagpur,1155,13.7,Container,2026-11-15,53800,Open
+LD0041,SHP018,Jai Naidu Steel Traders,Steel coils,Mumbai,Gurugram,1405,26.4,Trailer,2026-10-30,71200,Open
+LD0042,SHP085,Om Sharma Auto Components,Auto parts,Coimbatore,Nagpur,1435,8.6,Container,2026-11-08,59200,Open
+LD0043,SHP051,Prime Kumar Agro Traders,Agri produce (onion/potato),Nashik,Bhubaneswar,1570,19.5,Open body,2026-11-07,53000,Open
+LD0044,SHP058,Sai Das Polymers,Plastic granules,Pune,Bhubaneswar,1585,10.8,Container,2026-10-26,59400,Open
+LD0045,SHP042,Sai Saini Agro Traders,Agri produce (onion/potato),Ahmedabad,Mumbai,550,9.0,Open body,2026-11-04,20800,Open
+LD0046,SHP003,Jai Patel Distributors,FMCG cartons,Nagpur,Hyderabad,530,17.8,Container,2026-10-28,20100,Open
+LD0047,SHP014,Bharat Kumar Distributors,FMCG cartons,Pune,Indore,640,17.6,Container,2026-10-27,28600,Open
+LD0048,SHP006,Prime Das Furnitures,Furniture,Panipat,Pune,1560,13.1,Container,2026-10-28,68400,Open
+LD0049,SHP006,Prime Das Furnitures,Furniture,Indore,Kanpur,765,9.0,Container,2026-10-26,29200,Open
+LD0050,SHP075,Sunrise Meena Steel Traders,Steel coils,Delhi,Bengaluru,2175,30.3,Trailer,2026-11-13,131300,Open
+LD0051,SHP046,Sunrise Kumar Foods,Frozen food & dairy,Amritsar,Indore,1245,10.4,Refrigerated,2026-11-11,80700,Open
+LD0052,SHP007,New Mishra Electronics,Electronics,Ahmedabad,Bhubaneswar,1750,9.9,Container,2026-11-11,79400,Open
+LD0053,SHP009,Bharat Tiwari Distributors,FMCG cartons,Mumbai,Bengaluru,1055,12.0,Container,2026-11-14,49400,Open
+LD0054,SHP026,Pioneer Verma Textiles,Textiles & garments,Bengaluru,Kolkata,1950,10.1,Container,2026-10-30,77100,Open
+LD0055,SHP021,Lakshmi Pillai Auto Components,Machinery parts,Ludhiana,Pune,1740,15.8,Trailer,2026-11-04,98900,Open
+LD0056,SHP045,Narmada Patel Textiles,Textiles & garments,Kota,Bhopal,335,9.3,Open body,2026-11-15,10800,Open
+LD0057,SHP008,Prime Reddy Build Supplies,Sand & aggregates,Mumbai,Hyderabad,775,14.4,Tipper,2026-11-03,27400,Open
+LD0058,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Delhi,Surat,1170,5.3,Refrigerated,2026-11-10,67300,Open
+LD0059,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Chennai,700,19.1,Open body,2026-11-12,21700,Open
+LD0060,SHP090,Star Singh Agro Traders,Agri produce (onion/potato),Hyderabad,Kanpur,1280,11.1,Open body,2026-10-30,43800,Open
+LD0061,SHP089,Sunrise Patel Foods,Frozen food & dairy,Lucknow,Ludhiana,835,6.9,Refrigerated,2026-11-13,43000,Open
+LD0062,SHP016,Unity Khan Foods,Frozen food & dairy,Bengaluru,Surat,1305,5.2,Refrigerated,2026-11-03,78400,Open
+LD0063,SHP063,Classic Reddy Steel Traders,Steel coils,Vadodara,Mumbai,450,23.5,Trailer,2026-10-26,22200,Open
+LD0064,SHP003,Jai Patel Distributors,FMCG cartons,Panipat,Kota,595,3.1,LCV (Tata 407 class),2026-11-07,12400,Open
+LD0065,SHP048,Kaveri Iyer Polymers,Plastic granules,Bhopal,Patna,1030,19.6,Open body,2026-10-28,39300,Open
+LD0066,SHP015,Jai Chauhan Auto Components,Auto parts,Kota,Kochi,2125,16.1,Container,2026-11-02,97900,Open
+LD0067,SHP073,Om Das Build Supplies,Sand & aggregates,Pune,Gurugram,1440,13.5,Tipper,2026-11-04,52900,Open
+LD0068,SHP041,Bharat Gill Build Supplies,Sand & aggregates,Mumbai,Ahmedabad,550,23.4,Tipper,2026-10-27,21000,Open
+LD0069,SHP068,Star Patel Polymers,Plastic granules,Kanpur,Panipat,580,16.3,Container,2026-11-14,24600,Open
+LD0070,SHP079,Star Ghosh Polymers,Plastic granules,Nagpur,Delhi,1065,9.8,Container,2026-11-07,48800,Open
+LD0071,SHP042,Sai Saini Agro Traders,Agri produce (onion/potato),Ahmedabad,Indore,425,16.0,Open body,2026-11-15,14300,Open
+LD0072,SHP006,Prime Das Furnitures,Furniture,Indore,Kolkata,1605,13.8,Open body,2026-11-04,60500,Open
+LD0073,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Indore,Mumbai,635,11.6,Container,2026-11-05,28400,Open
+LD0074,SHP006,Prime Das Furnitures,Furniture,Indore,Kolkata,1605,13.3,Container,2026-11-15,71900,Open
+LD0075,SHP063,Classic Reddy Steel Traders,Steel coils,Vadodara,Pune,535,13.2,Trailer,2026-10-31,29700,Open
+LD0076,SHP027,Royal Bhatia Agro Traders,Agri produce (onion/potato),Jodhpur,Vadodara,545,19.4,Open body,2026-10-26,20900,Open
+LD0077,SHP006,Prime Das Furnitures,Furniture,Pune,Chandigarh,1735,16.5,Open body,2026-11-02,65200,Open
+LD0078,SHP061,Sai Choudhary Furnitures,Furniture,Lucknow,Bengaluru,1980,8.5,Container,2026-11-06,78200,Open
+LD0079,SHP030,Prime Khan Textiles,Textiles & garments,Jaipur,Bhubaneswar,1570,9.1,Open body,2026-10-30,53900,Open
+LD0080,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Hyderabad,1905,22.4,Trailer,2026-11-03,98500,Open
+LD0081,SHP042,Sai Saini Agro Traders,Agri produce (onion/potato),Jaipur,Chennai,2010,14.5,Open body,2026-11-13,61800,Open
+LD0082,SHP007,New Mishra Electronics,Electronics,Chennai,Rajkot,1790,8.6,Container,2026-11-02,69700,Open
+LD0083,SHP085,Om Sharma Auto Components,Auto parts,Delhi,Bhopal,745,19.0,Open body,2026-11-13,22800,Open
+LD0084,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Hyderabad,530,22.1,Trailer,2026-11-03,25200,Open
+LD0085,SHP014,Bharat Kumar Distributors,FMCG cartons,Mumbai,Chennai,1290,7.2,Container,2026-11-10,60400,Open
+LD0086,SHP069,Bharat Saini Polymers,Plastic granules,Mumbai,Indore,635,10.0,Open body,2026-10-31,21900,Open
+LD0087,SHP044,Prime Das Auto Components,Auto parts,Chandigarh,Vadodara,1255,13.6,Container,2026-10-30,53700,Open
+LD0088,SHP021,Lakshmi Pillai Auto Components,Machinery parts,Jaipur,Lucknow,640,13.3,Open body,2026-11-08,24400,Open
+LD0089,SHP001,Pioneer Patil Agro Traders,Agri produce (onion/potato),Kolkata,Bhopal,1405,11.1,Open body,2026-11-09,52000,Open
+LD0090,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Panipat,Jaipur,375,6.0,Refrigerated,2026-10-26,21900,Open
+LD0091,SHP085,Om Sharma Auto Components,Auto parts,Nashik,Visakhapatnam,1280,13.9,Open body,2026-11-05,48300,Open
+LD0092,SHP078,Narmada Khan Polymers,Paper rolls,Visakhapatnam,Hyderabad,630,9.5,Container,2026-10-30,25200,Open
+LD0093,SHP046,Sunrise Kumar Foods,Frozen food & dairy,Chennai,Ahmedabad,1715,9.7,Refrigerated,2026-11-09,86100,Open
+LD0094,SHP064,Sunrise Bhatia Agro Traders,Agri produce (onion/potato),Chandigarh,Jodhpur,775,17.5,Open body,2026-10-31,26200,Open
+LD0095,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Indore,Hyderabad,815,14.5,Container,2026-11-11,30600,Open
+LD0096,SHP033,Kaveri Das Steel Traders,Steel coils,Mumbai,Ahmedabad,550,24.4,Trailer,2026-10-30,26400,Open
+LD0097,SHP014,Bharat Kumar Distributors,FMCG cartons,Raipur,Delhi,1165,13.2,Open body,2026-11-08,41700,Open
+LD0098,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Indore,Jodhpur,605,10.5,Container,2026-11-01,25300,Open
+LD0099,SHP086,Shree Kumar Auto Components,Machinery parts,Mumbai,Varanasi,1560,17.6,Trailer,2026-11-07,76600,Open
+LD0100,SHP074,New Jadhav Furnitures,Furniture,Nagpur,Jaipur,905,8.7,Container,2026-11-11,33200,Open
+LD0101,SHP022,Shakti Pillai Distributors,FMCG cartons,Ahmedabad,Hyderabad,1100,14.9,Container,2026-10-30,49100,Open
+LD0102,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Chennai,700,14.3,Open body,2026-11-15,24900,Open
+LD0103,SHP047,Narmada Sharma Foods,Frozen food & dairy,Mumbai,Vadodara,450,5.2,Refrigerated,2026-11-02,23600,Open
+LD0104,SHP075,Sunrise Meena Steel Traders,Steel coils,Delhi,Mumbai,1435,19.8,Trailer,2026-11-14,79700,Open
+LD0105,SHP049,Bharat Kumar Steel Traders,Steel coils,Ludhiana,Delhi,360,21.2,Trailer,2026-11-02,17700,Open
+LD0106,SHP073,Om Das Build Supplies,Cement bags,Kolkata,Hyderabad,1475,11.2,Open body,2026-11-12,49200,Open
+LD0107,SHP010,Lakshmi Ghosh Textiles,Textiles & garments,Kolkata,Pune,1970,8.8,Container,2026-11-06,72600,Open
+LD0108,SHP067,Jai Pillai Pharma Distributors,Pharmaceuticals,Nagpur,Varanasi,760,14.3,Container,2026-11-04,32200,Open
+LD0109,SHP013,Shakti Choudhary Distributors,FMCG cartons,Bengaluru,Kolkata,1950,2.0,LCV (Tata 407 class),2026-10-26,45800,Open
+LD0110,SHP019,Om Kumar Electronics,Electronics,Hyderabad,Chennai,645,7.8,Container,2026-10-27,27800,Open
+LD0111,SHP088,Kaveri Tiwari Agro Traders,Agri produce (onion/potato),Ahmedabad,Visakhapatnam,1570,19.6,Open body,2026-10-27,59300,Open
+LD0112,SHP061,Sai Choudhary Furnitures,Furniture,Nagpur,Hyderabad,530,17.7,Container,2026-10-29,24700,Open
+LD0113,SHP040,Balaji Das Polymers,Plastic granules,Coimbatore,Surat,1515,9.6,Open body,2026-11-08,56300,Open
+LD0114,SHP054,Jai Sandhu Agro Traders,Agri produce (onion/potato),Panipat,Agra,335,15.7,Open body,2026-10-28,12900,Open
+LD0115,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Panipat,Nagpur,1175,7.6,Refrigerated,2026-11-06,73200,Open
+LD0116,SHP031,Shree Chauhan Textiles,Textiles & garments,Raipur,Kolkata,885,7.5,Container,2026-11-06,38500,Open
+LD0117,SHP015,Jai Chauhan Auto Components,Auto parts,Kota,Lucknow,675,16.5,Container,2026-10-28,28400,Open
+LD0118,SHP083,New Patil Build Supplies,Sand & aggregates,Bengaluru,Jaipur,1950,16.8,Tipper,2026-11-10,80800,Open
+LD0119,SHP043,Om Patel Distributors,FMCG cartons,Kolkata,Surat,2010,1.5,LCV (Tata 407 class),2026-11-11,45100,Open
+LD0120,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Visakhapatnam,1430,14.5,Open body,2026-10-26,50200,Open
+LD0121,SHP018,Jai Naidu Steel Traders,Steel coils,Ahmedabad,Pune,650,20.9,Trailer,2026-11-11,33100,Open
+LD0122,SHP011,Classic Rathore Build Supplies,Cement bags,Lucknow,Delhi,520,10.9,Open body,2026-11-03,16700,Open
+LD0123,SHP010,Lakshmi Ghosh Textiles,Textiles & garments,Kolkata,Ahmedabad,2025,14.0,Container,2026-11-01,75100,Open
+LD0124,SHP061,Sai Choudhary Furnitures,Furniture,Nagpur,Surat,810,18.0,Open body,2026-11-10,31400,Open
+LD0125,SHP055,Global Ansari Distributors,FMCG cartons,Hyderabad,Pune,630,13.9,Open body,2026-11-11,22900,Open
+LD0126,SHP034,Bharat Das Foods,Frozen food & dairy,Coimbatore,Bhopal,1700,11.1,Refrigerated,2026-11-01,88900,Open
+LD0127,SHP062,Shree Das Electronics,Electronics,Bengaluru,Jaipur,1950,17.1,Container,2026-10-30,79900,Open
+LD0128,SHP069,Bharat Saini Polymers,Paper rolls,Mumbai,Bengaluru,1055,13.1,Open body,2026-11-08,36900,Open
+LD0129,SHP062,Shree Das Electronics,Electronics,Bengaluru,Kota,1715,8.5,Container,2026-11-06,68800,Open
+LD0130,SHP044,Prime Das Auto Components,Machinery parts,Panipat,Surat,1255,29.7,Trailer,2026-11-13,61600,Open
+LD0131,SHP030,Prime Khan Textiles,Textiles & garments,Jaipur,Bengaluru,1950,16.1,Open body,2026-11-12,64500,Open
+LD0132,SHP007,New Mishra Electronics,Electronics,Chennai,Jaipur,2010,17.7,Container,2026-10-28,78300,Open
+LD0133,SHP032,Jai Saini Foods,Frozen food & dairy,Mumbai,Indore,635,9.0,Refrigerated,2026-11-03,33300,Open
+LD0134,SHP014,Bharat Kumar Distributors,FMCG cartons,Pune,Jodhpur,1080,9.6,Container,2026-10-27,49500,Open
+LD0135,SHP037,Sunrise Nair Furnitures,Furniture,Delhi,Indore,835,16.3,Open body,2026-11-09,29700,Open
+LD0136,SHP051,Prime Kumar Agro Traders,Agri produce (onion/potato),Nashik,Chennai,1290,11.6,Open body,2026-11-02,51200,Open
+LD0137,SHP007,New Mishra Electronics,Electronics,Lucknow,Visakhapatnam,1305,18.0,Container,2026-11-13,53400,Open
+LD0138,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Mumbai,1350,9.4,Open body,2026-10-31,42600,Open
+LD0139,SHP071,Royal Verma Foods,Frozen food & dairy,Amritsar,Gurugram,510,9.8,Refrigerated,2026-11-15,32300,Open
+LD0140,SHP057,Star Malhotra Distributors,FMCG cartons,Panipat,Jaipur,375,10.6,Container,2026-11-15,15800,Open
+LD0141,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Delhi,360,25.0,Trailer,2026-10-28,18900,Open
+LD0142,SHP032,Jai Saini Foods,Frozen food & dairy,Nashik,Kolkata,1920,10.7,Refrigerated,2026-11-04,118100,Open
+LD0143,SHP049,Bharat Kumar Steel Traders,Steel coils,Ludhiana,Gurugram,365,27.4,Trailer,2026-10-29,17200,Open
+LD0144,SHP051,Prime Kumar Agro Traders,Agri produce (onion/potato),Bengaluru,Nagpur,1155,14.0,Open body,2026-10-28,41800,Open
+LD0145,SHP020,Classic Chauhan Polymers,Plastic granules,Amritsar,Hyderabad,2030,14.8,Container,2026-11-06,84700,Open
+LD0146,SHP007,New Mishra Electronics,Electronics,Lucknow,Chennai,1915,17.5,Container,2026-10-27,75100,Open
+LD0147,SHP048,Kaveri Iyer Polymers,Paper rolls,Hyderabad,Jodhpur,1420,18.5,Container,2026-11-10,53800,Open
+LD0148,SHP082,New Sharma Steel Traders,Steel coils,Ahmedabad,Kota,515,21.3,Trailer,2026-11-04,25900,Open
+LD0149,SHP028,Bharat Choudhary Steel Traders,Steel coils,Bhubaneswar,Surat,1690,27.7,Trailer,2026-11-01,102800,Open
+LD0150,SHP064,Sunrise Bhatia Agro Traders,Agri produce (onion/potato),Chandigarh,Jodhpur,775,18.5,Open body,2026-10-29,29500,Open
+LD0151,SHP054,Jai Sandhu Agro Traders,Agri produce (onion/potato),Panipat,Surat,1255,8.4,Open body,2026-11-13,40100,Open
+LD0152,SHP008,Prime Reddy Build Supplies,Cement bags,Amritsar,Pune,1825,10.3,Open body,2026-11-02,59900,Open
+LD0153,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Amritsar,1550,20.8,Trailer,2026-10-28,89400,Open
+LD0154,SHP043,Om Patel Distributors,FMCG cartons,Gurugram,Visakhapatnam,1690,15.6,Container,2026-11-08,62100,Open
+LD0155,SHP080,Unity Reddy Polymers,Plastic granules,Panipat,Bhubaneswar,1685,16.3,Container,2026-11-06,65000,Open
+LD0156,SHP030,Prime Khan Textiles,Textiles & garments,Jaipur,Bengaluru,1950,16.6,Open body,2026-10-26,75700,Open
+LD0157,SHP026,Pioneer Verma Textiles,Textiles & garments,Bengaluru,Gurugram,2155,13.2,Open body,2026-11-13,82500,Open
+LD0158,SHP089,Sunrise Patel Foods,Frozen food & dairy,Lucknow,Rajkot,1430,5.1,Refrigerated,2026-11-04,74500,Open
+LD0159,SHP036,Jai Saini Furnitures,Furniture,Surat,Coimbatore,1515,11.0,Open body,2026-10-29,59100,Open
+LD0160,SHP039,Prime Rathore Furnitures,Furniture,Coimbatore,Bengaluru,285,7.2,Container,2026-10-29,12400,Open
+LD0161,SHP006,Prime Das Furnitures,Furniture,Indore,Guwahati,2065,16.8,Container,2026-11-07,93100,Open
+LD0162,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Panipat,Indore,935,5.3,Refrigerated,2026-10-31,56300,Open
+LD0163,SHP068,Star Patel Polymers,Plastic granules,Kanpur,Indore,765,18.5,Open body,2026-10-29,26800,Open
+LD0164,SHP013,Shakti Choudhary Distributors,FMCG cartons,Visakhapatnam,Surat,1445,9.9,Container,2026-10-29,66100,Open
+LD0165,SHP030,Prime Khan Textiles,Textiles & garments,Jaipur,Visakhapatnam,1600,7.6,Container,2026-11-07,75300,Open
+LD0166,SHP054,Jai Sandhu Agro Traders,Agri produce (onion/potato),Mumbai,Patna,1815,7.9,Open body,2026-11-07,71900,Open
+LD0167,SHP008,Prime Reddy Build Supplies,Sand & aggregates,Amritsar,Mumbai,1760,17.8,Tipper,2026-11-07,63100,Open
+LD0168,SHP078,Narmada Khan Polymers,Plastic granules,Chennai,Kolkata,1700,18.2,Open body,2026-10-31,53600,Open
+LD0169,SHP088,Kaveri Tiwari Agro Traders,Agri produce (onion/potato),Ahmedabad,Delhi,970,13.5,Open body,2026-11-10,30100,Open
+LD0170,SHP031,Shree Chauhan Textiles,Textiles & garments,Raipur,Ludhiana,1520,15.5,Container,2026-11-10,65000,Open
+LD0171,SHP087,Sunrise Mishra Auto Components,Auto parts,Ludhiana,Lucknow,835,18.6,Open body,2026-10-27,32100,Open
+LD0172,SHP048,Kaveri Iyer Polymers,Plastic granules,Chennai,Surat,1495,15.2,Container,2026-11-06,69600,Open
+LD0173,SHP043,Om Patel Distributors,FMCG cartons,Gurugram,Mumbai,1405,11.5,Open body,2026-10-31,53200,Open
+LD0174,SHP010,Lakshmi Ghosh Textiles,Textiles & garments,Kolkata,Bhopal,1405,15.1,Open body,2026-10-26,43600,Open
+LD0175,SHP059,Ganpati Verma Steel Traders,Steel coils,Bengaluru,Bhopal,1430,21.1,Trailer,2026-11-02,82500,Open
+LD0176,SHP082,New Sharma Steel Traders,Steel coils,Ludhiana,Nagpur,1415,19.2,Trailer,2026-11-07,69500,Open
+LD0177,SHP012,Kaveri Jadhav Textiles,Textiles & garments,Rajkot,Jaipur,900,13.1,Container,2026-10-26,36000,Open
+LD0178,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Indore,Raipur,770,15.9,Container,2026-11-07,33700,Open
+LD0179,SHP087,Sunrise Mishra Auto Components,Auto parts,Patna,Mumbai,1815,13.1,Container,2026-11-04,69900,Open
+LD0180,SHP002,Ganpati Shinde Auto Components,Auto parts,Lucknow,Mumbai,1495,10.4,Container,2026-10-30,70200,Open
+LD0181,SHP012,Kaveri Jadhav Textiles,Textiles & garments,Rajkot,Nashik,500,13.8,Container,2026-11-01,23200,Open
+LD0182,SHP022,Shakti Pillai Distributors,FMCG cartons,Ahmedabad,Nagpur,880,2.0,LCV (Tata 407 class),2026-11-04,19100,Open
+LD0183,SHP039,Prime Rathore Furnitures,Furniture,Coimbatore,Bhopal,1700,7.7,Open body,2026-11-06,65000,Open
+LD0184,SHP008,Prime Reddy Build Supplies,Sand & aggregates,Amritsar,Nashik,1620,9.9,Tipper,2026-10-29,62300,Open
+LD0185,SHP055,Global Ansari Distributors,FMCG cartons,Hyderabad,Mumbai,775,10.0,Container,2026-11-09,35300,Open
+LD0186,SHP078,Narmada Khan Polymers,Paper rolls,Panipat,Mumbai,1525,16.2,Container,2026-10-30,62700,Open
+LD0187,SHP069,Bharat Saini Polymers,Plastic granules,Mumbai,Varanasi,1560,14.3,Open body,2026-10-28,51200,Open
+LD0188,SHP005,Om Chauhan Steel Traders,Steel coils,Delhi,Chennai,2195,14.5,Trailer,2026-10-28,121300,Open
+LD0189,SHP001,Pioneer Patil Agro Traders,Agri produce (onion/potato),Pune,Lucknow,1470,17.7,Open body,2026-11-10,56600,Open
+LD0190,SHP002,Ganpati Shinde Auto Components,Auto parts,Pune,Delhi,1465,15.6,Open body,2026-10-28,48700,Open
+LD0191,SHP015,Jai Chauhan Auto Components,Machinery parts,Coimbatore,Varanasi,2140,24.3,Trailer,2026-11-08,125400,Open
+LD0192,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Panipat,Hyderabad,1680,6.6,Refrigerated,2026-11-13,97200,Open
+LD0193,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Kolkata,1935,24.1,Trailer,2026-10-30,91000,Open
+LD0194,SHP080,Unity Reddy Polymers,Paper rolls,Ludhiana,Kolkata,1935,16.3,Container,2026-11-05,74100,Open
+LD0195,SHP066,Unity Meena Furnitures,Furniture,Patna,Delhi,1065,18.8,Container,2026-10-29,44200,Open
+LD0196,SHP084,Lakshmi Tiwari Agro Traders,Agri produce (onion/potato),Patna,Kanpur,615,8.3,Open body,2026-10-30,20100,Open
+LD0197,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Indore,Pune,640,8.8,Refrigerated,2026-11-07,37700,Open
+LD0198,SHP011,Classic Rathore Build Supplies,Sand & aggregates,Surat,Bengaluru,1305,15.8,Tipper,2026-10-29,49300,Open
+LD0199,SHP056,Unity Nair Textiles,Textiles & garments,Pune,Gurugram,1440,12.5,Open body,2026-11-10,46800,Open
+LD0200,SHP072,Lakshmi Choudhary Agro Traders,Agri produce (onion/potato),Bhopal,Visakhapatnam,1080,13.3,Open body,2026-10-29,36900,Open
+LD0201,SHP026,Pioneer Verma Textiles,Textiles & garments,Indore,Lucknow,860,13.8,Open body,2026-11-03,31700,Open
+LD0202,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Kochi,1605,24.7,Trailer,2026-11-10,91100,Open
+LD0203,SHP064,Sunrise Bhatia Agro Traders,Agri produce (onion/potato),Chandigarh,Ahmedabad,1190,13.8,Open body,2026-11-11,42400,Open
+LD0204,SHP073,Om Das Build Supplies,Cement bags,Pune,Kolkata,1970,15.0,Tipper,2026-10-26,71600,Open
+LD0205,SHP067,Jai Pillai Pharma Distributors,Pharmaceuticals,Lucknow,Guwahati,1345,13.6,Container,2026-11-08,58100,Open
+LD0206,SHP005,Om Chauhan Steel Traders,Steel coils,Mumbai,Indore,635,18.6,Trailer,2026-11-14,37900,Open
+LD0207,SHP027,Royal Bhatia Agro Traders,Agri produce (onion/potato),Hyderabad,Pune,630,14.3,Open body,2026-10-27,20300,Open
+LD0208,SHP063,Classic Reddy Steel Traders,Steel coils,Vadodara,Kolkata,1950,14.4,Trailer,2026-11-02,95700,Open
+LD0209,SHP021,Lakshmi Pillai Auto Components,Machinery parts,Ludhiana,Ahmedabad,1170,19.6,Open body,2026-11-04,42400,Open
+LD0210,SHP032,Jai Saini Foods,Frozen food & dairy,Nashik,Chennai,1290,9.7,Refrigerated,2026-11-05,79200,Open
+LD0211,SHP043,Om Patel Distributors,FMCG cartons,Gurugram,Hyderabad,1550,3.2,LCV (Tata 407 class),2026-11-03,37700,Open
+LD0212,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Kolkata,Lucknow,1110,8.3,Refrigerated,2026-10-26,60200,Open
+LD0213,SHP067,Jai Pillai Pharma Distributors,Pharmaceuticals,Coimbatore,Bengaluru,285,9.0,Container,2026-11-07,13300,Open
+LD0214,SHP079,Star Ghosh Polymers,Plastic granules,Jaipur,Delhi,295,11.0,Container,2026-10-30,11100,Open
+LD0215,SHP024,Lakshmi Rathore Foods,Frozen food & dairy,Panipat,Kolkata,1710,5.7,Refrigerated,2026-11-09,94000,Open
+LD0216,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Hyderabad,1905,19.9,Trailer,2026-10-31,90100,Open
+LD0217,SHP056,Unity Nair Textiles,Textiles & garments,Pune,Bhopal,805,9.2,Container,2026-11-07,36800,Open
+LD0218,SHP045,Narmada Patel Textiles,Textiles & garments,Kota,Gurugram,475,9.5,Container,2026-10-29,18300,Open
+LD0219,SHP031,Shree Chauhan Textiles,Textiles & garments,Raipur,Pune,1085,10.8,Container,2026-11-11,41000,Open
+LD0220,SHP068,Star Patel Polymers,Plastic granules,Delhi,Jodhpur,615,16.5,Open body,2026-10-26,21600,Open
+LD0221,SHP075,Sunrise Meena Steel Traders,Steel coils,Vadodara,Kolkata,1950,23.4,Trailer,2026-10-28,94000,Open
+LD0222,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Nashik,1535,16.3,Trailer,2026-11-14,84600,Open
+LD0223,SHP015,Jai Chauhan Auto Components,Machinery parts,Kota,Ahmedabad,515,24.8,Trailer,2026-11-11,26300,Open
+LD0224,SHP078,Narmada Khan Polymers,Plastic granules,Visakhapatnam,Ludhiana,2060,14.9,Open body,2026-11-04,80000,Open
+LD0225,SHP020,Classic Chauhan Polymers,Paper rolls,Amritsar,Hyderabad,2030,7.7,Open body,2026-10-30,64600,Open
+LD0226,SHP059,Ganpati Verma Steel Traders,Steel coils,Ahmedabad,Kanpur,1090,14.1,Trailer,2026-11-06,59600,Open
+LD0227,SHP045,Narmada Patel Textiles,Textiles & garments,Kota,Bhubaneswar,1445,17.4,Container,2026-11-07,60500,Open
+LD0228,SHP088,Kaveri Tiwari Agro Traders,Agri produce (onion/potato),Ahmedabad,Mumbai,550,10.7,Open body,2026-11-11,17100,Open
+LD0229,SHP035,Jai Pillai Polymers,Paper rolls,Hyderabad,Gurugram,1550,18.4,Container,2026-11-07,70000,Open
+LD0230,SHP007,New Mishra Electronics,Electronics,Lucknow,Ahmedabad,1180,13.3,Container,2026-11-08,50000,Open
+LD0231,SHP071,Royal Verma Foods,Frozen food & dairy,Amritsar,Nagpur,1550,9.9,Refrigerated,2026-11-10,95400,Open
+LD0232,SHP044,Prime Das Auto Components,Auto parts,Chandigarh,Jodhpur,775,13.5,Container,2026-11-14,28900,Open
+LD0233,SHP033,Kaveri Das Steel Traders,Steel coils,Bengaluru,Kanpur,1905,28.4,Trailer,2026-11-01,91400,Open
+LD0234,SHP082,New Sharma Steel Traders,Steel coils,Pune,Surat,390,24.7,Trailer,2026-11-03,23300,Open
+LD0235,SHP025,Global Gill Steel Traders,Steel coils,Surat,Pune,390,20.1,Trailer,2026-10-28,22100,Open
+LD0236,SHP037,Sunrise Nair Furnitures,Furniture,Delhi,Patna,1065,13.5,Container,2026-11-09,42700,Open
+LD0237,SHP004,New Iyer Auto Components,Auto parts,Lucknow,Nagpur,825,18.3,Container,2026-11-08,38500,Open
+LD0238,SHP029,Om Yadav Distributors,FMCG cartons,Indore,Jaipur,580,11.0,Container,2026-10-27,26700,Open
+LD0239,SHP015,Jai Chauhan Auto Components,Machinery parts,Kota,Lucknow,675,12.9,Open body,2026-10-26,25400,Open
+LD0240,SHP038,Global Sandhu Distributors,FMCG cartons,Chandigarh,Agra,515,3.3,LCV (Tata 407 class),2026-11-12,12800,Open
+LD0241,SHP014,Bharat Kumar Distributors,FMCG cartons,Pune,Gurugram,1440,3.5,LCV (Tata 407 class),2026-10-30,31700,Open
+LD0242,SHP037,Sunrise Nair Furnitures,Furniture,Delhi,Raipur,1165,10.3,Container,2026-10-30,43600,Open
+LD0243,SHP070,Prime Kumar Electronics,Electronics,Ahmedabad,Bengaluru,1545,12.4,Container,2026-11-11,66200,Open
+LD0244,SHP009,Bharat Tiwari Distributors,FMCG cartons,Mumbai,Jodhpur,995,14.2,Open body,2026-11-08,38900,Open
+LD0245,SHP051,Prime Kumar Agro Traders,Agri produce (onion/potato),Kolkata,Pune,1970,17.1,Open body,2026-11-08,75200,Open
+LD0246,SHP060,Jai Meena Steel Traders,Steel coils,Panipat,Pune,1560,23.9,Trailer,2026-11-09,87000,Open
+LD0247,SHP015,Jai Chauhan Auto Components,Auto parts,Coimbatore,Hyderabad,910,18.5,Container,2026-11-13,36600,Open
+LD0248,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Ludhiana,1415,18.9,Trailer,2026-11-13,66500,Open
+LD0249,SHP039,Prime Rathore Furnitures,Furniture,Visakhapatnam,Bhopal,1080,14.1,Container,2026-10-28,44000,Open
+LD0250,SHP056,Unity Nair Textiles,Textiles & garments,Visakhapatnam,Nashik,1280,16.1,Container,2026-11-12,47200,Open
+LD0251,SHP063,Classic Reddy Steel Traders,Steel coils,Vadodara,Mumbai,450,28.8,Trailer,2026-11-15,25700,Open
+LD0252,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Kanpur,825,11.7,Trailer,2026-11-07,47400,Open
+LD0253,SHP018,Jai Naidu Steel Traders,Steel coils,Agra,Jaipur,275,20.7,Trailer,2026-10-30,16600,Open
+LD0254,SHP046,Sunrise Kumar Foods,Frozen food & dairy,Chennai,Kolkata,1700,5.0,Refrigerated,2026-11-02,98200,Open
+LD0255,SHP048,Kaveri Iyer Polymers,Paper rolls,Pune,Chandigarh,1735,13.9,Container,2026-11-02,66200,Open
+LD0256,SHP022,Shakti Pillai Distributors,FMCG cartons,Gurugram,Mumbai,1405,2.7,LCV (Tata 407 class),2026-11-13,36700,Open
+LD0257,SHP058,Sai Das Polymers,Paper rolls,Pune,Bengaluru,920,13.7,Open body,2026-11-01,36000,Open
+LD0258,SHP059,Ganpati Verma Steel Traders,Steel coils,Ludhiana,Surat,1405,14.8,Trailer,2026-10-26,66000,Open
+LD0259,SHP004,New Iyer Auto Components,Machinery parts,Mumbai,Surat,290,17.5,Trailer,2026-11-04,16600,Open
+LD0260,SHP023,Kaveri Nair Steel Traders,Steel coils,Lucknow,Chandigarh,740,16.9,Trailer,2026-10-30,42000,Open
+LD0261,SHP021,Lakshmi Pillai Auto Components,Auto parts,Ludhiana,Ahmedabad,1170,19.0,Open body,2026-10-29,43400,Open
+LD0262,SHP028,Bharat Choudhary Steel Traders,Steel coils,Bhubaneswar,Gurugram,1590,13.8,Trailer,2026-11-12,83600,Open
+LD0263,SHP039,Prime Rathore Furnitures,Furniture,Coimbatore,Mumbai,1245,19.9,Open body,2026-11-12,46500,Open
+LD0264,SHP043,Om Patel Distributors,FMCG cartons,Gurugram,Raipur,1160,1.8,LCV (Tata 407 class),2026-11-07,27100,Open
+LD0265,SHP086,Shree Kumar Auto Components,Machinery parts,Gurugram,Hyderabad,1550,12.1,Open body,2026-11-02,61100,Open
+LD0266,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Chandigarh,1360,15.3,Trailer,2026-11-11,76100,Open
+LD0267,SHP004,New Iyer Auto Components,Auto parts,Lucknow,Pune,1470,9.6,Container,2026-11-12,56300,Open
+LD0268,SHP070,Prime Kumar Electronics,Electronics,Ahmedabad,Visakhapatnam,1570,13.4,Container,2026-10-28,68200,Open
+LD0269,SHP064,Sunrise Bhatia Agro Traders,Agri produce (onion/potato),Chandigarh,Hyderabad,1865,14.6,Open body,2026-11-01,57500,Open
+LD0270,SHP080,Unity Reddy Polymers,Paper rolls,Ludhiana,Jodhpur,735,11.8,Container,2026-11-13,29000,Open
+LD0271,SHP053,Narmada Iyer Pharma Distributors,Pharmaceuticals,Ludhiana,Vadodara,1240,8.7,Refrigerated,2026-10-26,61700,Open
+LD0272,SHP067,Jai Pillai Pharma Distributors,Pharmaceuticals,Hyderabad,Ahmedabad,1100,14.2,Container,2026-11-09,51000,Open
+LD0273,SHP088,Kaveri Tiwari Agro Traders,Agri produce (onion/potato),Ahmedabad,Jodhpur,450,15.7,Open body,2026-11-05,16000,Open
+LD0274,SHP023,Kaveri Nair Steel Traders,Steel coils,Nagpur,Agra,850,14.4,Trailer,2026-10-31,51200,Open
+LD0275,SHP063,Classic Reddy Steel Traders,Steel coils,Vadodara,Kanpur,1070,17.4,Trailer,2026-10-27,57800,Open
+LD0276,SHP029,Om Yadav Distributors,FMCG cartons,Gurugram,Kota,475,13.9,Container,2026-11-02,18300,Open
+LD0277,SHP067,Jai Pillai Pharma Distributors,Pharmaceuticals,Hyderabad,Nagpur,530,11.1,Container,2026-10-29,20900,Open
+LD0278,SHP076,Prime Gill Agro Traders,Agri produce (onion/potato),Kochi,Hyderabad,1080,12.2,Open body,2026-10-28,37100,Open
+LD0279,SHP006,Prime Das Furnitures,Furniture,Indore,Raipur,770,16.0,Container,2026-11-15,32200,Open
+LD0280,SHP011,Classic Rathore Build Supplies,Sand & aggregates,Hyderabad,Vadodara,975,18.4,Tipper,2026-11-13,41400,Open
+LD0281,SHP004,New Iyer Auto Components,Machinery parts,Lucknow,Bhopal,670,15.1,Trailer,2026-11-15,32000,Open
+LD0282,SHP042,Sai Saini Agro Traders,Agri produce (onion/potato),Ahmedabad,Hyderabad,1100,10.7,Open body,2026-11-13,42300,Open
+LD0283,SHP084,Lakshmi Tiwari Agro Traders,Agri produce (onion/potato),Nagpur,Jaipur,905,19.1,Open body,2026-11-12,33500,Open
+LD0284,SHP071,Royal Verma Foods,Frozen food & dairy,Amritsar,Nagpur,1550,9.7,Refrigerated,2026-11-12,83400,Open
+LD0285,SHP042,Sai Saini Agro Traders,Agri produce (onion/potato),Ahmedabad,Delhi,970,18.8,Open body,2026-11-12,37400,Open
+LD0286,SHP033,Kaveri Das Steel Traders,Steel coils,Chennai,Bengaluru,365,18.5,Trailer,2026-11-08,17900,Open
+LD0287,SHP019,Om Kumar Electronics,Electronics,Bhopal,Pune,805,12.0,Container,2026-11-13,32900,Open
+LD0288,SHP048,Kaveri Iyer Polymers,Plastic granules,Bhopal,Pune,805,14.9,Container,2026-10-26,31600,Open
+LD0289,SHP066,Unity Meena Furnitures,Furniture,Gurugram,Hyderabad,1550,11.2,Container,2026-10-28,73000,Open
+LD0290,SHP038,Global Sandhu Distributors,FMCG cartons,Delhi,Patna,1065,11.3,Open body,2026-11-10,38900,Open
+LD0291,SHP012,Kaveri Jadhav Textiles,Textiles & garments,Rajkot,Ludhiana,1350,18.5,Open body,2026-10-27,52500,Open
+LD0292,SHP040,Balaji Das Polymers,Plastic granules,Coimbatore,Surat,1515,13.3,Open body,2026-11-11,52900,Open
+LD0293,SHP069,Bharat Saini Polymers,Plastic granules,Surat,Mumbai,290,8.8,Container,2026-10-30,12400,Open
+LD0294,SHP052,Jai Kumar Pharma Distributors,Pharmaceuticals,Delhi,Nashik,1275,6.8,Refrigerated,2026-11-10,68200,Open
+LD0295,SHP062,Shree Das Electronics,Electronics,Bengaluru,Mumbai,1055,11.1,Container,2026-11-02,47600,Open
+LD0296,SHP001,Pioneer Patil Agro Traders,Agri produce (onion/potato),Kolkata,Mumbai,2070,10.0,Open body,2026-11-06,66100,Open
+LD0297,SHP070,Prime Kumar Electronics,Electronics,Ahmedabad,Kanpur,1090,11.9,Container,2026-10-26,46700,Open
+LD0298,SHP035,Jai Pillai Polymers,Paper rolls,Hyderabad,Chennai,645,7.5,Open body,2026-11-10,24800,Open
+LD0299,SHP069,Bharat Saini Polymers,Plastic granules,Mumbai,Visakhapatnam,1375,16.6,Open body,2026-11-14,52500,Open
+LD0300,SHP082,New Sharma Steel Traders,Steel coils,Coimbatore,Nashik,1320,28.5,Trailer,2026-11-13,69600,Open
+LD0301,SHP061,Sai Choudhary Furnitures,Furniture,Ahmedabad,Indore,425,11.6,Container,2026-11-13,19600,Open
+LD0302,SHP013,Shakti Choudhary Distributors,FMCG cartons,Visakhapatnam,Chennai,755,14.1,Open body,2026-11-07,28300,Open
+LD0303,SHP010,Lakshmi Ghosh Textiles,Textiles & garments,Kolkata,Ludhiana,1935,19.5,Open body,2026-11-12,64200,Open
+LD0304,SHP002,Ganpati Shinde Auto Components,Machinery parts,Pune,Hyderabad,630,18.7,Open body,2026-11-08,21100,Open
+LD0305,SHP080,Unity Reddy Polymers,Paper rolls,Ludhiana,Panipat,250,11.1,Open body,2026-11-14,9300,Open
+LD0306,SHP084,Lakshmi Tiwari Agro Traders,Agri produce (onion/potato),Nagpur,Surat,810,9.9,Open body,2026-11-14,24800,Open
+LD0307,SHP087,Sunrise Mishra Auto Components,Machinery parts,Patna,Gurugram,1080,19.8,Trailer,2026-10-30,56200,Open
+LD0308,SHP038,Global Sandhu Distributors,FMCG cartons,Indore,Ahmedabad,425,15.1,Container,2026-11-01,19900,Open
+LD0309,SHP062,Shree Das Electronics,Electronics,Surat,Visakhapatnam,1445,15.6,Container,2026-11-02,65100,Open
+LD0310,SHP021,Lakshmi Pillai Auto Components,Machinery parts,Ludhiana,Varanasi,1165,19.5,Open body,2026-11-08,36000,Open
+LD0311,SHP078,Narmada Khan Polymers,Plastic granules,Visakhapatnam,Pune,1240,14.6,Container,2026-11-01,52600,Open
+LD0312,SHP035,Jai Pillai Polymers,Plastic granules,Hyderabad,Mumbai,775,9.4,Container,2026-11-07,28100,Open
+LD0313,SHP018,Jai Naidu Steel Traders,Steel coils,Agra,Pune,1315,17.3,Trailer,2026-10-28,74000,Open
+LD0314,SHP049,Bharat Kumar Steel Traders,Steel coils,Ludhiana,Lucknow,835,25.2,Trailer,2026-11-11,41100,Open
+LD0315,SHP065,Sai Mishra Polymers,Plastic granules,Rajkot,Delhi,1190,7.9,Open body,2026-10-27,42100,Open
+LD0316,SHP089,Sunrise Patel Foods,Frozen food & dairy,Indore,Delhi,835,8.7,Refrigerated,2026-10-28,43100,Open
+LD0317,SHP056,Unity Nair Textiles,Textiles & garments,Pune,Coimbatore,1120,12.8,Container,2026-10-28,42800,Open
+LD0318,SHP027,Royal Bhatia Agro Traders,Agri produce (onion/potato),Hyderabad,Mumbai,775,16.7,Open body,2026-10-28,26200,Open
+LD0319,SHP066,Unity Meena Furnitures,Furniture,Gurugram,Hyderabad,1550,16.3,Container,2026-11-12,62600,Open
+LD0320,SHP003,Jai Patel Distributors,FMCG cartons,Kolkata,Guwahati,655,12.3,Open body,2026-11-04,23100,Open
+LD0321,SHP013,Shakti Choudhary Distributors,FMCG cartons,Visakhapatnam,Hyderabad,630,3.1,LCV (Tata 407 class),2026-10-28,16200,Open
+LD0322,SHP057,Star Malhotra Distributors,FMCG cartons,Panipat,Ahmedabad,1040,1.7,LCV (Tata 407 class),2026-11-13,22400,Open
+LD0323,SHP086,Shree Kumar Auto Components,Auto parts,Nagpur,Hyderabad,530,19.4,Open body,2026-10-31,17400,Open
+LD0324,SHP060,Jai Meena Steel Traders,Steel coils,Panipat,Mumbai,1525,11.3,Trailer,2026-11-01,81800,Open
+LD0325,SHP029,Om Yadav Distributors,FMCG cartons,Kolkata,Delhi,1630,10.5,Container,2026-11-11,72100,Open
+LD0326,SHP020,Classic Chauhan Polymers,Plastic granules,Ahmedabad,Kanpur,1090,18.9,Container,2026-11-05,48900,Open
+LD0327,SHP069,Bharat Saini Polymers,Plastic granules,Mumbai,Bengaluru,1055,10.8,Container,2026-11-12,49000,Open
+LD0328,SHP001,Pioneer Patil Agro Traders,Agri produce (onion/potato),Nagpur,Visakhapatnam,725,18.1,Open body,2026-11-03,22200,Open
+LD0329,SHP013,Shakti Choudhary Distributors,FMCG cartons,Vadodara,Varanasi,1315,2.3,LCV (Tata 407 class),2026-11-09,29100,Open
+LD0330,SHP004,New Iyer Auto Components,Machinery parts,Lucknow,Chennai,1915,8.6,Open body,2026-11-13,75200,Open
+LD0331,SHP036,Jai Saini Furnitures,Furniture,Ludhiana,Indore,1135,18.4,Container,2026-10-28,44000,Open
+LD0332,SHP018,Jai Naidu Steel Traders,Steel coils,Agra,Kota,385,16.7,Trailer,2026-11-03,19200,Open
+LD0333,SHP074,New Jadhav Furnitures,Furniture,Chennai,Vadodara,1590,10.6,Container,2026-11-10,58400,Open
+LD0334,SHP010,Lakshmi Ghosh Textiles,Textiles & garments,Kolkata,Bengaluru,1950,9.2,Container,2026-11-13,75800,Open
+LD0335,SHP060,Jai Meena Steel Traders,Steel coils,Rajkot,Panipat,1250,19.2,Trailer,2026-11-11,75700,Open
+LD0336,SHP035,Jai Pillai Polymers,Plastic granules,Hyderabad,Visakhapatnam,630,14.8,Open body,2026-11-09,21700,Open
+LD0337,SHP089,Sunrise Patel Foods,Frozen food & dairy,Bengaluru,Chennai,365,9.7,Refrigerated,2026-11-03,20900,Open
+LD0338,SHP081,Narmada Reddy Textiles,Textiles & garments,Mumbai,Gurugram,1405,10.1,Container,2026-11-14,51700,Open
+LD0339,SHP034,Bharat Das Foods,Frozen food & dairy,Coimbatore,Ahmedabad,1765,4.4,Refrigerated,2026-11-06,97900,Open
+LD0340,SHP030,Prime Khan Textiles,Textiles & garments,Jaipur,Hyderabad,1370,13.1,Open body,2026-11-09,42800,Open

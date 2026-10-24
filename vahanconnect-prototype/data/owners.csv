@@ -1,0 +1,161 @@
+owner_id,name,home_city,state,phone,fleet_size,gst_no,licence_verified,rc_verified,id_verified,gst_verified,background_check,verification_status,rating,trips_completed,joined_on
+OWN001,Yogesh Malhotra,Amritsar,Punjab,+91 9741XX XX75,2,,True,True,True,False,True,Pending,4.3,2,2026-08-01
+OWN002,Ashok Meena,Delhi,Delhi,+91 9782XX XX40,6,07ZWFQQ7959F1ZH,True,True,True,True,True,Verified,3.7,217,2026-03-28
+OWN003,Thomas Chauhan,Visakhapatnam,Andhra Pradesh,+91 9250XX XX11,3,37MHNXB3990T1ZG,True,True,True,True,False,Rejected,3.7,7,2026-07-05
+OWN004,Manoj Patel,Bhubaneswar,Odisha,+91 9959XX XX84,2,21UWDPK3310U1Z3,True,False,True,True,True,Rejected,3.3,8,2026-07-25
+OWN005,Iqbal Reddy,Surat,Gujarat,+91 9776XX XX98,4,24WAUDX4176E1ZE,True,True,True,True,False,Pending,3.5,22,2026-02-25
+OWN006,Suresh Gill,Ludhiana,Punjab,+91 9634XX XX10,1,03VRFXF0271U1Z5,True,True,True,True,True,Verified,4.6,238,2026-04-29
+OWN007,Prakash Pillai,Visakhapatnam,Andhra Pradesh,+91 9296XX XX43,1,37NJLNT5222S1ZF,True,True,True,True,True,Verified,4.2,207,2026-06-10
+OWN008,Iqbal Nair,Panipat,Haryana,+91 9637XX XX66,1,06EEETQ0915L1ZG,True,True,True,True,True,Verified,3.9,172,2026-02-05
+OWN009,Dinesh Khan,Pune,Maharashtra,+91 9459XX XX81,2,27VCEKU0518I1Z4,True,True,True,True,False,Rejected,4.4,25,2026-02-20
+OWN010,Naresh Ansari,Rajkot,Gujarat,+91 9991XX XX94,2,24TWQGL7778F1Z1,True,False,True,True,True,Pending,4.0,13,2025-10-05
+OWN011,Kuldeep Sandhu,Ludhiana,Punjab,+91 9798XX XX27,4,03ACOLT7481W1ZF,True,True,True,True,True,Verified,4.8,65,2026-03-27
+OWN012,Subhash Chauhan,Amritsar,Punjab,+91 9453XX XX45,2,03JNWNY7151O1Z0,True,True,True,True,True,Verified,3.8,212,2026-04-18
+OWN013,Ashok Sandhu,Bengaluru,Karnataka,+91 9525XX XX23,1,29VCVWA1748I1ZA,True,True,True,True,False,Pending,3.9,17,2025-10-04
+OWN014,Srinivas Gowda,Guwahati,Assam,+91 9769XX XX35,2,18PLMKB7275B1Z1,True,True,True,True,True,Verified,4.3,240,2026-05-27
+OWN015,Prakash Chauhan,Pune,Maharashtra,+91 9335XX XX92,1,27NUXFR7411S1ZB,False,True,True,True,False,Rejected,3.3,10,2026-06-25
+OWN016,Mahesh Patel,Hyderabad,Telangana,+91 9784XX XX29,3,36BYXNI2268X1ZA,True,True,True,True,False,Rejected,4.6,15,2026-01-10
+OWN017,Rakesh Reddy,Chennai,Tamil Nadu,+91 9329XX XX58,1,33BIUCQ4055E1Z5,True,True,True,True,True,Verified,4.2,223,2025-11-07
+OWN018,Subhash Malhotra,Amritsar,Punjab,+91 9181XX XX19,2,03SERQG9640D1Z6,True,True,True,True,True,Verified,3.8,123,2026-07-29
+OWN019,Thomas Mishra,Kolkata,West Bengal,+91 9319XX XX88,2,19MXVWQ6726L1ZE,False,True,True,True,True,Pending,3.7,24,2025-11-26
+OWN020,Senthil Jadhav,Hyderabad,Telangana,+91 9166XX XX81,2,36XKIGN0472M1ZA,True,True,True,True,True,Verified,4.9,215,2026-02-15
+OWN021,Suresh Ansari,Ahmedabad,Gujarat,+91 9130XX XX91,2,24DSBHF3328H1Z3,True,True,True,True,True,Verified,4.0,60,2025-10-12
+OWN022,Karan Naidu,Nashik,Maharashtra,+91 9128XX XX99,2,,True,True,True,False,True,Pending,3.7,17,2026-06-30
+OWN023,Jaswinder Naidu,Visakhapatnam,Andhra Pradesh,+91 9327XX XX27,2,37ESWWH3529W1ZC,False,True,True,True,True,Pending,3.4,7,2026-05-28
+OWN024,Subhash Gill,Ahmedabad,Gujarat,+91 9871XX XX52,3,24NNSPI6565H1ZG,True,True,False,True,True,Rejected,3.6,11,2026-08-23
+OWN025,Amit Chauhan,Vadodara,Gujarat,+91 9136XX XX92,1,24JBYTL4816R1ZH,True,True,True,True,False,Pending,4.0,20,2026-02-21
+OWN026,Ramesh Mishra,Hyderabad,Telangana,+91 9935XX XX48,1,36ILZAS5626Q1ZA,True,True,True,True,True,Verified,3.6,84,2025-11-18
+OWN027,Biswajit Shinde,Bengaluru,Karnataka,+91 9472XX XX53,1,29LDXST0597F1ZH,True,True,True,True,True,Verified,4.6,115,2026-02-23
+OWN028,Arjun Shinde,Ahmedabad,Gujarat,+91 9335XX XX98,1,24YVWJI4878E1Z4,False,True,True,True,True,Pending,3.8,9,2026-06-02
+OWN029,Senthil Ansari,Gurugram,Haryana,+91 9533XX XX67,3,06LTSDI6591Y1Z1,True,True,True,True,False,Rejected,3.2,3,2025-12-08
+OWN030,Rakesh Das,Hyderabad,Telangana,+91 9121XX XX77,4,36MYIWN1016S1ZF,True,True,True,True,True,Verified,4.9,105,2026-07-24
+OWN031,Ashok Gill,Visakhapatnam,Andhra Pradesh,+91 9921XX XX21,1,37WLPSR6817B1ZJ,True,True,True,True,True,Verified,3.9,108,2026-06-02
+OWN032,Ravi Gowda,Nagpur,Maharashtra,+91 9827XX XX12,1,27IKFMI8155U1ZF,True,True,False,True,False,Pending,4.5,9,2026-08-02
+OWN033,Murugan Singh,Patna,Bihar,+91 9986XX XX89,1,10NNFRT0595U1ZB,True,True,True,True,True,Verified,4.5,202,2025-10-18
+OWN034,Harpreet Verma,Panipat,Haryana,+91 9163XX XX83,1,06AVZRP7886C1Z5,True,True,True,True,True,Verified,4.6,162,2026-05-18
+OWN035,Subhash Jadhav,Ahmedabad,Gujarat,+91 9429XX XX34,4,24PBSZV5317E1ZG,True,True,True,True,True,Verified,4.0,52,2026-06-10
+OWN036,Baldev Saini,Hyderabad,Telangana,+91 9211XX XX33,1,36ZQZUS0996C1Z9,False,False,True,True,True,Pending,3.6,25,2026-02-08
+OWN037,Dinesh Mishra,Kanpur,Uttar Pradesh,+91 9205XX XX25,1,09UAXQJ3458J1ZB,True,True,True,True,True,Verified,4.0,45,2026-04-19
+OWN038,Baldev Meena,Kota,Rajasthan,+91 9111XX XX19,3,08IMAOP2398R1Z6,True,True,True,True,True,Verified,4.2,93,2026-06-18
+OWN039,Anil Chauhan,Mumbai,Maharashtra,+91 9445XX XX99,1,27QUXXO7162G1ZD,True,True,True,True,True,Verified,4.1,26,2026-02-11
+OWN040,Suresh Kumar,Bengaluru,Karnataka,+91 9149XX XX71,3,29FOGYH8379I1ZG,True,True,True,True,True,Verified,3.7,22,2026-08-05
+OWN041,Rajesh Mishra,Jodhpur,Rajasthan,+91 9376XX XX26,6,08BPWCU6683C1ZD,True,True,True,True,True,Verified,3.8,193,2026-01-20
+OWN042,Subhash Patil,Nagpur,Maharashtra,+91 9839XX XX93,3,27QYBNX2480J1ZF,True,True,True,True,True,Verified,4.9,230,2026-08-13
+OWN043,Imran Malhotra,Patna,Bihar,+91 9599XX XX38,1,10NDBCN2083X1Z4,True,True,True,True,True,Verified,3.8,227,2026-04-11
+OWN044,Ravi Sharma,Surat,Gujarat,+91 9935XX XX61,4,24FZTBJ1226X1ZJ,True,True,True,True,True,Verified,4.6,139,2026-07-13
+OWN045,Manoj Jadhav,Kanpur,Uttar Pradesh,+91 9358XX XX19,1,09MKRTJ2086M1ZC,True,True,True,True,True,Verified,4.9,57,2026-05-23
+OWN046,Karan Reddy,Pune,Maharashtra,+91 9344XX XX31,1,27KBVXY5412U1Z1,True,True,True,True,False,Rejected,3.1,0,2026-01-07
+OWN047,Vikram Patel,Patna,Bihar,+91 9400XX XX41,3,10BBMDK1295T1ZK,True,True,True,True,True,Verified,4.6,5,2025-10-30
+OWN048,Murugan Singh,Kochi,Kerala,+91 9931XX XX43,1,32DAALJ7453J1ZD,True,True,True,True,True,Verified,3.7,215,2026-03-04
+OWN049,Mohan Shinde,Jodhpur,Rajasthan,+91 9207XX XX22,6,,True,True,True,False,True,Rejected,3.2,10,2026-08-16
+OWN050,Kuldeep Bhatia,Hyderabad,Telangana,+91 9166XX XX39,1,36WWOQO1288A1Z5,True,True,True,True,True,Verified,3.8,185,2025-11-26
+OWN051,Thomas Tiwari,Pune,Maharashtra,+91 9223XX XX41,1,,True,True,True,False,True,Pending,4.3,14,2025-12-25
+OWN052,Gurmeet Mishra,Delhi,Delhi,+91 9168XX XX61,4,07ZXHNT5076N1Z8,True,True,True,True,True,Verified,4.9,34,2025-11-23
+OWN053,Farhan Bhatia,Bhopal,Madhya Pradesh,+91 9502XX XX34,3,23KLGCX7351A1Z3,True,True,True,True,True,Verified,4.2,126,2026-08-20
+OWN054,Karan Ansari,Mumbai,Maharashtra,+91 9209XX XX62,1,27UIQGG4981M1Z4,False,True,True,True,False,Rejected,4.3,13,2026-02-07
+OWN055,Gurmeet Mishra,Nagpur,Maharashtra,+91 9986XX XX65,3,27BHKXZ2856F1ZF,True,True,True,True,True,Verified,4.7,181,2025-10-27
+OWN056,Vikram Iyer,Chennai,Tamil Nadu,+91 9800XX XX79,1,33CMWPS4943X1Z7,True,True,True,True,True,Verified,4.4,208,2026-07-08
+OWN057,Suresh Ghosh,Patna,Bihar,+91 9381XX XX23,1,10BMIZS9531Y1Z9,True,True,True,True,True,Verified,4.5,113,2026-08-17
+OWN058,Jaswinder Jadhav,Nagpur,Maharashtra,+91 9657XX XX47,1,27MVJFM9861Q1Z4,True,True,True,True,False,Pending,3.6,20,2026-02-19
+OWN059,Karan Meena,Chennai,Tamil Nadu,+91 9935XX XX60,1,33GXJXR9999P1ZF,True,True,True,True,False,Pending,4.2,6,2026-02-15
+OWN060,Suresh Saini,Ahmedabad,Gujarat,+91 9717XX XX41,2,,True,True,True,False,False,Pending,3.1,20,2026-01-05
+OWN061,Yogesh Kumar,Coimbatore,Tamil Nadu,+91 9712XX XX92,2,33PAVAF5759W1ZD,True,True,True,True,True,Verified,4.8,33,2026-08-01
+OWN062,Salim Sandhu,Ludhiana,Punjab,+91 9794XX XX54,2,03VOGNV6142G1Z5,True,True,True,True,True,Verified,5.0,113,2026-04-20
+OWN063,Dinesh Nair,Vadodara,Gujarat,+91 9482XX XX37,2,24ZPCVS4821N1ZC,True,False,True,True,True,Pending,3.4,0,2025-10-11
+OWN064,Iqbal Patel,Mumbai,Maharashtra,+91 9495XX XX21,1,27QGHUL8342N1Z4,True,True,True,True,True,Verified,3.8,96,2026-07-22
+OWN065,Karan Gowda,Ahmedabad,Gujarat,+91 9905XX XX66,4,24ZPFTZ1075O1Z9,True,True,True,True,True,Verified,4.2,94,2025-12-25
+OWN066,Rajesh Nair,Bengaluru,Karnataka,+91 9904XX XX80,3,29JAILM5372F1ZB,True,True,True,True,True,Verified,4.5,170,2026-04-23
+OWN067,Karan Tiwari,Lucknow,Uttar Pradesh,+91 9188XX XX50,2,09IKJDP0206Z1ZE,True,True,True,True,True,Verified,3.9,198,2026-01-07
+OWN068,Thomas Tiwari,Delhi,Delhi,+91 9508XX XX72,2,07OAOSO2775Q1ZE,True,True,True,True,True,Verified,4.5,37,2026-03-10
+OWN069,Arjun Bhatia,Bengaluru,Karnataka,+91 9386XX XX38,1,29WVOJP5545V1ZE,True,True,True,True,True,Verified,4.6,215,2026-05-11
+OWN070,Thomas Yadav,Indore,Madhya Pradesh,+91 9974XX XX85,6,23PWBBV8905P1ZH,True,True,True,True,True,Verified,4.1,111,2026-07-07
+OWN071,Rakesh Gill,Chennai,Tamil Nadu,+91 9717XX XX53,1,33TYABB4611C1ZF,True,True,True,True,True,Verified,4.3,106,2026-04-25
+OWN072,Jaswinder Meena,Raipur,Chhattisgarh,+91 9746XX XX72,2,22TOHBW4291I1ZA,True,True,True,True,False,Pending,4.4,9,2026-08-13
+OWN073,Ramesh Gowda,Gurugram,Haryana,+91 9591XX XX24,6,06AXSCQ3301L1ZG,True,True,True,True,True,Verified,4.8,151,2026-02-23
+OWN074,Ramesh Naidu,Surat,Gujarat,+91 9338XX XX14,1,24UJTBO3255K1ZG,True,True,True,True,True,Verified,3.9,59,2025-12-02
+OWN075,Joseph Patil,Indore,Madhya Pradesh,+91 9137XX XX57,1,23RGMLN0138I1ZB,True,True,True,True,False,Pending,3.5,2,2026-06-24
+OWN076,Imran Meena,Coimbatore,Tamil Nadu,+91 9670XX XX54,1,33DCCXY3101P1ZD,True,True,True,True,True,Verified,4.9,30,2026-05-26
+OWN077,Jaswinder Saini,Surat,Gujarat,+91 9947XX XX45,1,24PAFHO4478T1ZC,True,True,True,True,True,Verified,4.0,119,2026-07-12
+OWN078,Murugan Tiwari,Hyderabad,Telangana,+91 9838XX XX82,4,36DUPQA9760H1ZA,True,True,True,True,True,Verified,4.1,118,2026-01-29
+OWN079,Mohan Gowda,Mumbai,Maharashtra,+91 9334XX XX61,1,27PBYWX7436I1Z1,True,True,True,True,True,Verified,3.8,108,2026-06-08
+OWN080,Arjun Khan,Kanpur,Uttar Pradesh,+91 9540XX XX94,2,09EBLER4783O1Z7,True,True,True,True,True,Verified,4.8,236,2026-07-07
+OWN081,Arjun Malhotra,Delhi,Delhi,+91 9745XX XX65,3,07MIUWI9618X1Z4,True,True,True,True,True,Verified,4.4,147,2026-01-24
+OWN082,Iqbal Naidu,Surat,Gujarat,+91 9114XX XX24,1,24PPGVY6317C1Z3,True,True,True,True,True,Verified,3.7,151,2026-03-30
+OWN083,Mahesh Singh,Pune,Maharashtra,+91 9223XX XX33,2,27WMMZV5267X1ZF,True,True,True,True,True,Verified,4.9,6,2026-03-22
+OWN084,Mahesh Yadav,Mumbai,Maharashtra,+91 9385XX XX31,6,27FUFNQ1954V1Z0,True,True,True,True,True,Verified,4.7,37,2025-10-07
+OWN085,Imran Kumar,Bengaluru,Karnataka,+91 9481XX XX66,3,29TBRDZ6663N1Z3,True,True,True,True,False,Pending,4.3,10,2026-02-16
+OWN086,Deepak Gill,Nagpur,Maharashtra,+91 9908XX XX91,1,27YOTDH7346D1ZD,True,True,True,True,True,Verified,4.8,181,2026-06-24
+OWN087,Subhash Khan,Pune,Maharashtra,+91 9228XX XX30,1,27DJXLS6787R1Z8,True,True,True,True,True,Verified,3.6,16,2025-11-16
+OWN088,Rajesh Sharma,Bhopal,Madhya Pradesh,+91 9784XX XX99,1,23QFJYJ0524O1ZF,True,True,True,True,True,Verified,4.9,169,2025-11-23
+OWN089,Naresh Naidu,Ahmedabad,Gujarat,+91 9366XX XX64,3,,True,True,True,False,True,Pending,3.7,10,2026-06-25
+OWN090,Deepak Chauhan,Raipur,Chhattisgarh,+91 9951XX XX26,3,22PKAJA6491M1ZH,True,True,True,True,False,Rejected,3.4,7,2026-07-18
+OWN091,Biswajit Sharma,Chandigarh,Chandigarh,+91 9694XX XX53,1,04KFLJO6746T1ZF,True,True,True,True,True,Verified,4.5,229,2026-02-19
+OWN092,Ashok Tiwari,Ludhiana,Punjab,+91 9851XX XX52,2,03NHNBU3087N1ZC,True,True,True,True,True,Verified,4.1,33,2025-11-22
+OWN093,Gopal Chauhan,Hyderabad,Telangana,+91 9811XX XX59,3,36QEVWK2492F1Z1,True,True,True,True,True,Verified,3.8,148,2026-03-04
+OWN094,Manoj Das,Pune,Maharashtra,+91 9598XX XX20,1,27WGTPP5411X1Z3,True,True,True,True,True,Verified,3.8,8,2026-05-28
+OWN095,Sanjay Malhotra,Delhi,Delhi,+91 9119XX XX72,3,07VOAAJ0769Q1ZJ,True,True,True,True,True,Verified,4.1,221,2025-10-10
+OWN096,Arjun Ansari,Lucknow,Uttar Pradesh,+91 9658XX XX66,1,09PUWTZ5313M1ZJ,True,False,True,True,True,Rejected,3.2,10,2026-02-13
+OWN097,Kuldeep Ghosh,Delhi,Delhi,+91 9496XX XX97,1,07JNJDO5770U1Z1,True,True,True,True,True,Verified,4.8,97,2026-08-07
+OWN098,Anil Ghosh,Bengaluru,Karnataka,+91 9931XX XX80,6,29JJHQR1481H1ZA,True,True,True,True,True,Verified,3.6,90,2026-07-24
+OWN099,Murugan Verma,Ahmedabad,Gujarat,+91 9220XX XX68,3,24LATNY2407N1Z1,True,True,True,True,True,Verified,4.4,86,2025-10-19
+OWN100,Iqbal Shinde,Kolkata,West Bengal,+91 9548XX XX37,2,19OOWCN3486V1ZK,True,True,False,True,True,Pending,3.7,16,2025-12-14
+OWN101,Gopal Das,Lucknow,Uttar Pradesh,+91 9724XX XX24,1,09LOYFB0245G1Z0,True,True,True,True,True,Verified,3.7,91,2026-01-31
+OWN102,Senthil Khan,Amritsar,Punjab,+91 9252XX XX39,2,03OYQYI8137L1ZE,True,True,True,True,True,Verified,3.7,140,2026-05-17
+OWN103,Mahesh Choudhary,Ludhiana,Punjab,+91 9352XX XX33,1,03CHZBL6404W1Z8,True,True,True,True,True,Verified,4.3,186,2026-07-25
+OWN104,Subhash Patel,Nashik,Maharashtra,+91 9105XX XX71,1,27SUYVC3247K1ZA,True,True,True,True,True,Verified,3.9,151,2026-05-25
+OWN105,Anil Gowda,Lucknow,Uttar Pradesh,+91 9915XX XX15,1,09KRKRG9458D1Z2,True,True,True,True,False,Pending,3.5,14,2026-06-10
+OWN106,Dinesh Bhatia,Coimbatore,Tamil Nadu,+91 9365XX XX14,2,33JZGEC0181T1ZF,True,True,True,True,True,Verified,4.1,189,2026-03-28
+OWN107,Baldev Meena,Nagpur,Maharashtra,+91 9772XX XX41,2,27UIGCJ7235Z1Z4,True,True,True,True,True,Verified,4.5,29,2026-06-05
+OWN108,Harpreet Pillai,Surat,Gujarat,+91 9815XX XX14,3,24ZRCXL0238X1Z9,True,True,True,True,True,Verified,4.7,27,2026-01-21
+OWN109,Dinesh Iyer,Indore,Madhya Pradesh,+91 9273XX XX34,2,23THYWL8143U1Z4,True,False,True,True,True,Pending,4.2,9,2026-07-03
+OWN110,Murugan Chauhan,Gurugram,Haryana,+91 9758XX XX61,3,06JXQBZ7490H1ZD,True,True,True,True,False,Pending,3.3,10,2026-05-11
+OWN111,Gurmeet Ansari,Rajkot,Gujarat,+91 9216XX XX64,1,24WRKFF1541I1Z5,True,False,True,True,True,Rejected,4.3,10,2026-06-23
+OWN112,Venkatesh Verma,Hyderabad,Telangana,+91 9255XX XX79,2,36SKALB2730D1ZJ,True,True,True,True,True,Verified,4.2,171,2026-05-07
+OWN113,Bhavesh Gowda,Coimbatore,Tamil Nadu,+91 9304XX XX53,1,,True,True,True,False,True,Pending,4.0,7,2026-03-29
+OWN114,Srinivas Gowda,Nagpur,Maharashtra,+91 9347XX XX35,2,27KLGRG1185Z1ZK,True,True,True,True,True,Verified,4.4,121,2025-12-09
+OWN115,Mohan Sandhu,Mumbai,Maharashtra,+91 9634XX XX58,2,27KIPGR6459H1ZD,True,True,True,True,True,Verified,4.6,5,2026-03-27
+OWN116,Thomas Bhatia,Hyderabad,Telangana,+91 9981XX XX33,4,36NGLEF1037Q1ZA,True,True,True,True,True,Verified,3.8,208,2025-12-19
+OWN117,Anil Iyer,Bengaluru,Karnataka,+91 9347XX XX20,1,29IRGAY8807E1ZG,True,True,True,True,True,Verified,4.5,16,2026-07-09
+OWN118,Thomas Chauhan,Bengaluru,Karnataka,+91 9292XX XX91,1,29TPCGT5353D1ZB,True,True,True,True,True,Verified,4.2,88,2025-12-17
+OWN119,Naresh Nair,Ahmedabad,Gujarat,+91 9598XX XX96,4,24QSKTM6872C1ZG,True,True,True,True,True,Verified,3.9,209,2026-06-06
+OWN120,Bhavesh Tiwari,Ahmedabad,Gujarat,+91 9715XX XX56,1,24AKBQL6059B1Z5,True,True,True,True,True,Verified,4.4,63,2026-08-08
+OWN121,Mahesh Nair,Mumbai,Maharashtra,+91 9650XX XX39,6,27JERWY3633O1Z5,True,False,True,True,True,Rejected,3.6,9,2026-05-18
+OWN122,Mahesh Rathore,Ahmedabad,Gujarat,+91 9312XX XX81,4,24AFOAH4141K1Z1,True,True,True,True,True,Verified,4.7,209,2026-08-26
+OWN123,Anil Verma,Surat,Gujarat,+91 9911XX XX56,1,24OAWVM2657I1Z2,True,True,True,True,True,Verified,4.3,149,2025-11-17
+OWN124,Senthil Rathore,Delhi,Delhi,+91 9379XX XX74,2,07IYSEY5217K1Z1,True,True,True,True,False,Pending,4.1,24,2026-05-04
+OWN125,Jaswinder Gowda,Mumbai,Maharashtra,+91 9832XX XX69,1,27LDDPH2344V1Z7,True,True,True,True,False,Rejected,4.0,18,2026-08-08
+OWN126,Mohan Shinde,Kolkata,West Bengal,+91 9995XX XX24,3,19DORDS6733G1ZJ,True,True,True,True,True,Verified,3.8,234,2026-04-12
+OWN127,Kuldeep Yadav,Kota,Rajasthan,+91 9103XX XX95,3,08KWEJI0324E1ZJ,True,True,True,True,True,Verified,5.0,52,2026-07-23
+OWN128,Prakash Gowda,Chennai,Tamil Nadu,+91 9335XX XX66,1,33XYTPW0831U1ZD,True,True,True,True,True,Verified,4.6,84,2026-06-10
+OWN129,Gurmeet Khan,Kanpur,Uttar Pradesh,+91 9807XX XX41,2,09VGOKB3887T1ZA,True,True,False,True,False,Pending,3.6,7,2026-07-24
+OWN130,Amit Jadhav,Bhubaneswar,Odisha,+91 9486XX XX35,3,21PMHTM0801U1ZA,True,True,True,True,True,Verified,4.7,184,2025-12-27
+OWN131,Jaswinder Nair,Mumbai,Maharashtra,+91 9623XX XX90,1,27JLERS1917A1Z0,True,True,True,True,True,Verified,4.6,237,2026-02-15
+OWN132,Srinivas Patil,Bhopal,Madhya Pradesh,+91 9804XX XX20,3,23HAVVI4111R1ZK,True,False,True,True,True,Pending,4.4,22,2026-06-30
+OWN133,Farhan Ghosh,Kolkata,West Bengal,+91 9618XX XX75,1,19DLONT3179T1Z1,True,True,True,True,True,Verified,3.7,33,2026-02-21
+OWN134,Suresh Tiwari,Guwahati,Assam,+91 9108XX XX10,2,18CAXDS1396D1Z9,True,True,True,True,False,Rejected,4.1,17,2025-11-01
+OWN135,Hitesh Ansari,Raipur,Chhattisgarh,+91 9529XX XX95,1,22VGJGE2345L1ZE,True,True,True,True,True,Verified,3.8,230,2026-02-17
+OWN136,Joseph Shinde,Surat,Gujarat,+91 9149XX XX13,1,24ETXRE9150Q1ZC,True,True,True,True,True,Verified,4.8,65,2026-04-14
+OWN137,Gurmeet Ansari,Ahmedabad,Gujarat,+91 9193XX XX17,4,24HBVOP5151H1Z4,True,True,True,True,True,Verified,4.0,160,2025-10-16
+OWN138,Thomas Chauhan,Pune,Maharashtra,+91 9964XX XX56,2,27LOGNG5778E1Z5,True,True,True,True,True,Verified,5.0,231,2026-08-09
+OWN139,Arjun Saini,Pune,Maharashtra,+91 9839XX XX94,1,27HXYJY8363I1Z4,True,True,True,True,True,Verified,4.2,69,2026-07-01
+OWN140,Suresh Nair,Bengaluru,Karnataka,+91 9194XX XX35,1,29XVKZN6433I1ZE,True,True,True,True,True,Verified,4.1,68,2026-07-17
+OWN141,Srinivas Singh,Hyderabad,Telangana,+91 9672XX XX62,2,36MADSW8320Q1Z3,True,True,True,True,True,Verified,4.6,187,2026-04-30
+OWN142,Ramesh Mishra,Kota,Rajasthan,+91 9315XX XX26,4,08IJMCK5334Y1ZJ,True,True,True,True,False,Rejected,3.2,15,2026-03-04
+OWN143,Naresh Bhatia,Ludhiana,Punjab,+91 9211XX XX25,1,03FBDHC9618X1Z6,True,True,True,True,True,Verified,4.2,191,2026-01-11
+OWN144,Harpreet Iyer,Agra,Uttar Pradesh,+91 9568XX XX41,3,,True,True,True,False,True,Pending,3.9,22,2026-06-08
+OWN145,Sanjay Meena,Pune,Maharashtra,+91 9955XX XX63,2,27JPTWD7578O1Z9,True,True,True,True,True,Verified,4.3,184,2026-03-29
+OWN146,Senthil Singh,Pune,Maharashtra,+91 9177XX XX37,1,27ZIXRV3723G1ZH,True,True,True,True,True,Verified,4.4,238,2025-12-16
+OWN147,Harpreet Ghosh,Jaipur,Rajasthan,+91 9443XX XX14,2,08YBQYL6538V1ZC,True,True,True,True,True,Verified,4.4,222,2026-07-01
+OWN148,Amit Malhotra,Bhopal,Madhya Pradesh,+91 9857XX XX64,1,23SXZHN7526Y1Z8,True,True,True,True,False,Pending,3.3,23,2026-01-08
+OWN149,Venkatesh Sharma,Pune,Maharashtra,+91 9308XX XX56,1,,True,True,True,False,True,Pending,4.1,21,2025-11-03
+OWN150,Ashok Iyer,Mumbai,Maharashtra,+91 9547XX XX34,6,27OQWTQ5476J1ZJ,True,True,True,True,True,Verified,3.7,168,2026-01-10
+OWN151,Harpreet Chauhan,Delhi,Delhi,+91 9726XX XX58,1,07NKKGP9267G1Z2,True,True,True,True,False,Pending,3.6,16,2026-03-15
+OWN152,Arjun Saini,Delhi,Delhi,+91 9582XX XX31,1,07BYCNT6820L1Z0,True,True,True,True,True,Verified,4.8,131,2026-04-27
+OWN153,Hitesh Jadhav,Hyderabad,Telangana,+91 9272XX XX50,2,36LQSEE9264C1Z9,True,True,True,True,True,Verified,3.9,138,2025-11-29
+OWN154,Anil Ansari,Raipur,Chhattisgarh,+91 9159XX XX94,2,22ERVHZ3576O1Z7,True,True,True,True,True,Verified,4.0,216,2026-04-16
+OWN155,Harpreet Malhotra,Hyderabad,Telangana,+91 9834XX XX54,4,36VLXEE7163R1Z3,True,True,True,True,True,Verified,3.9,80,2026-01-07
+OWN156,Subhash Khan,Kolkata,West Bengal,+91 9361XX XX64,1,19IPOAR7901W1ZG,True,True,True,True,True,Verified,4.2,68,2026-08-14
+OWN157,Joseph Patil,Nagpur,Maharashtra,+91 9953XX XX31,1,27LBYUG9666Z1ZE,True,True,True,True,True,Verified,4.5,28,2026-06-23
+OWN158,Amit Mishra,Jaipur,Rajasthan,+91 9894XX XX63,2,08DOKEX6519W1ZK,True,True,True,True,True,Verified,4.9,120,2026-04-16
+OWN159,Baldev Sharma,Bengaluru,Karnataka,+91 9850XX XX63,1,29ZSZFC2894K1Z7,True,True,True,True,True,Verified,4.4,97,2026-05-27
+OWN160,Venkatesh Mishra,Delhi,Delhi,+91 9776XX XX40,2,07ZUQVX8947Q1ZC,True,True,True,True,True,Verified,3.8,10,2026-02-08

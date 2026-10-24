@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "text/csv; charset=utf-8" }]
+    }
+  ]
+}

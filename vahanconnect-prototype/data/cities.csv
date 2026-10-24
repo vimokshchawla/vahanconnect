@@ -1,0 +1,35 @@
+city,state,rto_code,lat,lon
+Delhi,Delhi,DL,28.61,77.21
+Gurugram,Haryana,HR,28.46,77.03
+Panipat,Haryana,HR,29.39,76.97
+Ludhiana,Punjab,PB,30.9,75.86
+Amritsar,Punjab,PB,31.63,74.87
+Chandigarh,Chandigarh,CH,30.73,76.78
+Jaipur,Rajasthan,RJ,26.91,75.79
+Jodhpur,Rajasthan,RJ,26.24,73.02
+Kota,Rajasthan,RJ,25.21,75.86
+Ahmedabad,Gujarat,GJ,23.02,72.57
+Surat,Gujarat,GJ,21.17,72.83
+Vadodara,Gujarat,GJ,22.31,73.18
+Rajkot,Gujarat,GJ,22.3,70.8
+Mumbai,Maharashtra,MH,19.08,72.88
+Pune,Maharashtra,MH,18.52,73.86
+Nagpur,Maharashtra,MH,21.15,79.09
+Nashik,Maharashtra,MH,20.0,73.79
+Indore,Madhya Pradesh,MP,22.72,75.86
+Bhopal,Madhya Pradesh,MP,23.26,77.41
+Lucknow,Uttar Pradesh,UP,26.85,80.95
+Kanpur,Uttar Pradesh,UP,26.45,80.33
+Agra,Uttar Pradesh,UP,27.18,78.01
+Varanasi,Uttar Pradesh,UP,25.32,82.97
+Patna,Bihar,BR,25.59,85.14
+Kolkata,West Bengal,WB,22.57,88.36
+Bhubaneswar,Odisha,OD,20.3,85.82
+Raipur,Chhattisgarh,CG,21.25,81.63
+Hyderabad,Telangana,TS,17.39,78.49
+Visakhapatnam,Andhra Pradesh,AP,17.69,83.22
+Bengaluru,Karnataka,KA,12.97,77.59
+Chennai,Tamil Nadu,TN,13.08,80.27
+Coimbatore,Tamil Nadu,TN,11.02,76.96
+Kochi,Kerala,KL,9.93,76.27
+Guwahati,Assam,AS,26.14,91.74

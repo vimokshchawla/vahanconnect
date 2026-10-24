@@ -1,0 +1,91 @@
+shipper_id,company,industry,city,state,gst_no,monthly_shipments
+SHP001,Pioneer Patil Agro Traders,Agri trading,Kolkata,West Bengal,19AUJYB1081Q1Z9,6
+SHP002,Ganpati Shinde Auto Components,Auto components,Pune,Maharashtra,27GRPDC4171K1Z2,2
+SHP003,Jai Patel Distributors,FMCG distribution,Nagpur,Maharashtra,27KORJR8937S1ZG,4
+SHP004,New Iyer Auto Components,Auto components,Lucknow,Uttar Pradesh,09XUJUH1085Z1ZA,20
+SHP005,Om Chauhan Steel Traders,Steel trading,Mumbai,Maharashtra,27ALUIQ3712Y1Z8,30
+SHP006,Prime Das Furnitures,Furniture manufacturing,Indore,Madhya Pradesh,23HIMGD6113I1ZF,2
+SHP007,New Mishra Electronics,Electronics wholesale,Lucknow,Uttar Pradesh,09MFWIJ5369C1Z0,6
+SHP008,Prime Reddy Build Supplies,Construction supply,Amritsar,Punjab,03VTRKL8179R1Z8,4
+SHP009,Bharat Tiwari Distributors,FMCG distribution,Mumbai,Maharashtra,27PPNYN4441Z1Z6,8
+SHP010,Lakshmi Ghosh Textiles,Textiles,Kolkata,West Bengal,19QAEZJ4371I1Z2,2
+SHP011,Classic Rathore Build Supplies,Construction supply,Lucknow,Uttar Pradesh,09JCWVA7667F1ZA,4
+SHP012,Kaveri Jadhav Textiles,Textiles,Rajkot,Gujarat,24NAPZV7054O1Z9,12
+SHP013,Shakti Choudhary Distributors,FMCG distribution,Visakhapatnam,Andhra Pradesh,37SOABS5800J1Z9,20
+SHP014,Bharat Kumar Distributors,FMCG distribution,Pune,Maharashtra,27NOYRD2745T1Z2,6
+SHP015,Jai Chauhan Auto Components,Auto components,Kota,Rajasthan,08OYFTU3910N1ZE,12
+SHP016,Unity Khan Foods,Dairy & food processing,Lucknow,Uttar Pradesh,09XHSDB9645R1ZJ,20
+SHP017,Star Rathore Polymers,Plastics & packaging,Kolkata,West Bengal,19AMPDD2556L1Z2,4
+SHP018,Jai Naidu Steel Traders,Steel trading,Agra,Uttar Pradesh,09KNIPJ2627T1ZJ,12
+SHP019,Om Kumar Electronics,Electronics wholesale,Bhopal,Madhya Pradesh,23FNANM1593U1ZK,8
+SHP020,Classic Chauhan Polymers,Plastics & packaging,Amritsar,Punjab,03ECQUZ4036E1Z1,12
+SHP021,Lakshmi Pillai Auto Components,Auto components,Ludhiana,Punjab,03TVDCY4514T1Z4,2
+SHP022,Shakti Pillai Distributors,FMCG distribution,Ahmedabad,Gujarat,24KWYQA3751R1Z4,30
+SHP023,Kaveri Nair Steel Traders,Steel trading,Nagpur,Maharashtra,27UYVKB6851N1ZH,30
+SHP024,Lakshmi Rathore Foods,Dairy & food processing,Panipat,Haryana,06KGEGT6014Q1Z5,20
+SHP025,Global Gill Steel Traders,Steel trading,Bengaluru,Karnataka,29ELFDJ5448H1Z2,12
+SHP026,Pioneer Verma Textiles,Textiles,Bengaluru,Karnataka,29AQUFR0142Z1Z0,2
+SHP027,Royal Bhatia Agro Traders,Agri trading,Hyderabad,Telangana,36EFYZS8491J1Z7,20
+SHP028,Bharat Choudhary Steel Traders,Steel trading,Bhubaneswar,Odisha,21OGUFX4204G1Z9,30
+SHP029,Om Yadav Distributors,FMCG distribution,Gurugram,Haryana,06XXSJL8658S1Z8,12
+SHP030,Prime Khan Textiles,Textiles,Jaipur,Rajasthan,08NHUUQ3068B1Z6,12
+SHP031,Shree Chauhan Textiles,Textiles,Raipur,Chhattisgarh,22TBJRK2076G1ZA,6
+SHP032,Jai Saini Foods,Dairy & food processing,Nashik,Maharashtra,27XGAKD9837N1Z7,2
+SHP033,Kaveri Das Steel Traders,Steel trading,Mumbai,Maharashtra,27JTVOP3396I1ZK,6
+SHP034,Bharat Das Foods,Dairy & food processing,Coimbatore,Tamil Nadu,33YVDSX5393Z1ZJ,12
+SHP035,Jai Pillai Polymers,Plastics & packaging,Hyderabad,Telangana,36JWREN0976I1ZE,2
+SHP036,Jai Saini Furnitures,Furniture manufacturing,Surat,Gujarat,24PFOCA0820U1ZC,6
+SHP037,Sunrise Nair Furnitures,Furniture manufacturing,Delhi,Delhi,07WVVNC0515F1Z6,12
+SHP038,Global Sandhu Distributors,FMCG distribution,Delhi,Delhi,07MJCUZ4973J1Z8,8
+SHP039,Prime Rathore Furnitures,Furniture manufacturing,Coimbatore,Tamil Nadu,33OBQFC4978V1Z7,12
+SHP040,Balaji Das Polymers,Plastics & packaging,Coimbatore,Tamil Nadu,33SQQMI8323I1Z4,6
+SHP041,Bharat Gill Build Supplies,Construction supply,Mumbai,Maharashtra,27AOUXL7465Z1Z8,20
+SHP042,Sai Saini Agro Traders,Agri trading,Ahmedabad,Gujarat,24WIFVA6553N1Z6,2
+SHP043,Om Patel Distributors,FMCG distribution,Gurugram,Haryana,06OQHCF2049W1Z8,6
+SHP044,Prime Das Auto Components,Auto components,Chandigarh,Chandigarh,04UVAPG4861Y1Z0,20
+SHP045,Narmada Patel Textiles,Textiles,Kota,Rajasthan,08QWYFO6488R1ZH,4
+SHP046,Sunrise Kumar Foods,Dairy & food processing,Chennai,Tamil Nadu,33SOWWN1078V1ZA,30
+SHP047,Narmada Sharma Foods,Dairy & food processing,Delhi,Delhi,07OBBNC8494V1Z3,20
+SHP048,Kaveri Iyer Polymers,Plastics & packaging,Bhopal,Madhya Pradesh,23DEXVD9018V1ZK,6
+SHP049,Bharat Kumar Steel Traders,Steel trading,Ludhiana,Punjab,03YURLH4498Z1Z3,2
+SHP050,Shree Ghosh Build Supplies,Construction supply,Guwahati,Assam,18FBABY6813G1Z7,8
+SHP051,Prime Kumar Agro Traders,Agri trading,Nashik,Maharashtra,27LXKRV7493V1Z8,30
+SHP052,Jai Kumar Pharma Distributors,Pharma distribution,Indore,Madhya Pradesh,23FRSGJ6540C1ZC,4
+SHP053,Narmada Iyer Pharma Distributors,Pharma distribution,Ludhiana,Punjab,03WWGQS6501R1Z8,6
+SHP054,Jai Sandhu Agro Traders,Agri trading,Panipat,Haryana,06HWONR8256U1Z7,2
+SHP055,Global Ansari Distributors,FMCG distribution,Hyderabad,Telangana,36WFESU9527L1ZF,12
+SHP056,Unity Nair Textiles,Textiles,Pune,Maharashtra,27ZXETS7988E1Z8,6
+SHP057,Star Malhotra Distributors,FMCG distribution,Panipat,Haryana,06RRZQQ3959A1ZE,8
+SHP058,Sai Das Polymers,Plastics & packaging,Pune,Maharashtra,27BQINV8661D1Z6,6
+SHP059,Ganpati Verma Steel Traders,Steel trading,Ludhiana,Punjab,03DVIYA8858Z1Z7,8
+SHP060,Jai Meena Steel Traders,Steel trading,Panipat,Haryana,06UAXHK2696W1ZK,4
+SHP061,Sai Choudhary Furnitures,Furniture manufacturing,Nagpur,Maharashtra,27AIDPR3544M1ZF,20
+SHP062,Shree Das Electronics,Electronics wholesale,Bengaluru,Karnataka,29OQDBL6900A1Z6,4
+SHP063,Classic Reddy Steel Traders,Steel trading,Vadodara,Gujarat,24MWMQY5414X1Z0,6
+SHP064,Sunrise Bhatia Agro Traders,Agri trading,Chandigarh,Chandigarh,04MGFKY8366E1Z6,2
+SHP065,Sai Mishra Polymers,Plastics & packaging,Rajkot,Gujarat,24YFFHE3361X1Z9,6
+SHP066,Unity Meena Furnitures,Furniture manufacturing,Gurugram,Haryana,06ASDKC1671Q1Z8,6
+SHP067,Jai Pillai Pharma Distributors,Pharma distribution,Hyderabad,Telangana,36CEEXJ6670M1ZH,4
+SHP068,Star Patel Polymers,Plastics & packaging,Kanpur,Uttar Pradesh,09OJCNY5178Y1ZK,12
+SHP069,Bharat Saini Polymers,Plastics & packaging,Mumbai,Maharashtra,27ECASV7230T1Z5,2
+SHP070,Prime Kumar Electronics,Electronics wholesale,Ahmedabad,Gujarat,24XKDUO0343P1Z6,12
+SHP071,Royal Verma Foods,Dairy & food processing,Amritsar,Punjab,03INYVD5696S1Z5,2
+SHP072,Lakshmi Choudhary Agro Traders,Agri trading,Lucknow,Uttar Pradesh,09BVVZL1434M1Z2,12
+SHP073,Om Das Build Supplies,Construction supply,Pune,Maharashtra,27WVHYP4585O1Z6,2
+SHP074,New Jadhav Furnitures,Furniture manufacturing,Nagpur,Maharashtra,27IPJDP1692U1ZK,12
+SHP075,Sunrise Meena Steel Traders,Steel trading,Delhi,Delhi,07ITNNT2450U1ZB,12
+SHP076,Prime Gill Agro Traders,Agri trading,Kochi,Kerala,32ZWVJG2159J1Z8,20
+SHP077,Global Malhotra Foods,Dairy & food processing,Mumbai,Maharashtra,27WTQLC9485D1Z2,8
+SHP078,Narmada Khan Polymers,Plastics & packaging,Visakhapatnam,Andhra Pradesh,37KBWCV2060E1Z8,8
+SHP079,Star Ghosh Polymers,Plastics & packaging,Nagpur,Maharashtra,27EAZRM9591F1ZC,20
+SHP080,Unity Reddy Polymers,Plastics & packaging,Ludhiana,Punjab,03OPMIA2927F1Z1,4
+SHP081,Narmada Reddy Textiles,Textiles,Mumbai,Maharashtra,27UWNKS9473A1Z2,8
+SHP082,New Sharma Steel Traders,Steel trading,Ahmedabad,Gujarat,24XISQQ3156D1ZA,2
+SHP083,New Patil Build Supplies,Construction supply,Bengaluru,Karnataka,29RIWIG6578W1ZH,30
+SHP084,Lakshmi Tiwari Agro Traders,Agri trading,Nagpur,Maharashtra,27LFJGQ3930E1Z8,8
+SHP085,Om Sharma Auto Components,Auto components,Delhi,Delhi,07ZMCPK0717D1ZF,2
+SHP086,Shree Kumar Auto Components,Auto components,Mumbai,Maharashtra,27BHIXZ4133F1ZJ,2
+SHP087,Sunrise Mishra Auto Components,Auto components,Patna,Bihar,10NGGVS7061Q1Z4,20
+SHP088,Kaveri Tiwari Agro Traders,Agri trading,Ahmedabad,Gujarat,24AAHNB8963Z1Z0,12
+SHP089,Sunrise Patel Foods,Dairy & food processing,Lucknow,Uttar Pradesh,09NGXJM9874M1Z7,12
+SHP090,Star Singh Agro Traders,Agri trading,Hyderabad,Telangana,36TDWKP8892X1ZG,8
