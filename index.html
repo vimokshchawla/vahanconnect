@@ -8,15 +8,19 @@
 <meta name="description" content="VahanConnect: India's logistics marketplace connecting shippers with verified independent truck owners, with route-based matching to fill empty return trips.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="theme-color" content="#0b2545">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#home" aria-label="VahanConnect home">
-      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 7.5A1.5 1.5 0 0 1 3.5 6h9A1.5 1.5 0 0 1 14 7.5V16H2z" fill="currentColor"/><path d="M14 9.5h4.2l3.3 3.6V16H14z" fill="currentColor" opacity=".7"/><circle cx="6" cy="17.5" r="2" fill="currentColor"/><circle cx="17.5" cy="17.5" r="2" fill="currentColor"/></svg></span>
-      <span class="brand-name">VahanConnect</span>
+      <img src="assets/icon-192.png" alt="" width="36" height="36">
+      <span class="brand-name"><span class="bn-a">Vahan</span><span class="bn-b">Connect</span></span>
     </a>
     <nav class="tabs" aria-label="Sections">
       <button data-view="home" id="tab-home">Home</button>
@@ -38,7 +42,7 @@
   <section id="view-home" class="view" hidden>
     <div class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">India's logistics marketplace</p>
+        <div class="hero-brand"><img src="assets/icon-192.png" alt="VahanConnect logo" width="56" height="56"><div><div class="brand-name"><span class="bn-a">Vahan</span><span class="bn-b">Connect</span></div><div class="brand-tagline">Trucks. Routes. Customers.</div></div></div>
         <h1>No truck should drive home empty.</h1>
         <p class="lede">After an interstate delivery, most trucks find no load back and return empty, losing the owner money on every round trip. VahanConnect matches those trucks with shippers on the same route, with verified owners and prices set by direct negotiation.</p>
         <div class="cta-row">
@@ -68,43 +72,51 @@
     </ol>
   </section>
 
-  <!-- ================= FIND TRUCKS ================= -->
-  <section id="view-find" class="view" hidden>
-    <div class="view-head">
-      <div>
-        <p class="eyebrow">For shippers</p>
-        <h1>Find a verified truck on your route</h1>
+  <!-- ================= FIND TRUCKS (ride-style) ================= -->
+  <section id="view-find" class="view find-view" hidden>
+    <div class="ride">
+      <aside class="ride-panel">
+        <h1 class="ride-title">Book a truck</h1>
+        <button type="button" id="trip-summary" class="trip-summary" hidden aria-label="Edit trip details"></button>
+        <form id="search-form" class="trip-form" autocomplete="off" novalidate>
+          <div class="where">
+            <div class="where-line" aria-hidden="true"><i class="pin-a"></i><span></span><i class="pin-b"></i></div>
+            <div class="where-fields">
+              <div class="wf"><label for="q-from">Pickup city</label><select id="q-from"></select></div>
+              <div class="wf"><label for="q-to">Drop city</label><select id="q-to"></select></div>
+            </div>
+            <button class="swap" id="swap" type="button" aria-label="Swap pickup and drop">⇅</button>
+          </div>
+          <div class="trip-row">
+            <div class="wf"><label for="q-date">Pickup date</label><input type="date" id="q-date"></div>
+            <div class="wf"><label for="q-weight">Load weight (t)</label><input type="number" id="q-weight" min="0.1" max="40" step="any" inputmode="decimal"></div>
+          </div>
+          <details class="more" id="more">
+            <summary>Truck type and more options</summary>
+            <div class="more-grid">
+              <div class="wf"><label for="q-type">Truck type</label><select id="q-type"></select></div>
+              <div class="wf"><label for="q-sort">Sort by</label>
+                <select id="q-sort"><option value="score">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="date">Earliest available</option></select></div>
+              <div class="wf"><label for="q-shipper">Booking as</label><select id="q-shipper"></select></div>
+              <div class="wf"><label for="sample-load">Any open load from the dataset</label><select id="sample-load"></select></div>
+              <label class="check"><input type="checkbox" id="q-verified" checked> Verified owners only</label>
+            </div>
+          </details>
+          <button class="btn primary lg block" type="submit" id="search-btn">Find trucks</button>
+          <div class="chips" id="chips" aria-label="Example loads"></div>
+        </form>
+
+        <div id="scan" class="scan" hidden aria-live="polite"></div>
+        <div id="results-head" class="results-head" hidden></div>
+        <div id="results" class="options"></div>
+        <div id="book-bar" class="book-bar" hidden></div>
+      </aside>
+      <div class="ride-map">
+        <div id="route-map" class="map-canvas" role="img" aria-label="Route map"></div>
+        <div id="map-chip" class="map-chip"></div>
+        <div class="map-legend"><span><i style="background:var(--gold)"></i>Going home your way</span><span><i style="background:var(--slate)"></i>Other trucks</span></div>
       </div>
     </div>
-
-    <form id="search-form" class="panel search" autocomplete="off">
-      <div class="search-main">
-        <div class="field"><label for="q-from">From</label><select id="q-from" required></select></div>
-        <button class="swap" id="swap" type="button" aria-label="Swap from and to">⇄</button>
-        <div class="field"><label for="q-to">To</label><select id="q-to" required></select></div>
-        <div class="field"><label for="q-date">Pickup date</label><input type="date" id="q-date" required></div>
-        <div class="field narrow"><label for="q-weight">Weight (t)</label><input type="number" id="q-weight" min="0.5" max="40" step="0.5" required></div>
-        <button class="btn primary" type="submit" id="search-btn">Search</button>
-      </div>
-      <div class="chips" id="chips" aria-label="Example loads"></div>
-      <details class="more" id="more">
-        <summary>More filters</summary>
-        <div class="more-grid">
-          <div class="field"><label for="q-type">Truck type</label><select id="q-type"></select></div>
-          <div class="field"><label for="q-sort">Sort by</label>
-            <select id="q-sort"><option value="score">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="date">Earliest available</option></select></div>
-          <div class="field"><label for="q-shipper">Booking as</label><select id="q-shipper"></select></div>
-          <div class="field"><label for="sample-load">Any open load from the dataset</label><select id="sample-load"></select></div>
-          <label class="check"><input type="checkbox" id="q-verified" checked> Verified owners only</label>
-        </div>
-      </details>
-    </form>
-
-    <div class="route-panel panel" id="route-panel" hidden>
-      <div class="route-map" id="route-map"></div>
-      <div class="route-side" id="route-side"></div>
-    </div>
-    <div id="results" class="results" aria-live="polite"></div>
 
     <div id="compare-bar" class="compare-bar" hidden>
       <span id="compare-text"></span>
@@ -211,7 +223,7 @@
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<footer class="foot">VahanConnect prototype · Group G2 · Synthetic data and simulated live activity, for demonstration</footer>
+<footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data and simulated live activity, for demonstration</footer>
 <script src="app.js"></script>
 </body>
 </html>
