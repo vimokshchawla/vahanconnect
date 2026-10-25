@@ -266,3 +266,17 @@ write("listings.csv", listings, list(listings[0].keys()))
 write("shippers.csv", shippers, list(shippers[0].keys()))
 write("loads.csv", loads, list(loads[0].keys()))
 write("bookings.csv", bookings, list(bookings[0].keys()))
+
+# Drivers (added later; uses its own seeded RNG so every table above stays identical)
+drv_rng = random.Random(7161)
+drivers = []
+for n, t in enumerate(trucks, 1):
+    o = owner_by_id[t["owner_id"]]
+    owner_ok = o["verification_status"] == "Verified"
+    lic = drv_rng.random() < (0.96 if owner_ok else 0.75)
+    idv = drv_rng.random() < (0.97 if owner_ok else 0.8)
+    drivers.append(dict(driver_id=f"DRV{n:04d}", name=f"{drv_rng.choice(FIRST)} {drv_rng.choice(LAST)}",
+                        truck_id=t["truck_id"], owner_id=t["owner_id"], licence_verified=lic, id_verified=idv,
+                        verification_status="Verified" if (lic and idv) else "Pending",
+                        experience_years=drv_rng.randint(2, 25)))
+write("drivers.csv", drivers, list(drivers[0].keys()))

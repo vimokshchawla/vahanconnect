@@ -1,110 +1,68 @@
-# VahanConnect – Prototype
+# VahanConnect – Prototype (v3)
 
-A working prototype of **VahanConnect**, a marketplace that connects shippers with
-verified independent truck owners and uses route-based matching to fill empty
-return trips. Group G2.
+A marketplace that connects shippers with verified independent truck owners and uses route-based
+matching to fill empty return trips. Group G2. Live: https://vahanconnect.vercel.app
 
-It is a static web app (HTML + CSS + plain JavaScript, no build step) that runs
-entirely on the CSV dataset in `/data`.
+It is a static web app (HTML, CSS and plain JavaScript, no build step) that runs on the CSV dataset in `/data`.
 
-## What you can do in the prototype (v2)
-
-| Tab | What it shows |
+## What works
+| Area | What it does |
 |---|---|
-| **Home** | The problem in one line, headline numbers from the data, a **live activity feed** (bookings, deliveries, trucks posted) and the Value Proposition Canvas: each customer pain mapped to the feature that relieves it. |
-| **Find trucks** (shipper) | Route, date and weight, plus one-tap example loads. A route map shows the matching trucks, with return-trip trucks in gold. Cards show the owner's price, the saving against a broker and a tappable Verified badge. Compare up to 3, then book. |
-| **Booking flow** | 4 steps: **Request → Negotiate → Pay advance → Track**. The owner comes online, "types" and replies to your offers (accepts, counters or holds firm). The 20% advance is a simulated UPI payment. |
-| **My trips** | **Live tracking.** The truck moves along the route on the map, with a status timeline (driver assigned → reached pickup → loaded → passed a city on the way → reached → delivered), % complete, km covered and time left. You get notifications at every stage and can rate the owner at the end. "Start a sample trip" starts one instantly. |
-| **For owners** | Act as any owner in the dataset. See their verification checks, post where the truck is free, and see matching loads with an **earnings view** ("you earn ₹X vs ₹Y to drive home empty"). **Booking requests arrive live**: accept, counter or decline, and accepted jobs become live trips. Quotes you send get a reply from the shipper a few seconds later. |
-| **Insights** | KPIs and charts computed from the data: bookings per month, freight value, platform revenue (assumed 3%), savings vs brokers, return trips filled, empty km avoided, busiest corridors, route network, supply vs demand, verification. |
-| **Dataset** | Browse, filter and open every CSV the app runs on. |
+| Home | Value proposition, service cards (Find trucks, Post a load, For owners), stats computed from the data, simulated activity feed, Value Proposition Canvas mapping, user journey |
+| Find trucks | Pickup → drop search; animated matching funnel with real counts (skippable, reduced-motion aware); ranked results with **Why this match?** (score breakdown), **Details** (truck, owner, driver), **lane price guide**, **fair-price badge**, compare up to 3 (with remove), map selection, sort, one **Sponsored** slot (fictional) |
+| No results | **Smart suggestions** (nearby dates, wider radius, pending-verification owners, other truck types), each with a real count and one tap to apply. The load weight is never changed |
+| Post a load | Validated form → review → publish. Posted loads appear in owners' matching loads and in the dataset browser |
+| Booking | Request → Negotiate (scripted owner replies) → Pay advance (simulated UPI) → Track. Shows proposed protections, clearly marked as not active |
+| My trips | Simulated tracking with timeline, linked **driver**, **cancel with reason**, rating (updates the owner's rating once per trip) |
+| For owners | Act as any owner, verification checks, post availability, matching loads with earnings view, live (simulated) requests: accept, counter or decline, quotes |
+| Insights / Dataset | KPIs and charts from the data; browse all 8 CSVs |
+| Everywhere | English / **हिंदी** toggle, theme toggle (system / light / dark), phone bottom nav with More menu, **Simulation mode** panel that can outline simulated areas |
 
-### What is simulated
-The prototype has no server, so the "live" parts are simulated in the browser: the activity
-feed, the owner's chat replies, shipper requests and replies, the UPI payment, and trip
-progress (a full trip takes about 2 minutes on Fast or 6 minutes on Slow; times shown in the
-timeline use a simulated trip clock). Everything else (matching, prices, savings, insights)
-is computed from the dataset.
+## What is simulated
+Dataset (synthetic), activity feed, owner/shipper replies, UPI payment, truck movement and times,
+verification flags (owner and driver), the sponsored partner. Bookings, posted loads, trucks, ratings and
+cancellations are stored in **this browser only** (localStorage), so two browsers do not share data.
+**Reset demo** on My trips clears them.
 
-Trips, requests and posted trucks are saved in the browser (localStorage), so a trip keeps
-moving even if you refresh. **My trips → Reset demo** clears them before a presentation.
+## Matching and pricing (logic.js)
+- Hard filters: truck type, capacity ≥ weight, free on the pickup date (±1 day), within 150 km of pickup
+  (250 km if you accept that suggestion), optionally verified owner.
+- Score = location 30 + direction/return trip 30 + date 15 + capacity fit 10 + rating 10 + verification 5.
+  A weighted rule, not AI. **Why this match?** shows each part.
+- Price = owner's ₹/km × road distance (great-circle × 1.25).
+- Lane price guide: min / median / max of completed bookings on the exact route and truck type, shown only
+  with ≥ 3 records; otherwise a clearly labelled ₹/km reference for that truck type.
+- Fair-price badge (prototype heuristic): ₹/km ≤ reference median → "Fair price"; ≤ 15% above → "Near typical";
+  higher → "Above typical".
 
-## How the matching works
+## Dataset (`/data`, synthetic, seeded)
+cities 34 · owners 160 · trucks 338 · **drivers 338** · listings 1,200 · shippers 90 · loads 340 · bookings 640.
+Regenerate with `python3 scripts/generate_dataset.py` (identical output each run; drivers use a separate seed so
+older tables are unchanged).
 
-For a load (from, to, date, weight, truck type) every open listing is checked:
-
-1. **Hard filters:** truck type matches, capacity ≥ weight, truck free on the pickup
-   date, truck within 150 km of the pickup city, and (optionally) owner verified.
-2. **Score out of 100:**
-   - location (30): same city scores highest; less as the empty drive to pickup grows
-   - direction (30): full marks if the owner wants to go to the load's destination,
-     e.g. a truck on its **return trip home**
-   - date (15): how close the truck's free date is to the pickup date
-   - capacity fit (10): how much of the truck the load fills
-   - owner rating (10)
-   - verification (5)
-3. **Price:** owner's asking rate (₹/km) × road distance. The platform never sets the
-   price; the shipper negotiates directly with the owner.
-
-Road distance = great-circle distance × 1.25 road factor.
-
-## Dataset (`/data`, synthetic)
-
-| File | Rows | Contents |
-|---|---|---|
-| cities.csv | 34 | Freight hubs with state, RTO code and coordinates |
-| owners.csv | 160 | Owners with licence, RC, ID, GST and background-check status |
-| trucks.csv | 338 | RTO-style registration, type, capacity, base ₹/km |
-| listings.csv | 1,200 | Open truck availability (about 68% are return trips) |
-| shippers.csv | 90 | SMEs, manufacturers, traders, distributors |
-| loads.csv | 340 | Open load requests |
-| bookings.csv | 640 | Past bookings (Apr–Oct 2026) with agreed vs broker price |
-
-Regenerate it (seeded, so the output is identical every time):
-
+## Tests
 ```bash
-python3 scripts/generate_dataset.py
+node --test tests/logic.test.js
 ```
+10 tests: CSV parsing, distances, filters and score arithmetic, sorting, booked listings, funnel counts,
+lane statistics, fair-price rule, empty-state suggestions.
 
-You can edit the generator (more cities, more trucks, different rates) and rerun it.
-The app picks up the new CSVs automatically.
-
-## Run locally
-
-The app loads CSV files with `fetch`, so open it through a local server rather than
-double-clicking `index.html`:
-
+## Run locally / deploy
 ```bash
-npx serve .
-# or
-python3 -m http.server 8000   # then open http://localhost:8000
+npx serve .          # or: python3 -m http.server 8000
 ```
-
-## Deploy on Vercel
-
-**Option A: Vercel website (no command line)**
-1. Push this folder to a GitHub repository.
-2. Go to vercel.com → **Add New… → Project** → import the repository.
-3. Framework preset: **Other**. Leave the build command and output directory empty.
-4. Click **Deploy**. You get a link like `https://vahanconnect-xyz.vercel.app`.
-
-**Option B: Vercel CLI**
-```bash
-npm i -g vercel
-cd vahanconnect-prototype
-vercel          # first time: answer the prompts, accept the defaults
-vercel --prod   # publish to the production URL
-```
+Vercel: import the GitHub repo, framework preset **Other**, no build command.
 
 ## Files
-
 ```
-index.html          page structure
-styles.css          styling (light and dark mode)
-app.js              data loading, matching engine, negotiation, insights
-data/*.csv          the dataset
-scripts/generate_dataset.py   dataset generator
-vercel.json         static hosting settings
+index.html     page structure          logic.js   matching, funnel, pricing, suggestions (tested)
+styles.css     styles, light/dark      i18n.js    English / Hindi strings
+app.js         UI and simulated flows  tests/     node --test unit tests
+data/*.csv     dataset                 scripts/   dataset generator
+assets/        logo and icons          vercel.json
 ```
 
-All names, companies, phone numbers and GST numbers are randomly generated.
+## Known limitations
+No backend or accounts (a shared, real-time version would need e.g. Supabase with auth and row-level
+security); schematic map, not real roads; Hindi covers the main screens, not every message; `app.js` is still
+one large file (logic was split out into `logic.js`); no real payments, GPS or document verification.

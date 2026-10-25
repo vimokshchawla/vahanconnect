@@ -10,14 +10,15 @@
   const BROKER_MARKUP = 1.12;       // typical broker price vs owner's base rate
   const EMPTY_RUN_COST_PER_KM = 22; // diesel + tolls for an empty truck (₹/km, approx.)
   const DEMO_TRIP_MS = { fast: 120000, slow: 360000 };
-  const TABLES = ["cities", "owners", "trucks", "listings", "shippers", "loads", "bookings"];
+  const TABLES = ["cities", "owners", "trucks", "drivers", "listings", "shippers", "loads", "bookings"];
   const TABLE_DESC = {
     cities: "34 freight hubs with coordinates. Distance = great-circle distance × 1.25 road factor.",
     owners: "Truck owners with their verification documents: licence, RC, ID, GST and background check.",
     trucks: "Every truck with its RTO-style registration number, type, capacity and the owner's base rate per km.",
     listings: "Open truck availability. is_return_trip = the truck has delivered away from home and wants a load back.",
     shippers: "Businesses that need goods moved: SMEs, manufacturers, traders and distributors.",
-    loads: "Open load requests posted by shippers.",
+    loads: "Open load requests posted by shippers (plus any you post in this browser).",
+    drivers: "One driver per truck with licence and ID verification flags (synthetic demo data, not real checks).",
     bookings: "Past bookings (Apr–Oct 2026) with agreed price vs typical broker price and empty km avoided.",
   };
   const STORE_KEY = "vahanconnect-demo-v2";
@@ -26,12 +27,16 @@
   // ================================================================ state
   const D = {};
   const S = {
-    extra: { listings: [], trips: [], booked: {}, requests: [], speed: "fast" },
-    compare: new Set(), results: [], query: null, view: null, selTrip: null,
+    extra: { listings: [], trips: [], booked: {}, requests: [], loads: [], ratings: {}, speed: "fast" },
+    compare: new Set(), results: [], query: null, qExtra: {}, view: null, selTrip: null,
     ds: { table: "listings", page: 0, filter: "" }, lastPhase: {}, ownerSeeded: false,
     live: { onRoad: 0, today: 0, emptyKm: 0, feed: [] },
   };
-  let cityIdx = {}, ownerIdx = {}, truckIdx = {}, shipperIdx = {}, typeRate = {}, cityDeg = {};
+  let cityIdx = {}, ownerIdx = {}, truckIdx = {}, shipperIdx = {}, typeRate = {}, cityDeg = {}, driverByTruck = {}, GEO = null;
+  const L$ = window.VCLogic;
+  const I18N = window.VC_I18N || { en: {} };
+  let LANG = "en";
+  const T_ = (k) => (I18N[LANG] && I18N[LANG][k]) || (I18N.en && I18N.en[k]) || k;
 
   // ================================================================ helpers
   const $ = (s, r = document) => r.querySelector(s);
@@ -49,45 +54,9 @@
   const initials = (n) => n.split(" ").map((p) => p[0]).slice(0, 2).join("");
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-  function parseCSV(text) {
-    const rows = []; let row = [], cell = "", q = false;
-    for (let i = 0; i < text.length; i++) {
-      const c = text[i];
-      if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
-      else if (c === '"') q = true;
-      else if (c === ",") { row.push(cell); cell = ""; }
-      else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
-      else cell += c;
-    }
-    if (cell || row.length) { row.push(cell); rows.push(row); }
-    const head = rows.shift();
-    return rows.filter((r) => r.length === head.length).map((r) => {
-      const o = {};
-      head.forEach((h, i) => {
-        const v = r[i];
-        if (v === "True") o[h] = true; else if (v === "False") o[h] = false;
-        else if (/^-?\d+(\.\d+)?$/.test(v) && !/^0\d/.test(v)) o[h] = Number(v);
-        else o[h] = v;
-      });
-      return o;
-    });
-  }
-
+  const parseCSV = (t) => L$.parseCSV(t);
   const distCache = new Map();
-  function km(a, b) {
-    if (a === b) return 0;
-    const k = a < b ? a + "|" + b : b + "|" + a;
-    if (distCache.has(k)) return distCache.get(k);
-    const A = cityIdx[a], B = cityIdx[b];
-    if (!A || !B) return 9999;
-    const r = 6371, p1 = A.lat * Math.PI / 180, p2 = B.lat * Math.PI / 180;
-    const dp = p2 - p1, dl = (B.lon - A.lon) * Math.PI / 180;
-    const h = Math.sin(dp / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) ** 2;
-    const d = Math.round(2 * r * Math.asin(Math.sqrt(h)) * 1.25 / 5) * 5;
-    distCache.set(k, d);
-    return d;
-  }
-
+  function km(a, b) { return GEO.km(a, b); }
   function toast(html, action) {
     const t = document.createElement("div");
     t.className = "toast";
@@ -109,6 +78,8 @@
   function saveStore() { try { localStorage.setItem(STORE_KEY, JSON.stringify(S.extra)); } catch (e) { /* ignore */ } }
   const allListings = () => D.listings.concat(S.extra.listings);
   const isBooked = (id) => !!S.extra.booked[id];
+  const allLoads = () => D.loads.concat(S.extra.loads || []);
+  const ctx = () => ({ listings: allListings(), isBooked, truckIdx, ownerIdx, typeRate, km });
 
   // ================================================================ data
   async function loadData() {
@@ -129,48 +100,22 @@
     D.trucks.forEach((t) => { (acc[t.truck_type] ||= []).push(t.rate_per_km); });
     Object.entries(acc).forEach(([k, v]) => (typeRate[k] = v.reduce((a, b) => a + b, 0) / v.length));
     D.bookings.forEach((b) => { cityDeg[b.origin] = (cityDeg[b.origin] || 0) + 1; cityDeg[b.destination] = (cityDeg[b.destination] || 0) + 1; });
+    (D.drivers || []).forEach((d) => (driverByTruck[d.truck_id] = d));
+    GEO = L$.makeGeo(D.cities);
+    D.owners.forEach((o) => { o._r0 = o.rating; o._t0 = o.trips_completed; });
+    applyRatings();
     return true;
+  }
+  function applyRatings() {
+    Object.entries(S.extra.ratings || {}).forEach(([id, arr]) => {
+      const o = ownerIdx[id]; if (!o || !arr.length) return;
+      o.rating = Math.round(((o._r0 * o._t0) + arr.reduce((a, b) => a + b, 0)) / (o._t0 + arr.length) * 10) / 10;
+      o.trips_completed = o._t0 + arr.length;
+    });
   }
 
   // ================================================================ matching engine
-  function matchTrucks(q) {
-    const tripKm = km(q.from, q.to);
-    const out = [];
-    for (const L of allListings()) {
-      if (isBooked(L.listing_id)) continue;
-      const T = truckIdx[L.truck_id], O = ownerIdx[L.owner_id];
-      if (!T || !O) continue;
-      if (q.type && T.truck_type !== q.type) continue;
-      if (q.weight > T.capacity_tonnes) continue;
-      if (q.verifiedOnly && O.verification_status !== "Verified") continue;
-      if (L.available_from > addDays(q.date, 1) || L.available_until < q.date) continue;
-      const deadhead = km(L.current_city, q.from);
-      if (deadhead > MAX_DEADHEAD_KM) continue;
-      const loc = L.current_city === q.from ? 1 : 1 - 0.8 * (deadhead / MAX_DEADHEAD_KM);
-      let dir, dirLabel;
-      const pref = L.preferred_destination;
-      if (pref !== "Any" && km(pref, q.to) <= 120) { dir = 1; dirLabel = L.is_return_trip ? "Going home" : "Heading your way"; }
-      else if (pref === "Any") { dir = 0.6; dirLabel = "Open to any route"; }
-      else { dir = Math.max(0.1, 0.6 * (1 - km(pref, q.to) / 900)); dirLabel = `Prefers ${pref}`; }
-      const dateScore = clamp(1 - Math.abs(dayDiff(L.available_from, q.date)) / 4, 0, 1);
-      const fit = q.weight / T.capacity_tonnes;
-      const score = Math.round(30 * loc + 30 * dir + 15 * dateScore + 10 * (0.4 + 0.6 * fit) + 10 * clamp((O.rating - 3) / 2, 0, 1) + 5 * (O.verification_status === "Verified" ? 1 : 0));
-      const price = round100(tripKm * L.asking_rate_per_km);
-      const market = round100(tripKm * (typeRate[T.truck_type] || T.rate_per_km) * BROKER_MARKUP);
-      const isRet = dir === 1 && L.is_return_trip;
-      out.push({ L, T, O, score, dir, dirLabel, isRet, deadhead, price, market, tripKm, fit });
-    }
-    const sorters = {
-      score: (a, b) => b.score - a.score || a.price - b.price,
-      price: (a, b) => a.price - b.price,
-      rating: (a, b) => b.O.rating - a.O.rating || b.score - a.score,
-      date: (a, b) => a.L.available_from.localeCompare(b.L.available_from) || b.score - a.score,
-    };
-    const bestByTruck = new Map();
-    out.forEach((r) => { const b = bestByTruck.get(r.T.truck_id); if (!b || r.score > b.score) bestByTruck.set(r.T.truck_id, r); });
-    return [...bestByTruck.values()].sort(sorters[q.sort] || sorters.score);
-  }
-
+  function matchTrucks(q) { return L$.matchTrucks(ctx(), q); }
   // ================================================================ map (schematic, SVG)
   function makeMap(points, W, H, padFrac = 0.18) {
     let la0 = Infinity, la1 = -Infinity, lo0 = Infinity, lo1 = -Infinity;
@@ -317,8 +262,13 @@
 
     $("#chips").addEventListener("click", (e) => { const b = e.target.closest("[data-load]"); if (b) applyLoad(D.loads.find((l) => l.load_id === b.dataset.load)); });
     $("#sample-load").addEventListener("change", (e) => { if (e.target.value) applyLoad(D.loads.find((l) => l.load_id === e.target.value)); });
-    $("#swap").addEventListener("click", () => { const a = $("#q-from").value; $("#q-from").value = $("#q-to").value; $("#q-to").value = a; runSearch(); });
-    $("#search-form").addEventListener("submit", (e) => { e.preventDefault(); runSearch(); });
+    $("#swap").addEventListener("click", () => { const a = $("#q-from").value; $("#q-from").value = $("#q-to").value; $("#q-to").value = a; $$(".chip").forEach((c) => c.classList.remove("on")); runSearch({ animate: true }); });
+    $("#search-form").addEventListener("submit", (e) => { e.preventDefault(); S.qExtra = {}; $$(".chip").forEach((c) => c.classList.remove("on")); runSearch({ animate: true }); });
+    $("#results").addEventListener("keydown", (e) => { const o = e.target.closest(".opt"); if (o && (e.key === "Enter" || e.key === " ") && e.target === o) { e.preventDefault(); selectTruck(o.dataset.sel); } });
+    $("#book-bar").addEventListener("click", onResultClick);
+    $("#trip-summary").addEventListener("click", expandForm);
+    $("#route-map").addEventListener("click", (e) => { const g = e.target.closest("[data-sel]"); if (g) selectTruck(g.dataset.sel, true); });
+    let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (S.view === "find" && S.query && $("#scan").hidden) drawResultMap(); }, 200); });
     ["#q-sort", "#q-verified", "#q-type"].forEach((s) => $(s).addEventListener("change", () => S.query && runSearch()));
     $("#compare-clear").addEventListener("click", () => { S.compare.clear(); renderResults(); });
     $("#compare-open").addEventListener("click", openCompare);
@@ -330,87 +280,220 @@
       else S.compare.delete(id);
       renderCompareBar();
     });
-    if (chips[0]) applyLoad(chips[0]);
+    if (chips[0]) applyLoad(chips[0], false);
   }
-  function applyLoad(l) {
+  function applyLoad(l, animate = true) {
     $("#q-from").value = l.origin; $("#q-to").value = l.destination; $("#q-date").value = l.pickup_date;
     $("#q-weight").value = l.weight_tonnes; $("#q-type").value = l.truck_type; $("#q-shipper").value = l.shipper_id;
     $$(".chip").forEach((c) => c.classList.toggle("on", c.dataset.load === l.load_id));
-    runSearch();
+    S.qExtra = {};
+    runSearch({ animate });
   }
-  function runSearch() {
-    const q = { from: $("#q-from").value, to: $("#q-to").value, date: $("#q-date").value, weight: parseFloat($("#q-weight").value),
-      type: $("#q-type").value, verifiedOnly: $("#q-verified").checked, sort: $("#q-sort").value, shipper: $("#q-shipper").value };
-    if (q.from === q.to) { $("#results").innerHTML = `<div class="empty">Pickup and drop city are the same. Choose a different destination.</div>`; $("#route-panel").hidden = true; return; }
-    if (!q.date || !(q.weight > 0)) { toast("Enter a pickup date and weight"); return; }
+  function readQuery() {
+    return Object.assign({ from: $("#q-from").value, to: $("#q-to").value, date: $("#q-date").value, weight: parseFloat($("#q-weight").value),
+      type: $("#q-type").value, verifiedOnly: $("#q-verified").checked, sort: $("#q-sort").value, shipper: $("#q-shipper").value }, S.qExtra);
+  }
+  function runSearch(opts = {}) {
+    const q = readQuery();
+    if (q.from === q.to) { toast("Pickup and drop city are the same. Choose a different drop city."); return; }
+    if (!q.date) { toast("Choose a pickup date"); $("#q-date").focus(); return; }
+    if (!(q.weight > 0) || q.weight > 40) { toast("Enter a weight between 0.1 and 40 tonnes"); $("#q-weight").focus(); return; }
     S.query = q; S.results = matchTrucks(q); S.compare.clear();
+    const token = (S.searchToken = (S.searchToken || 0) + 1);
+    if (opts.animate && S.view === "find") return animateSearch(q, token);
+    $("#scan").hidden = true;
     renderResults();
   }
-  function renderResults() {
-    const q = S.query, R = S.results;
-    renderRoutePanel(q, R);
-    if (!R.length) {
-      $("#results").innerHTML = `<div class="empty">No open trucks fit this load on ${fmtDate(q.date)}. Try another date, a lighter load or any truck type, or include unverified owners under More filters.</div>`;
-      renderCompareBar(); return;
+
+  // --- the "finding trucks" sequence: every number is computed from the dataset
+  function scanFunnel(q) { return L$.funnel(ctx(), q, S.results); }
+  async function animateSearch(q, token) {
+    const F = scanFunnel(q);
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const STEP = reduce ? 150 : 620;
+    const R = S.results, ret = R.filter((r) => r.isRet).length;
+    const verifiedFinal = R.filter((r) => r.O.verification_status === "Verified").length;
+    const steps = [
+      { lbl: `Locating pickup in ${q.from}`, res: `${F.near} truck${F.near === 1 ? "" : "s"} within ${q.radius || MAX_DEADHEAD_KM} km`, out: null },
+      { lbl: `Checking who is free on ${fmtDate(q.date)}`, res: `${F.free} available`, out: 2 },
+      { lbl: `Matching ${q.type || "any truck"} that can carry ${q.weight} t`, res: `${F.fits} can carry it`, out: 3 },
+      { lbl: q.verifiedOnly ? "Verifying owners: licence, RC, ID, GST, background" : "Checking owner verification", res: q.verifiedOnly ? `${F.final} fully verified` : `${verifiedFinal} of ${F.final} verified`, out: 4 },
+      { lbl: `Looking for trucks heading to ${q.to}`, res: ret ? `${ret} going home your way` : "none heading home this way", out: "ret" },
+      { lbl: "Ranking by route fit, price and rating", res: R.length ? `best match ${R[0].score}/100` : "no match", out: null },
+    ];
+    collapseForm(q);
+    // panel: hide results, show scanner
+    $("#results").innerHTML = ""; $("#results-head").hidden = true; $("#book-bar").hidden = true; $("#compare-bar").hidden = true;
+    const scan = $("#scan");
+    scan.hidden = false;
+    scan.innerHTML = `<div class="scan-title"><span class="dot"></span>Finding trucks for you<button type="button" class="btn ghost small skip" id="scan-skip">Skip</button></div><div class="scan-bar"><i id="scan-prog"></i></div><ol id="scan-steps"></ol>`;
+    drawScanMap(q, F);
+    $("#scan-skip").addEventListener("click", () => { S.searchToken++; $("#scan").hidden = true; renderResults(true); });
+    if (matchMedia("(max-width: 980px)").matches) $(".ride-map").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    for (let i = 0; i < steps.length; i++) {
+      const s = steps[i];
+      $("#scan-steps").insertAdjacentHTML("beforeend", `<li id="sc${i}"><span class="st"></span><span class="lbl">${esc(s.lbl)}…</span><span class="res">checking</span></li>`);
+      await wait(STEP);
+      if (token !== S.searchToken) return;
+      const li = $("#sc" + i); li.classList.add("ok"); li.querySelector(".lbl").textContent = s.lbl; li.querySelector(".res").textContent = s.res;
+      $("#scan-prog").style.width = Math.round((i + 1) / steps.length * 100) + "%";
+      if (typeof s.out === "number") $$(`#route-map .tm[data-stage="${s.out}"]`).forEach((g) => g.classList.add("out"));
+      if (s.out === "ret") $$('#route-map .tm[data-ret="1"]').forEach((g) => g.querySelector(".m-truck").classList.add("ret"));
     }
-    $("#results").innerHTML = R.slice(0, 24).map(cardHTML).join("") + (R.length > 24 ? `<div class="empty">Showing the top 24 of ${R.length} matches.</div>` : "");
-    renderCompareBar();
+    await wait(reduce ? 100 : 450);
+    if (token !== S.searchToken) return;
+    $(".scan-title").innerHTML = R.length ? `✓ ${R.length} truck${R.length === 1 ? "" : "s"} found` : "No trucks found";
+    await wait(reduce ? 50 : 350);
+    if (token !== S.searchToken) return;
+    scan.hidden = true;
+    renderResults(true);
   }
-  function renderRoutePanel(q, R) {
-    $("#route-panel").hidden = false;
-    const A = cityIdx[q.from], B = cityIdx[q.to], W = 640, H = 300;
-    const top = R.slice(0, 10);
-    const M = makeMap([A, B, ...top.map((r) => cityIdx[r.L.current_city])], W, H, 0.14);
-    const [ax, ay] = M.px(A.lat, A.lon), [bx, by] = M.px(B.lat, B.lon);
-    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Route map from ${esc(q.from)} to ${esc(q.to)} with matching trucks">` + cityLayer(M, [q.from, q.to]);
-    svg += `<path class="m-route" d="M${ax},${ay} L${bx},${by}"/>`;
-    const per = {}, slot = {};
-    top.forEach((r) => (per[r.L.current_city] = (per[r.L.current_city] || 0) + 1));
-    top.slice().reverse().forEach((r) => {
-      const C = cityIdx[r.L.current_city]; let [x, y] = M.px(C.lat, C.lon);
-      const k = r.L.current_city, cnt = per[k], n = (slot[k] = (slot[k] || 0) + 1) - 1;
-      if (cnt > 1 || k === q.from) {
-        // fan the trucks out on an arc left of the city, keeping its label (to the right) clear
-        const rad = 22 + Math.max(0, cnt - 6) * 3, a0 = Math.PI * 0.55, a1 = Math.PI * 1.45;
-        const ang = cnt === 1 ? Math.PI : a0 + (a1 - a0) * (n / Math.max(1, cnt - 1));
+
+  function collapseForm(q) {
+    const sum = $("#trip-summary");
+    sum.innerHTML = `<span class="ts-route"><i class="pin-a"></i>${esc(q.from)}<span class="ts-arrow">→</span><i class="pin-b"></i>${esc(q.to)}</span><span class="ts-meta">${fmtDate(q.date)} · ${q.weight} t${q.type ? " · " + esc(q.type.replace(" (Tata 407 class)", "")) : ""}</span><span class="ts-edit">Edit</span>`;
+    sum.hidden = false; $("#search-form").hidden = true;
+  }
+  function expandForm() { $("#trip-summary").hidden = true; $("#search-form").hidden = false; $("#q-from").focus(); }
+  function mapSize() {
+    const el = $("#route-map"), w = el.clientWidth || 640, h = el.clientHeight || 480;
+    const W = clamp(Math.round(w), 320, 900);
+    return { W, H: Math.max(240, Math.round(W * h / w)) };
+  }
+  function truckSlots(q, items, M) {
+    // position each truck at its city; several trucks in one city fan out on an arc left of the city
+    const per = {}, slot = {}, pos = new Map();
+    items.forEach((it) => (per[it.city] = (per[it.city] || 0) + 1));
+    items.forEach((it) => {
+      const C = cityIdx[it.city]; let [x, y] = M.px(C.lat, C.lon);
+      const cnt = per[it.city], n = (slot[it.city] = (slot[it.city] || 0) + 1) - 1;
+      if (cnt > 1 || it.city === q.from) {
+        // concentric rings around the city, leaving a gap on the right for its label
+        let ring = 0, idx = n, cap;
+        while (true) { const rad = 24 + ring * 19; cap = Math.max(1, Math.floor(((2 * Math.PI - 1.1) * rad) / 21)); if (idx < cap) break; idx -= cap; ring++; }
+        const rad = 24 + ring * 19, inRing = Math.min(cap, cnt - (n - idx));
+        const ang = 0.55 + (2 * Math.PI - 1.1) * ((idx + 0.5) / Math.max(inRing, 1));
         x += Math.cos(ang) * rad; y += Math.sin(ang) * rad;
       }
-      if (r.deadhead) svg += `<path class="m-deadhead" d="M${x},${y} L${ax},${ay}"/>`;
-      svg += truckIcon(x, y, r.isRet ? "ret" : "", `${r.T.reg_no} · ${r.O.name} · ${r.dirLabel}`);
+      pos.set(it.id, [x, y]);
     });
-    svg += `<circle class="m-end" cx="${ax}" cy="${ay}" r="6"/><circle class="m-end" cx="${bx}" cy="${by}" r="6"/></svg>`;
-    $("#route-map").innerHTML = svg;
-    const ret = R.filter((r) => r.isRet).length, best = R.length ? Math.min(...R.map((r) => r.price)) : 0;
-    $("#route-side").innerHTML = `<div class="route-title">${esc(q.from)}<span>→</span>${esc(q.to)}</div>
-      <div class="muted small">${fmtDate(q.date)} · ${q.weight} t${q.type ? " · " + esc(q.type) : ""}</div>
-      <div class="route-stats"><div><b>${num(km(q.from, q.to))} km</b><span>road distance</span></div><div><b>${R.length}</b><span>matching trucks</span></div>
-        <div><b>${ret}</b><span>going home this way</span></div><div><b>${R.length ? inr(best) : "–"}</b><span>lowest asking price</span></div></div>
-      <div class="legend"><span><i style="background:var(--gold)"></i>Truck on a return trip</span><span><i style="background:var(--slate)"></i>Other truck</span></div>`;
+    return pos;
   }
-  function cardHTML(r) {
-    const { L, T, O } = r;
-    const save = r.market > r.price ? r.market - r.price : 0;
-    const tags = [];
-    tags.push(L.current_city === q().from ? ["good", `Already in ${L.current_city}`] : ["", `${r.deadhead} km from pickup`]);
-    if (T.gps_enabled) tags.push(["", "GPS tracked"]);
-    if (r.fit < 0.4) tags.push(["warn", "Load fills under 40%"]);
-    if (!r.isRet) tags.push(["", r.dirLabel]);
-    return `<article class="card${r.isRet ? " is-return" : ""}">
-      <div class="card-head">
-        <div class="who"><span class="avatar">${esc(initials(O.name))}</span><div><b>${esc(O.name)}</b><span>★ ${O.rating.toFixed(1)} · ${O.trips_completed} trips · ${verBadge(O)}</span></div></div>
-        <div class="match">${matchRing(r.score)}<small>Match</small></div>
+  function baseMap(q, extraCities) {
+    const A = cityIdx[q.from], B = cityIdx[q.to], { W, H } = mapSize();
+    const M = makeMap([A, B, ...extraCities.map((c) => cityIdx[c])], W, H, 0.16);
+    const [ax, ay] = M.px(A.lat, A.lon), [bx, by] = M.px(B.lat, B.lon);
+    const head = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">` + cityLayer(M, [q.from, q.to]) + `<path class="m-route" d="M${ax},${ay} L${bx},${by}"/>`;
+    const ends = `<circle class="m-end" cx="${ax}" cy="${ay}" r="7"/><rect class="m-end" x="${bx - 6}" y="${by - 6}" width="12" height="12"/>`;
+    return { M, ax, ay, head, ends };
+  }
+  function drawScanMap(q, F) {
+    const show = F.all.filter((c) => c.stage === 0).slice(0, 14).concat(F.all.filter((c) => c.stage !== 0).slice(0, 12));
+    const items = show.map((c) => ({ id: c.T.truck_id, city: c.L.current_city, c }));
+    const { M, ax, ay, head, ends } = baseMap(q, [...new Set(items.map((i) => i.city))]);
+    const pos = truckSlots(q, items, M);
+    let svg = head + `<g class="radar"><circle cx="${ax}" cy="${ay}" r="110"/><circle cx="${ax}" cy="${ay}" r="110"/><circle cx="${ax}" cy="${ay}" r="110"/></g>`;
+    items.forEach((it, i) => {
+      const [x, y] = pos.get(it.id), r = S.results.find((m) => m.T.truck_id === it.id);
+      svg += `<g class="tm pop" data-stage="${it.c.stage}" data-ret="${r && r.isRet ? 1 : 0}" style="animation-delay:${i * 45}ms" transform="translate(${x.toFixed(1)},${y.toFixed(1)})"><circle r="8" class="m-truck"/><path d="M-4.2-2.2h4.6v4.2h-4.6zM0.4-0.6h2.2l1.6 1.6v1h-3.8z" fill="#fff"/></g>`;
+    });
+    $("#route-map").innerHTML = svg + ends + "</svg>";
+    $("#map-chip").innerHTML = `<span class="dot"></span>Searching near ${esc(q.from)} <span class="muted">· ${num(km(q.from, q.to))} km trip</span>`;
+  }
+  function drawResultMap() {
+    const q = S.query, R = S.results.slice(0, 14);
+    const items = R.map((r) => ({ id: r.L.listing_id, city: r.L.current_city, r }));
+    const { M, ax, ay, head, ends } = baseMap(q, [...new Set(items.map((i) => i.city))]);
+    const pos = truckSlots(q, items, M);
+    let svg = head, selTag = "";
+    items.slice().reverse().forEach((it) => {
+      const [x, y] = pos.get(it.id), r = it.r, sel = it.id === S.sel;
+      if (r.deadhead && sel) svg += `<path class="m-deadhead" d="M${x},${y} L${ax},${ay}"/>`;
+      svg += `<g class="tm${sel ? " sel" : ""}" data-sel="${it.id}" transform="translate(${x.toFixed(1)},${y.toFixed(1)})"><title>${esc(r.T.reg_no)} · ${esc(r.O.name)} · ${inr(r.price)}</title><circle r="${sel ? 11 : 8}" class="m-truck${r.isRet ? " ret" : ""}"/><path d="M-4.2-2.2h4.6v4.2h-4.6zM0.4-0.6h2.2l1.6 1.6v1h-3.8z" fill="#fff"/></g>`;
+      if (sel) { const t = inr(r.price), w = t.length * 7.4 + 14; selTag = `<g class="price-tag" transform="translate(${(x - w / 2).toFixed(1)},${(y - 38).toFixed(1)})"><rect width="${w}" height="22" rx="11"/><text x="${w / 2}" y="15" text-anchor="middle">${t}</text></g>`; }
+    });
+    $("#route-map").innerHTML = svg + ends + selTag + "</svg>";
+    $("#map-chip").innerHTML = `${esc(q.from)} → ${esc(q.to)} <span class="muted">· ${num(km(q.from, q.to))} km · ${R.length ? S.results.length + " trucks" : "no trucks"}</span>`;
+  }
+
+  const TRUCK_SVG = `<svg viewBox="0 0 40 28" aria-hidden="true"><rect x="1" y="5" width="23" height="15" rx="2" fill="currentColor"/><path d="M24 9h8l6 6v5H24z" fill="currentColor" opacity=".75"/><path d="M27 11h4l3.4 3.6H27z" fill="#fff" opacity=".85"/><circle cx="8" cy="22" r="3.6" fill="var(--fg)"/><circle cx="8" cy="22" r="1.4" fill="#fff"/><circle cx="31" cy="22" r="3.6" fill="var(--fg)"/><circle cx="31" cy="22" r="1.4" fill="#fff"/></svg>`;
+  function etaText(r) {
+    if (r.L.current_city === S.query.from) return `In ${esc(S.query.from)} now`;
+    const h = r.deadhead / 40;
+    return `${r.deadhead} km away · ~${h < 1 ? Math.max(15, Math.round(h * 60 / 5) * 5) + " min" : Math.round(h * 10) / 10 + " h"}`;
+  }
+  function renderResults(reveal) {
+    const q = S.query, R = S.results;
+    $("#scan").hidden = true;
+    if (!R.some((r) => r.L.listing_id === S.sel)) S.sel = R[0] ? R[0].L.listing_id : null;
+    S.lane = L$.laneStats(D.bookings, q.from, q.to, q.type);
+    const head = $("#results-head"); head.hidden = false;
+    const filters = [q.type || "Any truck type", q.verifiedOnly ? "Verified owners only" : "Incl. unverified", `${q.radius || MAX_DEADHEAD_KM} km pickup radius`];
+    head.innerHTML = `<div><h2>${R.length ? T_("res.available").replace("{n}", R.length) : T_("res.none")}</h2>
+      <p class="muted small">${esc(q.from)} → ${esc(q.to)} · ${fmtDate(q.date)} · ${q.weight} t</p><div class="filter-chips">${filters.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}</div></div>
+      <label class="sort-inline"><span class="sr-only">Sort by</span><select id="sort-inline" aria-label="Sort by">${["score:Best match", "price:Lowest price", "rating:Highest rating", "date:Earliest"].map((o) => { const [v, l] = o.split(":"); return `<option value="${v}"${q.sort === v ? " selected" : ""}>${l}</option>`; }).join("")}</select></label>`;
+    $("#sort-inline").addEventListener("change", (e) => { $("#q-sort").value = e.target.value; runSearch(); });
+    if (!R.length) {
+      const alts = L$.alternatives(ctx(), q);
+      $("#results").innerHTML = `<div class="empty-smart"><b>No open truck fits this load yet.</b><p class="muted small">Your load stays ${q.weight} t; these suggestions only change the search, and each count comes from the dataset.</p>
+        ${alts.length ? `<div class="alts">${alts.map((a, i) => `<button type="button" class="alt-sug" data-alt="${i}"><span>${esc(a.label)}</span><b>${a.n} truck${a.n === 1 ? "" : "s"}</b></button>`).join("")}</div>` : `<p class="small">No nearby dates, wider radius or other truck types have matches either. Try another route or <a href="#post">post this load</a> so owners can find it.</p>`}</div>`;
+      $("#results").onclick = (e) => { const b = e.target.closest("[data-alt]"); if (!b) return; applyAlt(alts[+b.dataset.alt]); };
+      $("#book-bar").hidden = true; drawResultMap(); renderCompareBar(); return;
+    }
+    $("#results").onclick = null;
+    const cards = R.slice(0, 24).map((r, i) => optHTML(r, i, reveal));
+    if (cards.length >= 3) cards.splice(3, 0, sponsoredHTML());
+    $("#results").innerHTML = laneHTML(q) + cards.join("") + (R.length > 24 ? `<div class="empty">Showing the top 24 of ${R.length} matches.</div>` : "");
+    drawResultMap(); renderBookBar(); renderCompareBar();
+  }
+  function applyAlt(a) {
+    if (a.patch.date) $("#q-date").value = a.patch.date;
+    if ("verifiedOnly" in a.patch) $("#q-verified").checked = a.patch.verifiedOnly;
+    if ("type" in a.patch) $("#q-type").value = a.patch.type;
+    if (a.patch.radius) S.qExtra.radius = a.patch.radius;
+    runSearch({ animate: true });
+  }
+  function laneHTML(q) {
+    const st = S.lane, typeTxt = q.type ? esc(q.type.replace(" (Tata 407 class)", "")) : "all truck types";
+    if (st.scope === "lane") return `<div class="lane"><div><b>Price guide · ${esc(q.from)} → ${esc(q.to)}</b><span class="muted small">${st.n} completed bookings, ${typeTxt}</span></div>
+      <div class="lane-nums"><span>Low<b>${inr(st.min)}</b></span><span>Median<b>${inr(st.median)}</b></span><span>High<b>${inr(st.max)}</b></span></div>
+      <p class="muted small">Past prices in the dataset are a reference, not a guaranteed market rate.</p></div>`;
+    if (st.scope === "type") return `<div class="lane"><div><b>Price guide</b><span class="muted small">${st.laneN ? `Only ${st.laneN} past booking${st.laneN === 1 ? "" : "s"} on this exact lane` : "No past bookings on this exact lane"}, so this uses ${typeTxt} across ${st.n} bookings</span></div>
+      <div class="lane-nums"><span>Typical rate<b>₹${Math.round(st.perKm)}/km</b></span><span>For ${num(km(q.from, q.to))} km<b>≈ ${inr(round100(st.perKm * km(q.from, q.to)))}</b></span></div>
+      <p class="muted small">A reference from other routes, not a quote for this lane.</p></div>`;
+    return "";
+  }
+  function sponsoredHTML() {
+    return `<aside class="sponsored" aria-label="Sponsored"><span class="tag">Sponsored</span><div><b>TyreCare Highway Assist</b><span class="muted small">Puncture and tyre help along major corridors. (Fictional partner.)</span></div>
+      <span class="muted small sp-note">Illustrative sponsored placement — not a real advertisement.</span></aside>`;
+  }
+  function optHTML(r, i, reveal) {
+    const { L, T, O } = r, sel = L.listing_id === S.sel, fair = L$.fairBadge(r.price, r.tripKm, S.lane);
+    return `<div class="opt${sel ? " sel" : ""}${r.isRet ? " ret" : ""}${reveal ? " reveal" : ""}" style="--i:${i}" data-sel="${L.listing_id}" role="button" tabindex="0" aria-pressed="${sel}">
+      <div class="opt-icon">${TRUCK_SVG}</div>
+      <div class="opt-main">
+        <div class="opt-top">${esc(T.truck_type.replace(" (Tata 407 class)", ""))} · ${T.capacity_tonnes} t ${r.isRet ? `<span class="tag gold">Going home</span>` : ""}</div>
+        <div class="opt-sub">${plate(T.reg_no)} <span class="opt-eta">${etaText(r)}</span> · free ${fmtDate(L.available_from)}</div>
+        <div class="opt-sub">${esc(O.name)} ★ ${O.rating.toFixed(1)} ${verBadge(O)}</div>
+        <div class="opt-links"><button type="button" class="linkbtn" data-why="${L.listing_id}">${T_("res.why")}</button><button type="button" class="linkbtn" data-details="${L.listing_id}">${T_("res.details")}</button><label class="check"><input type="checkbox" data-compare="${L.listing_id}"${S.compare.has(L.listing_id) ? " checked" : ""}> ${T_("res.compare")}</label></div>
       </div>
-      ${r.isRet ? `<div class="go-home">↩ Going home to ${esc(L.home_city)}, so this load fills an empty return trip</div>` : ""}
-      <div class="truck-line">${plate(T.reg_no)}<span>${esc(T.truck_type)} · ${T.capacity_tonnes} t</span><span>· free ${fmtDate(L.available_from)}</span></div>
-      <div class="tags">${tags.map(([c, t]) => `<span class="tag ${c}">${esc(t)}</span>`).join("")}</div>
-      <div class="price-row">
-        <div class="price"><small>Owner's price</small><b>${inr(r.price)}</b>${save > 0 ? `<span class="save">Save ${inr(save)} vs broker</span>` : `<small>${L.asking_rate_per_km} ₹/km</small>`}</div>
-        <div class="card-actions">
-          <label class="check small"><input type="checkbox" data-compare="${L.listing_id}"${S.compare.has(L.listing_id) ? " checked" : ""}> Compare</label>
-          <button class="btn primary" data-book="${L.listing_id}" type="button">Book</button>
-        </div>
-      </div>
-    </article>`;
+      <div class="opt-price"><b>${inr(r.price)}</b>${r.market > r.price ? `<s title="Typical broker price">${inr(r.market)}</s>` : ""}${fair ? `<span class="fair ${fair.level}">${fair.label}</span>` : ""}<span class="mm">${r.score}% match</span></div>
+    </div>`;
+  }
+  function renderBookBar() {
+    const r = S.results.find((x) => x.L.listing_id === S.sel), bb = $("#book-bar");
+    if (!r) { bb.hidden = true; return; }
+    bb.hidden = false;
+    const save = Math.max(0, r.market - r.price);
+    bb.innerHTML = `<div class="bb-sum"><span>${plate(r.T.reg_no)} <b>${esc(r.O.name)}</b> · ${esc(r.dirLabel)}</span><span>${save ? `Save <b style="color:var(--good)">${inr(save)}</b>` : ""}</span></div>
+      <div class="bb-act"><button class="btn primary lg" type="button" data-book="${r.L.listing_id}">${T_("res.bookFor")} ${inr(r.price)}</button></div>`;
+  }
+  function selectTruck(id, scrollList) {
+    if (!id || id === S.sel) return;
+    S.sel = id;
+    $$("#results .opt").forEach((o) => { const on = o.dataset.sel === id; o.classList.toggle("sel", on); o.classList.remove("reveal"); o.setAttribute("aria-pressed", on); });
+    drawResultMap(); renderBookBar();
+    if (scrollList) { const o = $(`#results .opt[data-sel="${id}"]`); if (o) o.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
   }
   const q = () => S.query;
   function renderCompareBar() {
@@ -431,7 +514,7 @@
       ["Rating", (r) => `★ ${r.O.rating.toFixed(1)} (${r.O.trips_completed} trips)`],
       ["Owner's price", (r) => `<b>${inr(r.price)}</b>${r.price === best ? ` <span class="tag good">Lowest</span>` : ""}`],
       ["Saving vs broker", (r) => inr(Math.max(0, r.market - r.price))],
-      ["", (r) => `<button class="btn primary small" data-book="${r.L.listing_id}" type="button">Book</button>`],
+      ["", (r) => `<button class="btn primary small" data-book="${r.L.listing_id}" type="button">Book</button> <button class="btn ghost small" data-uncompare="${r.L.listing_id}" type="button" aria-label="Remove ${esc(r.O.name)} from comparison">Remove</button>`],
     ];
     openModal(`<h2 id="modal-title">Compare trucks</h2><p class="muted small">${esc(q().from)} → ${esc(q().to)}, ${q().weight} t, ${fmtDate(q().date)}</p>
       <div class="table-wrap" style="margin-top:12px"><table class="data compare"><tbody>${rows.map(([h, f]) => `<tr><th>${h}</th>${items.map((r) => `<td>${f(r)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
@@ -441,9 +524,47 @@
     const v = e.target.closest("[data-verify]");
     if (v) { e.preventDefault(); showVerification(v.dataset.verify); return; }
     const b = e.target.closest("[data-book]");
-    if (b) openBooking(S.results.find((r) => r.L.listing_id === b.dataset.book));
+    if (b) { openBooking(S.results.find((r) => r.L.listing_id === b.dataset.book)); return; }
+    const w = e.target.closest("[data-why]"); if (w) { showWhy(S.results.find((r) => r.L.listing_id === w.dataset.why)); return; }
+    const d = e.target.closest("[data-details]"); if (d) { showDetails(S.results.find((r) => r.L.listing_id === d.dataset.details)); return; }
+    const x = e.target.closest("[data-uncompare]"); if (x) { S.compare.delete(x.dataset.uncompare); renderResults(); S.compare.size >= 2 ? openCompare() : closeModal(); return; }
+    if (e.target.closest("label.check, input")) return;
+    const o = e.target.closest(".opt");
+    if (o) selectTruck(o.dataset.sel);
   }
-
+  function showWhy(r) {
+    if (!r) return;
+    const W = L$.CFG.WEIGHTS, P = r.parts, q = S.query;
+    const rows = [
+      ["loc", "Pickup proximity", r.deadhead ? `${r.deadhead} km from ${q.from}` : `Already in ${q.from}`],
+      ["dir", "Direction / return trip", r.dirLabel],
+      ["date", "Date closeness", `Free from ${fmtDate(r.L.available_from)} (pickup ${fmtDate(q.date)})`],
+      ["cap", "Capacity fit", `${q.weight} t of ${r.T.capacity_tonnes} t (${Math.round(r.fit * 100)}%)`],
+      ["rating", "Owner rating", `★ ${r.O.rating.toFixed(1)}`],
+      ["ver", "Verification", r.O.verification_status],
+    ];
+    openModal(`<h2 id="modal-title">Why this match? ${r.score}/100</h2><p class="muted small">A simple weighted score, not AI. Each factor scores 0–1 and is multiplied by its weight.</p>
+      <div class="table-wrap"><table class="data"><thead><tr><th>Factor</th><th>Details</th><th class="num">Weight</th><th class="num">Points</th></tr></thead><tbody>
+      ${rows.map(([k, l, d]) => `<tr><td>${l}</td><td>${esc(d)}</td><td class="num">${W[k]}</td><td class="num"><b>${(W[k] * P[k]).toFixed(1)}</b></td></tr>`).join("")}
+      </tbody></table></div><p class="small muted" style="margin-top:10px">Trucks must also pass hard filters: right type, enough capacity, free on the date, and within ${q.radius || MAX_DEADHEAD_KM} km of pickup.</p>`);
+  }
+  function showDetails(r) {
+    if (!r) return;
+    const D2 = driverByTruck[r.T.truck_id], O = r.O;
+    openModal(`<h2 id="modal-title">${esc(r.T.truck_type)} · ${r.T.capacity_tonnes} t</h2><p class="muted small">${plate(r.T.reg_no)} · model ${r.T.model_year} · ${r.T.gps_enabled ? "GPS fitted" : "No GPS"}</p>
+      <dl class="kv">
+        <div><dt>Owner</dt><dd>${esc(O.name)} ★ ${O.rating.toFixed(1)} · ${O.trips_completed} trips</dd></div>
+        <div><dt>Owner verification</dt><dd>${verBadge(O, false)}</dd></div>
+        <div><dt>Driver</dt><dd>${D2 ? `${esc(D2.name)} · ${D2.experience_years} yrs` : "Not listed"}</dd></div>
+        <div><dt>Driver checks</dt><dd>${D2 ? `Licence ${D2.licence_verified ? "✓" : "pending"} · ID ${D2.id_verified ? "✓" : "pending"}` : "–"}</dd></div>
+        <div><dt>Now in</dt><dd>${esc(r.L.current_city)}${r.deadhead ? ` (${r.deadhead} km to pickup)` : ""}</dd></div>
+        <div><dt>Available</dt><dd>${fmtDate(r.L.available_from)} – ${fmtDate(r.L.available_until)}</dd></div>
+        <div><dt>Owner's price</dt><dd>${inr(r.price)} · ${r.L.asking_rate_per_km} ₹/km</dd></div>
+        <div><dt>Route distance</dt><dd>${num(r.tripKm)} km (estimate)</dd></div>
+      </dl><p class="small muted">Verification flags are synthetic demo data; no real documents were checked.</p>
+      <button class="btn primary lg" type="button" data-book="${r.L.listing_id}">Request booking · ${inr(r.price)}</button>`);
+    $("#modal-body").addEventListener("click", onResultClick);
+  }
   // ================================================================ booking stepper
   function stepper(i) {
     return `<ol class="stepper">${["Request", "Negotiate", "Pay advance", "Track"].map((s, k) => `<li class="${k < i ? "done" : k === i ? "on" : ""}">${k + 1}. ${s}</li>`).join("")}</ol>`;
@@ -516,8 +637,9 @@
           <div class="total"><span>Total</span><span>${inr(price + fee)}</span></div>
           <div class="muted small"><span>You save ${inr(Math.max(0, ctx.r.market - price))} vs a typical broker${ctx.r.isRet ? ` · the owner avoids ${num(ctx.r.tripKm)} empty km` : ""}</span></div>
         </div>
-        <div class="upi"><span class="upi-logo">UPI</span><div style="flex:1;min-width:160px"><b>Pay ${inr(adv)} advance now</b><div class="muted small">${ADVANCE * 100}% of freight. Balance ${inr(price + fee - adv)} on delivery. Demo payment, no money moves.</div></div>
-          <button class="btn primary" id="pay" type="button">Pay ${inr(adv)}</button></div>`;
+        <div class="upi"><span class="upi-logo">UPI</span><div style="flex:1;min-width:160px"><b>Pay ${inr(adv)} advance now</b><div class="muted small">${ADVANCE * 100}% of freight. Balance ${inr(price + fee - adv)} on delivery. Simulated payment: no money moves.</div></div>
+          <button class="btn primary" id="pay" type="button">Pay ${inr(adv)}</button></div>
+        <div class="trust"><b>Proposed protections</b> <span class="tag">Not active in this prototype</span><ul><li>Payment held until delivery</li><li>Goods-in-transit cover</li><li>Benefits for completed on-platform bookings</li><li>Documented shipment history</li></ul></div>`;
       $("#pay").addEventListener("click", async () => {
         const b = $("#pay"); b.disabled = true; b.innerHTML = `<span class="spinner"></span> Processing`;
         await wait(1700);
@@ -543,7 +665,8 @@
     return bd < 6 ? best : null;
   }
   function newTrip(base) {
-    const t = Object.assign({ id: "TRP" + String(S.extra.trips.length + 1).padStart(3, "0"), created: Date.now(), dur: DEMO_TRIP_MS[S.extra.speed] || DEMO_TRIP_MS.fast, rating: 0, driver: pick(DRIVERS) + " " + pick(["Singh", "Kumar", "Yadav", "Patil", "Khan", "Das"]) }, base);
+    const t = Object.assign({ id: "TRP" + String(S.extra.trips.length + 1).padStart(3, "0"), created: Date.now(), dur: DEMO_TRIP_MS[S.extra.speed] || DEMO_TRIP_MS.fast, rating: 0 }, base);
+    if (!t.driver) { const d = driverByTruck[t.truck_id]; t.driver = d ? d.name : pick(DRIVERS) + " Singh"; t.driver_ok = d ? d.verification_status === "Verified" : false; }
     t.mid = midCity(t.origin, t.destination);
     S.extra.trips.unshift(t); saveStore(); refreshCounts(); renderTripList();
     return t;
@@ -552,13 +675,13 @@
     const { r } = ctx;
     S.extra.booked[r.L.listing_id] = true;
     const t = newTrip({ role: "shipper", company: ctx.sh ? ctx.sh.company : "Guest shipper", owner_id: r.O.owner_id, owner_name: r.O.name, phone: r.O.phone,
-      reg_no: r.T.reg_no, truck_type: r.T.truck_type, start_city: r.L.current_city, deadhead: r.deadhead, origin: ctx.q.from, destination: ctx.q.to,
+      truck_id: r.T.truck_id, reg_no: r.T.reg_no, truck_type: r.T.truck_type, start_city: r.L.current_city, deadhead: r.deadhead, origin: ctx.q.from, destination: ctx.q.to,
       distance_km: r.tripKm, weight: ctx.q.weight, pickup_date: ctx.q.date, is_return_trip: r.isRet, price: ctx.price, fee, advance: adv, upi: ref, broker: r.market, listing_id: r.L.listing_id });
     S.results = S.results.filter((x) => x.L.listing_id !== r.L.listing_id); S.compare.delete(r.L.listing_id);
     renderResults(); renderInsights();
     return t;
   }
-  function progress(t) { return clamp((Date.now() - t.created) / t.dur, 0, 1); }
+  function progress(t) { return t.cancelled ? t.cancelled.p : clamp((Date.now() - t.created) / t.dur, 0, 1); }
   function tripState(t) {
     const p = progress(t), { cut, total } = phasesFor(t);
     const steps = [
@@ -571,7 +694,8 @@
     steps.push({ at: cut[3], label: `Reached ${t.destination}`, note: "Unloading" });
     steps.push({ at: 1, label: "Delivered", note: t.role === "owner" ? `Balance of ${inr(t.price - (t.advance || 0))} released to you` : "Proof of delivery uploaded" });
     let phase, label;
-    if (p >= 1) { phase = 5; label = "Delivered"; }
+    if (t.cancelled) { phase = -1; label = `Cancelled · ${t.cancelled.reason}`; }
+    else if (p >= 1) { phase = 5; label = "Delivered"; }
     else if (p >= cut[3]) { phase = 4; label = `Unloading in ${t.destination}`; }
     else if (p >= cut[2]) { phase = 3; label = `In transit · ${Math.round((p - cut[2]) / (cut[3] - cut[2]) * 100)}%`; }
     else if (p >= cut[1]) { phase = 2; label = `Loading in ${t.origin}`; }
@@ -612,7 +736,7 @@
     const r = R[0]; if (!r) return;
     const fee = Math.round(r.price * COMMISSION), adv = round100(r.price * ADVANCE);
     S.extra.booked[r.L.listing_id] = true;
-    const t = newTrip({ role: "shipper", company: l.company, owner_id: r.O.owner_id, owner_name: r.O.name, phone: r.O.phone, reg_no: r.T.reg_no, truck_type: r.T.truck_type,
+    const t = newTrip({ role: "shipper", company: l.company, owner_id: r.O.owner_id, owner_name: r.O.name, phone: r.O.phone, truck_id: r.T.truck_id, reg_no: r.T.reg_no, truck_type: r.T.truck_type,
       start_city: r.L.current_city, deadhead: r.deadhead, origin: l.origin, destination: l.destination, distance_km: r.tripKm, weight: l.weight_tonnes, pickup_date: l.pickup_date,
       is_return_trip: r.isRet, price: r.price, fee, advance: adv, upi: "demo", broker: r.market, listing_id: r.L.listing_id });
     openTrip(t.id);
@@ -625,12 +749,14 @@
     $("#trip-list").innerHTML = T.length ? T.map((t) => {
       const st = tripState(t);
       return `<button type="button" class="trip-item${t.id === S.selTrip ? " on" : ""}" data-trip="${t.id}">
-        <span class="ti-top"><span>${esc(t.origin)} → ${esc(t.destination)}</span><span class="status ${st.phase === 5 ? "done" : "live"}" data-tstatus="${t.id}">${st.phase === 5 ? "Delivered" : "Live"}</span></span>
+        <span class="ti-top"><span>${esc(t.origin)} → ${esc(t.destination)}</span><span class="status ${stCls(st)}" data-tstatus="${t.id}">${stTxt(st)}</span></span>
         <span class="ti-sub">${esc(t.reg_no)} · ${t.role === "owner" ? "for " + esc(t.company) : esc(t.owner_name)} · ${inr(t.price)}</span>
         <span class="bar"><i data-tbar="${t.id}" style="width:${Math.round(st.p * 100)}%"></i></span>
         <span class="ti-sub" data-tlabel="${t.id}">${esc(st.label)}</span></button>`;
     }).join("") : `<div class="empty">No trips yet. Book a truck to see it move here live.<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn primary small" type="button" data-go="find">Book a truck</button><button class="btn ghost small" id="demo-trip" type="button">Start a sample trip</button></div></div>`;
   }
+  const stCls = (st) => (st.phase === -1 ? "bad" : st.phase === 5 ? "done" : "live");
+  const stTxt = (st) => (st.phase === -1 ? "Cancelled" : st.phase === 5 ? "Delivered" : "Live");
   function renderTripDetail() {
     const t = S.extra.trips.find((x) => x.id === S.selTrip), el = $("#trip-detail");
     el.hidden = !S.extra.trips.length;
@@ -642,8 +768,8 @@
     el._map = M;
     el.innerHTML = `<div class="trip-top"><div><p class="eyebrow">${t.role === "owner" ? "Your truck · job for " + esc(t.company) : "Your shipment · " + esc(t.company)}</p>
         <h2 class="h2">${esc(t.origin)} → ${esc(t.destination)}</h2>
-        <p class="muted small">${plate(t.reg_no)} ${esc(t.truck_type)} · driver ${esc(t.driver)} · ${esc(t.phone || "")}${t.is_return_trip ? ` · <span class="tag gold">Return trip filled</span>` : ""}</p></div>
-        <div style="display:flex;gap:8px;align-items:center"><span class="status live" id="d-status">${esc(st.label)}</span><button class="btn ghost small" id="share" type="button">Share tracking</button></div></div>
+        <p class="muted small">${plate(t.reg_no)} ${esc(t.truck_type)} · driver ${esc(t.driver)}${t.driver_ok ? " ✓" : ""} · ${esc(t.phone || "")}${t.is_return_trip ? ` · <span class="tag gold">Return trip filled</span>` : ""}</p></div>
+        <div style="display:flex;gap:8px;align-items:center"><span class="status live" id="d-status">${esc(st.label)}</span><button class="btn ghost small" id="share" type="button">Share tracking</button><button class="btn ghost small" id="cancel-trip" type="button"${st.p >= 1 || t.cancelled ? " hidden" : ""}>Cancel booking</button></div></div>
       <div class="trip-map"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Live position of truck ${esc(t.reg_no)}">${cityLayer(M, [t.origin, t.destination, t.start_city])}
         ${t.deadhead ? `<path class="m-deadhead" d="M${sx},${sy} L${ox},${oy}"/>` : ""}
         <path class="m-route" d="M${ox},${oy} L${dx},${dy}"/><path class="m-done" id="d-done" d="M${ox},${oy} L${ox},${oy}"/>
@@ -671,7 +797,8 @@
     $("#d-pct").textContent = Math.round(st.p * 100) + "%";
     $("#d-km").textContent = num(st.kmDone);
     $("#d-eta").textContent = st.p >= 1 ? "Arrived" : fmtH(st.remainH);
-    const ds = $("#d-status"); ds.textContent = st.label; ds.className = "status " + (st.phase === 5 ? "done" : "live");
+    const ds = $("#d-status"); ds.textContent = st.label; ds.className = "status " + stCls(st);
+    const cb = $("#cancel-trip"); if (cb) cb.hidden = st.p >= 1 || !!t.cancelled;
     const key = st.steps.filter((s) => st.p >= s.at).length;
     if (force || el._key !== key) {
       el._key = key;
@@ -681,20 +808,40 @@
   }
   function renderRate(t, st) {
     const el = $("#d-rate"); if (!el) return;
-    if (st.p < 1) { el.innerHTML = `<p class="small muted">Trip times run on a simulated clock. ETA ${fmtClock(st.eta)}.</p>`; return; }
+    if (t.cancelled) { el.innerHTML = `<div class="notice error">Booking cancelled: ${esc(t.cancelled.reason)}. In the full product the advance would be refunded per the cancellation policy (proposed).</div>`; return; }
+    if (st.p < 1) { el.innerHTML = `<p class="small muted">Simulated movement on a simulated clock, not GPS. ETA ${fmtClock(st.eta)}.</p>`; return; }
     if (t.role === "owner") { el.innerHTML = `<div class="success">✓ Delivered. ${inr(t.price - (t.advance || 0))} balance released to you.</div>`; return; }
     el.innerHTML = t.rating ? `<div class="success">✓ Delivered · you rated ${esc(t.owner_name)} ${"★".repeat(t.rating)}</div>`
       : `<div class="bill"><b>Rate ${esc(t.owner_name)}</b><div class="stars" role="group" aria-label="Rating">${[1, 2, 3, 4, 5].map((n) => `<button type="button" data-star="${n}" aria-label="${n} star">★</button>`).join("")}</div></div>`;
   }
   function onTripDetailClick(e) {
     const s = e.target.closest("[data-star]");
-    if (s) { const t = S.extra.trips.find((x) => x.id === S.selTrip); t.rating = +s.dataset.star; saveStore(); renderRate(t, tripState(t)); toast("Thanks for rating the owner"); return; }
+    if (s) {
+      const t = S.extra.trips.find((x) => x.id === S.selTrip); if (t.rating) return;
+      t.rating = +s.dataset.star; (S.extra.ratings[t.owner_id] ||= []).push(t.rating); applyRatings(); saveStore();
+      renderRate(t, tripState(t)); toast(`Thanks. ${esc(t.owner_name)}'s rating is now ★ ${ownerIdx[t.owner_id].rating.toFixed(1)}`); return;
+    }
+    if (e.target.closest("#cancel-trip")) { askCancel(S.extra.trips.find((x) => x.id === S.selTrip)); return; }
     if (e.target.closest("#share")) {
       const t = S.extra.trips.find((x) => x.id === S.selTrip);
       const text = `Track ${t.reg_no} (${t.origin} → ${t.destination}) on VahanConnect · trip ${t.id}`;
       const done = () => toast("Tracking details copied");
       try { navigator.clipboard.writeText(text).then(done, () => toast(esc(text))); } catch (err) { toast(esc(text)); }
     }
+  }
+  function askCancel(t) {
+    const reasons = ["Plans changed", "Found another truck", "Pickup date changed", "Price issue", "Other"];
+    openModal(`<h2 id="modal-title">Cancel this booking?</h2><p class="muted">${esc(t.origin)} → ${esc(t.destination)} · ${esc(t.reg_no)}</p>
+      <div class="field" style="margin:12px 0"><label for="cx-reason">Reason</label><select id="cx-reason">${reasons.map((r) => `<option>${r}</option>`).join("")}</select></div>
+      <div style="display:flex;gap:8px"><button class="btn danger" id="cx-yes" type="button">Cancel booking</button><button class="btn ghost" id="cx-no" type="button">Keep booking</button></div>`);
+    $("#cx-no").addEventListener("click", closeModal);
+    $("#cx-yes").addEventListener("click", () => {
+      t.cancelled = { reason: $("#cx-reason").value, p: progress(t), at: Date.now() };
+      if (t.listing_id) delete S.extra.booked[t.listing_id];
+      saveStore(); closeModal(); renderTripList(); renderTripDetail(); refreshCounts(); renderInsights();
+      if (S.query) runSearch();
+      toast("Booking cancelled");
+    });
   }
   function tick() {
     let changed = false;
@@ -772,7 +919,7 @@
   }
   function loadsFor({ truck, city, from, until, home }) {
     if (!truck) return [];
-    return D.loads.map((l) => {
+    return allLoads().map((l) => {
       if (l.truck_type !== truck.truck_type || l.weight_tonnes > truck.capacity_tonnes) return null;
       if (l.pickup_date < addDays(from, -1) || l.pickup_date > addDays(until, 1)) return null;
       const dh = km(city, l.origin);
@@ -794,23 +941,23 @@
       const est = round100(l.distance_km * rate);
       const emptyCost = round100(emptyHome * EMPTY_RUN_COST_PER_KM);
       return `<div class="load${home ? " home" : ""}">
-        <div><div class="l-route">${esc(l.origin)} → ${esc(l.destination)} ${home ? `<span class="tag gold">Takes you home</span>` : ""}</div>
+        <div><div class="l-route">${esc(l.origin)} → ${esc(l.destination)} ${home ? `<span class="tag gold">Takes you home</span>` : ""}${l.posted_here ? ` <span class="tag">Posted in this browser</span>` : ""}</div>
           <div class="l-meta">${esc(l.company)} · ${esc(l.goods)} · ${l.weight_tonnes} t · ${num(l.distance_km)} km · pickup ${fmtDate(l.pickup_date)}${dh ? ` · ${dh} km from you` : ""}</div>
           ${home ? `<div class="earn-box"><div class="pos"><b>${inr(est)}</b>you earn</div><div><b>${inr(emptyCost)}</b>cost of driving home empty</div><div class="pos"><b>${inr(est + emptyCost)}</b>better off</div></div>` : ""}</div>
-        <div class="l-side"><span class="muted small">Quote at ${rate} ₹/km</span><b>${inr(est)}</b><span class="muted small">Budget ${inr(l.budget_rs)}</span>
+        <div class="l-side"><span class="muted small">Quote at ${rate} ₹/km</span><b>${inr(est)}</b><span class="muted small">${l.budget_rs ? "Budget " + inr(l.budget_rs) : "No budget given"}</span>
           ${quoted.has(l.load_id) ? `<span class="tag good">Quote sent</span>` : `<button class="btn primary small" type="button" data-quote="${l.load_id}" data-est="${est}">Send quote</button>`}</div>
       </div>`;
     }).join("");
   }
   function onQuote(e) {
     const b = e.target.closest("[data-quote]"); if (!b) return;
-    const l = D.loads.find((x) => x.load_id === b.dataset.quote), O = curOwner(), T = curTruck(), est = parseInt(b.dataset.est, 10);
+    const l = allLoads().find((x) => x.load_id === b.dataset.quote), O = curOwner(), T = curTruck(), est = parseInt(b.dataset.est, 10);
     const rq = addRequest({ kind: "quote", status: "waiting", load: l, offer: est, owner: O, truck: T, city: $("#o-city").value, from: $("#o-from").value });
     renderOwnerLoads();
     toast(`Quote of ${inr(est)} sent to <b>${esc(l.company)}</b>`);
     setTimeout(() => {
       const r = S.extra.requests.find((x) => x.id === rq.id); if (!r || r.status !== "waiting") return;
-      if (est <= l.budget_rs) { r.status = "accepted-by-shipper"; r.note = `${l.company} accepted your quote`; }
+      if (!l.budget_rs || est <= l.budget_rs) { r.status = "accepted-by-shipper"; r.note = `${l.company} accepted your quote`; }
       else { r.status = "new"; r.offer = l.budget_rs; r.note = `${l.company} countered at their budget of ${inr(l.budget_rs)}`; }
       saveStore(); renderInbox(); refreshCounts();
       toast(`<b>${esc(l.company)}</b> ${r.status === "new" ? "sent a counter-offer" : "accepted your quote"}`, S.view !== "owner" ? { label: "View", fn: () => show("owner") } : null);
@@ -875,7 +1022,7 @@
     }
     if (b.dataset.acc) {
       const O = ownerIdx[r.owner_id], T = truckIdx[r.truck_id];
-      const t = newTrip({ role: "owner", company: r.company, owner_id: O.owner_id, owner_name: O.name, phone: "Shipper: +91 98XXX XX" + Math.floor(10 + Math.random() * 89), reg_no: T.reg_no, truck_type: T.truck_type,
+      const t = newTrip({ role: "owner", company: r.company, owner_id: O.owner_id, owner_name: O.name, phone: "Shipper: +91 98XXX XX" + Math.floor(10 + Math.random() * 89), truck_id: T.truck_id, reg_no: T.reg_no, truck_type: T.truck_type,
         start_city: r.start_city, deadhead: km(r.start_city, r.origin), origin: r.origin, destination: r.destination, distance_km: r.distance_km, weight: r.weight, pickup_date: r.pickup_date,
         is_return_trip: km(r.destination, O.home_city) <= 120, price: r.offer, fee: 0, advance: round100(r.offer * ADVANCE), broker: round100(r.distance_km * (typeRate[T.truck_type] || T.rate_per_km) * BROKER_MARKUP) });
       r.status = "booked"; r.trip = t.id; saveStore(); renderInbox(); refreshCounts(); renderInsights();
@@ -895,7 +1042,7 @@
       $("#q-from").value = city; $("#q-to").value = pref === "Any" ? (city === "Delhi" ? "Mumbai" : "Delhi") : pref;
       $("#q-date").value = from; $("#q-type").value = T.truck_type; $("#q-weight").value = Math.max(1, Math.round(T.capacity_tonnes * 0.7));
       $("#q-verified").checked = O.verification_status === "Verified"; $$(".chip").forEach((c) => c.classList.remove("on"));
-      show("find"); runSearch();
+      show("find"); runSearch({ animate: true });
     });
     setTimeout(() => liveRequest("post"), 5000 + Math.random() * 3000);
     renderDataset();
@@ -983,8 +1130,8 @@
     renderDataset();
   }
   function renderDataset() {
-    const t = S.ds.table, PER = 15, data = t === "listings" ? allListings() : D[t];
-    $("#ds-tabs").innerHTML = TABLES.map((n) => `<button role="tab" data-table="${n}" aria-selected="${n === t}">${n}.csv<span>${num((n === "listings" ? allListings() : D[n]).length)}</span></button>`).join("");
+    const t = S.ds.table, PER = 15, data = t === "listings" ? allListings() : t === "loads" ? allLoads() : D[t];
+    $("#ds-tabs").innerHTML = TABLES.map((n) => `<button role="tab" data-table="${n}" aria-selected="${n === t}">${n}.csv<span>${num((n === "listings" ? allListings() : n === "loads" ? allLoads() : D[n]).length)}</span></button>`).join("");
     const rows = S.ds.filter ? data.filter((r) => Object.values(r).join(" ").toLowerCase().includes(S.ds.filter)) : data;
     const pages = Math.max(1, Math.ceil(rows.length / PER)); S.ds.page = Math.min(S.ds.page, pages - 1);
     const cols = Object.keys(data[0]);
@@ -997,22 +1144,151 @@
     $("#ds-prev").disabled = S.ds.page === 0; $("#ds-next").disabled = S.ds.page >= pages - 1;
   }
 
+  // ================================================================ HOME booking form
+  function initHomeForm() {
+    $("#h-from").innerHTML = cityOptions(); $("#h-to").innerHTML = cityOptions();
+    $("#h-from").value = $("#q-from").value; $("#h-to").value = $("#q-to").value;
+    $("#h-date").value = $("#q-date").value; $("#h-weight").value = $("#q-weight").value;
+    $("#home-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const w = parseFloat($("#h-weight").value);
+      if ($("#h-from").value === $("#h-to").value) { toast(T_("err.sameCity")); $("#h-to").focus(); return; }
+      if (!$("#h-date").value) { toast(T_("err.date")); $("#h-date").focus(); return; }
+      if (!(w > 0) || w > 40) { toast(T_("err.weight")); $("#h-weight").focus(); return; }
+      $("#q-from").value = $("#h-from").value; $("#q-to").value = $("#h-to").value; $("#q-date").value = $("#h-date").value; $("#q-weight").value = w; $("#q-type").value = "";
+      S.qExtra = {}; $$(".chip").forEach((c) => c.classList.remove("on"));
+      show("find"); runSearch({ animate: true });
+    });
+    $("#u-sticky-btn").addEventListener("click", () => { const f = $("#home-form"); f.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => f.requestSubmit(), 350); });
+    // banner fact computed from the dataset: return-trip asking rate vs the truck's base rate
+    const ret = D.listings.filter((l) => l.is_return_trip && truckIdx[l.truck_id]);
+    S.retDiscount = Math.round((1 - ret.reduce((a, l) => a + l.asking_rate_per_km / truckIdx[l.truck_id].rate_per_km, 0) / ret.length) * 100);
+    renderBanner();
+    let hidden = false; try { hidden = sessionStorage.getItem("vc-banner") === "0"; } catch (e) { /* ignore */ }
+    $("#u-banner").hidden = hidden;
+    $("#u-banner-x").addEventListener("click", () => { $("#u-banner").hidden = true; try { sessionStorage.setItem("vc-banner", "0"); } catch (e) { /* ignore */ } });
+    const io = "IntersectionObserver" in window ? new IntersectionObserver(([en]) => document.body.classList.toggle("form-visible", en.isIntersecting)) : null;
+    if (io) io.observe($("#home-form"));
+  }
+  function renderBanner() { if (S.retDiscount != null) $("#u-banner-text").textContent = T_("home.banner").replace("{p}", S.retDiscount); }
+
+  // ================================================================ POST A LOAD
+  function initPost() {
+    const types = [...new Set(D.trucks.map((t) => t.truck_type))].sort();
+    $("#p-from").innerHTML = cityOptions(); $("#p-to").innerHTML = cityOptions("Delhi");
+    $("#p-type").innerHTML = types.map((t) => opt(t)).join("");
+    $("#p-shipper").innerHTML = D.shippers.slice().sort((a, b) => a.company.localeCompare(b.company)).map((s2) => opt(s2.shipper_id, `${s2.company} (${s2.city})`)).join("");
+    const syncCity = () => { const sh = shipperIdx[$("#p-shipper").value]; if (sh) $("#p-from").value = sh.city; };
+    $("#p-shipper").addEventListener("change", syncCity); syncCity();
+    $("#p-date").value = minDate(); $("#p-date").min = iso(new Date());
+    $("#load-form").addEventListener("submit", (e) => { e.preventDefault(); const l = validateLoad(); if (l) reviewLoad(l); });
+  }
+  function validateLoad() {
+    const f = { from: $("#p-from").value, to: $("#p-to").value, date: $("#p-date").value, weight: parseFloat($("#p-weight").value), type: $("#p-type").value,
+      goods: $("#p-goods").value.trim(), handling: $("#p-handling").value.trim(), budget: $("#p-budget").value ? parseFloat($("#p-budget").value) : 0, shipper: $("#p-shipper").value };
+    const maxCap = Math.max(...D.trucks.filter((t) => t.truck_type === f.type).map((t) => t.capacity_tonnes));
+    const errs = {};
+    if (f.from === f.to) errs.to = T_("err.sameCity");
+    if (!f.date) errs.date = T_("err.date"); else if (f.date < iso(new Date())) errs.date = T_("err.past");
+    if (!(f.weight > 0)) errs.weight = T_("err.weight"); else if (f.weight > maxCap) errs.weight = T_("err.cap").replace("{n}", maxCap).replace("{t}", f.type);
+    if (!f.goods) errs.goods = T_("err.goods");
+    if (f.budget < 0) errs.budget = T_("err.budget");
+    ["from", "to", "date", "weight", "goods", "budget"].forEach((k) => { const el = $("#e-" + k); if (el) el.textContent = errs[k] || ""; const inp = $("#p-" + k); if (inp) inp.setAttribute("aria-invalid", errs[k] ? "true" : "false"); });
+    const first = Object.keys(errs)[0]; if (first) { ($("#p-" + first) || $("#p-to")).focus(); return null; }
+    return f;
+  }
+  function reviewLoad(f) {
+    const sh = shipperIdx[f.shipper], dist = km(f.from, f.to);
+    $("#post-out").innerHTML = `<p class="eyebrow">${T_("post.reviewH")}</p><h2 class="h2">${esc(f.from)} → ${esc(f.to)}</h2>
+      <dl class="kv"><div><dt>${T_("post.company")}</dt><dd>${esc(sh.company)}</dd></div><div><dt>${T_("f.date")}</dt><dd>${fmtDate(f.date)}</dd></div>
+      <div><dt>${T_("f.weight")}</dt><dd>${f.weight} t · ${esc(f.type)}</dd></div><div><dt>Distance</dt><dd>${num(dist)} km (estimate)</dd></div>
+      <div><dt>${T_("post.goods")}</dt><dd>${esc(f.goods)}</dd></div><div><dt>${T_("post.budget")}</dt><dd>${f.budget ? inr(f.budget) : "–"}</dd></div>
+      ${f.handling ? `<div><dt>${T_("post.handling")}</dt><dd>${esc(f.handling)}</dd></div>` : ""}</dl>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary lg" id="post-confirm" type="button">${T_("post.publish")}</button><button class="btn ghost lg" id="post-edit" type="button">${T_("edit")}</button></div>`;
+    $("#post-edit").addEventListener("click", () => $("#p-goods").focus());
+    $("#post-confirm").addEventListener("click", () => publishLoad(f));
+    $("#post-out").scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+  function publishLoad(f) {
+    const sh = shipperIdx[f.shipper], n = (S.extra.loads || []).length + 1;
+    const l = { load_id: "LDU" + String(n).padStart(3, "0"), shipper_id: sh.shipper_id, company: sh.company, goods: f.goods, origin: f.from, destination: f.to,
+      distance_km: km(f.from, f.to), weight_tonnes: f.weight, truck_type: f.type, pickup_date: f.date, budget_rs: f.budget || "", status: "Open", handling: f.handling, posted_here: true };
+    (S.extra.loads ||= []).push(l); saveStore(); renderDataset();
+    const R = matchTrucks({ from: l.origin, to: l.destination, date: l.pickup_date, weight: l.weight_tonnes, type: l.truck_type, verifiedOnly: true, sort: "score" });
+    $("#post-out").innerHTML = `<div class="success">✓ ${T_("post.done")} · ${esc(l.load_id)}</div>
+      <h2 class="h2" style="margin-top:12px">${esc(l.origin)} → ${esc(l.destination)}</h2><p class="muted">${fmtDate(l.pickup_date)} · ${l.weight_tonnes} t · ${esc(l.truck_type)} · ${esc(l.goods)}</p>
+      <p style="margin:12px 0">${R.length ? `<b>${R.length}</b> ${T_("post.matches")}` : T_("post.none")}</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">${R.length ? `<button class="btn primary" id="post-see" type="button">${T_("post.see")}</button>` : ""}<button class="btn ghost" type="button" data-go="owner">${T_("post.asOwner")}</button></div>
+      <p class="muted small" style="margin-top:12px">${T_("post.note")}</p>`;
+    const see = $("#post-see");
+    if (see) see.addEventListener("click", () => { applyLoad(l, false); show("find"); runSearch({ animate: true }); });
+    toast(`${T_("post.done")}: ${esc(l.origin)} → ${esc(l.destination)}`);
+  }
+
+  // ================================================================ simulation transparency
+  function initSim() {
+    try { if (localStorage.getItem("vc-sim") === "1") document.body.classList.add("sim-on"); } catch (e) { /* ignore */ }
+    document.addEventListener("click", (e) => { if (e.target.closest("[data-sim-open], #sim-pill")) openSim(); });
+  }
+  function openSim() {
+    const items = [["Dataset and listings", "All owners, trucks, loads and bookings are synthetic (generated by scripts/generate_dataset.py)."], ["Activity feed", "Generated in your browser from the dataset."],
+      ["Owner and shipper replies", "Negotiation messages, requests and counter-offers are scripted."], ["Advance payment", "The UPI step is simulated. No money moves."],
+      ["Tracking", "Truck movement and times run on a simulated clock, not GPS."], ["Verification", "Owner and driver checks are flags in the data, not real document checks."],
+      ["Sponsored slot", "A fictional partner, not a real advertisement."], ["Storage", "Bookings, posted loads and trucks are saved only in this browser."]];
+    const on = document.body.classList.contains("sim-on");
+    openModal(`<h2 id="modal-title">Simulation mode</h2><p class="muted">What works here is real front-end logic: matching, pricing, suggestions and insights are computed from the dataset. These parts are simulated:</p>
+      <ul class="sim-list">${items.map(([a, b]) => `<li><b>${a}</b><span>${b}</span></li>`).join("")}</ul>
+      <label class="check" style="margin-top:12px"><input type="checkbox" id="sim-toggle"${on ? " checked" : ""}> Highlight simulated areas on screen</label>`);
+    $("#sim-toggle").addEventListener("change", (e) => { document.body.classList.toggle("sim-on", e.target.checked); try { localStorage.setItem("vc-sim", e.target.checked ? "1" : "0"); } catch (err) { /* ignore */ } });
+  }
+  function openMore() {
+    openModal(`<h2 id="modal-title">${T_("nav.more")}</h2><div class="more-menu">
+      <button type="button" class="service" data-go="owner"><b>${T_("nav.owner")}</b><i aria-hidden="true">→</i></button>
+      <button type="button" class="service" data-go="insights"><b>${T_("nav.insights")}</b><i aria-hidden="true">→</i></button>
+      <button type="button" class="service" data-go="dataset"><b>${T_("nav.dataset")}</b><i aria-hidden="true">→</i></button>
+      <button type="button" class="service" data-sim-open><b>${T_("demo")}: what is simulated?</b><i aria-hidden="true">→</i></button></div>`);
+  }
+
   // ================================================================ modal, counts, routing
-  function openModal(html) { $("#modal-body").innerHTML = html; $("#modal").hidden = false; setTimeout(() => $("#modal-x").focus(), 0); }
-  function closeModal() { $("#modal").hidden = true; const nb = $("#modal-body").cloneNode(false); $("#modal-body").replaceWith(nb); }
+  let lastFocus = null;
+  function openModal(html) { if ($("#modal").hidden) lastFocus = document.activeElement; $("#modal-body").innerHTML = html; $("#modal").hidden = false; setTimeout(() => $("#modal-x").focus(), 0); }
+  function closeModal() { if ($("#modal").hidden) return; $("#modal").hidden = true; const nb = $("#modal-body").cloneNode(false); $("#modal-body").replaceWith(nb); if (lastFocus && document.contains(lastFocus)) lastFocus.focus(); }
+  function trapFocus(e) {
+    if (e.key !== "Tab" || $("#modal").hidden) return;
+    const f = $$("#modal button, #modal select, #modal input, #modal [href]").filter((x) => !x.disabled && x.offsetParent !== null);
+    if (!f.length) return; const a = f[0], z = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+  }
+  // ---------------- language + theme
+  function applyLang(lang) {
+    LANG = I18N[lang] ? lang : "en"; document.documentElement.lang = LANG === "hi" ? "hi" : "en";
+    try { localStorage.setItem("vc-lang", LANG); } catch (e) { /* ignore */ }
+    $$("[data-i18n]").forEach((el) => (el.textContent = T_(el.dataset.i18n)));
+    renderBanner();
+    $("#lang").value = LANG;
+    if (S.query && $("#scan").hidden && $("#results-head") && !$("#results-head").hidden) renderResults();
+  }
+  const THEMES = ["system", "light", "dark"];
+  function applyTheme(t) {
+    if (t === "system") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme", t);
+    $("#theme-btn").setAttribute("aria-label", "Theme: " + t); $("#theme-btn").title = "Theme: " + t + " (click to change)";
+    try { localStorage.setItem("vc-theme", t); } catch (e) { /* ignore */ }
+    S.theme = t;
+  }
   function refreshCounts() {
-    const live = S.extra.trips.filter((t) => progress(t) < 1).length;
+    const live = S.extra.trips.filter((t) => !t.cancelled && progress(t) < 1).length;
     const req = S.extra.requests.filter((r) => r.status === "new" || r.status === "accepted-by-shipper").length;
     [["#trip-count", live], ["#trip-count-m", live], ["#req-count", req], ["#req-count-m", req]].forEach(([s, n]) => { const el = $(s); el.hidden = !n; el.textContent = n; });
   }
-  const VIEWS = ["home", "find", "trips", "owner", "insights", "dataset"];
+  const VIEWS = ["home", "find", "post", "trips", "owner", "insights", "dataset"];
   function show(v) {
     if (!VIEWS.includes(v)) v = "home";
-    S.view = v;
+    S.view = v; closeModal();
     VIEWS.forEach((x) => { $("#view-" + x).hidden = x !== v; });
     $$("[data-view]").forEach((b) => (b.dataset.view === v ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current")));
     try { if (location.hash !== "#" + v) history.replaceState(null, "", "#" + v); } catch (e) { /* ignore */ }
     if (v === "trips") renderTripDetail();
+    if (v === "find" && S.query && $("#scan").hidden) requestAnimationFrame(drawResultMap);
     if (v === "owner" && !S.ownerSeeded && !S.extra.requests.some((r) => r.owner_id === curOwner().owner_id)) { S.ownerSeeded = true; setTimeout(() => S.view === "owner" && liveRequest("search"), 6000); }
     window.scrollTo({ top: 0 });
   }
@@ -1020,7 +1296,8 @@
     $("#reset-demo").addEventListener("click", () => ($("#reset-confirm").hidden = false));
     $("#reset-no").addEventListener("click", () => ($("#reset-confirm").hidden = true));
     $("#reset-yes").addEventListener("click", () => {
-      S.extra = { listings: [], trips: [], booked: {}, requests: [], speed: S.extra.speed }; S.selTrip = null; S.lastPhase = {}; saveStore();
+      S.extra = { listings: [], trips: [], booked: {}, requests: [], loads: [], ratings: {}, speed: S.extra.speed };
+      D.owners.forEach((o) => { o.rating = o._r0; o.trips_completed = o._t0; }); S.selTrip = null; S.lastPhase = {}; saveStore();
       $("#reset-confirm").hidden = true;
       renderTripList(); renderTripDetail(); renderInsights(); renderInbox(); renderOwnerLoads(); renderDataset(); refreshCounts();
       if (S.query) runSearch();
@@ -1040,10 +1317,18 @@
       if (a && a.id !== "try-it" && VIEWS.includes(a.getAttribute("href").slice(1))) { e.preventDefault(); show(a.getAttribute("href").slice(1)); return; }
     });
     $("#modal-x").addEventListener("click", closeModal);
+    $("#more-btn").addEventListener("click", openMore);
+    document.addEventListener("keydown", trapFocus);
+    let savedLang = "en", savedTheme = "system";
+    try { savedLang = localStorage.getItem("vc-lang") || "en"; savedTheme = localStorage.getItem("vc-theme") || "system"; } catch (e) { /* ignore */ }
+    applyTheme(savedTheme);
+    $("#theme-btn").addEventListener("click", () => applyTheme(THEMES[(THEMES.indexOf(S.theme) + 1) % 3]));
+    $("#lang").addEventListener("change", (e) => applyLang(e.target.value));
     $("#modal").addEventListener("click", (e) => { if (e.target.id === "modal") closeModal(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#modal").hidden) closeModal(); });
-    initHome(); initFind(); initTrips(); initOwner(); initDataset(); initReset();
+    initHome(); initFind(); initHomeForm(); initPost(); initTrips(); initOwner(); initDataset(); initReset(); initSim();
     renderInsights(); refreshCounts();
+    applyLang(savedLang);
     show((location.hash || "#home").slice(1));
     window.addEventListener("hashchange", () => { const v = location.hash.slice(1); if (VIEWS.includes(v) && v !== S.view) show(v); });
     setInterval(tick, 500);

@@ -23,14 +23,19 @@
       <span class="brand-name"><span class="bn-a">Vahan</span><span class="bn-b">Connect</span></span>
     </a>
     <nav class="tabs" aria-label="Sections">
-      <button data-view="home" id="tab-home">Home</button>
-      <button data-view="find" id="tab-find">Find trucks</button>
-      <button data-view="trips" id="tab-trips">My trips <span class="count" id="trip-count" hidden></span></button>
-      <button data-view="owner" id="tab-owner">For owners <span class="count" id="req-count" hidden></span></button>
-      <button data-view="insights" id="tab-insights">Insights</button>
-      <button data-view="dataset" id="tab-dataset">Dataset</button>
+      <button data-view="home" id="tab-home" data-i18n="nav.home">Home</button>
+      <button data-view="find" id="tab-find" data-i18n="nav.find">Find trucks</button>
+      <button data-view="post" id="tab-post" data-i18n="nav.post">Post a load</button>
+      <button data-view="trips" id="tab-trips"><span data-i18n="nav.trips">My trips</span> <span class="count" id="trip-count" hidden></span></button>
+      <button data-view="owner" id="tab-owner"><span data-i18n="nav.owner">For owners</span> <span class="count" id="req-count" hidden></span></button>
+      <button data-view="insights" id="tab-insights" data-i18n="nav.insights">Insights</button>
+      <button data-view="dataset" id="tab-dataset" data-i18n="nav.dataset">Dataset</button>
     </nav>
-    <span class="live-pill" title="Simulated live activity"><i></i>Live</span>
+    <div class="head-ctrls">
+      <label class="sr-only" for="lang">Language</label><select id="lang" class="mini-select" aria-label="Language"><option value="en">EN</option><option value="hi">हिंदी</option></select>
+      <button type="button" class="icon-btn" id="theme-btn" aria-label="Theme: system"><span aria-hidden="true">◐</span></button>
+      <button type="button" class="live-pill" id="sim-pill" title="What is simulated?"><i></i><span data-i18n="demo">Demo mode</span></button>
+    </div>
   </div>
 </header>
 
@@ -39,19 +44,71 @@
   <div id="load-error" class="notice error" hidden></div>
 
   <!-- ================= HOME ================= -->
-  <section id="view-home" class="view" hidden>
-    <div class="hero">
-      <div class="hero-copy">
-        <div class="hero-brand"><img src="assets/icon-192.png" alt="VahanConnect logo" width="56" height="56"><div><div class="brand-name"><span class="bn-a">Vahan</span><span class="bn-b">Connect</span></div><div class="brand-tagline">Trucks. Routes. Customers.</div></div></div>
-        <h1>No truck should drive home empty.</h1>
-        <p class="lede">After an interstate delivery, most trucks find no load back and return empty, losing the owner money on every round trip. VahanConnect matches those trucks with shippers on the same route, with verified owners and prices set by direct negotiation.</p>
-        <div class="cta-row">
-          <button class="btn primary lg" data-go="find" type="button">I need a truck</button>
-          <button class="btn outline lg" data-go="owner" type="button">I own a truck</button>
-        </div>
+  <section id="view-home" class="view home" hidden>
+    <div class="u-hero">
+      <div class="u-left">
+        <p class="u-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.4-7-12a7 7 0 0 1 14 0c0 5.6-7 12-7 12z"/><circle cx="12" cy="10" r="2.6" fill="var(--surface)"/></svg><span data-i18n="home.loc">India · 34 freight hubs</span></p>
+        <h1 class="u-h1" data-i18n="home.h1">Find the right truck. Make every trip count.</h1>
+        <form id="home-form" class="u-form" autocomplete="off" novalidate>
+          <label class="u-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke="var(--surface)" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span class="sr-only" data-i18n="f.date">Pickup date</span><input type="date" id="h-date" aria-label="Pickup date"></label>
+          <div class="u-where">
+            <i class="u-dot" aria-hidden="true"></i><i class="u-line" aria-hidden="true"></i><i class="u-sq" aria-hidden="true"></i>
+            <div class="u-field"><label for="h-from" class="sr-only" data-i18n="f.pickup">Pickup city</label><select id="h-from" aria-label="Pickup city"></select></div>
+            <div class="u-field"><label for="h-to" class="sr-only" data-i18n="f.drop">Drop city</label><select id="h-to" aria-label="Drop city"></select></div>
+          </div>
+          <div class="u-field u-weight"><label for="h-weight" data-i18n="f.weight">Load weight (t)</label><input type="number" id="h-weight" min="0.1" max="40" step="any" inputmode="decimal"></div>
+          <div class="u-actions"><button class="btn primary u-cta" type="submit" data-i18n="home.see">See trucks</button><button class="btn ghost" type="button" data-go="post" data-i18n="cta.post">Post a load</button></div>
+          <p class="sim-note">Prototype on synthetic data. Live activity, payments and tracking are simulated. <button type="button" class="linkbtn" data-sim-open>What is simulated?</button></p>
+        </form>
+      </div>
+      <div class="u-art" aria-hidden="true">
+        <svg viewBox="0 0 560 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="560" height="420" fill="#cfe6f7"/>
+          <circle cx="450" cy="92" r="38" fill="#f6b37c"/>
+          <g fill="#7db9e8"><rect x="24" y="150" width="54" height="150"/><rect x="84" y="110" width="44" height="190"/><rect x="134" y="168" width="60" height="132"/><rect x="380" y="140" width="50" height="160"/><rect x="436" y="176" width="66" height="124"/><rect x="508" y="120" width="40" height="180"/></g>
+          <g fill="#1f5fa8"><rect x="200" y="132" width="46" height="168"/><rect x="252" y="188" width="56" height="112"/><rect x="314" y="156" width="58" height="144"/></g>
+          <g fill="#cfe6f7" opacity=".8"><rect x="210" y="150" width="8" height="10"/><rect x="226" y="150" width="8" height="10"/><rect x="210" y="172" width="8" height="10"/><rect x="226" y="172" width="8" height="10"/><rect x="324" y="176" width="8" height="10"/><rect x="342" y="176" width="8" height="10"/><rect x="324" y="198" width="8" height="10"/><rect x="342" y="198" width="8" height="10"/></g>
+          <path d="M0 300 H560 V420 H0z" fill="#0b2545"/>
+          <path d="M0 362 H560" stroke="#f2f6fb" stroke-width="5" stroke-dasharray="30 22"/>
+          <path d="M70 92 C 160 30, 300 30, 392 84" fill="none" stroke="#f26b21" stroke-width="5" stroke-dasharray="2 14" stroke-linecap="round"/>
+          <circle cx="62" cy="98" r="15" fill="#fff"/><circle cx="62" cy="98" r="6" fill="#0b2545"/>
+          <circle cx="400" cy="90" r="15" fill="#f26b21"/><circle cx="400" cy="90" r="6" fill="#fff"/>
+          <g transform="translate(150 262)">
+            <rect x="0" y="0" width="190" height="78" rx="6" fill="#ffffff"/>
+            <path d="M74 20 L94 58 L114 20" fill="none" stroke="#7db9e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="74" cy="20" r="6" fill="#0b2545"/><circle cx="114" cy="20" r="6" fill="#f26b21"/>
+            <path d="M196 16 H244 L272 46 V78 H196z" fill="#f26b21"/>
+            <path d="M206 24 H238 L258 46 H206z" fill="#cfe6f7"/>
+            <rect x="-6" y="76" width="284" height="10" rx="3" fill="#1b2433"/>
+            <circle cx="42" cy="92" r="17" fill="#1b2433"/><circle cx="42" cy="92" r="7" fill="#d9e2ec"/>
+            <circle cx="148" cy="92" r="17" fill="#1b2433"/><circle cx="148" cy="92" r="7" fill="#d9e2ec"/>
+            <circle cx="236" cy="92" r="17" fill="#1b2433"/><circle cx="236" cy="92" r="7" fill="#d9e2ec"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="u-banner" id="u-banner"><span id="u-banner-text"></span><button type="button" class="u-x" id="u-banner-x" aria-label="Dismiss">×</button></div>
+
+    <h2 class="u-h2" data-i18n="home.explore">Explore what you can do with VahanConnect</h2>
+    <div class="u-cards">
+      <div class="u-card"><div><b data-i18n="svc.find">Find trucks</b><p data-i18n="svc.find.d">Search available trucks by route, date, cargo weight and truck type.</p><button class="btn u-chip" type="button" data-go="find" data-i18n="details">Details</button></div>
+        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><rect x="6" y="22" width="46" height="28" rx="3" fill="#7db9e8"/><path d="M52 30h16l10 10v10H52z" fill="#1f5fa8"/><circle cx="20" cy="54" r="7" fill="#0b2545"/><circle cx="66" cy="54" r="7" fill="#0b2545"/><circle cx="72" cy="20" r="12" fill="none" stroke="#f26b21" stroke-width="5"/><path d="M80 28l9 9" stroke="#f26b21" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div class="u-card"><div><b data-i18n="svc.post">Post a load</b><p data-i18n="svc.post.d">Publish a shipment request and let matching truck owners find it.</p><button class="btn u-chip" type="button" data-go="post" data-i18n="details">Details</button></div>
+        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><path d="M18 26l30-14 30 14v30L48 70 18 56z" fill="#f6c99f"/><path d="M18 26l30 14 30-14M48 40v30" fill="none" stroke="#c9873f" stroke-width="3"/><circle cx="76" cy="18" r="13" fill="#f26b21"/><path d="M76 11v14M69 18h14" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></div>
+      <div class="u-card"><div><b data-i18n="svc.owner">For owners</b><p data-i18n="svc.owner.d">Manage truck availability, view matching loads and respond to requests.</p><button class="btn u-chip" type="button" data-go="owner" data-i18n="details">Details</button></div>
+        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><circle cx="34" cy="22" r="12" fill="#0b2545"/><path d="M12 64c2-16 12-24 22-24s20 8 22 24z" fill="#1f5fa8"/><rect x="58" y="30" width="32" height="22" rx="3" fill="#7db9e8"/><path d="M66 42l6 5 10-11" fill="none" stroke="#0b2545" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="u-card"><div><b data-i18n="svc.track">Track trips</b><p data-i18n="svc.track.d">Follow each booking from pickup to delivery, with every stage on a timeline.</p><button class="btn u-chip" type="button" data-go="trips" data-i18n="details">Details</button></div>
+        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><path d="M10 58C30 20 60 60 86 16" fill="none" stroke="#7db9e8" stroke-width="5" stroke-dasharray="3 9" stroke-linecap="round"/><circle cx="10" cy="58" r="7" fill="#0b2545"/><path d="M86 4c-7 0-12 5-12 12 0 9 12 20 12 20s12-11 12-20c0-7-5-12-12-12z" fill="#f26b21"/><circle cx="86" cy="16" r="4" fill="#fff"/></svg></div>
+    </div>
+
+    <div class="u-split">
+      <div class="u-why">
+        <h2 class="u-h2" data-i18n="home.why">Why route matching matters</h2>
+        <p class="lede">After an interstate delivery, most trucks find no load back and return empty. VahanConnect shows those trucks to shippers on the same route, with verified owners and prices agreed directly.</p>
         <div class="hero-stats" id="hero-stats"></div>
       </div>
-      <aside class="panel live-panel" aria-label="Live activity">
+      <aside class="panel live-panel" aria-label="Live activity" data-sim="Simulated feed">
         <div class="panel-head"><h2><span class="dot"></span>Happening now</h2><span class="muted small">Simulated</span></div>
         <div class="live-counters" id="live-counters"></div>
         <ul class="feed" id="feed"></ul>
@@ -68,41 +125,42 @@
       <li><b>Compare</b><span>Price, rating and verification side by side</span></li>
       <li><b>Negotiate</b><span>Agree the price directly with the owner</span></li>
       <li><b>Book</b><span>Pay a small advance by UPI</span></li>
-      <li><b>Track</b><span>Follow the truck live until delivery</span></li>
+      <li><b>Track</b><span>Follow the truck until delivery</span></li>
     </ol>
+    <div class="u-sticky" id="u-sticky"><button class="btn primary u-cta" type="button" id="u-sticky-btn" data-i18n="home.see">See trucks</button></div>
   </section>
 
   <!-- ================= FIND TRUCKS (ride-style) ================= -->
   <section id="view-find" class="view find-view" hidden>
     <div class="ride">
       <aside class="ride-panel">
-        <h1 class="ride-title">Book a truck</h1>
+        <h1 class="ride-title" data-i18n="find.title">Book a truck</h1>
         <button type="button" id="trip-summary" class="trip-summary" hidden aria-label="Edit trip details"></button>
         <form id="search-form" class="trip-form" autocomplete="off" novalidate>
           <div class="where">
             <div class="where-line" aria-hidden="true"><i class="pin-a"></i><span></span><i class="pin-b"></i></div>
             <div class="where-fields">
-              <div class="wf"><label for="q-from">Pickup city</label><select id="q-from"></select></div>
-              <div class="wf"><label for="q-to">Drop city</label><select id="q-to"></select></div>
+              <div class="wf"><label for="q-from" data-i18n="f.pickup">Pickup city</label><select id="q-from"></select></div>
+              <div class="wf"><label for="q-to" data-i18n="f.drop">Drop city</label><select id="q-to"></select></div>
             </div>
             <button class="swap" id="swap" type="button" aria-label="Swap pickup and drop">⇅</button>
           </div>
           <div class="trip-row">
-            <div class="wf"><label for="q-date">Pickup date</label><input type="date" id="q-date"></div>
-            <div class="wf"><label for="q-weight">Load weight (t)</label><input type="number" id="q-weight" min="0.1" max="40" step="any" inputmode="decimal"></div>
+            <div class="wf"><label for="q-date" data-i18n="f.date">Pickup date</label><input type="date" id="q-date"></div>
+            <div class="wf"><label for="q-weight" data-i18n="f.weight">Load weight (t)</label><input type="number" id="q-weight" min="0.1" max="40" step="any" inputmode="decimal"></div>
           </div>
           <details class="more" id="more">
-            <summary>Truck type and more options</summary>
+            <summary data-i18n="find.more">Truck type and more options</summary>
             <div class="more-grid">
-              <div class="wf"><label for="q-type">Truck type</label><select id="q-type"></select></div>
-              <div class="wf"><label for="q-sort">Sort by</label>
+              <div class="wf"><label for="q-type" data-i18n="f.type">Truck type</label><select id="q-type"></select></div>
+              <div class="wf"><label for="q-sort" data-i18n="find.sort">Sort by</label>
                 <select id="q-sort"><option value="score">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="date">Earliest available</option></select></div>
-              <div class="wf"><label for="q-shipper">Booking as</label><select id="q-shipper"></select></div>
-              <div class="wf"><label for="sample-load">Any open load from the dataset</label><select id="sample-load"></select></div>
-              <label class="check"><input type="checkbox" id="q-verified" checked> Verified owners only</label>
+              <div class="wf"><label for="q-shipper" data-i18n="find.bookingAs">Booking as</label><select id="q-shipper"></select></div>
+              <div class="wf"><label for="sample-load" data-i18n="find.any">Any open load from the dataset</label><select id="sample-load"></select></div>
+              <label class="check"><input type="checkbox" id="q-verified" checked> <span data-i18n="find.verified">Verified owners only</span></label>
             </div>
           </details>
-          <button class="btn primary lg block" type="submit" id="search-btn">Find trucks</button>
+          <button class="btn primary lg block" type="submit" id="search-btn" data-i18n="find.btn">Find trucks</button>
           <div class="chips" id="chips" aria-label="Example loads"></div>
         </form>
 
@@ -125,6 +183,34 @@
     </div>
   </section>
 
+  <!-- ================= POST A LOAD ================= -->
+  <section id="view-post" class="view" hidden>
+    <div class="view-head"><div><p class="eyebrow" data-i18n="post.eyebrow">For shippers</p><h1 data-i18n="post.h1">Post a load</h1>
+      <p class="lede" data-i18n="post.lede">Describe your shipment. Owners with matching trucks will see it in their loads list.</p></div></div>
+    <div class="post-layout">
+      <form id="load-form" class="panel load-form" novalidate autocomplete="off">
+        <div class="wf"><label for="p-shipper" data-i18n="post.company">Company</label><select id="p-shipper"></select></div>
+        <div class="two">
+          <div class="wf"><label for="p-from" data-i18n="f.pickup">Pickup city</label><select id="p-from"></select><span class="err" id="e-from"></span></div>
+          <div class="wf"><label for="p-to" data-i18n="f.drop">Drop city</label><select id="p-to"></select><span class="err" id="e-to"></span></div>
+        </div>
+        <div class="two">
+          <div class="wf"><label for="p-date" data-i18n="f.date">Pickup date</label><input type="date" id="p-date" aria-describedby="e-date"><span class="err" id="e-date"></span></div>
+          <div class="wf"><label for="p-weight" data-i18n="f.weight">Load weight (t)</label><input type="number" id="p-weight" step="any" min="0.1" inputmode="decimal" aria-describedby="e-weight"><span class="err" id="e-weight"></span></div>
+        </div>
+        <div class="two">
+          <div class="wf"><label for="p-type" data-i18n="f.type">Truck type</label><select id="p-type"></select></div>
+          <div class="wf"><label for="p-budget" data-i18n="post.budget">Budget (₹, optional)</label><input type="number" id="p-budget" min="0" step="100" inputmode="numeric" aria-describedby="e-budget"><span class="err" id="e-budget"></span></div>
+        </div>
+        <div class="wf"><label for="p-goods" data-i18n="post.goods">What are you shipping?</label><input type="text" id="p-goods" maxlength="60" placeholder="e.g. FMCG cartons" aria-describedby="e-goods"><span class="err" id="e-goods"></span></div>
+        <div class="wf"><label for="p-handling" data-i18n="post.handling">Special handling (optional)</label><input type="text" id="p-handling" maxlength="80" placeholder="e.g. keep dry, fragile"></div>
+        <button class="btn primary lg block" type="submit" data-i18n="post.review">Review load</button>
+        <p class="muted small" data-i18n="post.note">Saved only in this browser for the demo. Another person's browser will not see it.</p>
+      </form>
+      <div class="panel" id="post-out"><div class="empty" data-i18n="post.empty">Your load summary appears here.</div></div>
+    </div>
+  </section>
+
   <!-- ================= MY TRIPS ================= -->
   <section id="view-trips" class="view" hidden>
     <div class="view-head">
@@ -139,7 +225,7 @@
     <div id="reset-confirm" class="notice" hidden>This clears the trips, requests and trucks you added in this browser. <button class="btn small danger" id="reset-yes" type="button">Clear them</button> <button class="btn small ghost" id="reset-no" type="button">Keep</button></div>
     <div class="trips-layout">
       <div class="panel trip-list-panel"><div class="panel-head"><h2>Trips</h2></div><div id="trip-list" class="trip-list"></div></div>
-      <div class="panel trip-detail" id="trip-detail"></div>
+      <div class="panel trip-detail" id="trip-detail" data-sim="Simulated tracking"></div>
     </div>
     <div class="panel"><div class="panel-head"><h2>Recent completed bookings in the dataset</h2></div><div class="table-wrap"><table class="data" id="recent-table"></table></div></div>
   </section>
@@ -147,31 +233,31 @@
   <!-- ================= OWNER ================= -->
   <section id="view-owner" class="view" hidden>
     <div class="view-head">
-      <div><p class="eyebrow">For truck owners</p><h1>Find a load back home</h1></div>
+      <div><p class="eyebrow" data-i18n="owner.eyebrow">For truck owners</p><h1 data-i18n="owner.h1">Find a load back home</h1></div>
     </div>
     <div class="owner-layout">
       <div class="panel owner-left">
-        <div class="field"><label for="o-owner">Acting as owner</label><select id="o-owner"></select></div>
+        <div class="field"><label for="o-owner" data-i18n="owner.acting">Acting as owner</label><select id="o-owner"></select></div>
         <div id="owner-card" class="owner-card"></div>
         <form id="post-form" class="post-form" autocomplete="off">
-          <div class="field full"><label for="o-truck">Truck</label><select id="o-truck" required></select></div>
-          <div class="field"><label for="o-city">Truck is free in</label><select id="o-city" required></select></div>
-          <div class="field"><label for="o-from">Available from</label><input type="date" id="o-from" required></div>
-          <div class="field"><label for="o-days">For (days)</label><input type="number" id="o-days" min="1" max="10" value="3" required></div>
-          <div class="field"><label for="o-rate">Asking rate (₹/km)</label><input type="number" id="o-rate" min="10" max="150" required></div>
-          <div class="field full"><label for="o-pref">Preferred destination</label><select id="o-pref"></select></div>
+          <div class="field full"><label for="o-truck" data-i18n="owner.truck">Truck</label><select id="o-truck" required></select></div>
+          <div class="field"><label for="o-city" data-i18n="owner.city">Truck is free in</label><select id="o-city" required></select></div>
+          <div class="field"><label for="o-from" data-i18n="owner.from">Available from</label><input type="date" id="o-from" required></div>
+          <div class="field"><label for="o-days" data-i18n="owner.days">For (days)</label><input type="number" id="o-days" min="1" max="10" value="3" required></div>
+          <div class="field"><label for="o-rate" data-i18n="owner.rate">Asking rate (₹/km)</label><input type="number" id="o-rate" min="10" max="150" required></div>
+          <div class="field full"><label for="o-pref" data-i18n="owner.pref">Preferred destination</label><select id="o-pref"></select></div>
           <p class="hint full" id="rate-hint"></p>
-          <button class="btn primary full" type="submit">Post availability</button>
+          <button class="btn primary full" type="submit" data-i18n="owner.post">Post availability</button>
         </form>
         <div id="post-msg" class="notice ok" hidden></div>
       </div>
       <div class="owner-right">
-        <div class="panel" id="inbox-panel">
-          <div class="panel-head"><h2>Booking requests</h2><span class="muted small" id="inbox-meta"></span></div>
+        <div class="panel" id="inbox-panel" data-sim="Simulated requests">
+          <div class="panel-head"><h2 data-i18n="owner.requests">Booking requests</h2><span class="muted small" id="inbox-meta"></span></div>
           <div id="inbox" class="inbox"></div>
         </div>
         <div class="panel">
-          <div class="panel-head"><h2>Loads that fit this truck</h2><span class="muted small" id="loads-meta"></span></div>
+          <div class="panel-head"><h2 data-i18n="owner.loads">Loads that fit this truck</h2><span class="muted small" id="loads-meta"></span></div>
           <div id="owner-loads" class="load-list"></div>
         </div>
       </div>
@@ -208,11 +294,11 @@
 </main>
 
 <nav class="bottom-nav" aria-label="Sections">
-  <button data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
-  <button data-view="find"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>Find</button>
-  <button data-view="trips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Trips<span class="count" id="trip-count-m" hidden></span></button>
-  <button data-view="owner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>Owners<span class="count" id="req-count-m" hidden></span></button>
-  <button data-view="insights"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Insights</button>
+  <button data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="nav.home">Home</span></button>
+  <button data-view="find"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span data-i18n="nav.findS">Find</span></button>
+  <button data-view="post" class="bn-post"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span data-i18n="nav.postS">Post load</span></button>
+  <button data-view="trips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="nav.tripsS">Trips</span><span class="count" id="trip-count-m" hidden></span></button>
+  <button type="button" id="more-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg><span data-i18n="nav.more">More</span><span class="count" id="req-count-m" hidden></span></button>
 </nav>
 
 <div id="modal" class="modal" hidden>
@@ -223,7 +309,9 @@
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data and simulated live activity, for demonstration</footer>
+<footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
+<script src="i18n.js"></script>
+<script src="logic.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
