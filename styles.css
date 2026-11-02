@@ -707,3 +707,12 @@ body.sim-on [data-sim]::before { content: attr(data-sim); position: absolute; to
 .about-logo{flex:0 0 280px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:22px}
 .about-logo img{max-width:100%;height:auto;display:block}
 @media(max-width:760px){.about{flex-direction:column-reverse;padding:20px}.about-logo{flex:none;width:100%}}
+
+/* Pitch slideshow: one slide at a time */
+.pitch .pslide{display:none;margin-bottom:12px}
+.pitch .pslide.on{display:flex}
+.pitch .pslide.col.on{display:block}
+.pnav{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.pbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--btn);color:var(--on-btn);font-size:20px;line-height:1;cursor:pointer}
+.pbtn:hover{opacity:.85}
+@media(max-width:760px){.pitch .pslide.on{flex-direction:column}}

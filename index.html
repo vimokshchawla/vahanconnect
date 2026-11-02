@@ -222,6 +222,7 @@
           <p class="ps-fn">Assumptions: ₹2,000 average booking, 5% commission. Projections, not guarantees. Break-even: Month 14 (projected monthly operating break-even, not cumulative recovery of capital).</p>
         </div>
       </div>
+      <div class="pnav"><span id="pcount" class="muted small">1 / 5</span><button type="button" id="pprev" class="pbtn" aria-label="Previous slide">&#8592;</button><button type="button" id="pnext" class="pbtn" aria-label="Next slide">&#8594;</button></div>
     </section>
     <div class="u-sticky" id="u-sticky"><button class="btn primary u-cta" type="button" id="u-sticky-btn" data-i18n="home.see">See trucks</button></div>
   </section>
@@ -406,6 +407,11 @@
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
 <footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
+<script>
+(function(){var sl=document.querySelectorAll('.pitch .pslide'),i=0,c=document.getElementById('pcount');
+function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(e,k){e.classList.toggle('on',k===i)});c.textContent=(i+1)+' / '+sl.length}
+document.getElementById('pnext').onclick=function(){go(i+1)};document.getElementById('pprev').onclick=function(){go(i-1)};go(0)})();
+</script>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script src="app.js"></script>
