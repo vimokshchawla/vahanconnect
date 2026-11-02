@@ -716,3 +716,74 @@ body.sim-on [data-sim]::before { content: attr(data-sim); position: absolute; to
 .pbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--btn);color:var(--on-btn);font-size:20px;line-height:1;cursor:pointer}
 .pbtn:hover{opacity:.85}
 @media(max-width:760px){.pitch .pslide.on{flex-direction:column}}
+
+/* ===== Uber-style theme in deck palette (deep green / teal / cream) ===== */
+:root,:root:not([data-theme="light"]){--ink:#0a3d36;--navy:#0a7d72;--slate:#4aa79c;--sky:#9fd6cf;--gold:#0a7d72;--gold-soft:#dff0ed;--on-gold:#fff;--gold-ink:#0a7d72;--btn:#0a3d36;--on-btn:#fff;--header:#0a3d36;--brand-a:#fff;--brand-b:#9fd6cf;--bg:#f3f4ee;--surface:#fff;--tint:#e9ede4;--fg:#0f1f1a;--muted:#5a6b64;--line:#d9ded3;color-scheme:light}
+body{background:var(--bg);color:var(--fg)}
+.topbar{border-bottom:0;color:#fff}
+.topbar .tabs button{color:#cfe3de;border-radius:999px}
+.topbar .tabs button:hover{color:#fff;background:#14564d}
+.topbar .tabs button[aria-current="page"]{color:#0a3d36;background:#fff;box-shadow:none;border-radius:999px}
+.topbar .live-pill,.topbar .icon-btn,.topbar .mini-select{color:#fff;border-color:#2c6b62;background:transparent}
+.topbar .mini-select option{color:#111}
+.btn.primary{border-radius:999px;background:#0a3d36}
+.btn.primary:hover{background:#0a7d72;filter:none}
+.u-hero{position:relative;margin-inline:calc(50% - 50vw);padding:56px max(16px,calc(50vw - 600px));background:#0a3d36;color:#fff;gap:48px;margin-top:-28px}
+.u-hero .u-loc,.u-hero .u-h1{color:#fff}.u-hero .u-loc svg{fill:#9fd6cf}
+.u-h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+.u-hero .u-pill,.u-hero .u-weight,.u-hero .u-where .u-field select{background:#fff;color:#0f1f1a}
+.u-hero .u-weight label{color:#0f1f1a}.u-hero .u-weight input{background:#e9ede4;color:#0f1f1a}
+.u-hero .u-dot{border-color:#0a3d36}.u-hero .u-sq,.u-hero .u-line{background:#0a3d36}
+.u-hero .u-where .u-field select:focus{border-color:#0a7d72}
+.u-hero .u-cta{background:#0a7d72;color:#fff}.u-hero .u-cta:hover{background:#12998b}
+.u-hero .btn.ghost{background:#fff;color:#0a3d36;border-color:#fff;border-radius:999px}
+.u-hero .sim-note,.u-hero .linkbtn{color:#cfe3de}
+.u-art{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:4/3;border-radius:0;overflow:visible}
+.u-art img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+.u-art .a1{grid-row:1/3}.u-art .a3{object-fit:contain;background:#fff;padding:16px}
+.u-banner{background:#0a7d72;color:#fff;border-radius:999px}.u-x{color:#fff}
+.u-card{background:#0a3d36;color:#fff;border-radius:16px}
+.u-card p{color:#b9d3cd}
+.u-chip{background:#fff;color:#0a3d36}.u-chip:hover{background:#dff0ed}
+.u-h2,.h2{color:#0a3d36}
+.eyebrow{color:#0a7d72}
+.foot{background:#0a3d36;color:#cfe3de;margin-inline:calc(50% - 50vw);padding:28px 16px 90px}
+.foot .linkbtn{color:#9fd6cf}
+/* About + team */
+.about-wrap{margin:48px 0 8px}
+.about{margin:0}
+.about-logo{background:#fff}
+.team{margin-top:28px}
+.team h3{font:900 clamp(1.4rem,3vw,2rem) var(--f-display);color:#0a3d36;margin:0 0 16px}
+.team-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.tm{background:#0a3d36;color:#fff;border-radius:16px;padding:22px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tm-av{width:64px;height:64px;border-radius:50%;background:#0a7d72;border:3px solid #9fd6cf;display:grid;place-items:center;font:800 1.2rem var(--f-display)}
+.tm b{font:800 1rem var(--f-display)}.tm small{color:#9fd6cf}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.u-hero{gap:28px;padding-top:32px}}
+
+/* Uber-style type, controls, icons (Inter = free stand-in for Uber Move) */
+:root,:root:not([data-theme="light"]){--f-display:"Inter","Helvetica Neue",Arial,sans-serif;--f-body:"Inter","Helvetica Neue",Arial,sans-serif}
+body{font-family:var(--f-body);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+h1,h2,h3,.u-h1,.u-h2,.h2,.brand-name,.u-card b,.tm b{font-family:var(--f-display);font-weight:700;letter-spacing:-.025em}
+.u-h1{font-weight:700;font-size:clamp(2.3rem,5.2vw,3.5rem);line-height:1.1}
+.brand-name{font-weight:800;letter-spacing:-.04em}
+.topbar .tabs button{font-weight:500;font-size:.94rem;padding:8px 14px}
+.btn,.u-cta{font-weight:600;border-radius:8px}
+.btn.primary,.u-hero .u-cta{border-radius:8px;padding:14px 22px}
+.u-hero .btn.ghost{border-radius:8px}
+.u-hero .u-where .u-field select,.u-hero .u-weight,.u-hero .u-pill{background:#eeeeee;border-radius:8px}
+.u-hero .u-pill{border-radius:999px;font-weight:600}
+.u-hero .u-where .u-field select{height:52px;font-weight:500;border:2px solid transparent}
+.u-hero .u-where .u-field select:focus{border-color:#0a3d36;background:#fff}
+.u-hero .u-weight input{background:#fff;border-radius:8px}
+.u-art img{border-radius:12px}
+.u-cards{gap:12px}
+.u-card{border-radius:12px;padding:20px 20px 20px 24px;min-height:150px;align-items:end}
+.u-card b{font-size:1.15rem}
+.u-card p{font-size:.9rem}
+.u-chip{border-radius:999px;font-weight:600;padding:8px 16px;font-size:.88rem}
+.u-ico{width:110px;height:auto;background:#fff;border-radius:12px;padding:10px;align-self:center}
+.u-banner{border-radius:8px;font-weight:500}
+.team-grid .tm,.about{border-radius:12px}
+.tm-av{background:#fff;color:#0a3d36;border:0;font-weight:700}
+.pbtn{background:#0a3d36;color:#fff}
