@@ -8,11 +8,11 @@
 <meta name="description" content="VahanConnect: India's logistics marketplace connecting shippers with verified independent truck owners, with route-based matching to fill empty return trips.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
-<meta name="theme-color" content="#0a3d36">
+<meta name="theme-color" content="#083C35">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,15 +26,14 @@
       <button data-view="home" id="tab-home" data-i18n="nav.home">Home</button>
       <button data-view="find" id="tab-find" data-i18n="nav.find">Find trucks</button>
       <button data-view="post" id="tab-post" data-i18n="nav.post">Post a load</button>
-      <button data-view="trips" id="tab-trips"><span data-i18n="nav.trips">My trips</span> <span class="count" id="trip-count" hidden></span></button>
+      <button type="button" data-scroll="how">How it works</button>
       <button data-view="owner" id="tab-owner"><span data-i18n="nav.owner">For owners</span> <span class="count" id="req-count" hidden></span></button>
-      <button data-view="insights" id="tab-insights" data-i18n="nav.insights">Insights</button>
-      <button data-view="dataset" id="tab-dataset" data-i18n="nav.dataset">Dataset</button>
+      <button type="button" data-scroll="pitch">Pitch</button>
     </nav>
     <div class="head-ctrls">
       <label class="sr-only" for="lang">Language</label><select id="lang" class="mini-select" aria-label="Language"><option value="en">EN</option><option value="hi">हिंदी</option></select>
       <button type="button" class="icon-btn" id="theme-btn" aria-label="Theme: system"><span aria-hidden="true">◐</span></button>
-      <button type="button" class="live-pill" id="sim-pill" title="What is simulated?"><i></i><span data-i18n="demo">Demo mode</span></button>
+      <button type="button" class="live-pill" id="sim-pill" title="What is simulated?"><span>Prototype demonstration · Synthetic data</span></button>
     </div>
   </div>
 </header>
@@ -45,11 +44,11 @@
 
   <!-- ================= HOME ================= -->
   <section id="view-home" class="view home" hidden>
-    <div class="u-hero">
-      <div class="u-left">
-        <p class="u-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.4-7-12a7 7 0 0 1 14 0c0 5.6-7 12-7 12z"/><circle cx="12" cy="10" r="2.6" fill="var(--surface)"/></svg><span data-i18n="home.loc">India · 34 freight hubs</span></p>
-        <h1 class="u-h1" data-i18n="home.h1">Find the right truck. Make every trip count.</h1>
-        <form id="home-form" class="u-form" autocomplete="off" novalidate>
+    <div class="hero">
+      <p class="eyebrow">The return-load gap</p>
+      <h1 class="hero-h">Return trips should carry loads, not empty kilometres.</h1>
+      <p class="hero-sub">VahanConnect helps shippers discover available trucks on their route and helps truck owners find return loads.</p>
+      <form id="home-form" class="u-form" autocomplete="off" novalidate>
           <label class="u-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke="var(--surface)" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span class="sr-only" data-i18n="f.date">Pickup date</span><input type="date" id="h-date" aria-label="Pickup date"></label>
           <div class="u-where">
             <i class="u-dot" aria-hidden="true"></i><i class="u-line" aria-hidden="true"></i><i class="u-sq" aria-hidden="true"></i>
@@ -58,150 +57,58 @@
           </div>
           <div class="u-field u-weight"><label for="h-weight" data-i18n="f.weight">Load weight (t)</label><input type="number" id="h-weight" min="0.1" max="40" step="any" inputmode="decimal"></div>
           <div class="u-actions"><button class="btn primary u-cta" type="submit" data-i18n="home.see">See trucks</button><button class="btn ghost" type="button" data-go="post" data-i18n="cta.post">Post a load</button></div>
-          <p class="sim-note">Prototype on synthetic data. Live activity, payments and tracking are simulated. <button type="button" class="linkbtn" data-sim-open>What is simulated?</button></p>
+          <p class="sim-note">Illustrative prototype data. Live activity, payments and tracking are simulated. <button type="button" class="linkbtn" data-sim-open>What is simulated?</button></p>
         </form>
-      </div>
-      <div class="u-art" aria-hidden="true"><img class="a1" src="assets/pitch-truck.jpg" alt=""><img class="a2" src="assets/pitch-city.jpg" alt=""><img class="a3" src="assets/logo-full.png" alt=""></div>
+      <p class="evid">Return-load delays and truck idleness create lost earnings for owners and limited choice for shippers.</p>
     </div>
 
-    <div class="u-banner" id="u-banner"><span id="u-banner-text"></span><button type="button" class="u-x" id="u-banner-x" aria-label="Dismiss">×</button></div>
+    <section class="band" id="how"><p class="eyebrow">How it works</p><h2 class="sh">From route to negotiation in four steps</h2>
+      <ol class="steps"><li><b>1</b><span>Owner lists route, capacity and availability.</span></li><li><b>2</b><span>Shipper searches by route and load requirement.</span></li><li><b>3</b><span>Shipper compares available options.</span></li><li><b>4</b><span>Shipper contacts the owner and negotiates directly.</span></li></ol>
+      <p class="lead">VahanConnect improves discovery before negotiation.</p>
+      <p class="note">Booking, payment, live tracking and document verification appear in the prototype only as simulations. They are future functionality, and no safety guarantee is offered.</p></section>
 
-    <h2 class="u-h2" data-i18n="home.explore">Explore what you can do with VahanConnect</h2>
-    <div class="u-cards">
-      <div class="u-card"><div><b data-i18n="svc.find">Find trucks</b><p data-i18n="svc.find.d">Search available trucks by route, date, cargo weight and truck type.</p><button class="btn u-chip" type="button" data-go="find" data-i18n="details">Details</button></div>
-        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><rect x="4" y="22" width="52" height="34" rx="5" fill="#9fd6cf"/><path d="M56 32h16l12 12v12H56z" fill="#0a7d72"/><path d="M62 37h8l6 7H62z" fill="#fff"/><circle cx="22" cy="58" r="9" fill="#0a3d36"/><circle cx="22" cy="58" r="3.5" fill="#fff"/><circle cx="70" cy="58" r="9" fill="#0a3d36"/><circle cx="70" cy="58" r="3.5" fill="#fff"/></svg></div>
-      <div class="u-card"><div><b data-i18n="svc.post">Post a load</b><p data-i18n="svc.post.d">Publish a shipment request and let matching truck owners find it.</p><button class="btn u-chip" type="button" data-go="post" data-i18n="details">Details</button></div>
-        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><path d="M14 26L48 10l34 16v34L48 74 14 60z" fill="#9fd6cf"/><path d="M14 26l34 16 34-16M48 42v32" fill="none" stroke="#0a3d36" stroke-width="4" stroke-linejoin="round"/><rect x="58" y="14" width="20" height="10" rx="5" fill="#0a7d72" transform="rotate(28 68 19)"/></svg></div>
-      <div class="u-card"><div><b data-i18n="svc.owner">For owners</b><p data-i18n="svc.owner.d">Manage truck availability, view matching loads and respond to requests.</p><button class="btn u-chip" type="button" data-go="owner" data-i18n="details">Details</button></div>
-        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><circle cx="32" cy="24" r="12" fill="#0a3d36"/><path d="M10 68c2-18 12-26 22-26s20 8 22 26z" fill="#0a7d72"/><rect x="58" y="34" width="30" height="22" rx="4" fill="#9fd6cf"/><path d="M63 34v-5a10 10 0 0 1 20 0v5" fill="none" stroke="#0a3d36" stroke-width="4"/><circle cx="73" cy="45" r="3.5" fill="#0a3d36"/></svg></div>
-      <div class="u-card"><div><b data-i18n="svc.track">Track trips</b><p data-i18n="svc.track.d">Follow each booking from pickup to delivery, with every stage on a timeline.</p><button class="btn u-chip" type="button" data-go="trips" data-i18n="details">Details</button></div>
-        <svg class="u-ico" viewBox="0 0 96 72" aria-hidden="true"><path d="M12 62C28 30 54 66 80 22" fill="none" stroke="#9fd6cf" stroke-width="6" stroke-dasharray="2 10" stroke-linecap="round"/><circle cx="12" cy="62" r="9" fill="#0a3d36"/><circle cx="12" cy="62" r="3.5" fill="#fff"/><path d="M80 4a14 14 0 0 1 14 14c0 11-14 24-14 24S66 29 66 18A14 14 0 0 1 80 4z" fill="#0a7d72"/><circle cx="80" cy="18" r="5" fill="#fff"/></svg></div>
-    </div>
+    <section class="band" id="value"><p class="eyebrow">Value proposition</p><h2 class="sh">What each side gains</h2>
+      <div class="two">
+        <div><h3>Truck owners and small fleets</h3><ul class="ticks"><li>Show available route and spare capacity.</li><li>Become visible to potential shippers.</li><li>More opportunities to fill a return journey.</li></ul><button class="btn ghost" type="button" data-go="owner">For owners</button></div>
+        <div><h3>Shippers, SMEs, manufacturers, wholesalers and traders</h3><ul class="ticks"><li>Search transport by route and load.</li><li>Compare suitable options before contacting an owner.</li><li>Negotiate directly instead of relying only on informal referrals.</li></ul><button class="btn ghost" type="button" data-go="find">Find trucks</button></div>
+      </div></section>
 
-    <div class="u-split">
-      <div class="u-why">
-        <h2 class="u-h2" data-i18n="home.why">Why route matching matters</h2>
-        <p class="lede">After an interstate delivery, most trucks find no load back and return empty. VahanConnect shows those trucks to shippers on the same route, with verified owners and prices agreed directly.</p>
-        <div class="hero-stats" id="hero-stats"></div>
+    <section class="pitch" id="pitch"><div class="pitch-head"><p class="eyebrow">Pitch</p><h2 class="sh big">The business case</h2><p class="lead">Market, competition, and the ask.</p></div>
+    <section class="slide" id="slide-market"><div class="slide-in"><p class="eyebrow">A · Market</p><h2 class="sh">Market context and first serviceable segment</h2>
+      <div class="tsm">
+        <div><b>TAM</b><span>India road-freight market</span><em>Pending: source, year, geography and definition to be confirmed</em></div>
+        <div><b>SAM</b><span>Serviceable digital freight-discovery / route-based segment</span><em>Pending: sizing method to be confirmed</em></div>
+        <div><b>SOM</b><span>Pilot-level, route-based opportunity</span><em>Pending: depends on pilot routes; not the GTV target below</em></div>
       </div>
-      <aside class="panel live-panel" aria-label="Live activity" data-sim="Simulated feed">
-        <div class="panel-head"><h2><span class="dot"></span>Happening now</h2><span class="muted small">Simulated</span></div>
-        <div class="live-counters" id="live-counters"></div>
-        <ul class="feed" id="feed"></ul>
-      </aside>
-    </div>
-
-    <div class="section-head"><p class="eyebrow">Value proposition</p><h2 class="h2">How VahanConnect relieves each pain</h2></div>
-    <div class="vpc" id="vpc"></div>
-
-    <div class="section-head"><p class="eyebrow">User journey</p><h2 class="h2">From search to delivery in six steps</h2></div>
-    <ol class="journey">
-      <li><b>Search</b><span>Enter route, date and weight</span></li>
-      <li><b>Match</b><span>Trucks ranked by route fit, return trips first</span></li>
-      <li><b>Compare</b><span>Price, rating and verification side by side</span></li>
-      <li><b>Negotiate</b><span>Agree the price directly with the owner</span></li>
-      <li><b>Book</b><span>Pay a small advance by UPI</span></li>
-      <li><b>Track</b><span>Follow the truck until delivery</span></li>
-    </ol>
-
-    <section class="pitch" aria-label="VahanConnect pitch">
-      <div class="section-head"><p class="eyebrow">Pitch deck</p><h2 class="h2">VahanConnect in five slides</h2></div>
-      <div class="pslide ps1">
-        <div class="ps-txt dark">
-          <p class="ps-k">VAHANCONNECT · GROUP G2</p>
-          <h3>VahanConnect targets the return-load gap for shippers and truck owners</h3>
-          <p>A route-based marketplace for shippers, truck owners, and small fleets.</p>
-          <div class="ps-cards"><div class="ps-c"><b>20–25%</b><span>Draft-reported share of India's roughly 9 million trucks idle without a load</span></div><div class="ps-c"><b>3–5 days</b><span>Draft-reported return-load waits on several routes</span></div></div>
-          <p class="ps-fn">Draft-reported measures. Verify source, date, and scope before presenting. VahanConnect does not guarantee a match, safety, savings, or a return load.</p>
-        </div>
-        <img class="ps-img" src="assets/pitch-truck.jpg" alt="Freight truck on a highway" loading="lazy">
+      <div class="two">
+        <div><h3>Demand segments</h3><p>SMEs, manufacturers, wholesalers and traders.</p></div>
+        <div><h3>Supply segments</h3><p>Independent truck owners and small fleets.</p></div>
       </div>
-      <div class="pslide ps2">
-        <div class="ps-txt">
-          <p class="ps-k teal">02 · DISCOVERY BEFORE NEGOTIATION</p>
-          <h3>Shippers need clearer discovery before they can negotiate a trip</h3>
-          <p>Make route, capacity, availability, and owner context easier to compare than informal referrals alone.</p>
-          <ol><li>Owner lists route/capacity.</li><li>Shipper searches by route and load.</li><li>Options are compared and negotiated.</li><li>Contact or booking is completed.</li></ol>
-          <div class="ps-cards"><div class="ps-c light"><small>PROTOTYPE TODAY</small><b>Working prototype is live</b><span>· demo mode with synthetic data</span><a href="https://vahanconnect.vercel.app" target="_blank" rel="noopener">Open live demo →</a></div><div class="ps-c light"><small>PLANNED, NOT DEMONSTRATED</small><span>GST/RC/license/ID verification</span><span class="ps-fn">Verification and any outcome guarantee remain conditional.</span></div></div>
-        </div>
-        <img class="ps-img" src="assets/pitch-city.jpg" alt="Illustrated city freight network" loading="lazy">
+      <div class="calc"><p><b>Pilot target:</b> 100 bookings/day × ₹2,000 average booking × 30 days = ₹60 lakh monthly GTV</p><p><b>Projection:</b> at 5% commission, ₹3 lakh monthly commission before expenses</p></div><p class="src">Source note: no market figure is shown until its publisher, year, geography and definition are verified. Pilot figures are assumptions, not outcomes.</p></div></section>
+    <section class="slide" id="slide-comp"><div class="slide-in"><p class="eyebrow">B · Competition</p><h2 class="sh">Where VahanConnect fits</h2>
+      <div class="table-wrap"><table class="ptbl"><thead><tr><th>Dimension</th><th>Brokers and WhatsApp groups</th><th>Digital freight or managed-service platforms</th><th class="hl">VahanConnect</th></tr></thead><tbody>
+        <tr><th>How a shipper discovers transport</th><td>Personal contacts and group messages</td><td>Platform listings or managed service</td><td class="hl">Route-based search by pickup, drop and load</td></tr>
+        <tr><th>Compare route-specific options</th><td>Varies by broker</td><td>Varies by provider</td><td class="hl">Side-by-side comparison in the prototype</td></tr>
+        <tr><th>Direct owner-shipper negotiation</th><td>Usually through the broker</td><td>Varies by provider</td><td class="hl">Direct negotiation (scripted in the prototype)</td></tr>
+        <tr><th>Identity or document verification status</th><td>Varies; depends on the broker</td><td>Varies by provider</td><td class="hl">Verification planned; not demonstrated</td></tr>
+        <tr><th>Pricing and assignment model</th><td>Broker-set; varies</td><td>Varies by provider</td><td class="hl">Owner-quoted price; 5% commission assumed</td></tr>
+      </tbody></table></div>
+      <p class="lead">Route-based discovery and comparison before direct negotiation.</p><p class="src">Source note: competitor columns are general descriptions pending verification from each provider’s own published materials. No superiority claim is made.</p></div></section>
+    <section class="slide" id="slide-ask"><div class="slide-in"><p class="eyebrow">C · Financials and the ask</p><h2 class="sh">₹25 lakh to validate the pilot</h2>
+      <div class="ask"><div><b>₹25 lakh</b><span>Funding ask</span></div><div><b>20%</b><span>Equity offered</span></div><div><b>₹1 crore</b><span>Pre-money valuation</span></div><div><b>₹1.25 crore</b><span>Post-money valuation</span></div></div>
+      <div class="two">
+        <div><h3>Use of funds</h3><table class="ptbl sm"><tbody><tr><th>Platform build</th><td>₹7 lakh</td></tr><tr><th>Workforce</th><td>₹8.6 lakh</td></tr><tr><th>Marketing</th><td>₹5 lakh</td></tr><tr><th>Office</th><td>₹2.4 lakh</td></tr><tr><th>Servers and technology</th><td>₹2 lakh</td></tr></tbody></table>
+        <p class="note">Verification, support, payment, tax and compliance costs are not in the current model. The team will confirm them before presenting.</p></div>
+        <div><h3>Projection (₹ lakh)</h3><table class="ptbl sm"><thead><tr><th></th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th></tr></thead><tbody><tr><th>Revenue</th><td>8.1</td><td>43.2</td><td>84.9</td><td>135.3</td></tr><tr><th>Total cost</th><td>25.0</td><td>29.1</td><td>49.8</td><td>75.0</td></tr><tr><th>Profit / (loss)</th><td>(16.9)</td><td>14.1</td><td>35.1</td><td>60.3</td></tr></tbody></table>
+        <p class="note">Projection based on ₹2,000 average booking value and 5% commission. Month 14 is projected monthly operating break-even, not recovery of earlier losses.</p></div>
       </div>
-      <div class="pslide ps3">
-        <div class="ps-txt dark side">
-          <p class="ps-k">03 · MARKET CONTEXT</p>
-          <div class="ps-big">₹14.8 lakh crore</div>
-          <p>Draft-cited India road freight in 2025</p>
-          <p class="ps-fn">Geography, period, definition, and source require confirmation.</p>
-          <p class="ps-foot">A focused route marketplace can serve both sides of the transaction.</p>
-        </div>
-        <div class="ps-txt">
-          <h3>One route view, two customer sides</h3>
-          <div class="ps-grid">
-            <div class="ps-c light"><small>SUPPLY</small><b>Owners and small fleets</b><span>Expose route availability, improve capacity utilization, and access shippers directly.</span></div>
-            <div class="ps-c light"><small>DEMAND</small><b>SMEs, manufacturers, wholesalers, and traders</b><span>Search by route; compare available options; negotiate directly beyond opaque referrals.</span></div>
-            <div class="ps-c light"><small>PILOT TARGET · NOT MARKET SIZE</small><b class="lg">₹60 lakh</b><span>Monthly GTV target: 100 bookings/day × ₹2,000 × 30</span></div>
-            <div class="ps-c teal"><b class="lg">₹3 lakh</b><span>Monthly commission at 5%</span><small>Before expenses</small></div>
-          </div>
-          <p class="ps-fn">Market figure: draft citation, to be validated. Pilot inputs are assumptions; outcomes remain targets until pilot data exists.</p>
-        </div>
-      </div>
-      <div class="pslide ps4 col">
-        <div class="ps-txt">
-          <p class="ps-k teal">04 · THE WEDGE</p>
-          <h3>VahanConnect's defensible wedge is route visibility plus marketplace choice</h3>
-          <div class="table-wrap"><table class="ps-tbl">
-            <tr><th>Option</th><th>What it enables</th><th>What remains variable</th></tr>
-            <tr><td><b>Brokers / WhatsApp</b></td><td>Familiar relationships and flexible negotiation</td><td>Discovery and identity checks depend on the network</td></tr>
-            <tr><td><b>Digital freight or service platforms</b></td><td>Structured digital discovery and managed service</td><td>Pricing, assignment, and verification vary by provider</td></tr>
-            <tr class="hl"><td><b>VahanConnect</b></td><td>Route-based marketplace where owners and shippers compare options and negotiate directly</td><td>Verification remains planned unless demonstrated</td></tr>
-            <tr><td><b>Customer choice</b></td><td>Focused route discovery and a trusted network built route by route</td><td>No absolute claim of superior pricing or guaranteed utilization</td></tr>
-          </table></div>
-          <p class="ps-fn">Comparison reflects the current concept and stated caveats; verification and outcomes require pilot evidence.</p>
-        </div>
-      </div>
-      <div class="pslide ps5">
-        <div class="ps-txt dark side">
-          <p class="ps-k">05 · THE ASK</p>
-          <h3>₹25 lakh funds a measured pilot, not a guaranteed return</h3>
-          <div class="ps-big sm">₹25 lakh</div>
-          <p>For 20% equity</p>
-          <p class="ps-fn">Implied ₹1.25 crore post-money valuation · ₹1 crore pre-money valuation</p>
-          <p class="ps-fn">Forecast and return claims require a complete monthly model and diligence.</p>
-        </div>
-        <div class="ps-txt">
-          <p class="ps-k teal">USE OF FUNDS</p>
-          <div class="table-wrap"><table class="ps-tbl sm"><tr><th>Line</th><th>Amount</th></tr><tr><td>Platform build</td><td>₹7.0 lakh</td></tr><tr><td>Workforce</td><td>₹8.6 lakh</td></tr><tr><td>Marketing</td><td>₹5.0 lakh</td></tr><tr><td>Office</td><td>₹2.4 lakh</td></tr><tr><td>Servers/tech</td><td>₹2.0 lakh</td></tr></table></div>
-          <p class="ps-fn">Confirm missing variable costs such as verification, support, payments, taxes, and compliance.</p>
-          <p class="ps-k teal">YEAR-WISE COST BREAKDOWN · PROJECTIONS</p>
-          <div class="table-wrap"><table class="ps-tbl sm"><tr><th>₹ lakh</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th></tr>
-          <tr><td>Bookings per day (avg)</td><td>22</td><td>105</td><td>212</td><td>343</td></tr>
-          <tr class="b"><td>Revenue: commission + ads</td><td>8.1</td><td>43.2</td><td>84.9</td><td>135.3</td></tr>
-          <tr><td>Platform build (one-time)</td><td>7.0</td><td>–</td><td>–</td><td>–</td></tr>
-          <tr><td>Workforce (platform ops)</td><td>8.6</td><td>14.0</td><td>24.0</td><td>38.0</td></tr>
-          <tr><td>Office</td><td>2.4</td><td>3.6</td><td>4.8</td><td>6.0</td></tr>
-          <tr><td>Servers and tech</td><td>2.0</td><td>3.5</td><td>7.0</td><td>11.0</td></tr>
-          <tr><td>Marketing</td><td>5.0</td><td>8.0</td><td>14.0</td><td>20.0</td></tr>
-          <tr class="b"><td>Total cost</td><td>25.0</td><td>29.1</td><td>49.8</td><td>75.0</td></tr>
-          <tr class="b"><td>Profit / (loss)</td><td class="neg">(16.9)</td><td>14.1</td><td>35.1</td><td class="pos">60.3</td></tr>
-          <tr><td>Cumulative profit / (loss)</td><td class="neg">(16.9)</td><td class="neg">(2.8)</td><td class="pos">32.3</td><td class="pos">92.6</td></tr></table></div>
-          <p class="ps-fn">Assumptions: ₹2,000 average booking, 5% commission. Projections, not guarantees. Break-even: Month 14 (projected monthly operating break-even, not cumulative recovery of capital).</p>
-        </div>
-      </div>
-      <div class="pnav"><span id="pcount" class="muted small">1 / 5</span><button type="button" id="pprev" class="pbtn" aria-label="Previous slide">&#8592;</button><button type="button" id="pnext" class="pbtn" aria-label="Next slide">&#8594;</button></div>
-    </section>
-    <section class="about-wrap" id="about" aria-label="About us">
-    <div class="about"><div class="about-txt">
-        <p class="eyebrow">About us</p>
-        <h2 class="h2">Built to fill the empty miles</h2>
-        <p>VahanConnect is a route-based marketplace that connects shippers with independent truck owners and small fleets. Owners list their routes and spare capacity; shippers search by route and load, compare options and negotiate directly, without depending on brokers or WhatsApp groups.</p>
-        <p>We are Group G2 at Thapar Institute of Engineering and Technology, building a working prototype to tackle the return-load gap in Indian road freight.</p>
-        <ul class="about-pts"><li>Direct negotiation</li><li>Side-by-side comparison</li><li>Verified owners (planned)</li></ul>
-      </div>
-      <div class="about-logo"><img src="assets/logo-full.png" alt="VahanConnect logo"></div></div>
-      <div class="team"><h3>Meet the team</h3><ul class="team-grid"><li class="tm"><span class="tm-av">VC</span><b>Vimoksh Chawla</b><small>Group G2</small></li><li class="tm"><span class="tm-av">GG</span><b>Gautam Garg</b><small>Group G2</small></li><li class="tm"><span class="tm-av">YA</span><b>Yuganshu Aggarwal</b><small>Group G2</small></li><li class="tm"><span class="tm-av">PS</span><b>Paramveer Singh</b><small>Group G2</small></li><li class="tm"><span class="tm-av">AS</span><b>Aadit Singla</b><small>Group G2</small></li></ul></div>
+      <p class="note">Investor returns depend on pilot performance, future profitability and the eventual distribution or exit plan. No payback period is promised.</p>
+      <p class="next"><b>Next meeting:</b> pilot metrics, financial model, and diligence checklist · Date: to be confirmed by the team</p><p class="src">Source note: figures are the team’s projections and assumptions, not audited results.</p></div></section>
+      <section class="slide" id="slide-refs"><div class="slide-in"><p class="eyebrow">References</p><h2 class="sh">Sources</h2>
+        <p class="lead">No source is listed yet. Each entry will show publisher, title, year or date, working URL, access date and the claim it supports, and only after verification.</p></div></section>
     </section>
 
-    <div class="u-sticky" id="u-sticky"><button class="btn primary u-cta" type="button" id="u-sticky-btn" data-i18n="home.see">See trucks</button></div>
+    <div hidden id="legacy-home"><div id="u-banner"><span id="u-banner-text"></span><button type="button" id="u-banner-x"></button></div><div id="vpc"></div><div id="hero-stats"></div><div id="live-counters"></div><ul id="feed"></ul><span id="trip-count" hidden></span><div id="u-sticky"><button type="button" id="u-sticky-btn"></button></div></div>
   </section>
 
   <!-- ================= FIND TRUCKS (ride-style) ================= -->
@@ -209,6 +116,7 @@
     <div class="ride">
       <aside class="ride-panel">
         <h1 class="ride-title" data-i18n="find.title">Book a truck</h1>
+        <p class="frame">Shippers need a structured way to discover trucks before they negotiate. <b>Illustrative prototype data.</b></p>
         <button type="button" id="trip-summary" class="trip-summary" hidden aria-label="Edit trip details"></button>
         <form id="search-form" class="trip-form" autocomplete="off" novalidate>
           <div class="where">
@@ -231,7 +139,7 @@
                 <select id="q-sort"><option value="score">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="date">Earliest available</option></select></div>
               <div class="wf"><label for="q-shipper" data-i18n="find.bookingAs">Booking as</label><select id="q-shipper"></select></div>
               <div class="wf"><label for="sample-load" data-i18n="find.any">Any open load from the dataset</label><select id="sample-load"></select></div>
-              <label class="check"><input type="checkbox" id="q-verified" checked> <span data-i18n="find.verified">Verified owners only</span></label>
+              <label class="check"><input type="checkbox" id="q-verified"> <span data-i18n="find.verified">Verified owners only</span></label>
             </div>
           </details>
           <button class="btn primary lg block" type="submit" id="search-btn" data-i18n="find.btn">Find trucks</button>
@@ -383,14 +291,13 @@
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
-<script>
-(function(){var sl=document.querySelectorAll('.pitch .pslide'),i=0,c=document.getElementById('pcount');
-function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(e,k){e.classList.toggle('on',k===i)});c.textContent=(i+1)+' / '+sl.length}
-document.getElementById('pnext').onclick=function(){go(i+1)};document.getElementById('pprev').onclick=function(){go(i-1)};go(0)})();
-</script>
+<footer class="foot"><p class="team-line">Group G2 · Vimoksh Chawla · Gautam Garg · Yuganshu Aggarwal · Paramveer Singh · Aadit Singla</p><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script src="app.js"></script>
+<script>
+document.addEventListener("click",function(e){var b=e.target.closest("[data-scroll]");if(!b)return;var id=b.dataset.scroll,go=function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})};
+if((location.hash||"#home")!=="#home"){document.getElementById("tab-home").click();setTimeout(go,150)}else go()});
+</script>
 </body>
 </html>

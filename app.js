@@ -158,7 +158,7 @@
   function verBadge(O, interactive = true) {
     const s = O.verification_status;
     const cls = s === "Verified" ? "ok" : s === "Pending" ? "pending" : "rejected";
-    const txt = s === "Verified" ? "✓ Verified" : s === "Pending" ? "Verification pending" : "Not verified";
+    const txt = s === "Verified" ? "Prototype profile" : s === "Pending" ? "Verification planned" : "Verification planned";
     return interactive ? `<button type="button" class="badge ${cls}" data-verify="${O.owner_id}" title="See the five verification checks">${txt}</button>` : `<span class="badge ${cls}">${txt}</span>`;
   }
   const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? " selected" : ""}>${esc(label ?? v)}</option>`;
@@ -169,10 +169,10 @@
   }
   function showVerification(ownerId) {
     const O = ownerIdx[ownerId];
-    const docs = [["Driving licence", O.licence_verified, "Checked against Sarathi records"], ["Vehicle RC", O.rc_verified, "Registration matches the truck"], ["Identity (Aadhaar / PAN)", O.id_verified, "Name and photo match"], ["GST number", O.gst_verified, O.gst_no ? `GSTIN ${O.gst_no}` : "Not provided"], ["Background check", O.background_check, "No adverse records found"]];
+    const docs = [["Driving licence", O.licence_verified, "Planned check (illustrative)"], ["Vehicle RC", O.rc_verified, "Planned check (illustrative)"], ["Identity (Aadhaar / PAN)", O.id_verified, "Planned check (illustrative)"], ["GST number", O.gst_verified, O.gst_no ? `GSTIN ${O.gst_no}` : "Not provided"], ["Background check", O.background_check, "Planned check (illustrative)"]];
     openModal(`<h2 id="modal-title">${esc(O.name)}</h2><p class="muted">${verBadge(O, false)} · ${esc(O.home_city)}, ${esc(O.state)} · ★ ${O.rating.toFixed(1)} · ${O.trips_completed} trips · joined ${fmtDate(O.joined_on)}</p>
-      <div class="bill" style="margin-top:14px">${docs.map(([d, ok, note]) => `<div><span><b style="color:var(${ok ? "--good" : "--bad"})">${ok ? "✓" : "✗"}</b> ${d}</span><span class="muted small">${ok ? esc(note) : "Not verified"}</span></div>`).join("")}</div>
-      <p class="small muted" style="margin-top:12px">Only owners who pass all five checks get the Verified badge. Shippers can choose to see verified owners only.</p>`);
+      <div class="bill" style="margin-top:14px">${docs.map(([d, ok, note]) => `<div><span><b style="color:var(${ok ? "--good" : "--bad"})">${ok ? "✓" : "✗"}</b> ${d}</span><span class="muted small">${ok ? esc(note) : "Verification planned"}</span></div>`).join("")}</div>
+      <p class="small muted" style="margin-top:12px">Verification planned. These flags are illustrative prototype data, not real document checks.</p>`);
   }
 
   // ================================================================ HOME + live feed
@@ -317,7 +317,7 @@
       { lbl: `Locating pickup in ${q.from}`, res: `${F.near} truck${F.near === 1 ? "" : "s"} within ${q.radius || MAX_DEADHEAD_KM} km`, out: null },
       { lbl: `Checking who is free on ${fmtDate(q.date)}`, res: `${F.free} available`, out: 2 },
       { lbl: `Matching ${q.type || "any truck"} that can carry ${q.weight} t`, res: `${F.fits} can carry it`, out: 3 },
-      { lbl: q.verifiedOnly ? "Verifying owners: licence, RC, ID, GST, background" : "Checking owner verification", res: q.verifiedOnly ? `${F.final} fully verified` : `${verifiedFinal} of ${F.final} verified`, out: 4 },
+      { lbl: q.verifiedOnly ? "Applying prototype profile filter" : "Reading prototype profiles", res: q.verifiedOnly ? `${F.final} fully verified` : `${verifiedFinal} of ${F.final} verified`, out: 4 },
       { lbl: `Looking for trucks heading to ${q.to}`, res: ret ? `${ret} going home your way` : "none heading home this way", out: "ret" },
       { lbl: "Ranking by route fit, price and rating", res: R.length ? `best match ${R[0].score}/100` : "no match", out: null },
     ];
@@ -428,7 +428,7 @@
     if (!R.some((r) => r.L.listing_id === S.sel)) S.sel = R[0] ? R[0].L.listing_id : null;
     S.lane = L$.laneStats(D.bookings, q.from, q.to, q.type);
     const head = $("#results-head"); head.hidden = false;
-    const filters = [q.type || "Any truck type", q.verifiedOnly ? "Verified owners only" : "Incl. unverified", `${q.radius || MAX_DEADHEAD_KM} km pickup radius`];
+    const filters = [q.type || "Any truck type", q.verifiedOnly ? "Prototype profiles only" : "All profiles", `${q.radius || MAX_DEADHEAD_KM} km pickup radius`];
     head.innerHTML = `<div><h2>${R.length ? T_("res.available").replace("{n}", R.length) : T_("res.none")}</h2>
       <p class="muted small">${esc(q.from)} → ${esc(q.to)} · ${fmtDate(q.date)} · ${q.weight} t</p><div class="filter-chips">${filters.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}</div></div>
       <label class="sort-inline"><span class="sr-only">Sort by</span><select id="sort-inline" aria-label="Sort by">${["score:Best match", "price:Lowest price", "rating:Highest rating", "date:Earliest"].map((o) => { const [v, l] = o.split(":"); return `<option value="${v}"${q.sort === v ? " selected" : ""}>${l}</option>`; }).join("")}</select></label>`;
@@ -485,7 +485,7 @@
     if (!r) { bb.hidden = true; return; }
     bb.hidden = false;
     const save = Math.max(0, r.market - r.price);
-    bb.innerHTML = `<div class="bb-sum"><span>${plate(r.T.reg_no)} <b>${esc(r.O.name)}</b> · ${esc(r.dirLabel)}</span><span>${save ? `Save <b style="color:var(--good)">${inr(save)}</b>` : ""}</span></div>
+    bb.innerHTML = `<div class="bb-sum"><span>${plate(r.T.reg_no)} <b>${esc(r.O.name)}</b> · ${esc(r.dirLabel)}</span><span>${save ? `Below broker reference (illustrative): <b>${inr(save)}</b>` : ""}</span></div>
       <div class="bb-act"><button class="btn primary lg" type="button" data-book="${r.L.listing_id}">${T_("res.bookFor")} ${inr(r.price)}</button></div>`;
   }
   function selectTruck(id, scrollList) {
@@ -635,7 +635,7 @@
           <div><span>Agreed freight (${esc(ctx.q.from)} → ${esc(ctx.q.to)})</span><span>${inr(price)}</span></div>
           <div><span>Platform fee (assumed ${COMMISSION * 100}%)</span><span>${inr(fee)}</span></div>
           <div class="total"><span>Total</span><span>${inr(price + fee)}</span></div>
-          <div class="muted small"><span>You save ${inr(Math.max(0, ctx.r.market - price))} vs a typical broker${ctx.r.isRet ? ` · the owner avoids ${num(ctx.r.tripKm)} empty km` : ""}</span></div>
+          <div class="muted small"><span>Illustrative: ${inr(Math.max(0, ctx.r.market - price))} below a typical broker reference${ctx.r.isRet ? ` · the owner avoids ${num(ctx.r.tripKm)} empty km` : ""}</span></div>
         </div>
         <div class="upi"><span class="upi-logo">UPI</span><div style="flex:1;min-width:160px"><b>Pay ${inr(adv)} advance now</b><div class="muted small">${ADVANCE * 100}% of freight. Balance ${inr(price + fee - adv)} on delivery. Simulated payment: no money moves.</div></div>
           <button class="btn primary" id="pay" type="button">Pay ${inr(adv)}</button></div>
@@ -756,7 +756,7 @@
     }).join("") : `<div class="empty">No trips yet. Book a truck to see it move here live.<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn primary small" type="button" data-go="find">Book a truck</button><button class="btn ghost small" id="demo-trip" type="button">Start a sample trip</button></div></div>`;
   }
   const stCls = (st) => (st.phase === -1 ? "bad" : st.phase === 5 ? "done" : "live");
-  const stTxt = (st) => (st.phase === -1 ? "Cancelled" : st.phase === 5 ? "Delivered" : "Live");
+  const stTxt = (st) => (st.phase === -1 ? "Cancelled" : st.phase === 5 ? "Delivered" : "Simulated");
   function renderTripDetail() {
     const t = S.extra.trips.find((x) => x.id === S.selTrip), el = $("#trip-detail");
     el.hidden = !S.extra.trips.length;
@@ -779,7 +779,7 @@
         <div style="display:flex;flex-direction:column;gap:12px">
           <div class="trip-figs"><div><b id="d-pct">0%</b><span>trip complete</span></div><div><b id="d-km">0</b><span>of ${num(t.distance_km)} km</span></div><div><b id="d-eta">–</b><span>time left (trip time)</span></div></div>
           <div class="bill"><div><span>Agreed freight</span><span>${inr(t.price)}</span></div>${t.advance ? `<div><span>Advance paid${t.upi && t.upi !== "demo" ? " · UPI " + esc(t.upi) : ""}</span><span>${inr(t.advance)}</span></div>` : ""}
-            <div><span>Saved vs broker</span><span style="color:var(--good)">${inr(Math.max(0, (t.broker || t.price) - t.price))}</span></div></div>
+            <div><span>Below broker reference (illustrative)</span><span style="color:var(--good)">${inr(Math.max(0, (t.broker || t.price) - t.price))}</span></div></div>
           <div id="d-rate"></div>
         </div>
         <ol class="timeline" id="d-timeline"></ol>
@@ -849,7 +849,7 @@
       const st = tripState(t);
       const bar = $(`[data-tbar="${t.id}"]`); if (bar) bar.style.width = Math.round(st.p * 100) + "%";
       const lab = $(`[data-tlabel="${t.id}"]`); if (lab) lab.textContent = st.label;
-      const sts = $(`[data-tstatus="${t.id}"]`); if (sts) { sts.textContent = st.phase === 5 ? "Delivered" : "Live"; sts.className = "status " + (st.phase === 5 ? "done" : "live"); }
+      const sts = $(`[data-tstatus="${t.id}"]`); if (sts) { sts.textContent = st.phase === 5 ? "Delivered" : "Simulated"; sts.className = "status " + (st.phase === 5 ? "done" : "live"); }
       const prev = S.lastPhase[t.id];
       if (prev !== undefined && prev !== st.phase && st.phase > 0) {
         const msgs = { 1: `driver ${t.driver} assigned`, 2: `reached pickup in ${t.origin}`, 3: `loaded and left ${t.origin}`, 4: `reached ${t.destination}`, 5: `delivered in ${t.destination}` };
@@ -1060,7 +1060,7 @@
     $("#insights-lede").textContent = `Computed live from ${num(D.bookings.length)} past bookings, ${num(openListings)} open truck listings and ${num(D.loads.length)} open loads${mine.length ? `, plus ${mine.length} booking${mine.length > 1 ? "s" : ""} made in this demo` : ""}.`;
     const k = [
       ["Completed bookings", num(done.length), "Apr – Oct 2026"], ["Freight value booked", "₹" + num(gmv / 1e5, 1) + " L", "Sum of agreed prices"],
-      ["Platform revenue", "₹" + num(gmv * COMMISSION / 1e5, 2) + " L", `At an assumed ${COMMISSION * 100}% commission`], ["Saved vs brokers", Math.round((1 - gmv / broker) * 100) + "%", inr(broker - gmv) + " in total"],
+      ["Platform revenue", "₹" + num(gmv * COMMISSION / 1e5, 2) + " L", `At an assumed ${COMMISSION * 100}% commission`], ["Below broker reference (illustrative)s", Math.round((1 - gmv / broker) * 100) + "%", inr(broker - gmv) + " in total"],
       ["Return trips filled", Math.round(ret.length / done.length * 100) + "%", `${num(ret.length)} trucks didn't drive back empty`], ["Empty km avoided", num(emptyKm / 1000) + "k km", `≈ ${num(emptyKm / 4 / 1000)}k litres of diesel at 4 km/l`],
       ["Verified owners", `${verified} / ${D.owners.length}`, `${Math.round(verified / D.owners.length * 100)}% passed all five checks`], ["Open listings", num(openListings), `${num(D.trucks.length)} trucks in the network`],
     ];
@@ -1114,7 +1114,7 @@
     const checks = [["Driving licence", "licence_verified"], ["Vehicle RC", "rc_verified"], ["Identity", "id_verified"], ["GST number", "gst_verified"], ["Background check", "background_check"]];
     const st = { Verified: 0, Pending: 0, Rejected: 0 };
     D.owners.forEach((o) => st[o.verification_status]++);
-    $("#verification").innerHTML = `<div class="tags" style="margin-bottom:12px"><span class="tag good">${st.Verified} verified</span><span class="tag warn">${st.Pending} pending</span><span class="tag bad">${st.Rejected} rejected</span></div>` +
+    $("#verification").innerHTML = `<div class="tags" style="margin-bottom:12px"><span class="tag good">${st.Verified} flagged in data</span><span class="tag warn">${st.Pending} pending</span><span class="tag bad">${st.Rejected} rejected</span></div>` +
       hbars(checks.map(([l, f]) => { const v = D.owners.filter((o) => o[f]).length; return [l, v, Math.round(v / D.owners.length * 100) + "%"]; }), D.owners.length);
   }
   function hbars(rows, max) {
