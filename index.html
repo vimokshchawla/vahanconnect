@@ -89,8 +89,8 @@
     <section class="about-band" id="about"><div class="ab-in">
       <div class="ab-left"><p class="eyebrow">About us</p><h2 class="sh">Built to fill the empty miles</h2>
         <p class="lead">VahanConnect is a route-based marketplace prototype that helps shippers discover available trucks and helps owners find return loads. We are Group G2 at Thapar Institute of Engineering and Technology.</p></div>
-      <div class="ab-right deck" id="pitch-deck-slot"><!-- Paste your Google Slides/OneDrive embed URL into src and remove "hidden" and the placeholder -->
-        <iframe src="" title="Project presentation" allowfullscreen hidden></iframe><p class="deck-ph">Presentation will appear here</p></div></div>
+      <div class="ab-right deck" id="pitch-deck-slot" tabindex="0" aria-label="Presentation"><img src="assets/slides/s-1.jpg" alt="Slide 1"><img src="assets/slides/s-2.jpg" alt="Slide 2" hidden><img src="assets/slides/s-3.jpg" alt="Slide 3" hidden><img src="assets/slides/s-4.jpg" alt="Slide 4" hidden><img src="assets/slides/s-5.jpg" alt="Slide 5" hidden>
+        <button type="button" class="dk-btn dk-prev" aria-label="Previous slide">&#8249;</button><button type="button" class="dk-btn dk-next" aria-label="Next slide">&#8250;</button><span class="dk-count">1 / 5</span></div></div>
       <div class="ab-in2"><h3 class="mt">Meet the team</h3><ul class="team-h"><li><span class="tm-av">VC</span><b>Vimoksh Chawla</b><small>1024150150</small></li><li><span class="tm-av">GG</span><b>Gautam Garg</b><small>1024150146</small></li><li><span class="tm-av">YA</span><b>Yuganshu Aggarwal</b><small>1024150152</small></li><li><span class="tm-av">PS</span><b>Paramveer Singh</b><small>1024150357</small></li><li><span class="tm-av">AS</span><b>Aadit Singla</b><small>1024150139</small></li></ul></div></section>
 
     <div hidden id="legacy-home"><div id="u-banner"><span id="u-banner-text"></span><button type="button" id="u-banner-x"></button></div><div id="vpc"></div><div id="hero-stats"></div><span id="trip-count" hidden></span><div id="u-sticky"><button type="button" id="u-sticky-btn"></button></div></div>
@@ -284,5 +284,10 @@
 document.addEventListener("click",function(e){var b=e.target.closest("[data-scroll]");if(!b)return;var id=b.dataset.scroll,go=function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})};
 if((location.hash||"#home")!=="#home"){document.getElementById("tab-home").click();setTimeout(go,150)}else go()});
 </script>
+<script>(function(){var d=document.getElementById("pitch-deck-slot");if(!d)return;var s=d.querySelectorAll("img"),c=d.querySelector(".dk-count"),i=0;
+function go(n){i=(n+s.length)%s.length;s.forEach(function(x,k){x.hidden=k!==i});c.textContent=(i+1)+" / "+s.length}
+d.querySelector(".dk-prev").onclick=function(){go(i-1)};d.querySelector(".dk-next").onclick=function(){go(i+1)};
+d.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")go(i-1);if(e.key==="ArrowRight")go(i+1)});
+var x0=null;d.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});d.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null})})();</script>
 </body>
 </html>
