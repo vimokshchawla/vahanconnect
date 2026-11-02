@@ -62,10 +62,30 @@
       <p class="evid">Return-load delays and truck idleness create lost earnings for owners and limited choice for shippers.</p>
     </div>
 
+    <section class="band" id="live"><div class="u-split">
+      <div class="u-why"><p class="eyebrow">Prototype demonstration</p><h2 class="sh">Why route matching matters</h2>
+        <p class="lead">After an interstate delivery, a truck may find no load back and return empty. VahanConnect shows such trucks to shippers on the same route so both sides can negotiate directly.</p>
+        <p class="note">Illustrative prototype data: the activity feed and counters are simulated.</p></div>
+      <aside class="panel live-panel" aria-label="Live activity" data-sim="Simulated feed">
+        <div class="panel-head"><h2><span class="dot"></span>Happening now</h2><span class="muted small">Simulated</span></div>
+        <div class="live-counters" id="live-counters"></div>
+        <ul class="feed" id="feed"></ul>
+      </aside></div></section>
+
     <section class="band" id="how"><p class="eyebrow">How it works</p><h2 class="sh">From route to negotiation in four steps</h2>
       <ol class="steps"><li><b>1</b><span>Owner lists route, capacity and availability.</span></li><li><b>2</b><span>Shipper searches by route and load requirement.</span></li><li><b>3</b><span>Shipper compares available options.</span></li><li><b>4</b><span>Shipper contacts the owner and negotiates directly.</span></li></ol>
       <p class="lead">VahanConnect improves discovery before negotiation.</p>
       <p class="note">Booking, payment, live tracking and document verification appear in the prototype only as simulations. They are future functionality, and no safety guarantee is offered.</p></section>
+
+    <section class="band" id="journey"><p class="eyebrow">User journey</p><h2 class="sh">From search to delivery in six steps</h2>
+      <ol class="journey">
+        <li><b>Search</b><span>Enter route, date and weight</span></li>
+        <li><b>Match</b><span>Trucks ranked by route fit, return trips first</span></li>
+        <li><b>Compare</b><span>Price, rating and verification side by side</span></li>
+        <li><b>Negotiate</b><span>Agree the price directly with the owner</span></li>
+        <li><b>Book</b><span>Pay a small advance by UPI</span></li>
+        <li><b>Track</b><span>Follow the truck until delivery</span></li>
+      </ol><p class="note">Booking, payment, tracking and verification are simulated or planned in this prototype.</p></section>
 
     <section class="band" id="value"><p class="eyebrow">Value proposition</p><h2 class="sh">What each side gains</h2>
       <div class="two">
@@ -108,7 +128,13 @@
         <p class="lead">No source is listed yet. Each entry will show publisher, title, year or date, working URL, access date and the claim it supports, and only after verification.</p></div></section>
     </section>
 
-    <div hidden id="legacy-home"><div id="u-banner"><span id="u-banner-text"></span><button type="button" id="u-banner-x"></button></div><div id="vpc"></div><div id="hero-stats"></div><div id="live-counters"></div><ul id="feed"></ul><span id="trip-count" hidden></span><div id="u-sticky"><button type="button" id="u-sticky-btn"></button></div></div>
+    <section class="about-band" id="about"><div class="ab-in">
+      <div class="ab-left"><p class="eyebrow">About us</p><h2 class="sh">Built to fill the empty miles</h2>
+        <p class="lead">VahanConnect is a route-based marketplace prototype that helps shippers discover available trucks and helps owners find return loads. We are Group G2 at Thapar Institute of Engineering and Technology.</p>
+        <h3 class="mt">Meet the team</h3><ul class="team-v"><li><span class="tm-av">VC</span><span class="tm-n"><b>Vimoksh Chawla</b><small>Group G2</small></span></li><li><span class="tm-av">GG</span><span class="tm-n"><b>Gautam Garg</b><small>Group G2</small></span></li><li><span class="tm-av">YA</span><span class="tm-n"><b>Yuganshu Aggarwal</b><small>Group G2</small></span></li><li><span class="tm-av">PS</span><span class="tm-n"><b>Paramveer Singh</b><small>Group G2</small></span></li><li><span class="tm-av">AS</span><span class="tm-n"><b>Aadit Singla</b><small>Group G2</small></span></li></ul></div>
+      <div class="ab-right" id="pitch-deck-slot"></div></div></section>
+
+    <div hidden id="legacy-home"><div id="u-banner"><span id="u-banner-text"></span><button type="button" id="u-banner-x"></button></div><div id="vpc"></div><div id="hero-stats"></div><span id="trip-count" hidden></span><div id="u-sticky"><button type="button" id="u-sticky-btn"></button></div></div>
   </section>
 
   <!-- ================= FIND TRUCKS (ride-style) ================= -->
@@ -291,7 +317,7 @@
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<footer class="foot"><p class="team-line">Group G2 · Vimoksh Chawla · Gautam Garg · Yuganshu Aggarwal · Paramveer Singh · Aadit Singla</p><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
+<footer class="foot"><img src="assets/icon-64.png" alt="">VahanConnect prototype · Group G2 · Synthetic data · <button type="button" class="linkbtn" data-sim-open>Simulation mode: what is simulated?</button></footer>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script src="app.js"></script>
