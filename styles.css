@@ -781,3 +781,4 @@ a{color:#F2F4ED}.muted,.small{color:var(--muted)}
 .hero .u-cta,.hero .u-actions .btn{font-size:1.25rem;padding:18px 30px}
 .hero-h{font-size:clamp(2.8rem,5.4vw,5rem)}.hero-sub{font-size:1.5rem}
 .hero .eyebrow{font-size:1rem}.hero .sim-note{font-size:1.05rem}.hero .evid{font-size:1.2rem;padding-top:20px}}
+@media(min-width:861px){.u-why .eyebrow{font-size:1.05rem}.u-why .sh{font-size:clamp(2.6rem,4.6vw,4rem);margin-bottom:12px}.u-why .lead{font-size:1.6rem;line-height:1.5}.u-why .note{font-size:1.2rem}}
