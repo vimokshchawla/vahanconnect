@@ -866,4 +866,20 @@ h1,h2,h3,.hero-h,.sh{letter-spacing:-.035em}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#0A7C78;border-radius:10px;border:2px solid transparent;background-clip:padding-box}
 :root[data-theme="light"] body::after{display:none}
 .brand img{border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .25s}.brand:hover img{transform:rotate(-4deg) scale(1.06)}
-.brand-name{letter-spacing:-.03em}.brand-name .bn-b{font-weight:400;color:#7fd3cb}
+.brand-name{letter-spacing:-.03em}.brand-name .bn-b{font-weight:400;color:#3EE0D0}
+.brand img{width:42px;height:42px;box-shadow:0 0 0 1px rgba(255,255,255,.25),0 6px 20px rgba(62,224,208,.35)}
+
+/* ===== Wordmark logo (site font) ===== */
+.brand{flex-direction:column;align-items:stretch;gap:5px;padding:2px 0}
+.brand-name{font-family:var(--f-display);font-size:1.7rem;line-height:1;letter-spacing:-.035em;white-space:nowrap}
+.brand-name .bn-a{font-weight:900;color:#F6F8F3}
+.brand-name .bn-b{font-weight:300;background:linear-gradient(90deg,#9FE6DE,#2FC4BA);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.bn-route{display:flex;align-items:center;gap:5px;height:9px}
+.bn-route .r{width:8px;height:8px;border-radius:50%;border:2px solid #F6F8F3;box-sizing:border-box;flex:none}
+.bn-route b{flex:1;height:0;border-top:2px dotted #5fd0c6;opacity:.9}
+.bn-route .f{width:9px;height:9px;border-radius:50%;background:#12B5AE;flex:none}
+.brand:hover .bn-route b{border-top-color:#9FE6DE}
+:root[data-theme="light"] .topbar .bn-a{color:#0B3D36}
+:root[data-theme="light"] .topbar .bn-b{background:linear-gradient(90deg,#12A39B,#0A7C78);-webkit-background-clip:text;background-clip:text}
+:root[data-theme="light"] .topbar .bn-route .r{border-color:#0B3D36}
+@media(max-width:860px){.brand-name{font-size:1.3rem}}
