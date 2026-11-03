@@ -865,3 +865,5 @@ h1,h2,h3,.hero-h,.sh{letter-spacing:-.035em}
 *{scrollbar-width:thin;scrollbar-color:#0A7C78 transparent}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#0A7C78;border-radius:10px;border:2px solid transparent;background-clip:padding-box}
 :root[data-theme="light"] body::after{display:none}
+.brand img{border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .25s}.brand:hover img{transform:rotate(-4deg) scale(1.06)}
+.brand-name{letter-spacing:-.03em}.brand-name .bn-b{font-weight:400;color:#7fd3cb}
