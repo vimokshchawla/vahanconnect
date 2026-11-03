@@ -897,3 +897,7 @@ h1,h2,h3,.hero-h,.sh{letter-spacing:-.035em}
 .mkt span{color:#CBD4CE;font-size:1.05rem;line-height:1.55}
 .mkt article:nth-child(2){margin-inline:0;transform:scale(.97)}.mkt article:nth-child(3){transform:scale(.94)}
 @media(max-width:860px){.ben-grid,.mkt{grid-template-columns:1fr}.mkt article:nth-child(n){transform:none}}
+
+.mkt article:nth-child(n){transform:none}
+.mkt-n{font:800 clamp(1.7rem,2.6vw,2.3rem)/1.1 var(--f-display);color:#F6F8F3;letter-spacing:-.02em;margin-top:2px}
+.mkt span{color:#E1E8E3}.mkt small{margin-top:auto;padding-top:10px;border-top:1px solid rgba(127,211,203,.18);color:#9db5ad;font-size:.88rem;line-height:1.45}
