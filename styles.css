@@ -772,3 +772,12 @@ a{color:#F2F4ED}.muted,.small{color:var(--muted)}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;max-width:none}
 .hero .u-form{order:-1}.hero .evid{grid-column:1/-1}.hero-txt{display:flex;flex-direction:column;gap:14px}
 @media(max-width:860px){.hero{grid-template-columns:1fr;gap:20px}.hero .u-form{order:0}}
+@media(min-width:861px){
+.hero{min-height:calc(100svh - 76px);grid-template-rows:1fr auto;padding:20px 0 24px;gap:0 64px}
+.hero .u-form{padding:36px;gap:20px;font-size:1.2rem}
+.hero .u-pill{padding:12px 18px;font-size:1.15rem}
+.hero .u-where .u-field select{font-size:1.3rem;padding-block:22px}
+.hero .u-weight{padding-block:14px}.hero .u-weight label{font-size:1.2rem}.hero .u-weight input{font-size:1.3rem;padding:14px 18px}
+.hero .u-cta,.hero .u-actions .btn{font-size:1.25rem;padding:18px 30px}
+.hero-h{font-size:clamp(2.8rem,5.4vw,5rem)}.hero-sub{font-size:1.5rem}
+.hero .eyebrow{font-size:1rem}.hero .sim-note{font-size:1.05rem}.hero .evid{font-size:1.2rem;padding-top:20px}}
